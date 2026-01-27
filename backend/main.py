@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from openai import OpenAI
+from openai import OpenAI, AsyncOpenAI
 import httpx
 import re
 
@@ -20,8 +20,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# OpenAI client
+# OpenAI clients
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+async_client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 class ToolCallFunction(BaseModel):
@@ -292,100 +293,6 @@ def validate_and_fix_messages(messages: list) -> list:
 
     return fixed_messages
 
-
-@app.post("/chat", response_model=ChatResponse)
-async def chat(request: ChatRequest):
-    """
-    Process a chat request by calling OpenAI API with the provided messages and tools.
-    """
-    print(f"Received chat request for NPC: {request.npc_id}")
-    print(f"Number of messages: {len(request.messages)}")
-    print(f"Number of tools: {len(request.tools)}")
-    try:
-        # Convert messages to OpenAI format
-        openai_messages = []
-        for msg in request.messages:
-            message_dict = {
-                "role": msg.role,
-                "content": msg.content or "",
-            }
-
-            # Handle tool call ID for tool results
-            if msg.tool_call_id:
-                message_dict["tool_call_id"] = msg.tool_call_id
-
-            # Handle tool calls from assistant
-            if msg.tool_calls:
-                message_dict["tool_calls"] = [
-                    {
-                        "id": tc.id,
-                        "type": tc.type,
-                        "function": {
-                            "name": tc.function.name,
-                            "arguments": tc.function.arguments,
-                        }
-                    }
-                    for tc in msg.tool_calls
-                ]
-
-            openai_messages.append(message_dict)
-
-        # Validate and fix message history to ensure tool_calls have responses
-        openai_messages = validate_and_fix_messages(openai_messages)
-
-        # Convert tools to OpenAI format
-        openai_tools = [
-            {
-                "type": tool.type,
-                "function": {
-                    "name": tool.function.name,
-                    "description": tool.function.description,
-                    "parameters": tool.function.parameters,
-                }
-            }
-            for tool in request.tools
-        ]
-
-        # Call OpenAI API
-        response = client.chat.completions.create(
-            model="gpt-5-mini",  # Do not change this. it is correct. it should be gpt-5-mini
-            messages=openai_messages,
-            tools=openai_tools if openai_tools else None,
-            tool_choice="auto" if openai_tools else None,
-        )
-
-        # Extract the assistant's response
-        assistant_message = response.choices[0].message
-
-        # Build response
-        result = ChatResponse(
-            role="assistant",
-            content=assistant_message.content or "",
-        )
-
-        # Include tool calls if present
-        if assistant_message.tool_calls:
-            result.tool_calls = [
-                ToolCall(
-                    id=tc.id,
-                    type=tc.type,
-                    function=ToolCallFunction(
-                        name=tc.function.name,
-                        arguments=tc.function.arguments,
-                    )
-                )
-                for tc in assistant_message.tool_calls
-            ]
-
-        return result
-
-    except Exception as e:
-        import traceback
-        error_detail = f"{type(e).__name__}: {str(e)}\n{traceback.format_exc()}"
-        print(f"Error in /chat endpoint: {error_detail}")
-        raise HTTPException(status_code=500, detail=error_detail)
-
-
 class StreamChatRequest(BaseModel):
     messages: list[ChatMessage]
     tools: list[Tool]
@@ -442,8 +349,8 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         # message_count: 0 = NPC opening, 1 = user first message, 2+ = can use tools
         allow_tools = request.message_count >= 2
 
-        # Create streaming response
-        stream = client.chat.completions.create(
+        # Create streaming response using async client
+        stream = await async_client.chat.completions.create(
             model="gpt-5-mini",
             messages=openai_messages,
             tools=openai_tools if openai_tools and allow_tools else None,
@@ -455,7 +362,7 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         collected_tool_calls = []
         current_tool_call = None
 
-        for chunk in stream:
+        async for chunk in stream:
             delta = chunk.choices[0].delta if chunk.choices else None
             if not delta:
                 continue
@@ -463,6 +370,7 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
             # Handle content streaming
             if delta.content:
                 collected_content += delta.content
+                print(f"[STREAM] Yielding chunk: {repr(delta.content[:50])}..." if len(delta.content) > 50 else f"[STREAM] Yielding chunk: {repr(delta.content)}")
                 yield f"data: {json.dumps({'type': 'content', 'content': delta.content})}\n\n"
 
             # Handle tool calls
@@ -522,8 +430,8 @@ async def chat_stream(request: StreamChatRequest):
     Streaming chat endpoint using Server-Sent Events (SSE).
     Returns text content as it's generated, then tool calls at the end.
     """
-    print(f"Received streaming chat request for NPC: {request.npc_id}")
-    print(f"Number of messages: {len(request.messages)}, message_count: {request.message_count}")
+    print(f"[STREAM ENDPOINT] Received streaming chat request for NPC: {request.npc_id}")
+    print(f"[STREAM ENDPOINT] Number of messages: {len(request.messages)}, message_count: {request.message_count}")
 
     return StreamingResponse(
         generate_stream(request),

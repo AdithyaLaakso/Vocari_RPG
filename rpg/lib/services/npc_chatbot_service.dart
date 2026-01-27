@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
 import '../game_models.dart';
 
 /// Message in a conversation
@@ -666,127 +666,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
     return tools;
   }
 
-  /// Send a message to an NPC and get a response
-  Future<ChatMessage?> sendMessage({
-    required NPC npc,
-    required Player player,
-    required String userMessage,
-    required Map<String, Quest> availableQuests,
-    List<Quest>? npcAvailableQuests,
-    List<Quest>? activeQuests,
-  }) async {
-    _loadingStates[npc.id] = true;
-    notifyListeners();
-
-    try {
-      // Build fresh system prompt with current quest data
-      final systemPrompt = buildSystemPrompt(
-        npc,
-        player,
-        availableQuests: npcAvailableQuests,
-        activeQuests: activeQuests,
-      );
-
-      // Initialize conversation or update system prompt
-      if (!_conversations.containsKey(npc.id)) {
-        _conversations[npc.id] = [
-          ChatMessage(
-            role: 'system',
-            content: systemPrompt,
-          ),
-        ];
-      } else {
-        // Update the system prompt with fresh quest data
-        if (_conversations[npc.id]!.isNotEmpty &&
-            _conversations[npc.id]![0].role == 'system') {
-          _conversations[npc.id]![0] = ChatMessage(
-            role: 'system',
-            content: systemPrompt,
-          );
-        }
-      }
-
-      // Add user message
-      _conversations[npc.id]!.add(ChatMessage(
-        role: 'user',
-        content: userMessage,
-      ));
-
-      // Make API call
-      final tools = getToolDefinitions(npc, availableQuests: npcAvailableQuests);
-      debugPrint('Sending ${tools.length} tools to API for ${npc.id}: ${tools.map((t) => t['function']['name']).toList()}');
-
-      final response = await _callChatAPI(
-        npc: npc,
-        messages: _conversations[npc.id]!,
-        tools: tools,
-      );
-
-      if (response != null) {
-        // Handle tool calls if present
-        if (response.toolCalls != null && response.toolCalls!.isNotEmpty) {
-          // Add assistant message with tool calls
-          _conversations[npc.id]!.add(response);
-
-          // Execute tools and add results
-          for (final toolCall in response.toolCalls!) {
-            final result = await _executeToolCall(
-              toolCall: toolCall,
-              npc: npc,
-              player: player,
-              availableQuests: availableQuests,
-            );
-
-            // Add tool result message
-            _conversations[npc.id]!.add(ChatMessage(
-              role: 'tool',
-              content: result.result,
-              toolCallId: toolCall.id,
-            ));
-
-            // Notify callback
-            onToolExecuted?.call(toolCall.name, toolCall.arguments, result);
-          }
-
-          // Get follow-up response after tool execution
-          final followUp = await _callChatAPI(
-            npc: npc,
-            messages: _conversations[npc.id]!,
-            tools: getToolDefinitions(npc, availableQuests: npcAvailableQuests),
-          );
-
-          if (followUp != null) {
-            _conversations[npc.id]!.add(followUp);
-            _loadingStates[npc.id] = false;
-            notifyListeners();
-            return followUp;
-          }
-        } else {
-          // No tool calls, just a regular response
-          _conversations[npc.id]!.add(response);
-        }
-
-        _loadingStates[npc.id] = false;
-        notifyListeners();
-        return response;
-      }
-
-      _loadingStates[npc.id] = false;
-      notifyListeners();
-      return null;
-    } catch (e) {
-      debugPrint('Error in NPC chat: $e');
-      _loadingStates[npc.id] = false;
-      notifyListeners();
-      return ChatMessage(
-        role: 'assistant',
-        content: npc.greeting.isNotEmpty
-            ? '${npc.displayGreeting} (Sorry, I\'m having trouble thinking right now...)'
-            : 'Hello! (Sorry, I\'m having trouble thinking right now...)',
-      );
-    }
-  }
-
   /// Send a message with streaming response
   /// Returns a Stream that yields content as it arrives from the model
   Stream<String> sendMessageStream({
@@ -797,6 +676,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
     List<Quest>? npcAvailableQuests,
     List<Quest>? activeQuests,
   }) async* {
+    debugPrint('[SERVICE] sendMessageStream called for NPC: ${npc.id}');
     _loadingStates[npc.id] = true;
     _streamingContent[npc.id] = '';
     notifyListeners();
@@ -848,6 +728,8 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         messages: _conversations[npc.id]!,
         tools: tools,
         messageCount: _messageCount[npc.id] ?? 0,
+        player: player,
+        availableQuests: availableQuests,
       )) {
         // Accumulate content
         _streamingContent[npc.id] = (_streamingContent[npc.id] ?? '') + content;
@@ -878,16 +760,20 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
     }
   }
 
-  /// Initiate a conversation with an NPC (NPC speaks first)
+  /// Initiate a conversation with an NPC (NPC speaks first) - streaming version
   /// This is called when the player approaches an NPC to start talking
-  Future<ChatMessage?> initiateConversation({
+  /// Returns a Stream that yields content as it arrives from the model
+  Stream<String> initiateConversationStream({
     required NPC npc,
     required Player player,
     required Map<String, Quest> availableQuests,
     List<Quest>? npcAvailableQuests,
     List<Quest>? activeQuests,
-  }) async {
+  }) async* {
+    debugPrint('[SERVICE] initiateConversationStream called for NPC: ${npc.id}');
     _loadingStates[npc.id] = true;
+    _streamingContent[npc.id] = '';
+    _messageCount[npc.id] = 0;  // Reset message count for new conversation
     notifyListeners();
 
     try {
@@ -912,228 +798,182 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         ),
       ];
 
-      // Make API call to get NPC's opening
+      // Make streaming API call to get NPC's opening
       final tools = getToolDefinitions(npc, availableQuests: npcAvailableQuests);
       debugPrint('Initiating conversation with ${npc.id}, tools: ${tools.map((t) => t['function']['name']).toList()}');
 
-      final response = await _callChatAPI(
+      await for (final content in _callStreamingAPI(
         npc: npc,
         messages: _conversations[npc.id]!,
         tools: tools,
-      );
-
-      if (response != null) {
-        // Handle tool calls if present
-        if (response.toolCalls != null && response.toolCalls!.isNotEmpty) {
-          // Add assistant message with tool calls
-          _conversations[npc.id]!.add(response);
-
-          // Execute tools and add results
-          for (final toolCall in response.toolCalls!) {
-            final result = await _executeToolCall(
-              toolCall: toolCall,
-              npc: npc,
-              player: player,
-              availableQuests: availableQuests,
-            );
-
-            // Add tool result message
-            _conversations[npc.id]!.add(ChatMessage(
-              role: 'tool',
-              content: result.result,
-              toolCallId: toolCall.id,
-            ));
-
-            // Notify callback
-            onToolExecuted?.call(toolCall.name, toolCall.arguments, result);
-          }
-
-          // Get follow-up response after tool execution
-          final followUp = await _callChatAPI(
-            npc: npc,
-            messages: _conversations[npc.id]!,
-            tools: getToolDefinitions(npc, availableQuests: npcAvailableQuests),
-          );
-
-          if (followUp != null) {
-            _conversations[npc.id]!.add(followUp);
-            _loadingStates[npc.id] = false;
-            notifyListeners();
-            return followUp;
-          }
-        } else {
-          // No tool calls, just a regular response
-          _conversations[npc.id]!.add(response);
-        }
-
-        _loadingStates[npc.id] = false;
+        messageCount: _messageCount[npc.id] ?? 0,
+        player: player,
+        availableQuests: availableQuests,
+      )) {
+        // Accumulate content
+        _streamingContent[npc.id] = (_streamingContent[npc.id] ?? '') + content;
+        yield content;
         notifyListeners();
-        return response;
+      }
+
+      // After stream completes, add final message to conversation
+      final finalContent = _streamingContent[npc.id] ?? '';
+      if (finalContent.isNotEmpty) {
+        _conversations[npc.id]!.add(ChatMessage(
+          role: 'assistant',
+          content: finalContent,
+        ));
       }
 
       _loadingStates[npc.id] = false;
+      _streamingContent.remove(npc.id);
       notifyListeners();
 
-      // Fallback to static greeting if API fails
-      return ChatMessage(
-        role: 'assistant',
-        content: npc.greeting.isNotEmpty
-            ? npc.displayGreeting
-            : 'Hello, traveler!',
-      );
     } catch (e) {
       debugPrint('Error initiating NPC conversation: $e');
       _loadingStates[npc.id] = false;
+      _streamingContent.remove(npc.id);
       notifyListeners();
 
       // Fallback to static greeting
-      return ChatMessage(
-        role: 'assistant',
-        content: npc.greeting.isNotEmpty
-            ? npc.displayGreeting
-            : 'Hello, traveler!',
-      );
-    }
-  }
-
-  /// Make the actual API call (non-streaming)
-  Future<ChatMessage?> _callChatAPI({
-    required NPC npc,
-    required List<ChatMessage> messages,
-    required List<Map<String, dynamic>> tools,
-  }) async {
-    try {
-      final response = await http.post(
-        Uri.parse('$_apiBaseUrl/chat'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({
-          'messages': messages.map((m) => m.toJson()).toList(),
-          'tools': tools,
-          'npc_id': npc.id,
-        }),
-      );
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        return ChatMessage.fromJson(data);
-      } else {
-        debugPrint('API error: ${response.statusCode} - ${response.body}');
-        return null;
-      }
-    } catch (e) {
-      debugPrint('Network error: $e');
-      return null;
+      yield npc.greeting.isNotEmpty
+          ? npc.displayGreeting
+          : 'Hello, traveler!';
     }
   }
 
   /// Make streaming API call using SSE
+  /// Uses dart:io HttpClient directly for proper streaming support
   Stream<String> _callStreamingAPI({
     required NPC npc,
     required List<ChatMessage> messages,
     required List<Map<String, dynamic>> tools,
     required int messageCount,
+    required Player player,
+    required Map<String, Quest> availableQuests,
   }) async* {
+    debugPrint('[SERVICE] _callStreamingAPI called for NPC: ${npc.id}, URL: $_apiBaseUrl/chat/stream');
+    HttpClient? httpClient;
+    HttpClientRequest? request;
+    HttpClientResponse? response;
+
     try {
-      final request = http.Request(
-        'POST',
-        Uri.parse('$_apiBaseUrl/chat/stream'),
-      );
+      final uri = Uri.parse('$_apiBaseUrl/chat/stream');
 
-      request.headers['Content-Type'] = 'application/json';
-      request.headers['Accept'] = 'text/event-stream';
+      // Use dart:io HttpClient for true streaming support
+      httpClient = HttpClient();
+      request = await httpClient.postUrl(uri);
 
-      request.body = jsonEncode({
+      // Set headers
+      request.headers.set('Content-Type', 'application/json');
+      request.headers.set('Accept', 'text/event-stream');
+      request.headers.set('Cache-Control', 'no-cache');
+
+      // Write body
+      final bodyMap = {
         'messages': messages.map((m) => m.toJson()).toList(),
         'tools': tools,
         'npc_id': npc.id,
         'message_count': messageCount,
-      });
+      };
+      final body = jsonEncode(bodyMap);
+      debugPrint('[SERVICE] Request body (first 500 chars): ${body.length > 500 ? body.substring(0, 500) : body}...');
+      request.write(body);
 
-      final client = http.Client();
-      final response = await client.send(request);
+      // Send request and get response
+      debugPrint('[SERVICE] Sending HTTP request...');
+      response = await request.close();
+      debugPrint('[SERVICE] Got response with status: ${response.statusCode}');
 
-      if (response.statusCode == 200) {
-        // Process SSE stream
-        final stream = response.stream.transform(utf8.decoder);
-        String buffer = '';
+      if (response.statusCode != 200) {
+        // Read error response body
+        final errorBody = await response.transform(utf8.decoder).join();
+        debugPrint('[SERVICE] Error response body: $errorBody');
+        return;
+      }
 
-        await for (final chunk in stream) {
-          buffer += chunk;
+      // Process SSE stream - transform bytes to strings as they arrive
+      String buffer = '';
 
-          // Process complete SSE messages
-          while (buffer.contains('\n\n')) {
-            final endIndex = buffer.indexOf('\n\n');
-            final message = buffer.substring(0, endIndex);
-            buffer = buffer.substring(endIndex + 2);
+      await for (final bytes in response) {
+        // Decode bytes to string immediately as they arrive
+        final chunk = utf8.decode(bytes);
+        debugPrint('[SSE] Received ${bytes.length} bytes: ${chunk.length > 100 ? "${chunk.substring(0, 100)}..." : chunk}');
+        buffer += chunk;
 
-            // Parse SSE data
-            if (message.startsWith('data: ')) {
-              final jsonStr = message.substring(6);
-              try {
-                final data = jsonDecode(jsonStr);
-                final type = data['type'];
+        // Process complete SSE messages (delimited by \n\n)
+        while (buffer.contains('\n\n')) {
+          final endIndex = buffer.indexOf('\n\n');
+          final message = buffer.substring(0, endIndex);
+          buffer = buffer.substring(endIndex + 2);
 
-                if (type == 'content') {
-                  // Yield streaming content
-                  yield data['content'] as String;
-                } else if (type == 'done') {
-                  // Final message with potential tool calls
-                  final content = data['content'] as String?;
-                  if (content != null && content.isNotEmpty) {
-                    // Any remaining content
-                    yield content;
-                  }
+          // Parse SSE data
+          if (message.startsWith('data: ')) {
+            final jsonStr = message.substring(6);
+            try {
+              final data = jsonDecode(jsonStr);
+              final type = data['type'];
 
-                  // Handle tool calls if present
-                  if (data['tool_calls'] != null) {
-                    final toolCalls = (data['tool_calls'] as List)
-                        .map((tc) => ToolCall.fromJson(tc))
-                        .toList();
+              if (type == 'content') {
+                // Yield streaming content immediately
+                debugPrint('[SSE] Yielding content chunk to UI: "${data['content']}"');
+                yield data['content'] as String;
+              } else if (type == 'done') {
+                // Final message with potential tool calls
+                final content = data['content'] as String?;
+                if (content != null && content.isNotEmpty) {
+                  // Any remaining content
+                  yield content;
+                }
 
-                    // Add assistant message with tool calls
+                // Handle tool calls if present
+                if (data['tool_calls'] != null) {
+                  final toolCalls = (data['tool_calls'] as List)
+                      .map((tc) => ToolCall.fromJson(tc))
+                      .toList();
+
+                  // Add assistant message with tool calls
+                  _conversations[npc.id]!.add(ChatMessage(
+                    role: 'assistant',
+                    content: _streamingContent[npc.id] ?? '',
+                    toolCalls: toolCalls,
+                  ));
+
+                  // Execute tools
+                  for (final toolCall in toolCalls) {
+                    final result = await _executeToolCall(
+                      toolCall: toolCall,
+                      npc: npc,
+                      player: player,
+                      availableQuests: availableQuests,
+                    );
+
+                    // Add tool result
                     _conversations[npc.id]!.add(ChatMessage(
-                      role: 'assistant',
-                      content: _streamingContent[npc.id] ?? '',
-                      toolCalls: toolCalls,
+                      role: 'tool',
+                      content: result.result,
+                      toolCallId: toolCall.id,
                     ));
 
-                    // Execute tools
-                    for (final toolCall in toolCalls) {
-                      final result = await _executeToolCall(
-                        toolCall: toolCall,
-                        npc: npc,
-                        player: Player.fromJson({}), // TODO: Pass actual player
-                        availableQuests: {},
-                      );
-
-                      // Add tool result
-                      _conversations[npc.id]!.add(ChatMessage(
-                        role: 'tool',
-                        content: result.result,
-                        toolCallId: toolCall.id,
-                      ));
-
-                      // Notify callback
-                      onToolExecuted?.call(toolCall.name, toolCall.arguments, result);
-                    }
+                    // Notify callback
+                    onToolExecuted?.call(toolCall.name, toolCall.arguments, result);
                   }
-                } else if (type == 'error') {
-                  debugPrint('Stream error: ${data['error']}');
                 }
-              } catch (e) {
-                debugPrint('Error parsing SSE data: $e');
+              } else if (type == 'error') {
+                debugPrint('Stream error: ${data['error']}');
               }
+            } catch (e) {
+              debugPrint('Error parsing SSE data: $e');
             }
           }
         }
-
-        client.close();
-      } else {
-        debugPrint('Streaming API error: ${response.statusCode}');
-        client.close();
       }
-    } catch (e) {
-      debugPrint('Streaming network error: $e');
+    } catch (e, stackTrace) {
+      debugPrint('[SERVICE] Streaming network error: $e');
+      debugPrint('[SERVICE] Stack trace: $stackTrace');
+    } finally {
+      debugPrint('[SERVICE] _callStreamingAPI finished');
+      httpClient?.close();
     }
   }
 

@@ -58,6 +58,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
   }
 
   Future<void> _fetchNpcInitiation() async {
+    debugPrint('[UI] _fetchNpcInitiation called');
     final gameProvider = context.read<GameProvider>();
     final player = gameProvider.player;
     final world = gameProvider.world;
@@ -92,51 +93,64 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
         .whereType<Quest>()
         .toList();
 
+    // Add a placeholder bubble for streaming response
+    final streamingBubbleIndex = _chatBubbles.length;
+    setState(() {
+      _chatBubbles.add(_ChatBubble(
+        text: '',
+        isUser: false,
+        npcName: npc.displayName,
+      ));
+    });
+
+    // Use streaming API - update UI as content arrives
+    String accumulatedContent = '';
+    debugPrint('[UI] Starting to consume initiation stream...');
+
     try {
-      final response = await NPCChatbotService.instance.initiateConversation(
+      await for (final chunk in NPCChatbotService.instance.initiateConversationStream(
         npc: npc,
         player: player,
         availableQuests: world.quests,
         npcAvailableQuests: npcAvailableQuests,
         activeQuests: activeQuests,
-      );
+      )) {
+        if (!mounted) break;
 
-      if (mounted) {
+        accumulatedContent += chunk;
+        debugPrint('[UI] Initiation stream chunk received: "$chunk" (total: ${accumulatedContent.length} chars)');
+
+        // Update the streaming bubble with accumulated content
         setState(() {
-          if (response != null && response.content.isNotEmpty) {
-            _chatBubbles.add(_ChatBubble(
-              text: response.content,
-              isUser: false,
-              npcName: npc.displayName,
-            ));
-          } else {
-            // Fallback if no response
-            _chatBubbles.add(_ChatBubble(
-              text: npc.displayGreeting.isNotEmpty
-                  ? npc.displayGreeting
-                  : 'Hello, traveler!',
-              isUser: false,
-              npcName: npc.displayName,
-            ));
-          }
-          _isLoading = false;
+          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
+            text: accumulatedContent,
+            isUser: false,
+            npcName: npc.displayName,
+          );
         });
         _scrollToBottom();
       }
     } catch (e) {
-      debugPrint('Error getting NPC initiation: $e');
-      if (mounted) {
-        setState(() {
-          _chatBubbles.add(_ChatBubble(
+      debugPrint('[UI] Error in initiation stream: $e');
+    }
+
+    debugPrint('[UI] Initiation stream completed. Total content length: ${accumulatedContent.length}');
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+        // Ensure final content is set (in case stream ended without content)
+        if (accumulatedContent.isEmpty) {
+          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
             text: npc.displayGreeting.isNotEmpty
                 ? npc.displayGreeting
                 : 'Hello, traveler!',
             isUser: false,
             npcName: npc.displayName,
-          ));
-          _isLoading = false;
-        });
-      }
+          );
+        }
+      });
+      _scrollToBottom();
     }
   }
 
@@ -288,8 +302,12 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
   }
 
   Future<void> _sendMessage() async {
+    debugPrint('[UI] _sendMessage called');
     final message = _messageController.text.trim();
-    if (message.isEmpty || _isLoading || _conversationEnded) return;
+    if (message.isEmpty || _isLoading || _conversationEnded) {
+      debugPrint('[UI] _sendMessage early return: empty=${ message.isEmpty}, loading=$_isLoading, ended=$_conversationEnded');
+      return;
+    }
 
     final gameProvider = context.read<GameProvider>();
     final player = gameProvider.player;
@@ -316,25 +334,58 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
     debugPrint('NPC ${npc.id} available quests: ${npcAvailableQuests.map((q) => q.id).toList()}');
     debugPrint('Active quests: ${activeQuests.map((q) => q.id).toList()}');
 
-    // Send to chatbot service
-    final response = await NPCChatbotService.instance.sendMessage(
-      npc: npc,
-      player: player,
-      userMessage: message,
-      availableQuests: gameProvider.world?.quests ?? {},
-      npcAvailableQuests: npcAvailableQuests,
-      activeQuests: activeQuests,
-    );
+    // Add a placeholder bubble for streaming response
+    final streamingBubbleIndex = _chatBubbles.length;
+    setState(() {
+      _chatBubbles.add(_ChatBubble(
+        text: '',
+        isUser: false,
+        npcName: npc.displayName,
+      ));
+    });
 
+    // Use streaming API - update UI as content arrives
+    String accumulatedContent = '';
+    debugPrint('[UI] Starting to consume stream...');
+    try {
+      await for (final chunk in NPCChatbotService.instance.sendMessageStream(
+        npc: npc,
+        player: player,
+        userMessage: message,
+        availableQuests: gameProvider.world?.quests ?? {},
+        npcAvailableQuests: npcAvailableQuests,
+        activeQuests: activeQuests,
+      )) {
+        if (!mounted) break;
+
+        accumulatedContent += chunk;
+        debugPrint('Stream chunk received: "$chunk" (total: ${accumulatedContent.length} chars)');
+
+        // Update the streaming bubble with accumulated content
+        setState(() {
+          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
+            text: accumulatedContent,
+            isUser: false,
+            npcName: npc.displayName,
+          );
+        });
+        _scrollToBottom();
+      }
+    } catch (e) {
+      debugPrint('[UI] Streaming error: $e');
+    }
+
+    debugPrint('[UI] Stream completed. Total content length: ${accumulatedContent.length}');
     if (mounted) {
       setState(() {
         _isLoading = false;
-        if (response != null && response.content.isNotEmpty) {
-          _chatBubbles.add(_ChatBubble(
-            text: response.content,
+        // Ensure final content is set (in case stream ended without content)
+        if (accumulatedContent.isEmpty) {
+          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
+            text: 'I seem to be having trouble responding...',
             isUser: false,
             npcName: npc.displayName,
-          ));
+          );
         }
       });
       _scrollToBottom();
