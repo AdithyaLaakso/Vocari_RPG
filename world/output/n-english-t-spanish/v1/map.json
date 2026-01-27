@@ -1,0 +1,723 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Valley of Words",
+      "target_language": "Valle de las Palabras"
+    },
+    "description": {
+      "native_language": "A blend of modernity and tradition, where technology coexists with nature.",
+      "target_language": "Una mezcla de modernidad y tradición, donde la tecnología coexiste con la naturaleza."
+    },
+    "scale": "region"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Beginner's Grove",
+        "target_language": "Bosque de Principiantes"
+      },
+      "description": {
+        "native_language": "A peaceful area with simple paths and small clearings, perfect for beginners.",
+        "target_language": "Una zona tranquila con senderos simples y pequeños claros, perfecta para principiantes."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_beginner_s_grove"
+    },
+    {
+      "name": {
+        "native_language": "Novice Village",
+        "target_language": "Aldea del Novato"
+      },
+      "description": {
+        "native_language": "A small village bustling with activity, introducing basic interactions.",
+        "target_language": "Una pequeña aldea llena de actividad, introduciendo interacciones básicas."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_novice_village"
+    },
+    {
+      "name": {
+        "native_language": "Learner's Town",
+        "target_language": "Pueblo del Aprendiz"
+      },
+      "description": {
+        "native_language": "A lively town with various shops and locations to practice new skills.",
+        "target_language": "Un pueblo animado con varias tiendas y lugares para practicar nuevas habilidades."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_learner_s_town"
+    },
+    {
+      "name": {
+        "native_language": "Explorer's City",
+        "target_language": "Ciudad del Explorador"
+      },
+      "description": {
+        "native_language": "A vibrant city offering more complex challenges and experiences.",
+        "target_language": "Una ciudad vibrante que ofrece desafíos y experiencias más complejas."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_explorer_s_city"
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Realm",
+        "target_language": "Reino del Viajero"
+      },
+      "description": {
+        "native_language": "A vast region with diverse landscapes, perfect for advanced exploration.",
+        "target_language": "Una vasta región con paisajes diversos, perfecta para una exploración avanzada."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_traveler_s_realm"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Welcome Clearing",
+        "target_language": "Claro de Bienvenida"
+      },
+      "description": {
+        "native_language": "A sunny clearing where adventurers start their journey with basic greetings.",
+        "target_language": "Un claro soleado donde los aventureros comienzan su viaje con saludos básicos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings"
+      ],
+      "vocabulary_domain": {
+        "native_language": "greetings",
+        "target_language": "saludos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "loc_1_welcome_clearing",
+      "region_id": "region_1_beginner_s_grove",
+      "connections": [
+        "loc_2_colorful_meadow"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Meadow",
+        "target_language": "Pradera Colorida"
+      },
+      "description": {
+        "native_language": "A vibrant meadow where colors and numbers come to life.",
+        "target_language": "Una pradera vibrante donde los colores y los números cobran vida."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors",
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors and numbers",
+        "target_language": "colores y números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bright and cheerful.",
+        "target_language": "Brillante y alegre."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 0
+      },
+      "id": "loc_2_colorful_meadow",
+      "region_id": "region_1_beginner_s_grove",
+      "connections": [
+        "loc_1_welcome_clearing",
+        "loc_3_number_bridge"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Number Bridge",
+        "target_language": "Puente de Números"
+      },
+      "description": {
+        "native_language": "A small bridge crossing a gentle stream, perfect for practicing numbers.",
+        "target_language": "Un pequeño puente que cruza un arroyo suave, perfecto para practicar números."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Serene and calming.",
+        "target_language": "Sereno y calmante."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_3_number_bridge",
+      "region_id": "region_1_beginner_s_grove",
+      "connections": [
+        "loc_2_colorful_meadow"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Village Square",
+        "target_language": "Plaza de la Aldea"
+      },
+      "description": {
+        "native_language": "The heart of the village where locals gather and exchange basic phrases.",
+        "target_language": "El corazón de la aldea donde los locales se reúnen y cambian frases básicas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "introductions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "introductions",
+        "target_language": "introducciones"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Busy and friendly.",
+        "target_language": "Ocupado y amistoso."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 1
+      },
+      "id": "loc_4_village_square",
+      "region_id": "region_2_novice_village",
+      "connections": [
+        "loc_5_market_stalls"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Market Stalls",
+        "target_language": "Puestos del Mercado"
+      },
+      "description": {
+        "native_language": "A bustling market where you can practice buying and selling.",
+        "target_language": "Un mercado bullicioso donde puedes practicar la compra y venta."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping"
+      ],
+      "vocabulary_domain": {
+        "native_language": "shopping",
+        "target_language": "compras"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and colorful.",
+        "target_language": "Animado y colorido."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_5_market_stalls",
+      "region_id": "region_2_novice_village",
+      "connections": [
+        "loc_4_village_square",
+        "loc_6_quiet_library"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Quiet Library",
+        "target_language": "Biblioteca Tranquila"
+      },
+      "description": {
+        "native_language": "A peaceful spot for learning days, months, and basic objects.",
+        "target_language": "Un lugar tranquilo para aprender días, meses y objetos básicos."
+      },
+      "type": "building",
+      "language_topics": [
+        "days/months",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "library",
+        "target_language": "biblioteca"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and studious.",
+        "target_language": "Calmado y estudioso."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_6_quiet_library",
+      "region_id": "region_2_novice_village",
+      "connections": [
+        "loc_5_market_stalls"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Family Park",
+        "target_language": "Parque Familiar"
+      },
+      "description": {
+        "native_language": "A lovely park where you can learn about family and relationships.",
+        "target_language": "Un hermoso parque donde puedes aprender sobre la familia y las relaciones."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "family"
+      ],
+      "vocabulary_domain": {
+        "native_language": "family",
+        "target_language": "familia"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Playful and familial.",
+        "target_language": "Juguetón y familiar."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 2
+      },
+      "id": "loc_7_family_park",
+      "region_id": "region_3_learner_s_town",
+      "connections": [
+        "loc_8_culinary_corner"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Culinary Corner",
+        "target_language": "Esquina Culinaria"
+      },
+      "description": {
+        "native_language": "A corner of the town dedicated to food and culinary delights.",
+        "target_language": "Un rincón del pueblo dedicado a la comida y los placeres culinarios."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food",
+        "target_language": "comida"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Delicious and inviting.",
+        "target_language": "Delicioso y acogedor."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 2
+      },
+      "id": "loc_8_culinary_corner",
+      "region_id": "region_3_learner_s_town",
+      "connections": [
+        "loc_7_family_park",
+        "loc_9_weather_station"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Weather Station",
+        "target_language": "Estación Meteorológica"
+      },
+      "description": {
+        "native_language": "A small station to explore weather vocabulary and expressions.",
+        "target_language": "Una pequeña estación para explorar vocabulario y expresiones del clima."
+      },
+      "type": "building",
+      "language_topics": [
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "weather",
+        "target_language": "clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Breezy and informative.",
+        "target_language": "Ventoso e informativo."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 2
+      },
+      "id": "loc_9_weather_station",
+      "region_id": "region_3_learner_s_town",
+      "connections": [
+        "loc_8_culinary_corner"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Explorer's Inn",
+        "target_language": "Posada del Explorador"
+      },
+      "description": {
+        "native_language": "An inn for travelers to rest and share their daily routines.",
+        "target_language": "Una posada para que los viajeros descansen y compartan sus rutinas diarias."
+      },
+      "type": "inn",
+      "language_topics": [
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "inn",
+        "target_language": "posada"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Cozy and welcoming.",
+        "target_language": "Acogedor y hospitalario."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 3
+      },
+      "id": "loc_10_explorer_s_inn",
+      "region_id": "region_4_explorer_s_city",
+      "connections": [
+        "loc_11_hobby_hub"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Hobby Hub",
+        "target_language": "Centro de Aficiones"
+      },
+      "description": {
+        "native_language": "A lively spot dedicated to exploring various hobbies and interests.",
+        "target_language": "Un lugar animado dedicado a explorar varios hobbies e intereses."
+      },
+      "type": "building",
+      "language_topics": [
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "hobbies",
+        "target_language": "aficiones"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Energetic and creative.",
+        "target_language": "Energético y creativo."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 3
+      },
+      "id": "loc_11_hobby_hub",
+      "region_id": "region_4_explorer_s_city",
+      "connections": [
+        "loc_10_explorer_s_inn",
+        "loc_12_storytelling_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Storytelling Square",
+        "target_language": "Plaza de Cuentacuentos"
+      },
+      "description": {
+        "native_language": "A central square where past events and stories are shared.",
+        "target_language": "Una plaza central donde se comparten eventos pasados e historias."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "storytelling",
+        "target_language": "cuentacuentos"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and nostalgic.",
+        "target_language": "Cálido y nostálgico."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 3
+      },
+      "id": "loc_12_storytelling_square",
+      "region_id": "region_4_explorer_s_city",
+      "connections": [
+        "loc_11_hobby_hub"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Station",
+        "target_language": "Estación del Viajero"
+      },
+      "description": {
+        "native_language": "A bustling station connecting to distant lands, ideal for travel-themed vocabulary.",
+        "target_language": "Una estación bulliciosa que conecta con tierras lejanas, ideal para vocabulario relacionado con viajes."
+      },
+      "type": "building",
+      "language_topics": [
+        "travel"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel",
+        "target_language": "viajes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Dynamic and exciting.",
+        "target_language": "Dinámico y emocionante."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 4
+      },
+      "id": "loc_13_traveler_s_station",
+      "region_id": "region_5_traveler_s_realm",
+      "connections": [
+        "loc_14_marketplace_of_opinions"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Marketplace of Opinions",
+        "target_language": "Mercado de Opiniones"
+      },
+      "description": {
+        "native_language": "A vibrant market where locals discuss their opinions and make plans.",
+        "target_language": "Un mercado vibrante donde los locales discuten sus opiniones y hacen planes."
+      },
+      "type": "shop",
+      "language_topics": [
+        "opinions",
+        "plans"
+      ],
+      "vocabulary_domain": {
+        "native_language": "opinions and plans",
+        "target_language": "opiniones y planes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and thought-provoking.",
+        "target_language": "Bullicioso y estimulante."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 4
+      },
+      "id": "loc_14_marketplace_of_opinions",
+      "region_id": "region_5_traveler_s_realm",
+      "connections": [
+        "loc_13_traveler_s_station",
+        "loc_15_healer_s_garden"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Healer's Garden",
+        "target_language": "Jardín del Sanador"
+      },
+      "description": {
+        "native_language": "A peaceful garden where health and wellness vocabulary is explored.",
+        "target_language": "Un jardín pacífico donde se explora el vocabulario de salud y bienestar."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "health"
+      ],
+      "vocabulary_domain": {
+        "native_language": "health",
+        "target_language": "salud"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Tranquil and rejuvenating.",
+        "target_language": "Tranquilo y rejuvenecedor."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      },
+      "id": "loc_15_healer_s_garden",
+      "region_id": "region_5_traveler_s_realm",
+      "connections": [
+        "loc_14_marketplace_of_opinions"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_welcome_clearing",
+      "to_location": "loc_2_colorful_meadow",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_colorful_meadow",
+      "to_location": "loc_3_number_bridge",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_village_square",
+      "to_location": "loc_5_market_stalls",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_market_stalls",
+      "to_location": "loc_6_quiet_library",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_family_park",
+      "to_location": "loc_8_culinary_corner",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_culinary_corner",
+      "to_location": "loc_9_weather_station",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_explorer_s_inn",
+      "to_location": "loc_11_hobby_hub",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_hobby_hub",
+      "to_location": "loc_12_storytelling_square",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_traveler_s_station",
+      "to_location": "loc_14_marketplace_of_opinions",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_marketplace_of_opinions",
+      "to_location": "loc_15_healer_s_garden",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_welcome_clearing"
+}

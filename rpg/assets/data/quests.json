@@ -1,0 +1,694 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Greeting Gathering",
+        "target_language": "Recolección de Saludos"
+      },
+      "description": {
+        "native_language": "Collect apples for Miguel.",
+        "target_language": "Recolecta manzanas para Miguel."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "hello",
+          "target_language": "hola"
+        },
+        {
+          "native_language": "yes",
+          "target_language": "sí"
+        }
+      ],
+      "grammar_points": [
+        "nouns",
+        "basic greetings"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather an apple from Greeting Grove.",
+            "target_language": "Recolecta una manzana en el Bosque de los Saludos."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_1_greeting_gathering_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Give the apple to Miguel.",
+            "target_language": "Entrega la manzana a Miguel."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_1_greeting_gathering_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring me an apple from the grove?",
+          "target_language": "¿Puedes traerme una manzana del bosque?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_1_greeting_gathering",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Colorful Inquiry",
+        "target_language": "Consulta Colorida"
+      },
+      "description": {
+        "native_language": "Learn about colors from Carlos.",
+        "target_language": "Aprende sobre colores con Carlos."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "blue",
+          "target_language": "azul"
+        },
+        {
+          "native_language": "yellow",
+          "target_language": "amarillo"
+        },
+        {
+          "native_language": "red",
+          "target_language": "rojo"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "colors"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Ask Carlos about the blue stone.",
+            "target_language": "Pregunta a Carlos sobre la piedra azul."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_carlos"
+          },
+          "id": "quest_2_colorful_inquiry_task_1"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Do you know about the colors of the stones here?",
+          "target_language": "¿Conoces los colores de las piedras aquí?"
+        },
+        "quest_complete": {
+          "native_language": "The blue stone is my favorite!",
+          "target_language": "¡La piedra azul es mi favorita!"
+        }
+      },
+      "id": "quest_2_colorful_inquiry",
+      "giver_npc_id": "npc_5_carlos"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Apple Gathering",
+        "target_language": "Recolección de manzanas"
+      },
+      "description": {
+        "native_language": "Miguel needs apples for a recipe.",
+        "target_language": "Miguel necesita manzanas para una receta."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "recipe",
+          "target_language": "receta"
+        }
+      ],
+      "grammar_points": [
+        "nouns",
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Miguel about apples.",
+            "target_language": "Habla con Miguel sobre las manzanas."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_miguel"
+          },
+          "id": "quest_11_apple_gathering_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to Greeting Grove to find an apple.",
+            "target_language": "Ir a Greeting Grove para encontrar una manzana."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_1_greeting_grove"
+          },
+          "id": "quest_11_apple_gathering_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Gather the apple from the grove.",
+            "target_language": "Recoge la manzana del bosque."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_11_apple_gathering_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return the apple to Miguel.",
+            "target_language": "Devuelve la manzana a Miguel."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_11_apple_gathering_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you gather an apple for my recipe?",
+          "target_language": "¿Puedes recoger una manzana para mi receta?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_11_apple_gathering",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Learn the Colors",
+        "target_language": "Aprender los Colores"
+      },
+      "description": {
+        "native_language": "Learn about different colors from Carlos and Lucia.",
+        "target_language": "Aprende sobre diferentes colores de Carlos y Lucia."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "blue",
+          "target_language": "azul"
+        },
+        {
+          "native_language": "yellow",
+          "target_language": "amarillo"
+        },
+        {
+          "native_language": "color",
+          "target_language": "color"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "nouns"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Ask Carlos about a blue stone.",
+            "target_language": "Pregunta a Carlos sobre una piedra azul."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_carlos"
+          },
+          "id": "quest_12_learn_the_colors_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Ask Lucia about a yellow flower.",
+            "target_language": "Pregunta a Lucia sobre una flor amarilla."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_lucia"
+          },
+          "id": "quest_12_learn_the_colors_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out about the blue and yellow items?",
+          "target_language": "¿Puedes averiguar sobre los objetos azules y amarillos?"
+        },
+        "quest_complete": {
+          "native_language": "You know the colors well now!",
+          "target_language": "¡Ahora conoces bien los colores!"
+        }
+      },
+      "id": "quest_12_learn_the_colors",
+      "giver_npc_id": "npc_5_carlos"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Greetings from the Grove",
+        "target_language": "Saludos desde el Bosque"
+      },
+      "description": {
+        "native_language": "Help Miguel gather apples for a welcome feast.",
+        "target_language": "Ayuda a Miguel a recoger manzanas para un banquete de bienvenida."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "hello",
+          "target_language": "hola"
+        },
+        {
+          "native_language": "thanks",
+          "target_language": "gracias"
+        }
+      ],
+      "grammar_points": [
+        "nouns",
+        "basic greetings"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Greeting Grove and talk to Miguel.",
+            "target_language": "Ve al Bosque de los Saludos y habla con Miguel."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_miguel"
+          },
+          "id": "quest_21_greetings_from_the_grove_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Collect an apple from the Grove.",
+            "target_language": "Recoge una manzana del Bosque."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_greetings_from_the_grove_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the apple back to Miguel.",
+            "target_language": "Lleva la manzana de vuelta a Miguel."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_greetings_from_the_grove_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Hola! We need apples for the feast. Can you help?",
+          "target_language": "¡Hola! Necesitamos manzanas para el banquete. ¿Puedes ayudar?"
+        },
+        "quest_complete": {
+          "native_language": "Gracias for the apple! Now we can start the feast.",
+          "target_language": "¡Gracias por la manzana! Ahora podemos comenzar el banquete."
+        }
+      },
+      "id": "quest_21_greetings_from_the_grove",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Counting Cottage Supplies",
+        "target_language": "Suministros para la Cabaña de los Números"
+      },
+      "description": {
+        "native_language": "Pablo needs bread for a counting lesson.",
+        "target_language": "Pablo necesita pan para una lección de conteo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "number",
+          "target_language": "número"
+        },
+        {
+          "native_language": "one",
+          "target_language": "uno"
+        }
+      ],
+      "grammar_points": [
+        "nouns",
+        "basic commands"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Pablo at the Counting Cottage.",
+            "target_language": "Habla con Pablo en la Cabaña de los Números."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_pablo"
+          },
+          "id": "quest_22_counting_cottage_supplies_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Gather bread from the Counting Cottage.",
+            "target_language": "Recoge pan de la Cabaña de los Números."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_3_bread"
+          },
+          "id": "quest_22_counting_cottage_supplies_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Give the bread to Pablo.",
+            "target_language": "Dale el pan a Pablo."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_3_bread"
+          },
+          "id": "quest_22_counting_cottage_supplies_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need bread for our number lesson. Can you bring some?",
+          "target_language": "Necesito pan para nuestra lección de números. ¿Puedes traer un poco?"
+        },
+        "quest_complete": {
+          "native_language": "Perfect! Now we can start counting.",
+          "target_language": "¡Perfecto! Ahora podemos empezar a contar."
+        }
+      },
+      "id": "quest_22_counting_cottage_supplies",
+      "giver_npc_id": "npc_3_pablo"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Greetings Gathering",
+        "target_language": "Reunión de Saludos"
+      },
+      "description": {
+        "native_language": "Collect basic items from the Greeting Grove.",
+        "target_language": "Recoge objetos básicos del Bosque de Saludos."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "yes",
+          "target_language": "sí"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "basic greetings"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather an apple in the Greeting Grove.",
+            "target_language": "Recoge una manzana en el Bosque de Saludos."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_31_greetings_gathering_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Bring the apple to Miguel.",
+            "target_language": "Lleva la manzana a Miguel."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_31_greetings_gathering_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring me an apple from the trees here?",
+          "target_language": "¿Puedes traerme una manzana de los árboles aquí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_31_greetings_gathering",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Colorful Quest",
+        "target_language": "Misión Colorida"
+      },
+      "description": {
+        "native_language": "Collect colorful items from the Colorful Clearing.",
+        "target_language": "Recoge objetos coloridos en el Claro Colorido."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "blue",
+          "target_language": "azul"
+        },
+        {
+          "native_language": "yellow",
+          "target_language": "amarillo"
+        },
+        {
+          "native_language": "flower",
+          "target_language": "flor"
+        }
+      ],
+      "grammar_points": [
+        "colors",
+        "nouns"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Find a blue stone in the Colorful Clearing.",
+            "target_language": "Encuentra una piedra azul en el Claro Colorido."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_blue_stone"
+          },
+          "id": "quest_33_colorful_quest_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Bring the blue stone to Carlos.",
+            "target_language": "Lleva la piedra azul a Carlos."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_blue_stone"
+          },
+          "id": "quest_33_colorful_quest_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need a blue stone for my collection.",
+          "target_language": "Necesito una piedra azul para mi colección."
+        },
+        "quest_complete": {
+          "native_language": "This stone is perfect! Thank you.",
+          "target_language": "Esta piedra es perfecta. Gracias."
+        }
+      },
+      "id": "quest_33_colorful_quest",
+      "giver_npc_id": "npc_6_lucia"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Colors of the Clearing",
+        "target_language": "Colores del Claro"
+      },
+      "description": {
+        "native_language": "Collect a blue stone and a yellow flower for Carlos.",
+        "target_language": "Recolecta una piedra azul y una flor amarilla para Carlos."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "blue",
+          "target_language": "azul"
+        },
+        {
+          "native_language": "yellow",
+          "target_language": "amarillo"
+        },
+        {
+          "native_language": "stone",
+          "target_language": "piedra"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "noun-adjective agreement"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Find the blue stone in the Colorful Clearing.",
+            "target_language": "Encuentra la piedra azul en el Claro Colorido."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_blue_stone"
+          },
+          "id": "quest_42_colors_of_the_clearing_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Gather a yellow flower in the Colorful Clearing.",
+            "target_language": "Recolecta una flor amarilla en el Claro Colorido."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_5_yellow_flower"
+          },
+          "id": "quest_42_colors_of_the_clearing_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the items to Carlos.",
+            "target_language": "Entrega los objetos a Carlos."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_blue_stone"
+          },
+          "id": "quest_42_colors_of_the_clearing_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Deliver the items to Carlos.",
+            "target_language": "Entrega los objetos a Carlos."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_5_yellow_flower"
+          },
+          "id": "quest_42_colors_of_the_clearing_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find a blue stone and a yellow flower for me?",
+          "target_language": "¿Puedes encontrar una piedra azul y una flor amarilla para mí?"
+        },
+        "quest_complete": {
+          "native_language": "These colors are perfect! Thank you.",
+          "target_language": "¡Estos colores son perfectos! Gracias."
+        }
+      },
+      "id": "quest_42_colors_of_the_clearing",
+      "giver_npc_id": "npc_5_carlos"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 50,
+    "total_valid": 9,
+    "total_invalid": 41,
+    "target_minimum": 20,
+    "target_met": false
+  }
+}

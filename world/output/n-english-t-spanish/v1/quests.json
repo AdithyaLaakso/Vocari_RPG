@@ -1,0 +1,404 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Bridge Numbers",
+        "target_language": "Números del Puente"
+      },
+      "description": {
+        "native_language": "Find out from Pedro what the numbers on the bridge mean.",
+        "target_language": "Descubre con Pedro qué significan los números en el puente."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "bridge",
+          "target_language": "puente"
+        },
+        {
+          "native_language": "number",
+          "target_language": "número"
+        },
+        {
+          "native_language": "mean",
+          "target_language": "significar"
+        }
+      ],
+      "grammar_points": [
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Number Bridge.",
+            "target_language": "Ve al Puente de los Números."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_3_number_bridge"
+          },
+          "id": "quest_13_bridge_numbers_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Pedro about the numbers.",
+            "target_language": "Habla con Pedro sobre los números."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_pedro"
+          },
+          "id": "quest_13_bridge_numbers_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Return to Lucia with the information.",
+            "target_language": "Regresa con Lucía con la información."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_lucia"
+          },
+          "id": "quest_13_bridge_numbers_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out what the numbers on the bridge mean?",
+          "target_language": "¿Puedes averiguar qué significan los números en el puente?"
+        },
+        "quest_complete": {
+          "native_language": "Ah, now I understand the numbers, thank you!",
+          "target_language": "Ah, ahora entiendo los números, ¡gracias!"
+        }
+      },
+      "id": "quest_13_bridge_numbers",
+      "giver_npc_id": "npc_3_lucia"
+    },
+    {
+      "type": "side",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Bread for the Journey",
+        "target_language": "Pan para el Viaje"
+      },
+      "description": {
+        "native_language": "Find bread at the Number Bridge for Lucia's journey.",
+        "target_language": "Encuentra pan en el Puente de los Números para el viaje de Lucía."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "journey",
+          "target_language": "viaje"
+        },
+        {
+          "native_language": "find",
+          "target_language": "encontrar"
+        }
+      ],
+      "grammar_points": [
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Number Bridge.",
+            "target_language": "Ve al Puente de los Números."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_3_number_bridge"
+          },
+          "id": "quest_14_bread_for_the_journey_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the bread.",
+            "target_language": "Encuentra el pan."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_5_bread"
+          },
+          "id": "quest_14_bread_for_the_journey_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the bread to Lucia.",
+            "target_language": "Lleva el pan a Lucía."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_5_bread"
+          },
+          "id": "quest_14_bread_for_the_journey_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need bread for my journey, can you find some at the bridge?",
+          "target_language": "Necesito pan para mi viaje, ¿puedes encontrar algo en el puente?"
+        },
+        "quest_complete": {
+          "native_language": "This bread will be very helpful, thank you!",
+          "target_language": "Este pan será muy útil, ¡gracias!"
+        }
+      },
+      "id": "quest_14_bread_for_the_journey",
+      "giver_npc_id": "npc_3_lucia"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gather Apples",
+        "target_language": "Recolectar Manzanas"
+      },
+      "description": {
+        "native_language": "Help Anna by gathering apples from the Welcome Clearing.",
+        "target_language": "Ayuda a Anna recolectando manzanas en el Claro de Bienvenida."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "help",
+          "target_language": "ayuda"
+        },
+        {
+          "native_language": "welcome",
+          "target_language": "bienvenida"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "possession"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Welcome Clearing.",
+            "target_language": "Ve al Claro de Bienvenida."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_1_welcome_clearing"
+          },
+          "id": "quest_21_gather_apples_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Gather an apple.",
+            "target_language": "Recolecta una manzana."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_gather_apples_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Return to Anna with the apple.",
+            "target_language": "Regresa con Anna con la manzana."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_gather_apples_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring me an apple from the clearing?",
+          "target_language": "¿Puedes traerme una manzana del claro?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_21_gather_apples",
+      "giver_npc_id": "npc_1_anna"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Find the Colorful Flower",
+        "target_language": "Encuentra la Flor Colorida"
+      },
+      "description": {
+        "native_language": "Help Sofia by finding information about a colorful flower.",
+        "target_language": "Ayuda a Sofia encontrando información sobre una flor colorida."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "flower",
+          "target_language": "flor"
+        },
+        {
+          "native_language": "color",
+          "target_language": "color"
+        },
+        {
+          "native_language": "information",
+          "target_language": "información"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Ask Rafael about the flower.",
+            "target_language": "Pregunta a Rafael sobre la flor."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_8_rafael"
+          },
+          "id": "quest_23_find_the_colorful_flower_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to the Colorful Meadow to see the flower.",
+            "target_language": "Ve al Prado Colorido para ver la flor."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_colorful_meadow"
+          },
+          "id": "quest_23_find_the_colorful_flower_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Sofia with the information.",
+            "target_language": "Informa a Sofia con la información."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_sofia"
+          },
+          "id": "quest_23_find_the_colorful_flower_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out about a flower with many colors?",
+          "target_language": "¿Puedes averiguar sobre una flor con muchos colores?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the information about the flower!",
+          "target_language": "¡Gracias por la información sobre la flor!"
+        }
+      },
+      "id": "quest_23_find_the_colorful_flower",
+      "giver_npc_id": "npc_5_sofia"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince for a Favor",
+        "target_language": "Convencer para un Favor"
+      },
+      "description": {
+        "native_language": "Convince Rafael to help with a special favor.",
+        "target_language": "Convence a Rafael para que ayude con un favor especial."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "favor",
+          "target_language": "favor"
+        },
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        },
+        {
+          "native_language": "help",
+          "target_language": "ayudar"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Rafael about the favor.",
+            "target_language": "Habla con Rafael sobre el favor."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_8_rafael"
+          },
+          "id": "quest_30_convince_for_a_favor_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Convince Rafael to agree.",
+            "target_language": "Convence a Rafael para que acepte."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_8_rafael"
+          },
+          "id": "quest_30_convince_for_a_favor_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you convince Rafael to help us?",
+          "target_language": "¿Puedes convencer a Rafael para que nos ayude?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for convincing Rafael!",
+          "target_language": "¡Gracias por convencer a Rafael!"
+        }
+      },
+      "id": "quest_30_convince_for_a_favor",
+      "giver_npc_id": "npc_8_rafael"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 51,
+    "total_valid": 5,
+    "total_invalid": 46,
+    "target_minimum": 20,
+    "target_met": false
+  }
+}

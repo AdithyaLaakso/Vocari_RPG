@@ -1,0 +1,148 @@
+{
+  "tutor_system_prompt": "You are a friendly language tutor helping the player learn spanish.\n\nYou exist OUTSIDE the game world - you're a helpful guide, not an in-game character.\n\nYour role:\n- Praise the player when they learn new words\n- Explain vocabulary and grammar when asked\n- Offer practice exercises after quests\n- Give hints when the player is stuck\n- Celebrate milestones\n\nTeaching approach:\n- Start simple, build complexity gradually\n- Connect new words to what the player just experienced in-game\n- Keep explanations brief and clear\n- Use english for explanations, spanish for examples\n- Be encouraging but not overly effusive\n- Adapt to the player's current level\n\nIntervention moments:\n- When a quest is completed: Review vocabulary learned\n- When new vocabulary is introduced: Brief explanation before it's needed\n- When the player seems stuck: Offer contextual hints\n- At level milestones: Celebrate and summarize progress\n- At session end: Review and set goals\n\nRemember: You are NOT a game character. You're a meta-level assistant helping the player\nlearn the language through their gaming experience. Be warm, patient, and supportive.",
+  "teaching_style": {
+    "native_language": "Encouraging and patient",
+    "target_language": "Alentador y paciente"
+  },
+  "intervention_triggers": [
+    "quest_complete",
+    "new_vocabulary",
+    "new_language_feature",
+    "stuck_indicator",
+    "level_milestone",
+    "session_end"
+  ],
+  "vocabulary_by_quest": {
+    "quest_1_greeting_gathering": [
+      "manzana (apple)",
+      "hola (hello)",
+      "sí (yes)",
+      "recolecta",
+      "manzana",
+      "entrega"
+    ],
+    "quest_2_colorful_inquiry": [
+      "azul (blue)",
+      "amarillo (yellow)",
+      "rojo (red)",
+      "pregunta",
+      "carlos"
+    ],
+    "quest_11_apple_gathering": [
+      "manzana (apple)",
+      "agua (water)",
+      "receta (recipe)",
+      "habla",
+      "miguel",
+      "greeting",
+      "grove",
+      "recoge",
+      "manzana",
+      "devuelve"
+    ],
+    "quest_12_learn_the_colors": [
+      "azul (blue)",
+      "amarillo (yellow)",
+      "color (color)",
+      "pregunta",
+      "carlos",
+      "lucia"
+    ],
+    "quest_21_greetings_from_the_grove": [
+      "manzana (apple)",
+      "hola (hello)",
+      "gracias (thanks)",
+      "bosque",
+      "saludos",
+      "recoge",
+      "manzana",
+      "lleva"
+    ],
+    "quest_22_counting_cottage_supplies": [
+      "pan (bread)",
+      "número (number)",
+      "uno (one)",
+      "habla",
+      "pablo",
+      "recoge",
+      "pan",
+      "dale"
+    ],
+    "quest_31_greetings_gathering": [
+      "manzana (apple)",
+      "agua (water)",
+      "sí (yes)",
+      "recoge",
+      "manzana",
+      "lleva"
+    ],
+    "quest_33_colorful_quest": [
+      "azul (blue)",
+      "amarillo (yellow)",
+      "flor (flower)",
+      "encuentra",
+      "piedra",
+      "lleva"
+    ],
+    "quest_42_colors_of_the_clearing": [
+      "azul (blue)",
+      "amarillo (yellow)",
+      "piedra (stone)",
+      "encuentra",
+      "piedra",
+      "recolecta",
+      "flor",
+      "entrega",
+      "objetos"
+    ]
+  },
+  "grammar_by_level": {
+    "A0": [
+      "Basic greetings and farewells (Hola, Adiós)",
+      "Simple affirmations (Sí, No)",
+      "Basic personal pronouns (yo, tú, él/ella)",
+      "Numbers 1-10",
+      "Common courtesy phrases (Por favor, Gracias)"
+    ],
+    "A0+": [
+      "Definite and indefinite articles (el, la, un, una)",
+      "Basic present tense of regular verbs (hablar, comer, vivir)",
+      "Simple sentence structure (Subject-Verb-Object)",
+      "Basic question formation (¿Cómo estás?, ¿Qué es esto?)",
+      "Introduction to gendered nouns (amigo/amiga)"
+    ],
+    "A1": [
+      "Present tense of regular -ar, -er, -ir verbs",
+      "Basic negation (no + verb)",
+      "Introduction to ser vs. estar",
+      "Question words (qué, quién, cuándo, dónde, por qué)",
+      "Possessive adjectives (mi, tu, su)"
+    ],
+    "A1+": [
+      "Irregular present tense verbs (ir, ser, estar, tener)",
+      "Introduction to simple past tense (pretérito perfecto simple)",
+      "Conjunctions (y, o, pero)",
+      "Introduction to adjectives and agreement (grande, pequeño)",
+      "Basic use of gustar and similar verbs"
+    ],
+    "A2": [
+      "Distinction between preterite and imperfect past tenses",
+      "Simple future tense (ir a + infinitive)",
+      "Introduction to reflexive verbs (levantarse, vestirse)",
+      "Basic conditionals (si + present, future)",
+      "Comparatives and superlatives (más que, el más)"
+    ]
+  },
+  "_meta": {
+    "target_language": "spanish",
+    "native_language": "english",
+    "total_quests_indexed": 9,
+    "levels_covered": [
+      "A0",
+      "A0+",
+      "A1",
+      "A1+",
+      "A2"
+    ]
+  }
+}

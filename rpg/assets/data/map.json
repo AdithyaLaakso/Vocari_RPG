@@ -1,0 +1,788 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Valley of Dreams",
+      "target_language": "Valle de los Sueños"
+    },
+    "description": {
+      "native_language": "A fusion of medieval and modern elements in a welcoming and wondrous world.",
+      "target_language": "Una fusión de elementos medievales y modernos en un mundo acogedor y lleno de maravillas."
+    },
+    "scale": "town"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Beginner's Hamlet",
+        "target_language": "Aldea del Principiante"
+      },
+      "description": {
+        "native_language": "A quaint village where travelers begin their journey with basic language skills.",
+        "target_language": "Una aldea pintoresca donde los viajeros comienzan su viaje con habilidades lingüísticas básicas."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_beginner_s_hamlet"
+    },
+    {
+      "name": {
+        "native_language": "Novice's Crossing",
+        "target_language": "Cruce del Novato"
+      },
+      "description": {
+        "native_language": "A bustling area where learners expand their vocabulary with simple phrases and commands.",
+        "target_language": "Una zona bulliciosa donde los estudiantes amplían su vocabulario con frases simples y comandos."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_novice_s_crossing"
+    },
+    {
+      "name": {
+        "native_language": "Scholar's Square",
+        "target_language": "Plaza del Erudito"
+      },
+      "description": {
+        "native_language": "A hub of learning and interaction for those ready to engage in basic conversations.",
+        "target_language": "Un centro de aprendizaje e interacción para aquellos listos para participar en conversaciones básicas."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_scholar_s_square"
+    },
+    {
+      "name": {
+        "native_language": "Explorer's Enclave",
+        "target_language": "Enclave del Explorador"
+      },
+      "description": {
+        "native_language": "A vibrant area where learners describe their daily routines and past events.",
+        "target_language": "Una zona vibrante donde los estudiantes describen sus rutinas diarias y eventos pasados."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_explorer_s_enclave"
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Haven",
+        "target_language": "Refugio del Viajero"
+      },
+      "description": {
+        "native_language": "A vast region for handling routine tasks and discussing future plans.",
+        "target_language": "Una región vasta para manejar tareas rutinarias y discutir planes futuros."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_traveler_s_haven"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Greeting Grove",
+        "target_language": "Bosque de Saludos"
+      },
+      "description": {
+        "native_language": "A serene outdoor area perfect for practicing basic greetings.",
+        "target_language": "Un área al aire libre serena, perfecta para practicar saludos básicos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings"
+      ],
+      "vocabulary_domain": {
+        "native_language": "greetings",
+        "target_language": "saludos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Welcoming and tranquil.",
+        "target_language": "Acogedor y tranquilo."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_1_greeting_grove",
+      "region_id": "region_1_beginner_s_hamlet",
+      "connections": [
+        "loc_2_counting_cottage",
+        "loc_3_colorful_clearing"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Counting Cottage",
+        "target_language": "Cabaña de Contar"
+      },
+      "description": {
+        "native_language": "A small home where numbers from 1 to 10 come alive.",
+        "target_language": "Una pequeña cabaña donde los números del 1 al 10 cobran vida."
+      },
+      "type": "home",
+      "language_topics": [
+        "numbers 1-10"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Charming and educational.",
+        "target_language": "Encantador y educativo."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_2_counting_cottage",
+      "region_id": "region_1_beginner_s_hamlet",
+      "connections": [
+        "loc_1_greeting_grove",
+        "loc_3_colorful_clearing"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Clearing",
+        "target_language": "Claro Colorido"
+      },
+      "description": {
+        "native_language": "A vibrant open area filled with colors for learning.",
+        "target_language": "Un área abierta vibrante llena de colores para aprender."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors",
+        "target_language": "colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bright and lively.",
+        "target_language": "Brillante y animado."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 2
+      },
+      "id": "loc_3_colorful_clearing",
+      "region_id": "region_1_beginner_s_hamlet",
+      "connections": [
+        "loc_1_greeting_grove",
+        "loc_2_counting_cottage"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Introduction Inn",
+        "target_language": "Posada de Introducciones"
+      },
+      "description": {
+        "native_language": "A cozy inn where new friends are made with simple introductions.",
+        "target_language": "Una posada acogedora donde se hacen nuevos amigos con introducciones simples."
+      },
+      "type": "inn",
+      "language_topics": [
+        "introductions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "introductions",
+        "target_language": "introducciones"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and friendly.",
+        "target_language": "Cálido y amigable."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 1
+      },
+      "id": "loc_4_introduction_inn",
+      "region_id": "region_2_novice_s_crossing",
+      "connections": [
+        "loc_5_numerical_nook",
+        "loc_6_calendar_courtyard"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Numerical Nook",
+        "target_language": "Rincón Numérico"
+      },
+      "description": {
+        "native_language": "A corner shop where numbers up to 100 are explored.",
+        "target_language": "Una tienda de esquina donde se exploran números hasta el 100."
+      },
+      "type": "shop",
+      "language_topics": [
+        "numbers 1-100"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Engaging and informative.",
+        "target_language": "Atractivo e informativo."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      },
+      "id": "loc_5_numerical_nook",
+      "region_id": "region_2_novice_s_crossing",
+      "connections": [
+        "loc_4_introduction_inn",
+        "loc_6_calendar_courtyard"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Calendar Courtyard",
+        "target_language": "Patio del Calendario"
+      },
+      "description": {
+        "native_language": "An open courtyard where days and months are learned.",
+        "target_language": "Un patio abierto donde se aprenden los días y meses."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "days/months"
+      ],
+      "vocabulary_domain": {
+        "native_language": "calendar",
+        "target_language": "calendario"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Relaxed and educational.",
+        "target_language": "Relajado y educativo."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 2
+      },
+      "id": "loc_6_calendar_courtyard",
+      "region_id": "region_2_novice_s_crossing",
+      "connections": [
+        "loc_4_introduction_inn",
+        "loc_5_numerical_nook",
+        "loc_7_family_fields"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Family Fields",
+        "target_language": "Campos Familiares"
+      },
+      "description": {
+        "native_language": "A vast field where family members gather and learn together.",
+        "target_language": "Un campo vasto donde los miembros de la familia se reúnen y aprenden juntos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "family"
+      ],
+      "vocabulary_domain": {
+        "native_language": "family",
+        "target_language": "familia"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Welcoming and familial.",
+        "target_language": "Acogedor y familiar."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "id": "loc_7_family_fields",
+      "region_id": "region_3_scholar_s_square",
+      "connections": [
+        "loc_6_calendar_courtyard",
+        "loc_8_snack_street",
+        "loc_9_weather_workshop"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Snack Street",
+        "target_language": "Calle de Aperitivos"
+      },
+      "description": {
+        "native_language": "A lively street filled with food stalls and culinary delights.",
+        "target_language": "Una calle animada llena de puestos de comida y delicias culinarias."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food",
+        "target_language": "comida"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Flavorful and bustling.",
+        "target_language": "Sabroso y bullicioso."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 2
+      },
+      "id": "loc_8_snack_street",
+      "region_id": "region_3_scholar_s_square",
+      "connections": [
+        "loc_7_family_fields",
+        "loc_9_weather_workshop",
+        "loc_10_routine_riverbank"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Weather Workshop",
+        "target_language": "Taller del Tiempo"
+      },
+      "description": {
+        "native_language": "A workshop where the weather is studied and understood.",
+        "target_language": "Un taller donde se estudia y comprende el clima."
+      },
+      "type": "building",
+      "language_topics": [
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "weather",
+        "target_language": "clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Scientific and intriguing.",
+        "target_language": "Científico e intrigante."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 2
+      },
+      "id": "loc_9_weather_workshop",
+      "region_id": "region_3_scholar_s_square",
+      "connections": [
+        "loc_7_family_fields",
+        "loc_8_snack_street",
+        "loc_10_routine_riverbank"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Routine Riverbank",
+        "target_language": "Ribera de la Rutina"
+      },
+      "description": {
+        "native_language": "A peaceful riverbank where daily routines are shared.",
+        "target_language": "Una ribera tranquila donde se comparten las rutinas diarias."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "routine",
+        "target_language": "rutina"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and reflective.",
+        "target_language": "Calma y reflexiva."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 1
+      },
+      "id": "loc_10_routine_riverbank",
+      "region_id": "region_4_explorer_s_enclave",
+      "connections": [
+        "loc_8_snack_street",
+        "loc_9_weather_workshop",
+        "loc_11_past_pavilion"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Past Pavilion",
+        "target_language": "Pabellón del Pasado"
+      },
+      "description": {
+        "native_language": "A pavilion dedicated to recounting past events and stories.",
+        "target_language": "Un pabellón dedicado a relatar eventos y cuentos pasados."
+      },
+      "type": "building",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "history",
+        "target_language": "historia"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Nostalgic and informative.",
+        "target_language": "Nostálgico e informativo."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 2
+      },
+      "id": "loc_11_past_pavilion",
+      "region_id": "region_4_explorer_s_enclave",
+      "connections": [
+        "loc_9_weather_workshop",
+        "loc_10_routine_riverbank",
+        "loc_12_hobby_hub"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Hobby Hub",
+        "target_language": "Centro de Pasatiempos"
+      },
+      "description": {
+        "native_language": "A lively hub where hobbies and leisure activities are shared.",
+        "target_language": "Un centro animado donde se comparten pasatiempos y actividades de ocio."
+      },
+      "type": "indoor",
+      "language_topics": [
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "hobbies",
+        "target_language": "pasatiempos"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Energetic and creative.",
+        "target_language": "Energético y creativo."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      },
+      "id": "loc_12_hobby_hub",
+      "region_id": "region_4_explorer_s_enclave",
+      "connections": [
+        "loc_10_routine_riverbank",
+        "loc_11_past_pavilion",
+        "loc_13_traveler_s_terminal"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Terminal",
+        "target_language": "Terminal del Viajero"
+      },
+      "description": {
+        "native_language": "A bustling terminal where travel plans are made.",
+        "target_language": "Un terminal bullicioso donde se hacen planes de viaje."
+      },
+      "type": "station",
+      "language_topics": [
+        "travel"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel",
+        "target_language": "viaje"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Dynamic and organized.",
+        "target_language": "Dinámico y organizado."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 1
+      },
+      "id": "loc_13_traveler_s_terminal",
+      "region_id": "region_5_traveler_s_haven",
+      "connections": [
+        "loc_12_hobby_hub",
+        "loc_14_market_of_opinions",
+        "loc_15_plan_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Market of Opinions",
+        "target_language": "Mercado de Opiniones"
+      },
+      "description": {
+        "native_language": "A lively market where opinions and thoughts are exchanged.",
+        "target_language": "Un mercado animado donde se intercambian opiniones y pensamientos."
+      },
+      "type": "market",
+      "language_topics": [
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "opinions",
+        "target_language": "opiniones"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Vibrant and engaging.",
+        "target_language": "Vibrante y atractivo."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 2
+      },
+      "id": "loc_14_market_of_opinions",
+      "region_id": "region_5_traveler_s_haven",
+      "connections": [
+        "loc_13_traveler_s_terminal",
+        "loc_15_plan_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Plan Plaza",
+        "target_language": "Plaza de Planes"
+      },
+      "description": {
+        "native_language": "A central plaza where future plans and dreams are discussed.",
+        "target_language": "Una plaza central donde se discuten planes futuros y sueños."
+      },
+      "type": "square",
+      "language_topics": [
+        "plans"
+      ],
+      "vocabulary_domain": {
+        "native_language": "plans",
+        "target_language": "planes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Inspirational and hopeful.",
+        "target_language": "Inspirador y esperanzador."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 1
+      },
+      "id": "loc_15_plan_plaza",
+      "region_id": "region_5_traveler_s_haven",
+      "connections": [
+        "loc_13_traveler_s_terminal",
+        "loc_14_market_of_opinions"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_greeting_grove",
+      "to_location": "loc_2_counting_cottage",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_greeting_grove",
+      "to_location": "loc_3_colorful_clearing",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_counting_cottage",
+      "to_location": "loc_3_colorful_clearing",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_introduction_inn",
+      "to_location": "loc_5_numerical_nook",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_introduction_inn",
+      "to_location": "loc_6_calendar_courtyard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_numerical_nook",
+      "to_location": "loc_6_calendar_courtyard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_calendar_courtyard",
+      "to_location": "loc_7_family_fields",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_family_fields",
+      "to_location": "loc_8_snack_street",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_family_fields",
+      "to_location": "loc_9_weather_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_snack_street",
+      "to_location": "loc_9_weather_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_snack_street",
+      "to_location": "loc_10_routine_riverbank",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_weather_workshop",
+      "to_location": "loc_10_routine_riverbank",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_routine_riverbank",
+      "to_location": "loc_11_past_pavilion",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_past_pavilion",
+      "to_location": "loc_9_weather_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_past_pavilion",
+      "to_location": "loc_12_hobby_hub",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_hobby_hub",
+      "to_location": "loc_10_routine_riverbank",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_hobby_hub",
+      "to_location": "loc_13_traveler_s_terminal",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_traveler_s_terminal",
+      "to_location": "loc_14_market_of_opinions",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_traveler_s_terminal",
+      "to_location": "loc_15_plan_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_market_of_opinions",
+      "to_location": "loc_15_plan_plaza",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_greeting_grove"
+}

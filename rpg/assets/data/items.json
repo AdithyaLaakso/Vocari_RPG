@@ -1,0 +1,549 @@
+{
+  "items": [
+    {
+      "name": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "description": {
+        "native_language": "A fresh red apple.",
+        "target_language": "Una manzana roja fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_greeting_grove",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "usage_hint": {
+        "native_language": "Eat to restore energy.",
+        "target_language": "Comer para restaurar energía."
+      },
+      "id": "item_1_apple"
+    },
+    {
+      "name": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "description": {
+        "native_language": "A bottle of clear water.",
+        "target_language": "Una botella de agua clara."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_greeting_grove",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "usage_hint": {
+        "native_language": "Drink to quench thirst.",
+        "target_language": "Beber para saciar la sed."
+      },
+      "id": "item_2_water"
+    },
+    {
+      "name": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "description": {
+        "native_language": "A loaf of warm bread.",
+        "target_language": "Una barra de pan caliente."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_counting_cottage",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "usage_hint": {
+        "native_language": "Eat to feel full.",
+        "target_language": "Comer para sentirse lleno."
+      },
+      "id": "item_3_bread"
+    },
+    {
+      "name": {
+        "native_language": "blue stone",
+        "target_language": "piedra azul"
+      },
+      "description": {
+        "native_language": "A small blue stone.",
+        "target_language": "Una pequeña piedra azul."
+      },
+      "category": "material",
+      "location_id": "loc_3_colorful_clearing",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "usage_hint": {
+        "native_language": "Use for crafting.",
+        "target_language": "Usar para fabricar."
+      },
+      "id": "item_4_blue_stone"
+    },
+    {
+      "name": {
+        "native_language": "yellow flower",
+        "target_language": "flor amarilla"
+      },
+      "description": {
+        "native_language": "A bright yellow flower.",
+        "target_language": "Una flor amarilla brillante."
+      },
+      "category": "gift",
+      "location_id": "loc_3_colorful_clearing",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "flower",
+        "target_language": "flor"
+      },
+      "usage_hint": {
+        "native_language": "Give to someone special.",
+        "target_language": "Dar a alguien especial."
+      },
+      "id": "item_5_yellow_flower"
+    },
+    {
+      "name": {
+        "native_language": "introduction scroll",
+        "target_language": "pergamino de introducción"
+      },
+      "description": {
+        "native_language": "A scroll with basic phrases.",
+        "target_language": "Un pergamino con frases básicas."
+      },
+      "category": "document",
+      "location_id": "loc_4_introduction_inn",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 5,
+      "respawns": false,
+      "price": 10,
+      "vocabulary_word": {
+        "native_language": "scroll",
+        "target_language": "pergamino"
+      },
+      "usage_hint": {
+        "native_language": "Read to learn phrases.",
+        "target_language": "Leer para aprender frases."
+      },
+      "id": "item_6_introduction_scroll"
+    },
+    {
+      "name": {
+        "native_language": "basic map",
+        "target_language": "mapa básico"
+      },
+      "description": {
+        "native_language": "A map showing local paths.",
+        "target_language": "Un mapa que muestra caminos locales."
+      },
+      "category": "tool",
+      "location_id": "loc_4_introduction_inn",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 3,
+      "respawns": false,
+      "price": 15,
+      "vocabulary_word": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "usage_hint": {
+        "native_language": "Use to navigate.",
+        "target_language": "Usar para navegar."
+      },
+      "id": "item_7_basic_map"
+    },
+    {
+      "name": {
+        "native_language": "number beads",
+        "target_language": "cuentas de números"
+      },
+      "description": {
+        "native_language": "Beads for counting practice.",
+        "target_language": "Cuentas para practicar el conteo."
+      },
+      "category": "material",
+      "location_id": "loc_5_numerical_nook",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 10,
+      "respawns": false,
+      "price": 5,
+      "vocabulary_word": {
+        "native_language": "beads",
+        "target_language": "cuentas"
+      },
+      "usage_hint": {
+        "native_language": "Use to practice numbers.",
+        "target_language": "Usar para practicar números."
+      },
+      "id": "item_8_number_beads"
+    },
+    {
+      "name": {
+        "native_language": "calendar sheet",
+        "target_language": "hoja de calendario"
+      },
+      "description": {
+        "native_language": "A sheet with days and months.",
+        "target_language": "Una hoja con días y meses."
+      },
+      "category": "document",
+      "location_id": "loc_6_calendar_courtyard",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "calendar",
+        "target_language": "calendario"
+      },
+      "usage_hint": {
+        "native_language": "Use to plan your days.",
+        "target_language": "Usar para planificar tus días."
+      },
+      "id": "item_9_calendar_sheet"
+    },
+    {
+      "name": {
+        "native_language": "family photo",
+        "target_language": "foto de familia"
+      },
+      "description": {
+        "native_language": "A cherished family photo.",
+        "target_language": "Una foto de familia querida."
+      },
+      "category": "document",
+      "location_id": "loc_7_family_fields",
+      "acquisition_type": "find",
+      "language_level": "A1",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "photo",
+        "target_language": "foto"
+      },
+      "usage_hint": {
+        "native_language": "Look at to remember family.",
+        "target_language": "Mirar para recordar a la familia."
+      },
+      "id": "item_10_family_photo"
+    },
+    {
+      "name": {
+        "native_language": "basket of fruits",
+        "target_language": "cesta de frutas"
+      },
+      "description": {
+        "native_language": "A basket filled with fresh fruits.",
+        "target_language": "Una cesta llena de frutas frescas."
+      },
+      "category": "consumable",
+      "location_id": "loc_8_snack_street",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 5,
+      "respawns": false,
+      "price": 20,
+      "vocabulary_word": {
+        "native_language": "fruits",
+        "target_language": "frutas"
+      },
+      "usage_hint": {
+        "native_language": "Eat for a healthy snack.",
+        "target_language": "Comer para un refrigerio saludable."
+      },
+      "id": "item_11_basket_of_fruits"
+    },
+    {
+      "name": {
+        "native_language": "raincoat",
+        "target_language": "impermeable"
+      },
+      "description": {
+        "native_language": "A coat to stay dry in rain.",
+        "target_language": "Un abrigo para mantenerse seco bajo la lluvia."
+      },
+      "category": "tool",
+      "location_id": "loc_9_weather_workshop",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 3,
+      "respawns": false,
+      "price": 30,
+      "vocabulary_word": {
+        "native_language": "raincoat",
+        "target_language": "impermeable"
+      },
+      "usage_hint": {
+        "native_language": "Wear during rainy weather.",
+        "target_language": "Usar durante el clima lluvioso."
+      },
+      "id": "item_12_raincoat"
+    },
+    {
+      "name": {
+        "native_language": "fishing rod",
+        "target_language": "caña de pescar"
+      },
+      "description": {
+        "native_language": "A rod for catching fish.",
+        "target_language": "Una caña para pescar."
+      },
+      "category": "tool",
+      "location_id": "loc_10_routine_riverbank",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "rod",
+        "target_language": "caña"
+      },
+      "usage_hint": {
+        "native_language": "Use to catch fish.",
+        "target_language": "Usar para pescar."
+      },
+      "id": "item_13_fishing_rod"
+    },
+    {
+      "name": {
+        "native_language": "old diary",
+        "target_language": "diario antiguo"
+      },
+      "description": {
+        "native_language": "A diary with past events.",
+        "target_language": "Un diario con eventos pasados."
+      },
+      "category": "document",
+      "location_id": "loc_11_past_pavilion",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "diary",
+        "target_language": "diario"
+      },
+      "usage_hint": {
+        "native_language": "Read to learn history.",
+        "target_language": "Leer para aprender historia."
+      },
+      "id": "item_14_old_diary"
+    },
+    {
+      "name": {
+        "native_language": "paintbrush",
+        "target_language": "pincel"
+      },
+      "description": {
+        "native_language": "A brush for painting.",
+        "target_language": "Un pincel para pintar."
+      },
+      "category": "tool",
+      "location_id": "loc_12_hobby_hub",
+      "acquisition_type": "purchase",
+      "language_level": "A1+",
+      "quantity_available": 10,
+      "respawns": false,
+      "price": 8,
+      "vocabulary_word": {
+        "native_language": "paintbrush",
+        "target_language": "pincel"
+      },
+      "usage_hint": {
+        "native_language": "Use to create art.",
+        "target_language": "Usar para crear arte."
+      },
+      "id": "item_15_paintbrush"
+    },
+    {
+      "name": {
+        "native_language": "train ticket",
+        "target_language": "billete de tren"
+      },
+      "description": {
+        "native_language": "A ticket for train travel.",
+        "target_language": "Un billete para viajar en tren."
+      },
+      "category": "valuable",
+      "location_id": "loc_13_traveler_s_terminal",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 20,
+      "respawns": true,
+      "price": 50,
+      "vocabulary_word": {
+        "native_language": "ticket",
+        "target_language": "billete"
+      },
+      "usage_hint": {
+        "native_language": "Use to board the train.",
+        "target_language": "Usar para abordar el tren."
+      },
+      "id": "item_16_train_ticket"
+    },
+    {
+      "name": {
+        "native_language": "opinion journal",
+        "target_language": "diario de opiniones"
+      },
+      "description": {
+        "native_language": "A journal to write your thoughts.",
+        "target_language": "Un diario para escribir tus pensamientos."
+      },
+      "category": "document",
+      "location_id": "loc_14_market_of_opinions",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 15,
+      "respawns": false,
+      "price": 25,
+      "vocabulary_word": {
+        "native_language": "journal",
+        "target_language": "diario"
+      },
+      "usage_hint": {
+        "native_language": "Write down your ideas.",
+        "target_language": "Escribe tus ideas."
+      },
+      "id": "item_17_opinion_journal"
+    },
+    {
+      "name": {
+        "native_language": "compass",
+        "target_language": "brújula"
+      },
+      "description": {
+        "native_language": "A tool to find direction.",
+        "target_language": "Una herramienta para encontrar dirección."
+      },
+      "category": "tool",
+      "location_id": "loc_14_market_of_opinions",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 5,
+      "respawns": false,
+      "price": 40,
+      "vocabulary_word": {
+        "native_language": "compass",
+        "target_language": "brújula"
+      },
+      "usage_hint": {
+        "native_language": "Use to navigate your path.",
+        "target_language": "Usar para navegar tu camino."
+      },
+      "id": "item_18_compass"
+    },
+    {
+      "name": {
+        "native_language": "dream crystal",
+        "target_language": "cristal de sueños"
+      },
+      "description": {
+        "native_language": "A mystical crystal full of dreams.",
+        "target_language": "Un cristal místico lleno de sueños."
+      },
+      "category": "valuable",
+      "location_id": "loc_15_plan_plaza",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "crystal",
+        "target_language": "cristal"
+      },
+      "usage_hint": {
+        "native_language": "Gaze into to see visions.",
+        "target_language": "Mirar para ver visiones."
+      },
+      "id": "item_19_dream_crystal"
+    }
+  ],
+  "_items_by_location": {
+    "loc_1_greeting_grove": [
+      "item_1_apple",
+      "item_2_water"
+    ],
+    "loc_2_counting_cottage": [
+      "item_3_bread"
+    ],
+    "loc_3_colorful_clearing": [
+      "item_4_blue_stone",
+      "item_5_yellow_flower"
+    ],
+    "loc_4_introduction_inn": [
+      "item_6_introduction_scroll",
+      "item_7_basic_map"
+    ],
+    "loc_5_numerical_nook": [
+      "item_8_number_beads"
+    ],
+    "loc_6_calendar_courtyard": [
+      "item_9_calendar_sheet"
+    ],
+    "loc_7_family_fields": [
+      "item_10_family_photo"
+    ],
+    "loc_8_snack_street": [
+      "item_11_basket_of_fruits"
+    ],
+    "loc_9_weather_workshop": [
+      "item_12_raincoat"
+    ],
+    "loc_10_routine_riverbank": [
+      "item_13_fishing_rod"
+    ],
+    "loc_11_past_pavilion": [
+      "item_14_old_diary"
+    ],
+    "loc_12_hobby_hub": [
+      "item_15_paintbrush"
+    ],
+    "loc_13_traveler_s_terminal": [
+      "item_16_train_ticket"
+    ],
+    "loc_14_market_of_opinions": [
+      "item_17_opinion_journal",
+      "item_18_compass"
+    ],
+    "loc_15_plan_plaza": [
+      "item_19_dream_crystal"
+    ]
+  }
+}

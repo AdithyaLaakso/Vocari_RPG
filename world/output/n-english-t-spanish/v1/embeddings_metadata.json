@@ -1,0 +1,12 @@
+{
+  "directory_hash": "eb22207fd11659f91af58d1f12c01369",
+  "num_documents": 1,
+  "num_chunks": 571,
+  "embedding_model": "text-embedding-3-small",
+  "documents": [
+    {
+      "name": "Full.pdf",
+      "path": "documents/Full.pdf"
+    }
+  ]
+}

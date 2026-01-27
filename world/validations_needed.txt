@@ -1,0 +1,3 @@
+* items are not actually present at locations stated by quests (e.g. a quest will tell the player to find item x at location y but it is not actually there).
+	* A quick look at the code tells me that items are actually never placed at locations but this could be wrong
+* locations needed for quests are not accessible via a path equal to or less than the level of the starting location and of the level quest

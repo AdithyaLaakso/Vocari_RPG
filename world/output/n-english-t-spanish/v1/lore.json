@@ -1,0 +1,90 @@
+{
+  "world_name": {
+    "native_language": "Valle de las Palabras",
+    "target_language": "Valley of Words"
+  },
+  "world_description": {
+    "native_language": "Un lugar donde la magia del lenguaje cobra vida en cada rincón.",
+    "target_language": "A place where the magic of language comes alive at every corner."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "En el Valle de las Palabras, los habitantes creen que el lenguaje tiene un poder especial que conecta a las personas y permite que florezcan las ideas.",
+      "target_language": "In the Valley of Words, the inhabitants believe that language holds a special power that connects people and allows ideas to flourish."
+    },
+    "player_origin": {
+      "native_language": "Eres un viajero de un mundo sin magia, que ha llegado al valle para aprender el arte del lenguaje y descubrir sus secretos.",
+      "target_language": "You are a traveler from a world without magic, who has come to the valley to learn the art of language and uncover its secrets."
+    },
+    "motivation": {
+      "native_language": "Tu objetivo es dominar el idioma para poder comunicarte con los sabios del valle y descubrir el misterio detrás de su magia.",
+      "target_language": "Your goal is to master the language to communicate with the sages of the valley and uncover the mystery behind their magic."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "Una mezcla de modernidad y tradición, donde la tecnología coexiste con la naturaleza.",
+      "target_language": "A blend of modernity and tradition, where technology coexists with nature."
+    },
+    "atmosphere": {
+      "native_language": "Pacífica y acogedora, el valle está lleno de colores vibrantes y sonidos de la naturaleza.",
+      "target_language": "Peaceful and welcoming, the valley is full of vibrant colors and sounds of nature."
+    },
+    "culture": {
+      "native_language": "La comunidad valora la sabiduría, la colaboración y la creatividad, con un fuerte enfoque en el aprendizaje y el intercambio cultural.",
+      "target_language": "The community values wisdom, collaboration, and creativity, with a strong focus on learning and cultural exchange."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Las Piedras de Conocimiento",
+        "target_language": "The Stones of Knowledge"
+      },
+      "description": {
+        "native_language": "Estas piedras mágicas están dispersas por el valle y otorgan comprensión del idioma a quienes las encuentran.",
+        "target_language": "These magical stones are scattered throughout the valley and grant language comprehension to those who find them."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "Los Sabios del Valle",
+        "target_language": "The Sages of the Valley"
+      },
+      "description": {
+        "native_language": "Un grupo de eruditos dedicados a preservar y enseñar la magia del lenguaje.",
+        "target_language": "A group of scholars dedicated to preserving and teaching the magic of language."
+      },
+      "role_in_world": {
+        "native_language": "Guían a los viajeros en su aprendizaje del idioma y los ayudan a integrarse en la comunidad.",
+        "target_language": "They guide travelers in their language learning and help them integrate into the community."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Aprendizaje a través de la cultura",
+      "target_language": "Learning through culture"
+    },
+    {
+      "native_language": "Conexión interpersonal",
+      "target_language": "Interpersonal connection"
+    },
+    {
+      "native_language": "La magia del lenguaje",
+      "target_language": "The magic of language"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "Aprender el idioma es esencial para participar en la vida del valle y descubrir sus secretos.",
+      "target_language": "Learning the language is essential to participate in valley life and uncover its secrets."
+    },
+    "how_language_fits": {
+      "native_language": "El idioma es fundamental para resolver desafíos, interactuar con personajes y avanzar en la historia.",
+      "target_language": "Language is key to solving challenges, interacting with characters, and advancing the story."
+    }
+  }
+}
