@@ -18,7 +18,7 @@ class GameProvider extends ChangeNotifier {
   Location? _currentLocation;
   NPC? _currentNPC;
   DialogueNode? _currentDialogue;
-  List<String> _gameLog = [];
+  final List<String> _gameLog = [];
   bool _isLoading = true;
   String? _error;
   String _timeOfDay = 'day';
@@ -252,10 +252,6 @@ class GameProvider extends ChangeNotifier {
           _triggers = TriggerCollection.fromJson(triggersData);
           _levelProgression = LevelProgression.fromJson(levelProgressionData);
           _levelProgressionService = LevelProgressionService(_levelProgression!);
-
-          debugPrint('Loaded ${_skills!.skills.length} skills');
-          debugPrint('Loaded ${_triggers!.triggers.length} triggers');
-          debugPrint('Loaded ${_levelProgression!.requirements.length} level requirements');
         } catch (e, stackTrace) {
           debugPrint('Warning: Failed to parse skill system data: $e');
           debugPrint('Stack trace: $stackTrace');
@@ -307,7 +303,6 @@ class GameProvider extends ChangeNotifier {
     // Initialize skill state (if skills are loaded)
     if (_skills != null) {
       _userSkillState = UserSkillState.fromSkills(_skills!);
-      debugPrint('Initialized ${_userSkillState!.skills.length} skills at level 0');
     } else {
       debugPrint('Skills not loaded, skill system disabled');
     }
@@ -347,8 +342,7 @@ class GameProvider extends ChangeNotifier {
     // Find travel description if available
     String travelMsg = "You travel to ${newLocation.displayName}.";
     for (final conn in _world!.connections) {
-      if ((conn.fromLocation == _currentLocation?.id && conn.toLocation == locationId) ||
-          (conn.bidirectional && conn.toLocation == _currentLocation?.id && conn.fromLocation == locationId)) {
+      if (conn.toLocation == _currentLocation?.id && conn.fromLocation == locationId) {
         if (conn.travelDescription.isNotEmpty) {
           travelMsg = conn.displayTravelDescription;
         }
@@ -736,71 +730,25 @@ class GameProvider extends ChangeNotifier {
   /// Track items that were given to NPCs (item_id -> true)
   final Set<String> _givenItems = {};
 
-  /// Item alias mapping - maps common names to quest item IDs
-  /// This allows NPCs to use natural item names while quests use formal IDs
-  static const Map<String, String> _itemAliases = {
-    'apple': 'item_001',
-    'manzana': 'item_001',
-    'bread': 'item_002',
-    'pan': 'item_002',
-    'milk': 'item_003',
-    'leche': 'item_003',
-    'flower': 'item_004',
-    'flowers': 'item_004',
-    'flor': 'item_004',
-    'flores': 'item_004',
-    'letter': 'item_005',
-    'carta': 'item_005',
-    'coin': 'item_009',
-    'moneda': 'item_009',
-  };
-
-  /// Get the canonical item ID (handles aliases)
-  String _getCanonicalItemId(String itemId) {
-    final lowerId = itemId.toLowerCase();
-    return _itemAliases[lowerId] ?? itemId;
-  }
-
   /// Check if player has an item (handles aliases)
   bool _playerHasItem(String targetItemId) {
-    debugPrint('    _playerHasItem checking for: $targetItemId');
-    debugPrint('    Inventory: ${_player!.inventory}');
-
     // Direct check
     if (_player!.inventory.contains(targetItemId)) {
-      debugPrint('    Direct match found!');
       return true;
     }
 
     // Check if any inventory item maps to the target via alias
     for (final item in _player!.inventory) {
-      final canonicalId = _getCanonicalItemId(item);
-      debugPrint('    Checking item "$item" -> canonical "$canonicalId"');
-      if (canonicalId == targetItemId) {
-        debugPrint('    Alias match found! $item -> $targetItemId');
+      if (item == targetItemId) {
         return true;
       }
     }
 
-    // Check if target has an alias that's in inventory (reverse lookup)
-    final targetLower = targetItemId.toLowerCase();
-    if (_itemAliases.containsKey(targetLower)) {
-      final mappedId = _itemAliases[targetLower]!;
-      if (_player!.inventory.contains(mappedId)) {
-        debugPrint('    Reverse alias match found!');
-        return true;
-      }
-    }
-
-    debugPrint('    No match found');
     return false;
   }
 
   /// Check if an item was given (handles aliases)
   bool _itemWasGiven(String targetItemId) {
-    debugPrint('    _itemWasGiven checking for: $targetItemId');
-    debugPrint('    Given items: $_givenItems');
-
     // Direct check
     if (_givenItems.contains(targetItemId)) {
       debugPrint('    Direct match found!');
@@ -809,9 +757,8 @@ class GameProvider extends ChangeNotifier {
 
     // Check if any given item maps to the target via alias
     for (final item in _givenItems) {
-      final canonicalId = _getCanonicalItemId(item);
-      debugPrint('    Checking given item "$item" -> canonical "$canonicalId"');
-      if (canonicalId == targetItemId) {
+      debugPrint('    Checking given item "$item" -> canonical "$item"');
+      if (item == targetItemId) {
         debugPrint('    Alias match found! $item -> $targetItemId');
         return true;
       }
@@ -825,12 +772,6 @@ class GameProvider extends ChangeNotifier {
   /// This is the main method that should be called after any state change
   void checkAllQuestProgress() {
     if (_player == null || _world == null) return;
-
-    debugPrint('=== CHECKING QUEST PROGRESS ===');
-    debugPrint('Active quests: ${_player!.activeQuests}');
-    debugPrint('Player inventory: ${_player!.inventory}');
-    debugPrint('Player location: ${_player!.currentLocationId}');
-    debugPrint('Given items: $_givenItems');
 
     bool anyProgress = false;
     final questsToComplete = <String>[];
@@ -927,8 +868,6 @@ class GameProvider extends ChangeNotifier {
       }
     }
 
-    debugPrint('=== QUEST CHECK COMPLETE: anyProgress=$anyProgress ===');
-
     if (anyProgress) {
       notifyListeners();
     }
@@ -944,7 +883,6 @@ class GameProvider extends ChangeNotifier {
         final targetLocation = task.completionCriteria['target_id'] as String?;
         final result = targetLocation != null &&
             _player!.currentLocationId == targetLocation;
-        debugPrint('  at_location check: player at ${_player!.currentLocationId}, need $targetLocation = $result');
         return result;
 
       case 'has_item':
@@ -952,7 +890,6 @@ class GameProvider extends ChangeNotifier {
         final targetItem = task.completionCriteria['target_id'] as String?;
         if (targetItem == null) return false;
         final result = _playerHasItem(targetItem);
-        debugPrint('  has_item check: looking for $targetItem in ${_player!.inventory} = $result');
         return result;
 
       case 'talked_to':
@@ -965,7 +902,6 @@ class GameProvider extends ChangeNotifier {
         final targetItem = task.completionCriteria['target_id'] as String?;
         if (targetItem == null) return false;
         final result = _itemWasGiven(targetItem);
-        debugPrint('  gave_item check: looking for $targetItem in $_givenItems = $result');
         return result;
 
       case 'received_item':
@@ -973,7 +909,6 @@ class GameProvider extends ChangeNotifier {
         final targetItem = task.completionCriteria['target_id'] as String?;
         if (targetItem == null) return false;
         final result = _playerHasItem(targetItem) || _itemWasGiven(targetItem);
-        debugPrint('  received_item check: looking for $targetItem = $result');
         return result;
 
       case 'flag_set':
@@ -995,7 +930,6 @@ class GameProvider extends ChangeNotifier {
         return false;
 
       default:
-        debugPrint('Unknown completion type: ${task.completionType}');
         return false;
     }
   }

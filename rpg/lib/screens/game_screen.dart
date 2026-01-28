@@ -8,6 +8,7 @@ import '../location_card.dart';
 import '../npc_dialogue_sheet.dart';
 import '../quest_notification.dart';
 import '../widgets/narrator_panel.dart';
+import '../widgets/game_map_widget.dart';
 import '../services/bilingual_text_service.dart';
 
 class GameScreen extends StatefulWidget {
@@ -65,7 +66,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   @override
   void dispose() {
     _pulseController.dispose();
-    // Clean up quest progress callback
     final gameProvider = context.read<GameProvider>();
     gameProvider.onQuestProgress = null;
     QuestNotificationService.instance.clearAll();
@@ -80,28 +80,19 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
           body: SafeArea(
             child: Stack(
               children: [
-                // Main game UI
                 Column(
                   children: [
-                    // Top bar with player info
                     _buildTopBar(gameProvider),
-
-                    // Main content area
                     Expanded(
                       child: _buildMainContent(gameProvider),
                     ),
-
-                    // Bottom navigation
                     _buildBottomNav(gameProvider),
                   ],
                 ),
-
-                // Narrator messages overlay
                 const NarratorPanel(),
               ],
             ),
           ),
-          // Narrator help button
           floatingActionButton: const AskNarratorButton(),
         );
       },
@@ -358,7 +349,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       case 0:
         return _buildLocationView(gameProvider);
       case 1:
-        return _buildMapView(gameProvider);
+        return const GameMapWidget();
       case 2:
         return const GameLogWidget();
       default:
@@ -764,137 +755,6 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
     );
-  }
-
-  Widget _buildMapView(GameProvider gameProvider) {
-    final locations = gameProvider.world?.locations.values.toList() ?? [];
-
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'World Map',
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-
-          const SizedBox(height: 8),
-
-          Text(
-            'Tap a location to travel (if connected)',
-            style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.white54,
-            ),
-          ),
-
-          const SizedBox(height: 20),
-
-          // Group locations by type
-          ..._buildLocationGroups(locations, gameProvider),
-        ],
-      ),
-    );
-  }
-
-  List<Widget> _buildLocationGroups(List<Location> locations, GameProvider gameProvider) {
-    final groups = <String, List<Location>>{};
-
-    for (final location in locations) {
-      final type = location.type.name;
-      groups.putIfAbsent(type, () => []);
-      groups[type]!.add(location);
-    }
-
-    return groups.entries.map((entry) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            entry.key.toUpperCase(),
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-              color: const Color(0xFFD4AF37),
-              letterSpacing: 2,
-            ),
-          ),
-
-          const SizedBox(height: 8),
-
-          ...entry.value.map((location) {
-            final isCurrent = location.id == gameProvider.currentLocation?.id;
-            final isConnected = gameProvider.currentLocation?.connections.contains(location.id) ?? false;
-
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: InkWell(
-                onTap: isConnected ? () => gameProvider.moveToLocation(location.id) : null,
-                borderRadius: BorderRadius.circular(12),
-                child: Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: isCurrent
-                        ? const Color(0xFFD4AF37).withOpacity(0.2)
-                        : Colors.white.withOpacity(0.05),
-                    border: Border.all(
-                      color: isCurrent
-                          ? const Color(0xFFD4AF37)
-                          : isConnected
-                              ? Colors.white.withOpacity(0.3)
-                              : Colors.white.withOpacity(0.1),
-                    ),
-                  ),
-                  child: Row(
-                    children: [
-                      Text(location.emoji, style: const TextStyle(fontSize: 24)),
-                      const SizedBox(width: 12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              location.displayName,
-                              style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                                color: isCurrent ? const Color(0xFFD4AF37) : null,
-                              ),
-                            ),
-                            if (isCurrent)
-                              Text(
-                                'Current Location',
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: const Color(0xFFD4AF37),
-                                ),
-                              )
-                            else if (isConnected)
-                              Text(
-                                'Tap to travel',
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: Colors.white54,
-                                ),
-                              )
-                            else
-                              Text(
-                                'Not connected',
-                                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                                  color: Colors.white30,
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                      if (isConnected && !isCurrent)
-                        const Icon(Icons.arrow_forward, color: Colors.white54),
-                    ],
-                  ),
-                ),
-              ),
-            );
-          }),
-
-          const SizedBox(height: 16),
-        ],
-      );
-    }).toList();
   }
 
   /// Build the "Look Around" section that toggles item visibility

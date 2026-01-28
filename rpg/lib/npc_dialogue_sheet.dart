@@ -68,7 +68,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
   }
 
   Future<void> _fetchNpcInitiation() async {
-    debugPrint('[UI] _fetchNpcInitiation called');
     final gameProvider = context.read<GameProvider>();
     final player = gameProvider.player;
     final world = gameProvider.world;
@@ -108,7 +107,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     int? streamingBubbleIndex;
     String accumulatedContent = '';
     final uiStreamStart = DateTime.now();
-    debugPrint('[UI] [$uiStreamStart] Starting to consume initiation stream...');
 
     try {
       await for (final chunk in NPCChatbotService.instance.initiateConversationStream(
@@ -123,7 +121,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         accumulatedContent += chunk;
         final chunkReceiveTime = DateTime.now();
         final elapsed = chunkReceiveTime.difference(uiStreamStart);
-        debugPrint('[UI] [$chunkReceiveTime] Initiation stream chunk received after ${elapsed.inMilliseconds}ms: "$chunk" (total: ${accumulatedContent.length} chars)');
 
         setState(() {
           // Create bubble on first chunk, update on subsequent chunks
@@ -151,7 +148,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
 
     final streamEndTime = DateTime.now();
     final totalDuration = streamEndTime.difference(uiStreamStart);
-    debugPrint('[UI] [$streamEndTime] Initiation stream completed after ${totalDuration.inMilliseconds}ms. Total content length: ${accumulatedContent.length}');
 
     if (mounted) {
       setState(() {
@@ -320,7 +316,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
   }
 
   Future<void> _sendMessage() async {
-    debugPrint('[UI] _sendMessage called');
     final message = _messageController.text.trim();
     if (message.isEmpty || _isLoading || _conversationEnded) {
       debugPrint('[UI] _sendMessage early return: empty=${ message.isEmpty}, loading=$_isLoading, ended=$_conversationEnded');
@@ -357,7 +352,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     int? streamingBubbleIndex;
     String accumulatedContent = '';
     final uiStreamStart = DateTime.now();
-    debugPrint('[UI] [$uiStreamStart] Starting to consume stream...');
     try {
       await for (final chunk in NPCChatbotService.instance.sendMessageStream(
         npc: npc,
@@ -372,7 +366,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         accumulatedContent += chunk;
         final chunkReceiveTime = DateTime.now();
         final elapsed = chunkReceiveTime.difference(uiStreamStart);
-        debugPrint('[UI] [$chunkReceiveTime] Stream chunk received after ${elapsed.inMilliseconds}ms: "$chunk" (total: ${accumulatedContent.length} chars)');
 
         setState(() {
           // Create bubble on first chunk, update on subsequent chunks
@@ -400,7 +393,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
 
     final streamEndTime = DateTime.now();
     final totalDuration = streamEndTime.difference(uiStreamStart);
-    debugPrint('[UI] [$streamEndTime] Stream completed after ${totalDuration.inMilliseconds}ms. Total content length: ${accumulatedContent.length}');
     if (mounted) {
       setState(() {
         _isLoading = false;

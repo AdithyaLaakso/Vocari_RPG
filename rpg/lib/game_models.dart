@@ -189,9 +189,6 @@ class Player {
   int get xpForNextLevel => (level * level * 100) + (level * 50);
   double get xpProgress => xp / xpForNextLevel;
   bool get canLevelUp => xp >= xpForNextLevel;
-  int get attackPower => stats.strength * 2 + level * 5;
-  int get defense => stats.constitution + level * 2;
-  int get magicPower => stats.intelligence * 2 + level * 3;
 }
 
 // Item Model
@@ -786,13 +783,11 @@ class LocationConnection {
   final String fromLocation;
   final String toLocation;
   final LocalizedString travelDescription;
-  final bool bidirectional;
 
   LocationConnection({
     required this.fromLocation,
     required this.toLocation,
     required this.travelDescription,
-    required this.bidirectional,
   });
 
   String get displayTravelDescription => travelDescription.current;
@@ -803,7 +798,6 @@ class LocationConnection {
         toLocation: json['to_location'] ?? '',
         travelDescription:
             LocalizedString.fromJson(json['travel_description'] ?? ''),
-        bidirectional: json['bidirectional'] ?? true,
       );
 }
 
@@ -1399,6 +1393,140 @@ class MapMetadata {
   }
 }
 
+// Graph Node for Location
+class LocationNode {
+  final String id;
+  final double x;
+  final double y;
+  final List<String> connections;
+  final String regionId;
+
+  LocationNode({
+    required this.id,
+    required this.x,
+    required this.y,
+    required this.connections,
+    required this.regionId,
+  });
+}
+
+// Graph Edge for Location Connection
+class LocationEdge {
+  final String fromId;
+  final String toId;
+
+  LocationEdge({
+    required this.fromId,
+    required this.toId,
+  });
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! LocationEdge) return false;
+    // Edges are undirected, so (a,b) == (b,a)
+    return (fromId == other.fromId && toId == other.toId) ||
+           (fromId == other.toId && toId == other.fromId);
+  }
+
+  @override
+  int get hashCode {
+    // Use a commutative hash so (a,b) and (b,a) have the same hash
+    final ids = [fromId, toId]..sort();
+    return ids[0].hashCode ^ ids[1].hashCode;
+  }
+}
+
+// Location Graph - Graph representation of all locations and their connections
+class LocationGraph {
+  final Map<String, LocationNode> nodes;
+  final Set<LocationEdge> edges;
+  final double minX;
+  final double maxX;
+  final double minY;
+  final double maxY;
+
+  LocationGraph({
+    required this.nodes,
+    required this.edges,
+    required this.minX,
+    required this.maxX,
+    required this.minY,
+    required this.maxY,
+  });
+
+  /// Get all location IDs connected to a given location
+  List<String> getConnectedLocations(String locationId) {
+    final node = nodes[locationId];
+    return node?.connections ?? [];
+  }
+
+  /// Check if two locations are directly connected
+  bool areConnected(String locationA, String locationB) {
+    return edges.contains(LocationEdge(fromId: locationA, toId: locationB));
+  }
+
+  /// Build a LocationGraph from a map of locations
+  factory LocationGraph.fromLocations(Map<String, Location> locations) {
+    final nodes = <String, LocationNode>{};
+    final edges = <LocationEdge>{};
+
+    double minX = double.infinity;
+    double maxX = double.negativeInfinity;
+    double minY = double.infinity;
+    double maxY = double.negativeInfinity;
+
+    // First pass: create all nodes
+    for (final location in locations.values) {
+      final x = (location.coordinates['x'] ?? 0).toDouble();
+      final y = (location.coordinates['y'] ?? 0).toDouble();
+
+      // Track bounds
+      if (x < minX) minX = x;
+      if (x > maxX) maxX = x;
+      if (y < minY) minY = y;
+      if (y > maxY) maxY = y;
+
+      nodes[location.id] = LocationNode(
+        id: location.id,
+        x: x,
+        y: y,
+        connections: List<String>.from(location.connectedLocations),
+        regionId: location.regionId,
+      );
+    }
+
+    // Second pass: create edges from connections
+    for (final node in nodes.values) {
+      for (final connectedId in node.connections) {
+        // Only add edge if the connected location exists
+        if (nodes.containsKey(connectedId)) {
+          edges.add(LocationEdge(fromId: node.id, toId: connectedId));
+        }
+      }
+    }
+
+    // Handle edge case where all locations have the same coordinates
+    if (minX == maxX) {
+      minX -= 1;
+      maxX += 1;
+    }
+    if (minY == maxY) {
+      minY -= 1;
+      maxY += 1;
+    }
+
+    return LocationGraph(
+      nodes: nodes,
+      edges: edges,
+      minX: minX,
+      maxX: maxX,
+      minY: minY,
+      maxY: maxY,
+    );
+  }
+}
+
 // Game World Data - Updated for language learning
 class GameWorld {
   final WorldLore? lore;
@@ -1411,6 +1539,7 @@ class GameWorld {
   final Map<String, Item> items;
   final Map<String, QuestLine> questLines;
   final Map<String, Quest> quests;
+  final LocationGraph locationGraph;
 
   GameWorld({
     this.lore,
@@ -1423,6 +1552,7 @@ class GameWorld {
     required this.items,
     required this.questLines,
     required this.quests,
+    required this.locationGraph,
   });
 
   factory GameWorld.fromJson(Map<String, dynamic> json) {
@@ -1497,6 +1627,9 @@ class GameWorld {
       }
     }
 
+    // Build the location graph from the parsed locations
+    final locationGraph = LocationGraph.fromLocations(locationsMap);
+
     return GameWorld(
       lore: json['lore'] != null ? WorldLore.fromJson(json['lore']) : null,
       mapMetadata: json['map_metadata'] != null
@@ -1512,6 +1645,7 @@ class GameWorld {
           {},
       questLines: questLinesMap,
       quests: questsMap,
+      locationGraph: locationGraph,
     );
   }
 }

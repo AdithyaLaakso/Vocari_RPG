@@ -875,18 +875,14 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       };
 
       final bodyJson = jsonEncode(bodyMap);
-      debugPrint('[SERVICE] Request body length: ${bodyJson.length}');
-      debugPrint('[SERVICE] Request body: $bodyJson');
 
       final bodyBytes = utf8.encode(bodyJson);
       request.add(bodyBytes);
 
       final requestStartTime = DateTime.now();
-      debugPrint('[SERVICE] [$requestStartTime] Sending HTTP request...');
       response = await request.close();
       final responseTime = DateTime.now();
       final requestDuration = responseTime.difference(requestStartTime);
-      debugPrint('[SERVICE] [$responseTime] Got response with status: ${response.statusCode} (took ${requestDuration.inMilliseconds}ms)');
 
       if (response.statusCode != 200) {
         final errorBody = await response.transform(utf8.decoder).join();
@@ -898,12 +894,10 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       int chunkCount = 0;
       final streamStartTime = DateTime.now();
 
-      debugPrint('[SSE] [$streamStartTime] Starting to listen to response stream...');
       await for (final chunk in response.transform(utf8.decoder)) {
         chunkCount++;
         final chunkTime = DateTime.now();
         final elapsed = chunkTime.difference(streamStartTime);
-        debugPrint('[SSE] [$chunkTime] Chunk #$chunkCount received after ${elapsed.inMilliseconds}ms (${chunk.length} chars): ${chunk.length > 100 ? "${chunk.substring(0, 100)}..." : chunk}');
         buffer += chunk;
 
         // Process complete SSE messages (delimited by \n\n)
@@ -915,18 +909,15 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
           // Parse SSE data
           if (message.startsWith('data: ')) {
             final jsonStr = message.substring(6);
-            debugPrint('[SSE] Parsing SSE message: ${jsonStr.length > 200 ? "${jsonStr.substring(0, 200)}..." : jsonStr}');
             try {
               final data = jsonDecode(jsonStr);
               final type = data['type'];
-              debugPrint('[SSE] Message type: $type');
 
               if (type == 'content') {
                 // Yield streaming content immediately
                 final contentChunk = data['content'] as String;
                 final yieldTime = DateTime.now();
                 final elapsed = yieldTime.difference(streamStartTime);
-                debugPrint('[SSE] [$yieldTime] >>> YIELDING to UI after ${elapsed.inMilliseconds}ms: "${contentChunk.length > 50 ? "${contentChunk.substring(0, 50)}..." : contentChunk}" (${contentChunk.length} chars)');
                 yield contentChunk;
               } else if (type == 'done') {
                 // Handle tool calls if present

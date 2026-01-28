@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'providers/game_provider.dart';
 import 'screens/game_screen.dart';
 
@@ -22,15 +23,15 @@ class RPGGame extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => GameProvider()..loadGameData(),
       child: MaterialApp(
-        title: 'Realm of Shadows',
+        title: 'Vocari',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           useMaterial3: true,
           brightness: Brightness.dark,
           colorScheme: const ColorScheme.dark(
-            primary: Color(0xFFD4AF37), // Gold
-            secondary: Color(0xFF8B4513), // Saddle Brown
-            tertiary: Color(0xFF4A0E4E), // Purple
+            primary: Color(0xFFD4AF37),
+            secondary: Color(0xFF8B4513),
+            tertiary: Color(0xFF4A0E4E),
             surface: Color(0xFF1A1A2E),
             error: Color(0xFFCF6679),
           ),

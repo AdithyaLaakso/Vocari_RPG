@@ -3,8 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
 import '../services/narrator_service.dart';
 
-/// A floating panel that displays narrator messages
-/// This is the tutor that exists outside the game world
 class NarratorPanel extends StatelessWidget {
   const NarratorPanel({super.key});
 

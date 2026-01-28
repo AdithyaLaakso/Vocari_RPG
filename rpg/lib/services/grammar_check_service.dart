@@ -176,13 +176,8 @@ class GrammarCheckService extends ChangeNotifier {
   GrammarCheckService._internal();
 
   // API configuration
-  String _apiBaseUrl = 'http://localhost:8000';
+  static const String _grammarCheckUrl = 'https://vocari-api.beebs.dev/api/grammar_check';
   bool _isEnabled = true;
-
-  /// Set the API base URL
-  void setApiUrl(String url) {
-    _apiBaseUrl = url;
-  }
 
   /// Enable/disable grammar checking
   void setEnabled(bool enabled) {
@@ -212,7 +207,7 @@ class GrammarCheckService extends ChangeNotifier {
     try {
       final response = await http
           .post(
-            Uri.parse('$_apiBaseUrl/api/grammar_check'),
+            Uri.parse(_grammarCheckUrl),
             headers: {'Content-Type': 'application/json'},
             body: jsonEncode({
               'text': text,
@@ -220,10 +215,10 @@ class GrammarCheckService extends ChangeNotifier {
               if (motherTongue != null) 'mother_tongue': motherTongue,
               if (level != null) 'level': level,
             }),
-          )
-          .timeout(const Duration(seconds: 10));
+          );
 
       if (response.statusCode == 200) {
+        debugPrint('[GRAMMAR] grammar check successful');
         final data = jsonDecode(response.body);
         return GrammarCheckResult.fromJson(data);
       } else {

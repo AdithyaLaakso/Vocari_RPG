@@ -9,7 +9,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from openai import OpenAI, AsyncOpenAI
-import httpx
 import re
 
 app = FastAPI(title="NPC Chatbot Backend", version="1.0.0")
@@ -185,68 +184,6 @@ def detect_skill_demonstrations(text: str, matches: list) -> List[str]:
         skill_ids.add("pragmatic_basic_responses")
 
     return list(skill_ids)
-
-@app.post("/api/grammar_check", response_model=GrammarCheckResponse)
-async def check_grammar(request: GrammarCheckRequest):
-    """
-    Check grammar using LanguageTool API and extract language learning metrics.
-    Proxies to https://vocari.beebs.dev/api/grammar_check
-    Falls back to local analysis if external API is unavailable.
-    """
-    matches = []
-    detected_language = None
-    api_error = None
-
-    try:
-        # Prepare LanguageTool request
-        form_data = {
-            "text": request.text,
-            "language": request.language,
-        }
-
-        if request.mother_tongue:
-            form_data["motherTongue"] = request.mother_tongue
-        if request.level:
-            form_data["level"] = request.level
-
-        # Call Vocari grammar check API with shorter timeout
-        async with httpx.AsyncClient(timeout=10.0) as http_client:
-            response = await http_client.post(
-                "https://vocari.beebs.dev/api/grammar_check",
-                data=form_data,
-            )
-
-            if response.status_code == 200:
-                result = response.json()
-                matches = result.get("matches", [])
-                detected_language = result.get("language", {}).get("detectedLanguage", {}).get("code")
-            else:
-                api_error = f"API returned status {response.status_code}"
-                print(f"Grammar check API error: {api_error}")
-
-    except httpx.TimeoutException:
-        api_error = "timeout"
-        print("Grammar check API timeout - using local analysis only")
-    except httpx.RequestError as e:
-        api_error = str(e)
-        print(f"Grammar check API unavailable: {api_error} - using local analysis only")
-    except Exception as e:
-        api_error = str(e)
-        print(f"Grammar check error: {api_error} - using local analysis only")
-
-    # Always perform local analysis (works even if API failed)
-    vocab_correct = extract_vocab_from_text(request.text)
-    grammar_patterns = extract_grammar_patterns(matches)
-    skill_demonstrations = detect_skill_demonstrations(request.text, matches)
-
-    return GrammarCheckResponse(
-        matches=matches,
-        vocab_correct=vocab_correct,
-        grammar_patterns=grammar_patterns,
-        skill_demonstrations=skill_demonstrations,
-        original_text=request.text,
-        detected_language=detected_language,
-    )
 
 def validate_and_fix_messages(messages: list) -> list:
     """

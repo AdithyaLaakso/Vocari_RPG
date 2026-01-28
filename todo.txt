@@ -1,0 +1,6 @@
+* Roll the app into Vocari as a seperate package (LOTS of work for auth).
+* If the user's knowledge of a word that the model uses is weak, show a card.
+* Model should always output text
+* Validate graph completeness (new locations must be connected)
+* Fix grammar check route
+* Tutor interjects with help when user is talking to the model
