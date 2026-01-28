@@ -860,16 +860,13 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
     try {
       final uri = Uri.parse('$_apiBaseUrl/chat/stream');
 
-      // Use dart:io HttpClient for true streaming support
       httpClient = HttpClient();
       request = await httpClient.postUrl(uri);
 
-      // Set headers
       request.headers.set('Content-Type', 'application/json');
       request.headers.set('Accept', 'text/event-stream');
       request.headers.set('Cache-Control', 'no-cache');
 
-      // Write body
       final bodyMap = {
         'messages': messages.map((m) => m.toJson()).toList(),
         'tools': tools,
@@ -881,11 +878,9 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       debugPrint('[SERVICE] Request body length: ${bodyJson.length}');
       debugPrint('[SERVICE] Request body: $bodyJson');
 
-      // Explicitly encode as UTF-8 bytes
       final bodyBytes = utf8.encode(bodyJson);
       request.add(bodyBytes);
 
-      // Send request and get response
       final requestStartTime = DateTime.now();
       debugPrint('[SERVICE] [$requestStartTime] Sending HTTP request...');
       response = await request.close();
@@ -894,13 +889,11 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       debugPrint('[SERVICE] [$responseTime] Got response with status: ${response.statusCode} (took ${requestDuration.inMilliseconds}ms)');
 
       if (response.statusCode != 200) {
-        // Read error response body
         final errorBody = await response.transform(utf8.decoder).join();
         debugPrint('[SERVICE] Error response body: $errorBody');
         return;
       }
 
-      // Process SSE stream - use streaming UTF-8 decoder to handle multi-byte characters across chunk boundaries
       String buffer = '';
       int chunkCount = 0;
       final streamStartTime = DateTime.now();
@@ -936,13 +929,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
                 debugPrint('[SSE] [$yieldTime] >>> YIELDING to UI after ${elapsed.inMilliseconds}ms: "${contentChunk.length > 50 ? "${contentChunk.substring(0, 50)}..." : contentChunk}" (${contentChunk.length} chars)');
                 yield contentChunk;
               } else if (type == 'done') {
-                // Final message with potential tool calls
-                final content = data['content'] as String?;
-                if (content != null && content.isNotEmpty) {
-                  // Any remaining content
-                  yield content;
-                }
-
                 // Handle tool calls if present
                 if (data['tool_calls'] != null) {
                   final toolCalls = (data['tool_calls'] as List)
