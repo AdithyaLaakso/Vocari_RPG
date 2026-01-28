@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:provider/provider.dart';
@@ -17,27 +19,35 @@ class NPCDialogueSheet extends StatefulWidget {
   State<NPCDialogueSheet> createState() => _NPCDialogueSheetState();
 }
 
-class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
+class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerProviderStateMixin {
   NPC get npc => widget.npc;
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final FocusNode _focusNode = FocusNode();
 
-  List<_ChatBubble> _chatBubbles = [];
+  final List<_ChatBubble> _chatBubbles = [];
   bool _isLoading = false;
   bool _conversationEnded = false;
 
   // Vocabulary learned in this conversation
   final List<Map<String, String>> _learnedVocabulary = [];
 
+  // Animation controller for typing indicator dots
+  late final AnimationController _typingDotsController;
+
   @override
   void initState() {
     super.initState();
+    _typingDotsController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 1200),
+    )..repeat();
     _initializeConversation();
   }
 
   @override
   void dispose() {
+    _typingDotsController.dispose();
     _messageController.dispose();
     _scrollController.dispose();
     _focusNode.dispose();
@@ -873,9 +883,9 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                _buildDot(0),
-                _buildDot(1),
-                _buildDot(2),
+                _buildDot(0, 3),
+                _buildDot(1, 3),
+                _buildDot(2, 3),
               ],
             ),
           ),
@@ -884,23 +894,28 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
     );
   }
 
-  Widget _buildDot(int index) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 2),
-      child: Container(
-        width: 8,
-        height: 8,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.white54,
-        ),
-      )
-          .animate(
-            onPlay: (controller) => controller.repeat(),
-          )
-          .fadeIn(delay: Duration(milliseconds: index * 200))
-          .then()
-          .fadeOut(delay: const Duration(milliseconds: 400)),
+  Widget _buildDot(int index, int totalDots) {
+    // Each dot is offset by 1/3 of the animation cycle
+    const phaseOffset = 1.0 / 3.0;
+
+    return AnimatedBuilder(
+      animation: _typingDotsController,
+      builder: (context, child) {
+        // Calculate phase for this dot (0.0 to 1.0)
+        final phase = (_typingDotsController.value + (totalDots - index) * phaseOffset) % 1.0;
+        // Use a sine wave for smooth pulsing (0.3 to 1.0 opacity range)
+        final opacity = 0.3 + 0.7 * (0.5 + 0.5 * math.sin(phase * 2 * math.pi)).abs();
+
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 2),
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white.withOpacity(opacity),
+          ),
+        );
+      },
     );
   }
 
