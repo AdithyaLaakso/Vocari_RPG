@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import '../language_system.dart';
 
 /// Represents a language skill that can be leveled up
@@ -155,6 +156,7 @@ TriggerType parseTriggerType(String type) {
     case 'total_skill_points':
       return TriggerType.totalSkillPoints;
     default:
+      debugPrint("[WARNING] invalid trigger type");
       return TriggerType.vocabUsedCorrectly;
   }
 }
@@ -163,7 +165,7 @@ TriggerType parseTriggerType(String type) {
 class TriggerCondition {
   final TriggerType triggerType;
   final String targetId;
-  final TriggerOperator operator;
+  final TriggerOperator opCode;
   final int threshold;
   final String? logic; // AND or OR for compound triggers
   final List<TriggerCondition>? conditions; // Sub-conditions for compound triggers
@@ -171,7 +173,7 @@ class TriggerCondition {
   TriggerCondition({
     required this.triggerType,
     required this.targetId,
-    required this.operator,
+    required this.opCode,
     required this.threshold,
     this.logic,
     this.conditions,
@@ -183,7 +185,7 @@ class TriggerCondition {
       return TriggerCondition(
         triggerType: TriggerType.vocabUsedCorrectly, // Placeholder for compound
         targetId: '',
-        operator: TriggerOperator.greaterThanOrEqual,
+        opCode: TriggerOperator.greaterThanOrEqual,
         threshold: 0,
         logic: json['logic'],
         conditions: (json['conditions'] as List?)
@@ -196,7 +198,7 @@ class TriggerCondition {
     return TriggerCondition(
       triggerType: parseTriggerType(json['trigger_type'] ?? ''),
       targetId: json['target_id'] ?? '',
-      operator: parseTriggerOperator(json['operator'] ?? '>='),
+      opCode: parseTriggerOperator(json['operator'] ?? '>='),
       threshold: json['threshold'] ?? 0,
     );
   }

@@ -161,7 +161,7 @@ class TriggerEvaluator {
     );
 
     // Compare against threshold using operator
-    return _compareValue(currentValue, condition.operator, condition.threshold);
+    return _compareValue(currentValue, condition.opCode, condition.threshold);
   }
 
   /// Get current value for a trigger type
