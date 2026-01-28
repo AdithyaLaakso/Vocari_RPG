@@ -1,7 +1,10 @@
 import os
 import json
+import sys
+import asyncio
+import datetime
 from typing import Optional, List, AsyncGenerator
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -301,10 +304,14 @@ class StreamChatRequest(BaseModel):
 
 
 async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, None]:
-    """
-    Generate streaming chat response with tool calls.
-    Yields SSE formatted data.
-    """
+    print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Starting stream generation for NPC: {request.npc_id}")
+    print(f"[GENERATE_STREAM] Message count: {request.message_count}, Tools count: {len(request.tools)}")
+    sys.stdout.flush()
+
+    # Send an SSE comment immediately to establish the stream and prevent buffering
+    yield ": stream-start\n\n"
+    await asyncio.sleep(0)  # Force flush
+
     try:
         # Convert messages to OpenAI format
         openai_messages = []
@@ -348,21 +355,29 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         # Apply guardrails: Only allow tool calls after initial exchange
         # message_count: 0 = NPC opening, 1 = user first message, 2+ = can use tools
         allow_tools = request.message_count >= 2
+        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Allow tools: {allow_tools}")
+        sys.stdout.flush()
 
         # Create streaming response using async client
+        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Creating OpenAI stream...")
+        sys.stdout.flush()
         stream = await async_client.chat.completions.create(
-            model="gpt-5-mini",
+            model="gpt-4o-mini",
             messages=openai_messages,
             tools=openai_tools if openai_tools and allow_tools else None,
             tool_choice="auto" if openai_tools and allow_tools else None,
             stream=True,
         )
+        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] OpenAI stream created, starting to iterate chunks...")
+        sys.stdout.flush()
 
         collected_content = ""
         collected_tool_calls = []
         current_tool_call = None
+        chunk_count = 0
 
         async for chunk in stream:
+            chunk_count += 1
             delta = chunk.choices[0].delta if chunk.choices else None
             if not delta:
                 continue
@@ -370,8 +385,12 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
             # Handle content streaming
             if delta.content:
                 collected_content += delta.content
-                print(f"[STREAM] Yielding chunk: {repr(delta.content[:50])}..." if len(delta.content) > 50 else f"[STREAM] Yielding chunk: {repr(delta.content)}")
-                yield f"data: {json.dumps({'type': 'content', 'content': delta.content})}\n\n"
+                yield_data = f"data: {json.dumps({'type': 'content', 'content': delta.content})}\n\n"
+                print(f"[STREAM] [{datetime.datetime.now()}] Chunk #{chunk_count}: Yielding: {repr(delta.content)}")
+                sys.stdout.flush()
+                yield yield_data
+                # Force event loop to process I/O immediately
+                await asyncio.sleep(0)
 
             # Handle tool calls
             if delta.tool_calls:
@@ -396,6 +415,9 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
                                 current["function"]["arguments"] += tc_delta.function.arguments
 
         # Send final message with complete content and any tool calls
+        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Stream complete. Total chunks: {chunk_count}, Total content length: {len(collected_content)}, Tool calls: {len(collected_tool_calls)}")
+        sys.stdout.flush()
+
         final_response = {
             "type": "done",
             "role": "assistant",
@@ -403,6 +425,8 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         }
 
         if collected_tool_calls:
+            print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Sending final response with {len(collected_tool_calls)} tool calls")
+            sys.stdout.flush()
             final_response["tool_calls"] = [
                 {
                     "id": tc["id"],
@@ -415,7 +439,10 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
                 for tc in collected_tool_calls
             ]
 
+        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Yielding final 'done' message")
+        sys.stdout.flush()
         yield f"data: {json.dumps(final_response)}\n\n"
+        await asyncio.sleep(0)  # Force flush
 
     except Exception as e:
         import traceback
@@ -446,4 +473,11 @@ async def chat_stream(request: StreamChatRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Disable buffering for true streaming
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=8000,
+        timeout_keep_alive=300,
+        log_level="info"
+    )

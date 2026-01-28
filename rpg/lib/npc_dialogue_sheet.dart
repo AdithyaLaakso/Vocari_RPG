@@ -93,19 +93,12 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
         .whereType<Quest>()
         .toList();
 
-    // Add a placeholder bubble for streaming response
-    final streamingBubbleIndex = _chatBubbles.length;
-    setState(() {
-      _chatBubbles.add(_ChatBubble(
-        text: '',
-        isUser: false,
-        npcName: npc.displayName,
-      ));
-    });
-
     // Use streaming API - update UI as content arrives
+    // Don't create placeholder bubble - only add bubble when we have content
+    int? streamingBubbleIndex;
     String accumulatedContent = '';
-    debugPrint('[UI] Starting to consume initiation stream...');
+    final uiStreamStart = DateTime.now();
+    debugPrint('[UI] [$uiStreamStart] Starting to consume initiation stream...');
 
     try {
       await for (final chunk in NPCChatbotService.instance.initiateConversationStream(
@@ -118,15 +111,27 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
         if (!mounted) break;
 
         accumulatedContent += chunk;
-        debugPrint('[UI] Initiation stream chunk received: "$chunk" (total: ${accumulatedContent.length} chars)');
+        final chunkReceiveTime = DateTime.now();
+        final elapsed = chunkReceiveTime.difference(uiStreamStart);
+        debugPrint('[UI] [$chunkReceiveTime] Initiation stream chunk received after ${elapsed.inMilliseconds}ms: "$chunk" (total: ${accumulatedContent.length} chars)');
 
-        // Update the streaming bubble with accumulated content
         setState(() {
-          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
-            text: accumulatedContent,
-            isUser: false,
-            npcName: npc.displayName,
-          );
+          // Create bubble on first chunk, update on subsequent chunks
+          if (streamingBubbleIndex == null) {
+            streamingBubbleIndex = _chatBubbles.length;
+            _chatBubbles.add(_ChatBubble(
+              text: accumulatedContent,
+              isUser: false,
+              npcName: npc.displayName,
+            ));
+          } else {
+            // Update existing bubble with accumulated content
+            _chatBubbles[streamingBubbleIndex!] = _ChatBubble(
+              text: accumulatedContent,
+              isUser: false,
+              npcName: npc.displayName,
+            );
+          }
         });
         _scrollToBottom();
       }
@@ -134,20 +139,23 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
       debugPrint('[UI] Error in initiation stream: $e');
     }
 
-    debugPrint('[UI] Initiation stream completed. Total content length: ${accumulatedContent.length}');
+    final streamEndTime = DateTime.now();
+    final totalDuration = streamEndTime.difference(uiStreamStart);
+    debugPrint('[UI] [$streamEndTime] Initiation stream completed after ${totalDuration.inMilliseconds}ms. Total content length: ${accumulatedContent.length}');
 
     if (mounted) {
       setState(() {
         _isLoading = false;
         // Ensure final content is set (in case stream ended without content)
         if (accumulatedContent.isEmpty) {
-          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
+          // No content was received from stream - add fallback greeting
+          _chatBubbles.add(_ChatBubble(
             text: npc.displayGreeting.isNotEmpty
                 ? npc.displayGreeting
                 : 'Hello, traveler!',
             isUser: false,
             npcName: npc.displayName,
-          );
+          ));
         }
       });
       _scrollToBottom();
@@ -334,19 +342,12 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
     debugPrint('NPC ${npc.id} available quests: ${npcAvailableQuests.map((q) => q.id).toList()}');
     debugPrint('Active quests: ${activeQuests.map((q) => q.id).toList()}');
 
-    // Add a placeholder bubble for streaming response
-    final streamingBubbleIndex = _chatBubbles.length;
-    setState(() {
-      _chatBubbles.add(_ChatBubble(
-        text: '',
-        isUser: false,
-        npcName: npc.displayName,
-      ));
-    });
-
     // Use streaming API - update UI as content arrives
+    // Don't create placeholder bubble - only add bubble when we have content
+    int? streamingBubbleIndex;
     String accumulatedContent = '';
-    debugPrint('[UI] Starting to consume stream...');
+    final uiStreamStart = DateTime.now();
+    debugPrint('[UI] [$uiStreamStart] Starting to consume stream...');
     try {
       await for (final chunk in NPCChatbotService.instance.sendMessageStream(
         npc: npc,
@@ -359,15 +360,27 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
         if (!mounted) break;
 
         accumulatedContent += chunk;
-        debugPrint('Stream chunk received: "$chunk" (total: ${accumulatedContent.length} chars)');
+        final chunkReceiveTime = DateTime.now();
+        final elapsed = chunkReceiveTime.difference(uiStreamStart);
+        debugPrint('[UI] [$chunkReceiveTime] Stream chunk received after ${elapsed.inMilliseconds}ms: "$chunk" (total: ${accumulatedContent.length} chars)');
 
-        // Update the streaming bubble with accumulated content
         setState(() {
-          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
-            text: accumulatedContent,
-            isUser: false,
-            npcName: npc.displayName,
-          );
+          // Create bubble on first chunk, update on subsequent chunks
+          if (streamingBubbleIndex == null) {
+            streamingBubbleIndex = _chatBubbles.length;
+            _chatBubbles.add(_ChatBubble(
+              text: accumulatedContent,
+              isUser: false,
+              npcName: npc.displayName,
+            ));
+          } else {
+            // Update existing bubble with accumulated content
+            _chatBubbles[streamingBubbleIndex!] = _ChatBubble(
+              text: accumulatedContent,
+              isUser: false,
+              npcName: npc.displayName,
+            );
+          }
         });
         _scrollToBottom();
       }
@@ -375,17 +388,20 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> {
       debugPrint('[UI] Streaming error: $e');
     }
 
-    debugPrint('[UI] Stream completed. Total content length: ${accumulatedContent.length}');
+    final streamEndTime = DateTime.now();
+    final totalDuration = streamEndTime.difference(uiStreamStart);
+    debugPrint('[UI] [$streamEndTime] Stream completed after ${totalDuration.inMilliseconds}ms. Total content length: ${accumulatedContent.length}');
     if (mounted) {
       setState(() {
         _isLoading = false;
         // Ensure final content is set (in case stream ended without content)
         if (accumulatedContent.isEmpty) {
-          _chatBubbles[streamingBubbleIndex] = _ChatBubble(
+          // No content was received from stream - add error message
+          _chatBubbles.add(_ChatBubble(
             text: 'I seem to be having trouble responding...',
             isUser: false,
             npcName: npc.displayName,
-          );
+          ));
         }
       });
       _scrollToBottom();

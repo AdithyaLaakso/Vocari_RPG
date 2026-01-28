@@ -876,14 +876,22 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         'npc_id': npc.id,
         'message_count': messageCount,
       };
-      final body = jsonEncode(bodyMap);
-      debugPrint('[SERVICE] Request body (first 500 chars): ${body.length > 500 ? body.substring(0, 500) : body}...');
-      request.write(body);
+
+      final bodyJson = jsonEncode(bodyMap);
+      debugPrint('[SERVICE] Request body length: ${bodyJson.length}');
+      debugPrint('[SERVICE] Request body: $bodyJson');
+
+      // Explicitly encode as UTF-8 bytes
+      final bodyBytes = utf8.encode(bodyJson);
+      request.add(bodyBytes);
 
       // Send request and get response
-      debugPrint('[SERVICE] Sending HTTP request...');
+      final requestStartTime = DateTime.now();
+      debugPrint('[SERVICE] [$requestStartTime] Sending HTTP request...');
       response = await request.close();
-      debugPrint('[SERVICE] Got response with status: ${response.statusCode}');
+      final responseTime = DateTime.now();
+      final requestDuration = responseTime.difference(requestStartTime);
+      debugPrint('[SERVICE] [$responseTime] Got response with status: ${response.statusCode} (took ${requestDuration.inMilliseconds}ms)');
 
       if (response.statusCode != 200) {
         // Read error response body
@@ -892,13 +900,17 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         return;
       }
 
-      // Process SSE stream - transform bytes to strings as they arrive
+      // Process SSE stream - use streaming UTF-8 decoder to handle multi-byte characters across chunk boundaries
       String buffer = '';
+      int chunkCount = 0;
+      final streamStartTime = DateTime.now();
 
-      await for (final bytes in response) {
-        // Decode bytes to string immediately as they arrive
-        final chunk = utf8.decode(bytes);
-        debugPrint('[SSE] Received ${bytes.length} bytes: ${chunk.length > 100 ? "${chunk.substring(0, 100)}..." : chunk}');
+      debugPrint('[SSE] [$streamStartTime] Starting to listen to response stream...');
+      await for (final chunk in response.transform(utf8.decoder)) {
+        chunkCount++;
+        final chunkTime = DateTime.now();
+        final elapsed = chunkTime.difference(streamStartTime);
+        debugPrint('[SSE] [$chunkTime] Chunk #$chunkCount received after ${elapsed.inMilliseconds}ms (${chunk.length} chars): ${chunk.length > 100 ? "${chunk.substring(0, 100)}..." : chunk}');
         buffer += chunk;
 
         // Process complete SSE messages (delimited by \n\n)
@@ -910,14 +922,19 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
           // Parse SSE data
           if (message.startsWith('data: ')) {
             final jsonStr = message.substring(6);
+            debugPrint('[SSE] Parsing SSE message: ${jsonStr.length > 200 ? "${jsonStr.substring(0, 200)}..." : jsonStr}');
             try {
               final data = jsonDecode(jsonStr);
               final type = data['type'];
+              debugPrint('[SSE] Message type: $type');
 
               if (type == 'content') {
                 // Yield streaming content immediately
-                debugPrint('[SSE] Yielding content chunk to UI: "${data['content']}"');
-                yield data['content'] as String;
+                final contentChunk = data['content'] as String;
+                final yieldTime = DateTime.now();
+                final elapsed = yieldTime.difference(streamStartTime);
+                debugPrint('[SSE] [$yieldTime] >>> YIELDING to UI after ${elapsed.inMilliseconds}ms: "${contentChunk.length > 50 ? "${contentChunk.substring(0, 50)}..." : contentChunk}" (${contentChunk.length} chars)');
+                yield contentChunk;
               } else if (type == 'done') {
                 // Final message with potential tool calls
                 final content = data['content'] as String?;
