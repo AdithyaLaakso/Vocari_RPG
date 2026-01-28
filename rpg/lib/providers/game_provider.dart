@@ -270,6 +270,10 @@ class GameProvider extends ChangeNotifier {
 
       _isLoading = false;
       _error = null;
+
+      // Auto-create character with hardcoded name
+      createNewCharacter('adi');
+
       notifyListeners();
     } catch (e, stackTrace) {
       _isLoading = false;

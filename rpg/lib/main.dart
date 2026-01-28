@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'providers/game_provider.dart';
-import 'screens/title_screen.dart';
+import 'screens/game_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -108,7 +108,7 @@ class RPGGame extends StatelessWidget {
             color: Color(0xFFD4AF37),
           ),
         ),
-        home: const TitleScreen(),
+        home: const GameScreen(),
       ),
     );
   }
