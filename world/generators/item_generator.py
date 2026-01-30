@@ -140,7 +140,6 @@ Native language: {self.native_language}"""
         items_data = self.call_openai_json(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
-            max_tokens=8192
         )
 
         # Assign deterministic IDs to all items

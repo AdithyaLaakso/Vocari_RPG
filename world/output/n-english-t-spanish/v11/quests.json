@@ -1,0 +1,451 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Message for Elena",
+        "target_language": "Mensaje para Elena"
+      },
+      "description": {
+        "native_language": "Deliver a message from Miguel to Elena.",
+        "target_language": "Entrega un mensaje de Miguel a Elena."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "message",
+          "target_language": "mensaje"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "thank you",
+          "target_language": "gracias"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Receive the message from Miguel.",
+            "target_language": "Recibe el mensaje de Miguel."
+          },
+          "completion_type": "received_item",
+          "completion_criteria": {
+            "target_id": "item_4_coin"
+          },
+          "id": "quest_12_message_for_elena_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to the Village Square and find Elena.",
+            "target_language": "Ve a la Plaza del Pueblo y encuentra a Elena."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_1_village_square"
+          },
+          "id": "quest_12_message_for_elena_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the message to Elena.",
+            "target_language": "Entrega el mensaje a Elena."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_2_elena"
+          },
+          "id": "quest_12_message_for_elena_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Please deliver this message to Elena for me.",
+          "target_language": "Por favor, entrega este mensaje a Elena por mí."
+        },
+        "quest_complete": {
+          "native_language": "Thank you for delivering the message!",
+          "target_language": "¡Gracias por entregar el mensaje!"
+        }
+      },
+      "id": "quest_12_message_for_elena",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Learn About the Weather",
+        "target_language": "Aprende Sobre el Clima"
+      },
+      "description": {
+        "native_language": "Ask villagers about today's weather.",
+        "target_language": "Pregunta a los aldeanos sobre el clima de hoy."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "weather",
+          "target_language": "clima"
+        },
+        {
+          "native_language": "today",
+          "target_language": "hoy"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "preguntar"
+        }
+      ],
+      "grammar_points": [
+        "question formation",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to villagers in the Village Square about the weather.",
+            "target_language": "Habla con los aldeanos en la Plaza del Pueblo sobre el clima."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_miguel"
+          },
+          "id": "quest_15_learn_about_the_weather_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Report what you learned to María.",
+            "target_language": "Informa a María lo que aprendiste."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_mar_a"
+          },
+          "id": "quest_15_learn_about_the_weather_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out what the weather is like today?",
+          "target_language": "¿Puedes averiguar cómo está el clima hoy?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the weather report!",
+          "target_language": "¡Gracias por el informe del clima!"
+        }
+      },
+      "id": "quest_15_learn_about_the_weather",
+      "giver_npc_id": "npc_6_mar_a"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Water for Elena",
+        "target_language": "Agua para Elena"
+      },
+      "description": {
+        "native_language": "Bring water from the Wishing Well to Elena.",
+        "target_language": "Lleva agua del Pozo de los Deseos a Elena."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "well",
+          "target_language": "pozo"
+        },
+        {
+          "native_language": "bring",
+          "target_language": "llevar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Wishing Well to collect water.",
+            "target_language": "Ve al Pozo de los Deseos para recoger agua."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_wishing_well"
+          },
+          "id": "quest_32_water_for_elena_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Collect water from the Wishing Well.",
+            "target_language": "Recoge agua del Pozo de los Deseos."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_32_water_for_elena_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the water to Elena.",
+            "target_language": "Lleva el agua a Elena."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_32_water_for_elena_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Elena needs water from the Wishing Well. Can you help?",
+          "target_language": "Elena necesita agua del Pozo de los Deseos. ¿Puedes ayudar?"
+        },
+        "quest_complete": {
+          "native_language": "Elena is grateful for the water!",
+          "target_language": "¡Elena está agradecida por el agua!"
+        }
+      },
+      "id": "quest_32_water_for_elena",
+      "giver_npc_id": "npc_2_elena"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "The Missing Apple",
+        "target_language": "La Manzana Desaparecida"
+      },
+      "description": {
+        "native_language": "Help Miguel find an apple in the Village Square.",
+        "target_language": "Ayuda a Miguel a encontrar una manzana en la Plaza del Pueblo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "village",
+          "target_language": "pueblo"
+        },
+        {
+          "native_language": "square",
+          "target_language": "plaza"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Find an apple in the Village Square.",
+            "target_language": "Encuentra una manzana en la Plaza del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_41_the_missing_apple_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Return the apple to Miguel.",
+            "target_language": "Devuelve la manzana a Miguel."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_41_the_missing_apple_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find an apple for me?",
+          "target_language": "¿Puedes encontrar una manzana para mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_41_the_missing_apple",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Colors of the Garden",
+        "target_language": "Colores del Jardín"
+      },
+      "description": {
+        "native_language": "Explore the Colorful Garden and gather a flower for Rosa.",
+        "target_language": "Explora el Jardín Colorido y recoge una flor para Rosa."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "flower",
+          "target_language": "flor"
+        },
+        {
+          "native_language": "garden",
+          "target_language": "jardín"
+        },
+        {
+          "native_language": "color",
+          "target_language": "color"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "existential statements"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather a flower in the Colorful Garden.",
+            "target_language": "Recoge una flor en el Jardín Colorido."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_5_flower"
+          },
+          "id": "quest_42_colors_of_the_garden_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Bring the flower to Rosa.",
+            "target_language": "Lleva la flor a Rosa."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_5_flower"
+          },
+          "id": "quest_42_colors_of_the_garden_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring me a flower from the garden?",
+          "target_language": "¿Puedes traerme una flor del jardín?"
+        },
+        "quest_complete": {
+          "native_language": "What a beautiful flower! Thank you!",
+          "target_language": "¡Qué flor tan hermosa! ¡Gracias!"
+        }
+      },
+      "id": "quest_42_colors_of_the_garden",
+      "giver_npc_id": "npc_4_rosa"
+    },
+    {
+      "type": "repeatable",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Water for the Well",
+        "target_language": "Agua para el Pozo"
+      },
+      "description": {
+        "native_language": "Gather water from the Wishing Well and bring it to Pablo.",
+        "target_language": "Recoge agua del Pozo de los Deseos y llévala a Pablo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "well",
+          "target_language": "pozo"
+        },
+        {
+          "native_language": "wish",
+          "target_language": "deseo"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather water from the Wishing Well.",
+            "target_language": "Recoge agua del Pozo de los Deseos."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_43_water_for_the_well_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Bring the water to Pablo.",
+            "target_language": "Lleva el agua a Pablo."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_43_water_for_the_well_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you collect some water for me?",
+          "target_language": "¿Puedes recoger algo de agua para mí?"
+        },
+        "quest_complete": {
+          "native_language": "This will help a lot, thank you!",
+          "target_language": "Esto ayudará mucho, ¡gracias!"
+        }
+      },
+      "id": "quest_43_water_for_the_well",
+      "giver_npc_id": "npc_3_pablo"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 50,
+    "total_valid": 6,
+    "total_invalid": 44,
+    "target_minimum": 20,
+    "target_met": false
+  }
+}

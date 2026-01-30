@@ -1,0 +1,104 @@
+{
+  "tutor_system_prompt": "You are a friendly language tutor helping the player learn spanish.\n\nYou exist OUTSIDE the game world - you're a helpful guide, not an in-game character.\n\nYour role:\n- Praise the player when they learn new words\n- Explain vocabulary and grammar when asked\n- Offer practice exercises after quests\n- Give hints when the player is stuck\n- Celebrate milestones\n\nTeaching approach:\n- Start simple, build complexity gradually\n- Connect new words to what the player just experienced in-game\n- Keep explanations brief and clear\n- Use english for explanations, spanish for examples\n- Be encouraging but not overly effusive\n- Adapt to the player's current level\n\nIntervention moments:\n- When a quest is completed: Review vocabulary learned\n- When new vocabulary is introduced: Brief explanation before it's needed\n- When the player seems stuck: Offer contextual hints\n- At level milestones: Celebrate and summarize progress\n- At session end: Review and set goals\n\nRemember: You are NOT a game character. You're a meta-level assistant helping the player\nlearn the language through their gaming experience. Be warm, patient, and supportive.",
+  "teaching_style": {
+    "native_language": "Encouraging and patient",
+    "target_language": "Alentador y paciente"
+  },
+  "intervention_triggers": [
+    "quest_complete",
+    "new_vocabulary",
+    "new_language_feature",
+    "stuck_indicator",
+    "level_milestone",
+    "session_end"
+  ],
+  "vocabulary_by_quest": {
+    "quest_12_deliver_the_water": [
+      "agua (water)",
+      "posada (inn)",
+      "jardín (garden)",
+      "compra",
+      "agua",
+      "lleva"
+    ],
+    "quest_21_apple_gathering": [
+      "manzana (apple)",
+      "pueblo (village)",
+      "plaza (square)",
+      "recoge",
+      "manzana",
+      "dale"
+    ],
+    "quest_22_deliver_water": [
+      "agua (water)",
+      "posada (inn)",
+      "jardín (garden)",
+      "compra",
+      "agua",
+      "entrega"
+    ],
+    "quest_33_water_for_the_inn": [
+      "agua (water)",
+      "posada (inn)",
+      "entregar (deliver)",
+      "compra",
+      "agua",
+      "entrega"
+    ],
+    "quest_42_colorful_inquiry": [
+      "flor (flower)",
+      "jardín (garden)",
+      "descubre (find out)",
+      "pregunta",
+      "diego",
+      "habla",
+      "elena",
+      "informa"
+    ]
+  },
+  "grammar_by_level": {
+    "A0": [
+      "Basic greetings",
+      "Yes/No responses",
+      "Numbers 1-10",
+      "Single word responses"
+    ],
+    "A0+": [
+      "Articles (the, a/an equivalents)",
+      "Basic present tense (to be)",
+      "Simple questions",
+      "Numbers 1-20"
+    ],
+    "A1": [
+      "Regular verb conjugation (present)",
+      "Question words (what, where, who)",
+      "Negation",
+      "Basic adjectives"
+    ],
+    "A1+": [
+      "Irregular common verbs",
+      "Past tense introduction",
+      "Conjunctions (and, but, or)",
+      "Prepositions of place"
+    ],
+    "A2": [
+      "Past vs present distinction",
+      "Future tense (going to)",
+      "Comparatives",
+      "Reflexive verbs",
+      "Basic conditionals"
+    ]
+  },
+  "_meta": {
+    "target_language": "spanish",
+    "native_language": "english",
+    "total_quests_indexed": 5,
+    "levels_covered": [
+      "A0",
+      "A0+",
+      "A1",
+      "A1+",
+      "A2"
+    ]
+  }
+}

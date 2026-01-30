@@ -112,7 +112,8 @@ class QuestGenerator(BaseGenerator):
         lore: Dict[str, Any],
         world_map: Dict[str, Any],
         npcs: Dict[str, Any],
-        items: Dict[str, Any]
+        items: Dict[str, Any],
+        games: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Generate quests for all language levels with retry logic."""
         print("  Generating quests...")
@@ -121,6 +122,7 @@ class QuestGenerator(BaseGenerator):
         self.location_ids = [loc['id'] for loc in world_map.get('locations', [])]
         self.npc_ids = [npc['id'] for npc in npcs.get('npcs', [])]
         self.item_ids = [item['id'] for item in items.get('items', [])]
+        self.game_ids = [game['id'] for game in (games or {}).get('games', [])] if games else []
 
         # Build item->location mapping for validation
         self.item_locations = {}
@@ -164,7 +166,7 @@ class QuestGenerator(BaseGenerator):
             )
 
             if not raw_quests.get('quests'):
-                print(f"      No quests generated in this batch")
+                print("      No quests generated in this batch")
                 continue
 
             # Convert indices to IDs and assign sequential IDs
@@ -272,6 +274,12 @@ class QuestGenerator(BaseGenerator):
                     if item_idx is not None and 0 <= item_idx < len(self.item_ids):
                         criteria['target_id'] = self.item_ids[item_idx]
 
+                # Convert game_index
+                if 'game_index' in criteria:
+                    game_idx = criteria.pop('game_index')
+                    if game_idx is not None and 0 <= game_idx < len(self.game_ids):
+                        criteria['target_id'] = self.game_ids[game_idx]
+
             return quest
         except Exception as e:
             print(f"      Warning: Failed to convert quest: {e}")
@@ -312,7 +320,8 @@ TASK COMPLETION TYPES:
 - "talked_to": player talked to NPC (use npc_index)
 - "has_item": player has item (use item_index)
 - "gave_item": player gave item to NPC (use item_index + npc_index for the NPC talked to before)
-- "received_item": player received item from NPC"""
+- "received_item": player received item from NPC
+- "completed_game": player completed a mini-game (use game_index if games are provided)"""
 
         user_prompt = f"""Generate {batch_size} quests. Use INDICES (0-based numbers) to reference entities.
 
@@ -355,7 +364,6 @@ Target: {self.target_language}, Native: {self.native_language}"""
             return self.call_openai_json(
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
-                max_tokens=8192
             )
 
     def _filter_quest_lines(

@@ -88,7 +88,6 @@ Ensure all text fields use the bilingual format shown above."""
         lore = self.call_openai_json(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
-            max_tokens=4096
         )
 
         # Validate

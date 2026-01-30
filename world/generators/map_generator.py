@@ -4,7 +4,7 @@ Map Generator
 Generates the world map with locations appropriate for language learning progression.
 """
 
-from typing import Dict, Any, List
+from typing import Dict, Any
 from .base_generator import BaseGenerator
 
 
@@ -96,10 +96,9 @@ REQUIREMENTS:
 Target language: {self.target_language}
 Native language: {self.native_language}"""
 
-        world_map = self.call_openai_json(
+        world_map = self.call_openai_json (
             system_prompt=system_prompt,
             user_prompt=user_prompt,
-            max_tokens=8192
         )
 
         # Assign deterministic IDs to regions

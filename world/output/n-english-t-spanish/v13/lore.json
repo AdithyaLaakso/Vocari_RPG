@@ -1,0 +1,90 @@
+{
+  "world_name": {
+    "native_language": "Verdalia",
+    "target_language": "Verdalia"
+  },
+  "world_description": {
+    "native_language": "A quaint village nestled in a verdant valley where magic subtly intertwines with everyday life.",
+    "target_language": "Un pintoresco pueblo enclavado en un valle verdeante donde la magia se entrelaza sutilmente con la vida cotidiana."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "Verdalia has always been a place of harmony, where the townsfolk live in peace and balance with nature and magic.",
+      "target_language": "Verdalia siempre ha sido un lugar de armonía, donde los habitantes del pueblo viven en paz y equilibrio con la naturaleza y la magia."
+    },
+    "player_origin": {
+      "native_language": "You arrive in Verdalia as an outsider, curious to learn the ways of the village.",
+      "target_language": "Llegas a Verdalia como forastero, curioso por aprender las costumbres del pueblo."
+    },
+    "motivation": {
+      "native_language": "Your goal is to integrate into the community and uncover the secrets of Verdalia's magical charm.",
+      "target_language": "Tu objetivo es integrarte en la comunidad y descubrir los secretos del encanto mágico de Verdalia."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "A timeless era where tradition meets a hint of enchantment.",
+      "target_language": "Una era atemporal donde la tradición se encuentra con un toque de encanto."
+    },
+    "atmosphere": {
+      "native_language": "Welcoming and serene, with a gentle buzz of magic in the air.",
+      "target_language": "Acogedor y sereno, con un suave zumbido de magia en el aire."
+    },
+    "culture": {
+      "native_language": "Rich in Spanish-inspired customs, focusing on community and celebration.",
+      "target_language": "Rico en costumbres inspiradas en la cultura española, enfocado en la comunidad y la celebración."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Whispering Winds",
+        "target_language": "Vientos Susurrantes"
+      },
+      "description": {
+        "native_language": "Gentle breezes that carry messages and secrets across the village.",
+        "target_language": "Brisas suaves que llevan mensajes y secretos a través del pueblo."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "The Greenkeepers",
+        "target_language": "Los Guardianes Verdes"
+      },
+      "description": {
+        "native_language": "A group dedicated to preserving the natural and magical harmony of Verdalia.",
+        "target_language": "Un grupo dedicado a preservar la armonía natural y mágica de Verdalia."
+      },
+      "role_in_world": {
+        "native_language": "They guide newcomers and ensure the balance between magic and nature is maintained.",
+        "target_language": "Guían a los recién llegados y aseguran que se mantenga el equilibrio entre la magia y la naturaleza."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Community",
+      "target_language": "Comunidad"
+    },
+    {
+      "native_language": "Harmony",
+      "target_language": "Armonía"
+    },
+    {
+      "native_language": "Discovery",
+      "target_language": "Descubrimiento"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "Learning Spanish is essential to communicate with villagers and uncover Verdalia's secrets.",
+      "target_language": "Aprender español es esencial para comunicarse con los aldeanos y descubrir los secretos de Verdalia."
+    },
+    "how_language_fits": {
+      "native_language": "Language is woven into the fabric of every interaction, whether it's buying goods at the market or attending a village festival.",
+      "target_language": "El idioma está entretejido en el tejido de cada interacción, ya sea comprando productos en el mercado o asistiendo a un festival del pueblo."
+    }
+  }
+}

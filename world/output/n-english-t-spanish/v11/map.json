@@ -1,0 +1,725 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Valley of Stars",
+      "target_language": "Valle de Estrellas"
+    },
+    "description": {
+      "native_language": "A mystical and serene land where magic and tradition intertwine.",
+      "target_language": "Una tierra mística y serena donde la magia y la tradición se entrelazan."
+    },
+    "scale": "region"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Star Village",
+        "target_language": "Aldea Estrella"
+      },
+      "description": {
+        "native_language": "A quaint village where newcomers start their journey.",
+        "target_language": "Una pintoresca aldea donde los recién llegados comienzan su viaje."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_star_village"
+    },
+    {
+      "name": {
+        "native_language": "Moonlit Fields",
+        "target_language": "Campos de Luna"
+      },
+      "description": {
+        "native_language": "Expansive fields under the moon's glow, perfect for exploration.",
+        "target_language": "Campos expansivos bajo el resplandor de la luna, perfectos para la exploración."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_moonlit_fields"
+    },
+    {
+      "name": {
+        "native_language": "Sunset Town",
+        "target_language": "Pueblo del Atardecer"
+      },
+      "description": {
+        "native_language": "A bustling town known for its vibrant markets.",
+        "target_language": "Un pueblo bullicioso conocido por sus mercados vibrantes."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_sunset_town"
+    },
+    {
+      "name": {
+        "native_language": "Celestial Forest",
+        "target_language": "Bosque Celestial"
+      },
+      "description": {
+        "native_language": "A magical forest filled with mysteries and hidden paths.",
+        "target_language": "Un bosque mágico lleno de misterios y caminos ocultos."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_celestial_forest"
+    },
+    {
+      "name": {
+        "native_language": "Starlight City",
+        "target_language": "Ciudad de la Luz de las Estrellas"
+      },
+      "description": {
+        "native_language": "A grand city where stars guide adventurers.",
+        "target_language": "Una gran ciudad donde las estrellas guían a los aventureros."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_starlight_city"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Village Square",
+        "target_language": "Plaza del Pueblo"
+      },
+      "description": {
+        "native_language": "The heart of the village where villagers gather.",
+        "target_language": "El corazón del pueblo donde los aldeanos se reúnen."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "yes/no"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic greetings",
+        "target_language": "saludos básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálida y acogedora."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "loc_1_village_square",
+      "region_id": "region_1_star_village",
+      "connections": [
+        "loc_2_wishing_well",
+        "loc_3_colorful_garden"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Wishing Well",
+        "target_language": "Pozo de los Deseos"
+      },
+      "description": {
+        "native_language": "A magical well where villagers make wishes.",
+        "target_language": "Un pozo mágico donde los aldeanos piden deseos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers 1-10"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Mysterious and hopeful.",
+        "target_language": "Misterioso y esperanzador."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 0
+      },
+      "id": "loc_2_wishing_well",
+      "region_id": "region_1_star_village",
+      "connections": [
+        "loc_1_village_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Garden",
+        "target_language": "Jardín Colorido"
+      },
+      "description": {
+        "native_language": "A garden filled with vibrant flowers and colors.",
+        "target_language": "Un jardín lleno de flores vibrantes y colores."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors",
+        "target_language": "colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Colorful and fragrant.",
+        "target_language": "Colorido y fragante."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 1
+      },
+      "id": "loc_3_colorful_garden",
+      "region_id": "region_1_star_village",
+      "connections": [
+        "loc_1_village_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Moonlit Path",
+        "target_language": "Sendero de Luna"
+      },
+      "description": {
+        "native_language": "A serene path illuminated by moonlight.",
+        "target_language": "Un sendero sereno iluminado por la luz de la luna."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "days/months"
+      ],
+      "vocabulary_domain": {
+        "native_language": "time",
+        "target_language": "tiempo"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and mystical.",
+        "target_language": "Pacífico y místico."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_4_moonlit_path",
+      "region_id": "region_2_moonlit_fields",
+      "connections": [
+        "loc_5_farmer_s_field"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Farmer's Field",
+        "target_language": "Campo del Granjero"
+      },
+      "description": {
+        "native_language": "Fields where farmers grow their crops.",
+        "target_language": "Campos donde los granjeros cultivan sus cosechas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "farming tools",
+        "target_language": "herramientas agrícolas"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Rural and productive.",
+        "target_language": "Rural y productivo."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 0
+      },
+      "id": "loc_5_farmer_s_field",
+      "region_id": "region_2_moonlit_fields",
+      "connections": [
+        "loc_4_moonlit_path"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Starlit Bridge",
+        "target_language": "Puente de Estrellas"
+      },
+      "description": {
+        "native_language": "A bridge that connects the village to the fields.",
+        "target_language": "Un puente que conecta la aldea con los campos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "introductions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "introductions",
+        "target_language": "introducciones"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Charming and connecting.",
+        "target_language": "Encantador y conectivo."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_6_starlit_bridge",
+      "region_id": "region_2_moonlit_fields",
+      "connections": [
+        "loc_4_moonlit_path",
+        "loc_5_farmer_s_field"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Market Square",
+        "target_language": "Plaza del Mercado"
+      },
+      "description": {
+        "native_language": "A lively market where traders sell their goods.",
+        "target_language": "Un mercado animado donde los comerciantes venden sus productos."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping basics"
+      ],
+      "vocabulary_domain": {
+        "native_language": "shopping",
+        "target_language": "compras"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and vibrant.",
+        "target_language": "Bullicioso y vibrante."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 0
+      },
+      "id": "loc_7_market_square",
+      "region_id": "region_3_sunset_town",
+      "connections": [
+        "loc_8_sunset_inn",
+        "loc_9_library_of_lore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Sunset Inn",
+        "target_language": "Posada del Atardecer"
+      },
+      "description": {
+        "native_language": "A cozy inn where travelers rest.",
+        "target_language": "Una acogedora posada donde los viajeros descansan."
+      },
+      "type": "building",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food and drink",
+        "target_language": "comida y bebida"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and welcoming.",
+        "target_language": "Cálida y acogedora."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "id": "loc_8_sunset_inn",
+      "region_id": "region_3_sunset_town",
+      "connections": [
+        "loc_7_market_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Library of Lore",
+        "target_language": "Biblioteca de Conocimientos"
+      },
+      "description": {
+        "native_language": "A library filled with ancient texts and knowledge.",
+        "target_language": "Una biblioteca llena de textos antiguos y conocimiento."
+      },
+      "type": "building",
+      "language_topics": [
+        "family"
+      ],
+      "vocabulary_domain": {
+        "native_language": "family relationships",
+        "target_language": "relaciones familiares"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and scholarly.",
+        "target_language": "Tranquila y académica."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 0
+      },
+      "id": "loc_9_library_of_lore",
+      "region_id": "region_3_sunset_town",
+      "connections": [
+        "loc_7_market_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Mystic Grove",
+        "target_language": "Arboleda Mística"
+      },
+      "description": {
+        "native_language": "A secluded grove where magic is palpable.",
+        "target_language": "Una arboleda apartada donde la magia es palpable."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "history",
+        "target_language": "historia"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Enchanted and mysterious.",
+        "target_language": "Encantada y misteriosa."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 0
+      },
+      "id": "loc_10_mystic_grove",
+      "region_id": "region_4_celestial_forest",
+      "connections": [
+        "loc_11_wise_owl_s_nest"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Wise Owl's Nest",
+        "target_language": "Nido del Búho Sabio"
+      },
+      "description": {
+        "native_language": "The home of the village's wise sage.",
+        "target_language": "El hogar del sabio del pueblo."
+      },
+      "type": "home",
+      "language_topics": [
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "leisure activities",
+        "target_language": "actividades de ocio"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Wise and peaceful.",
+        "target_language": "Sabio y pacífico."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 1
+      },
+      "id": "loc_11_wise_owl_s_nest",
+      "region_id": "region_4_celestial_forest",
+      "connections": [
+        "loc_10_mystic_grove"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Hidden Clearing",
+        "target_language": "Claro Oculto"
+      },
+      "description": {
+        "native_language": "A hidden spot in the forest perfect for reflection.",
+        "target_language": "Un lugar oculto en el bosque perfecto para la reflexión."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "descriptive language",
+        "target_language": "lenguaje descriptivo"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Tranquil and hidden.",
+        "target_language": "Tranquilo y oculto."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 0
+      },
+      "id": "loc_12_hidden_clearing",
+      "region_id": "region_4_celestial_forest",
+      "connections": [
+        "loc_10_mystic_grove"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Starlight Plaza",
+        "target_language": "Plaza de la Luz de las Estrellas"
+      },
+      "description": {
+        "native_language": "The central square of the city bustling with activity.",
+        "target_language": "La plaza central de la ciudad llena de actividad."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "expressing opinions",
+        "target_language": "expresar opiniones"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Vibrant and lively.",
+        "target_language": "Vibrante y animada."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 0
+      },
+      "id": "loc_13_starlight_plaza",
+      "region_id": "region_5_starlight_city",
+      "connections": [
+        "loc_14_celestial_academy",
+        "loc_15_astral_gate"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Celestial Academy",
+        "target_language": "Academia Celestial"
+      },
+      "description": {
+        "native_language": "A place of learning where knowledge is shared.",
+        "target_language": "Un lugar de aprendizaje donde se comparte el conocimiento."
+      },
+      "type": "building",
+      "language_topics": [
+        "work"
+      ],
+      "vocabulary_domain": {
+        "native_language": "professions",
+        "target_language": "profesiones"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Intellectual and inspiring.",
+        "target_language": "Intelectual e inspiradora."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 1
+      },
+      "id": "loc_14_celestial_academy",
+      "region_id": "region_5_starlight_city",
+      "connections": [
+        "loc_13_starlight_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Astral Gate",
+        "target_language": "Puerta Astral"
+      },
+      "description": {
+        "native_language": "The entrance to the city where adventurers prepare for new journeys.",
+        "target_language": "La entrada a la ciudad donde los aventureros se preparan para nuevos viajes."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "travel"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel",
+        "target_language": "viajes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Gateway and adventurous.",
+        "target_language": "Portal y aventurero."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 0
+      },
+      "id": "loc_15_astral_gate",
+      "region_id": "region_5_starlight_city",
+      "connections": [
+        "loc_13_starlight_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_village_square",
+      "to_location": "loc_2_wishing_well",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_village_square",
+      "to_location": "loc_3_colorful_garden",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_moonlit_path",
+      "to_location": "loc_5_farmer_s_field",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_starlit_bridge",
+      "to_location": "loc_4_moonlit_path",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_starlit_bridge",
+      "to_location": "loc_5_farmer_s_field",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_market_square",
+      "to_location": "loc_8_sunset_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_market_square",
+      "to_location": "loc_9_library_of_lore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_mystic_grove",
+      "to_location": "loc_11_wise_owl_s_nest",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_hidden_clearing",
+      "to_location": "loc_10_mystic_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_starlight_plaza",
+      "to_location": "loc_14_celestial_academy",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_starlight_plaza",
+      "to_location": "loc_15_astral_gate",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_village_square"
+}

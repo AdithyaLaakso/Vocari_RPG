@@ -663,6 +663,25 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       },
     });
 
+    // Mini-game tool (for NPCs that can offer language learning games)
+    tools.add({
+      'type': 'function',
+      'function': {
+        'name': 'start_mini_game',
+        'description': 'Offer the player a mini-game when it makes sense in the context of the conversation.',
+        'parameters': {
+          'type': 'object',
+          'properties': {
+            'game_id': {
+              'type': 'string',
+              'description': 'ID of the mini-game to start',
+            },
+          },
+          'required': ['game_id'],
+        },
+      },
+    });
+
     return tools;
   }
 
@@ -879,10 +898,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       final bodyBytes = utf8.encode(bodyJson);
       request.add(bodyBytes);
 
-      final requestStartTime = DateTime.now();
       response = await request.close();
-      final responseTime = DateTime.now();
-      final requestDuration = responseTime.difference(requestStartTime);
 
       if (response.statusCode != 200) {
         final errorBody = await response.transform(utf8.decoder).join();
@@ -891,13 +907,9 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       }
 
       String buffer = '';
-      int chunkCount = 0;
       final streamStartTime = DateTime.now();
 
       await for (final chunk in response.transform(utf8.decoder)) {
-        chunkCount++;
-        final chunkTime = DateTime.now();
-        final elapsed = chunkTime.difference(streamStartTime);
         buffer += chunk;
 
         // Process complete SSE messages (delimited by \n\n)
@@ -916,8 +928,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
               if (type == 'content') {
                 // Yield streaming content immediately
                 final contentChunk = data['content'] as String;
-                final yieldTime = DateTime.now();
-                final elapsed = yieldTime.difference(streamStartTime);
                 yield contentChunk;
               } else if (type == 'done') {
                 // Handle tool calls if present
@@ -1161,6 +1171,17 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
             'item_name': args['item_name'],
             'reason': args['reason'],
             'player_has_item': hasItem,
+          },
+        );
+
+      case 'start_mini_game':
+        final gameId = args['game_id'] as String;
+        return ToolResult(
+          toolCallId: toolCall.id,
+          result: 'Offering mini-game "$gameId" to the player.',
+          data: {
+            'type': 'start_mini_game',
+            'game_id': gameId,
           },
         );
 

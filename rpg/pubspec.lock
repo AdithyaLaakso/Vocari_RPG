@@ -248,6 +248,23 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  lua_dardo:
+    dependency: transitive
+    description:
+      name: lua_dardo
+      sha256: "9f0c95bcd4f983f4f4e4134bd94a961ff5a688c2092e57be2b5cbfd2b2c5f1e4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
+  luavm_widget:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "5832f0d94c7b65c12f2dafb9aaf59ff365110662"
+      url: "https://github.com/AdithyaLaakso/luavm_widget"
+    source: git
+    version: "1.0.0+1"
   matcher:
     dependency: transitive
     description:
@@ -429,6 +446,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.1"
+  sprintf:
+    dependency: transitive
+    description:
+      name: sprintf
+      sha256: ec76d38910b6f1c854ce1353c62d37e7ef82b53dc5ab048c25400d35970776d1
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.2"
   stack_trace:
     dependency: transitive
     description:
@@ -526,5 +551,5 @@ packages:
     source: hosted
     version: "1.1.0"
 sdks:
-  dart: ">=3.9.0 <4.0.0"
+  dart: ">=3.9.2 <4.0.0"
   flutter: ">=3.35.0"

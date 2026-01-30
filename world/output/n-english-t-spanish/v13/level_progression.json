@@ -1,0 +1,170 @@
+{
+  "requirements": [
+    {
+      "from_level": "A0",
+      "to_level": "A0+",
+      "minimum_total_skill_points": 50,
+      "required_skill_thresholds": [],
+      "flexible_skill_pool": [
+        "vocab_greetings_basic",
+        "vocab_numbers_1_10",
+        "vocab_colors_basic",
+        "vocab_yes_no"
+      ],
+      "flexible_skill_count": 2,
+      "flexible_threshold": 10,
+      "description": "Demonstrate basic familiarity with greetings and simple words"
+    },
+    {
+      "from_level": "A0+",
+      "to_level": "A1",
+      "minimum_total_skill_points": 50,
+      "required_skill_thresholds": [
+        {
+          "skill_id": "vocab_greetings_basic",
+          "minimum_level": 20
+        },
+        {
+          "skill_id": "vocab_numbers_1_10",
+          "minimum_level": 20
+        },
+        {
+          "skill_id": "vocab_colors_basic",
+          "minimum_level": 20
+        }
+      ],
+      "flexible_skill_pool": [
+        "pragmatic_greetings_basic",
+        "pragmatic_farewells_basic",
+        "vocab_days_months",
+        "vocab_basic_objects"
+      ],
+      "flexible_skill_count": 2,
+      "flexible_threshold": 10,
+      "description": "Demonstrate basic familiarity with greetings and simple words"
+    },
+    {
+      "from_level": "A1",
+      "to_level": "A1+",
+      "minimum_total_skill_points": 250,
+      "required_skill_thresholds": [
+        {
+          "skill_id": "vocab_greetings_basic",
+          "minimum_level": 50
+        },
+        {
+          "skill_id": "vocab_numbers_1_10",
+          "minimum_level": 50
+        },
+        {
+          "skill_id": "vocab_colors_basic",
+          "minimum_level": 50
+        },
+        {
+          "skill_id": "vocab_yes_no",
+          "minimum_level": 50
+        },
+        {
+          "skill_id": "grammar_basic_greetings",
+          "minimum_level": 50
+        },
+        {
+          "skill_id": "grammar_yes_no_responses",
+          "minimum_level": 50
+        },
+        {
+          "skill_id": "vocab_days_months",
+          "minimum_level": 50
+        }
+      ],
+      "flexible_skill_pool": [
+        "pragmatic_greetings_basic",
+        "pragmatic_farewells_basic",
+        "pragmatic_self_introduction",
+        "pragmatic_introduction_response",
+        "vocab_family_basic",
+        "vocab_food_basic",
+        "vocab_weather_basic",
+        "vocab_shopping_basics"
+      ],
+      "flexible_skill_count": 4,
+      "flexible_threshold": 30,
+      "description": "Construct simple sentences and handle basic conversations"
+    },
+    {
+      "from_level": "A1+",
+      "to_level": "A2",
+      "minimum_total_skill_points": 450,
+      "required_skill_thresholds": [
+        {
+          "skill_id": "vocab_greetings_basic",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "vocab_numbers_1_10",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "vocab_colors_basic",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "vocab_yes_no",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "grammar_basic_greetings",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "grammar_yes_no_responses",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "vocab_days_months",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "vocab_basic_objects",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "grammar_articles_basic",
+          "minimum_level": 65
+        },
+        {
+          "skill_id": "grammar_present_tense_to_be",
+          "minimum_level": 65
+        }
+      ],
+      "flexible_skill_pool": [
+        "pragmatic_greetings_basic",
+        "pragmatic_farewells_basic",
+        "pragmatic_self_introduction",
+        "pragmatic_introduction_response",
+        "pragmatic_polite_requests",
+        "pragmatic_basic_apologies",
+        "pragmatic_thanksgiving",
+        "pragmatic_leave_taking",
+        "vocab_daily_routines",
+        "vocab_hobbies"
+      ],
+      "flexible_skill_count": 5,
+      "flexible_threshold": 40,
+      "description": "Use past and future tenses, handle complex conversations"
+    }
+  ],
+  "total_skill_point_cap": 1000,
+  "_level_order": [
+    "A0",
+    "A0+",
+    "A1",
+    "A1+",
+    "A2"
+  ],
+  "_meta": {
+    "target_language": "spanish",
+    "native_language": "english",
+    "total_transitions": 4
+  }
+}

@@ -1527,6 +1527,60 @@ class LocationGraph {
   }
 }
 
+// Mini-game trigger types
+enum MiniGameTriggerType { location, npc }
+
+// Mini-game model
+class MiniGame {
+  final String id;
+  final LocalizedString name;
+  final LocalizedString description;
+  final String languageLevel;
+  final MiniGameTriggerType triggerType;
+  final String triggerId;
+  final List<LocalizedString> targetVocabulary;
+  final List<LocalizedString> grammarFocus;
+  final String? relatedQuestId;
+  final String luaCode;
+  final int skillPoints;
+
+  MiniGame({
+    required this.id,
+    required this.name,
+    required this.description,
+    required this.languageLevel,
+    required this.triggerType,
+    required this.triggerId,
+    required this.targetVocabulary,
+    required this.grammarFocus,
+    this.relatedQuestId,
+    required this.luaCode,
+    required this.skillPoints,
+  });
+
+  String get displayName => name.current;
+  String get displayDescription => description.current;
+
+  factory MiniGame.fromJson(Map<String, dynamic> json) => MiniGame(
+        id: json['id'] ?? '',
+        name: LocalizedString.fromJson(json['name'] ?? ''),
+        description: LocalizedString.fromJson(json['description'] ?? ''),
+        languageLevel: json['language_level'] ?? 'A0',
+        triggerType: json['trigger_type'] == 'npc'
+            ? MiniGameTriggerType.npc
+            : MiniGameTriggerType.location,
+        triggerId: json['trigger_id'] ?? '',
+        targetVocabulary: (json['target_vocabulary'] as List?)
+                ?.map((v) => LocalizedString.fromJson(v))
+                .toList() ??
+            [],
+        grammarFocus: [LocalizedString.fromJson(json['grammar_focus'])],
+        relatedQuestId: json['related_quest_id'],
+        luaCode: json['lua_code'] ?? '',
+        skillPoints: json['skill_points'] ?? 0,
+      );
+}
+
 // Game World Data - Updated for language learning
 class GameWorld {
   final WorldLore? lore;
@@ -1540,6 +1594,10 @@ class GameWorld {
   final Map<String, QuestLine> questLines;
   final Map<String, Quest> quests;
   final LocationGraph locationGraph;
+  final Map<String, MiniGame> games;
+  final Map<String, List<String>> gamesByLocation;
+  final Map<String, List<String>> gamesByNpc;
+  final Map<String, List<String>> gamesByQuest;
 
   GameWorld({
     this.lore,
@@ -1553,7 +1611,29 @@ class GameWorld {
     required this.questLines,
     required this.quests,
     required this.locationGraph,
+    this.games = const {},
+    this.gamesByLocation = const {},
+    this.gamesByNpc = const {},
+    this.gamesByQuest = const {},
   });
+
+  /// Get games available at a specific location
+  List<MiniGame> getGamesForLocation(String locationId) {
+    final gameIds = gamesByLocation[locationId] ?? [];
+    return gameIds.map((id) => games[id]).whereType<MiniGame>().toList();
+  }
+
+  /// Get games offered by a specific NPC
+  List<MiniGame> getGamesForNpc(String npcId) {
+    final gameIds = gamesByNpc[npcId] ?? [];
+    return gameIds.map((id) => games[id]).whereType<MiniGame>().toList();
+  }
+
+  /// Get games related to a specific quest
+  List<MiniGame> getGamesForQuest(String questId) {
+    final gameIds = gamesByQuest[questId] ?? [];
+    return gameIds.map((id) => games[id]).whereType<MiniGame>().toList();
+  }
 
   factory GameWorld.fromJson(Map<String, dynamic> json) {
     // Parse regions
@@ -1630,6 +1710,56 @@ class GameWorld {
     // Build the location graph from the parsed locations
     final locationGraph = LocationGraph.fromLocations(locationsMap);
 
+    // Parse games
+    final gamesMap = <String, MiniGame>{};
+    if (json['games'] != null) {
+      if (json['games'] is List) {
+        for (final gameJson in json['games'] as List) {
+          final game = MiniGame.fromJson(gameJson);
+          gamesMap[game.id] = game;
+        }
+      } else if (json['games'] is Map) {
+        (json['games'] as Map<String, dynamic>).forEach((k, v) {
+          gamesMap[k] = MiniGame.fromJson(v);
+        });
+      }
+    }
+
+    // Parse game lookup indices (or build them from games)
+    final gamesByLocation = <String, List<String>>{};
+    final gamesByNpc = <String, List<String>>{};
+    final gamesByQuest = <String, List<String>>{};
+
+    if (json['_games_by_location'] != null) {
+      (json['_games_by_location'] as Map<String, dynamic>).forEach((k, v) {
+        gamesByLocation[k] = List<String>.from(v);
+      });
+    }
+    if (json['_games_by_npc'] != null) {
+      (json['_games_by_npc'] as Map<String, dynamic>).forEach((k, v) {
+        gamesByNpc[k] = List<String>.from(v);
+      });
+    }
+    if (json['_games_by_quest'] != null) {
+      (json['_games_by_quest'] as Map<String, dynamic>).forEach((k, v) {
+        gamesByQuest[k] = List<String>.from(v);
+      });
+    }
+
+    // If indices weren't provided, build them from the games
+    if (gamesByLocation.isEmpty && gamesByNpc.isEmpty) {
+      for (final game in gamesMap.values) {
+        if (game.triggerType == MiniGameTriggerType.location) {
+          gamesByLocation.putIfAbsent(game.triggerId, () => []).add(game.id);
+        } else if (game.triggerType == MiniGameTriggerType.npc) {
+          gamesByNpc.putIfAbsent(game.triggerId, () => []).add(game.id);
+        }
+        if (game.relatedQuestId != null) {
+          gamesByQuest.putIfAbsent(game.relatedQuestId!, () => []).add(game.id);
+        }
+      }
+    }
+
     return GameWorld(
       lore: json['lore'] != null ? WorldLore.fromJson(json['lore']) : null,
       mapMetadata: json['map_metadata'] != null
@@ -1646,6 +1776,10 @@ class GameWorld {
       questLines: questLinesMap,
       quests: questsMap,
       locationGraph: locationGraph,
+      games: gamesMap,
+      gamesByLocation: gamesByLocation,
+      gamesByNpc: gamesByNpc,
+      gamesByQuest: gamesByQuest,
     );
   }
 }

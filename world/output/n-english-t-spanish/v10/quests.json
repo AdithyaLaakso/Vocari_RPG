@@ -1,0 +1,1771 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gathering Herbs",
+        "target_language": "Recolección de hierbas"
+      },
+      "description": {
+        "native_language": "Collect herbs from the Sunny Park for Ana.",
+        "target_language": "Recoge hierbas del Parque Soleado para Ana."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "herb",
+          "target_language": "hierba"
+        },
+        {
+          "native_language": "collect",
+          "target_language": "recoger"
+        },
+        {
+          "native_language": "park",
+          "target_language": "parque"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "present tense",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Sunny Park to gather herbs.",
+            "target_language": "Ve al Parque Soleado para recoger hierbas."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_6_sunny_park"
+          },
+          "id": "quest_4_gathering_herbs_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Collect herbs in the park.",
+            "target_language": "Recoge hierbas en el parque."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_6_herb"
+          },
+          "id": "quest_4_gathering_herbs_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the herbs back to Ana.",
+            "target_language": "Lleva las hierbas de regreso a Ana."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_6_herb"
+          },
+          "id": "quest_4_gathering_herbs_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need herbs from the Sunny Park. Could you gather some?",
+          "target_language": "Necesito hierbas del Parque Soleado. ¿Podrías recoger algunas?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the herbs!",
+          "target_language": "¡Gracias por las hierbas!"
+        }
+      },
+      "id": "quest_4_gathering_herbs",
+      "giver_npc_id": "npc_14_ana"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Weather Inquiry",
+        "target_language": "Consulta del clima"
+      },
+      "description": {
+        "native_language": "Learn about the weather from Elena at the Weather Pavilion.",
+        "target_language": "Aprende sobre el clima de Elena en el Pabellón del Clima."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "weather",
+          "target_language": "clima"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "preguntar"
+        },
+        {
+          "native_language": "pavilion",
+          "target_language": "pabellón"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "present tense",
+        "descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Elena at the Weather Pavilion.",
+            "target_language": "Habla con Elena en el Pabellón del Clima."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_21_elena"
+          },
+          "id": "quest_5_weather_inquiry_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Ask Elena about the current weather.",
+            "target_language": "Pregunta a Elena sobre el clima actual."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_21_elena"
+          },
+          "id": "quest_5_weather_inquiry_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you find out the weather for me?",
+          "target_language": "¿Podrías averiguar el clima por mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the weather update!",
+          "target_language": "¡Gracias por la actualización del clima!"
+        }
+      },
+      "id": "quest_5_weather_inquiry",
+      "giver_npc_id": "npc_21_elena"
+    },
+    {
+      "type": "main",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince the Craftsman",
+        "target_language": "Convencer al artesano"
+      },
+      "description": {
+        "native_language": "Persuade Carlos to make a special lantern.",
+        "target_language": "Convence a Carlos para hacer una linterna especial."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        },
+        {
+          "native_language": "lantern",
+          "target_language": "linterna"
+        },
+        {
+          "native_language": "craftsman",
+          "target_language": "artesano"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests",
+        "future intent"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Carlos at the Craftsman's Haven.",
+            "target_language": "Habla con Carlos en el Refugio del Artesano."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_29_carlos"
+          },
+          "id": "quest_8_convince_the_craftsman_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Convince Carlos to craft a special lantern.",
+            "target_language": "Convence a Carlos para que haga una linterna especial."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_29_carlos"
+          },
+          "id": "quest_8_convince_the_craftsman_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you persuade Carlos to craft a lantern for us?",
+          "target_language": "¿Puedes convencer a Carlos para que haga una linterna para nosotros?"
+        },
+        "quest_complete": {
+          "native_language": "Carlos agreed to make the lantern!",
+          "target_language": "¡Carlos accedió a hacer la linterna!"
+        }
+      },
+      "id": "quest_8_convince_the_craftsman",
+      "giver_npc_id": "npc_29_carlos"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver the Bread",
+        "target_language": "Entrega el pan"
+      },
+      "description": {
+        "native_language": "Ana at the market needs bread delivered to the Cozy Inn.",
+        "target_language": "Ana en el mercado necesita que se entregue pan a la Posada Acogedora."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        }
+      ],
+      "grammar_points": [
+        "giving/receiving",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Buy bread from the Colorful Market.",
+            "target_language": "Compra pan en el Mercado Colorido."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_bread"
+          },
+          "id": "quest_12_deliver_the_bread_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Take the bread to the Cozy Inn.",
+            "target_language": "Lleva el pan a la Posada Acogedora."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_3_cozy_inn"
+          },
+          "id": "quest_12_deliver_the_bread_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the bread to Lucia at the inn.",
+            "target_language": "Entrega el pan a Lucia en la posada."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_bread"
+          },
+          "id": "quest_12_deliver_the_bread_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you deliver this bread to Lucia at the inn? She needs it for lunch.",
+          "target_language": "¿Puedes entregar este pan a Lucia en la posada? Lo necesita para el almuerzo."
+        },
+        "quest_complete": {
+          "native_language": "Thank you for bringing the bread! It was just in time.",
+          "target_language": "¡Gracias por traer el pan! Fue justo a tiempo."
+        }
+      },
+      "id": "quest_12_deliver_the_bread",
+      "giver_npc_id": "npc_6_ana"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Library Secrets",
+        "target_language": "Secretos de la biblioteca"
+      },
+      "description": {
+        "native_language": "Carlos needs information from the Library of Lore.",
+        "target_language": "Carlos necesita información de la Biblioteca de Sabiduría."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "library",
+          "target_language": "biblioteca"
+        },
+        {
+          "native_language": "information",
+          "target_language": "información"
+        },
+        {
+          "native_language": "find",
+          "target_language": "encontrar"
+        }
+      ],
+      "grammar_points": [
+        "present tense",
+        "question formation"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Library of Lore.",
+            "target_language": "Ve a la Biblioteca de Sabiduría."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_4_library_of_lore"
+          },
+          "id": "quest_13_library_secrets_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Ask Carlos about the information he needs.",
+            "target_language": "Pregunta a Carlos sobre la información que necesita."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_11_carlos"
+          },
+          "id": "quest_13_library_secrets_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Find the map in the library.",
+            "target_language": "Encuentra el mapa en la biblioteca."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_5_map"
+          },
+          "id": "quest_13_library_secrets_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return to Carlos with the map.",
+            "target_language": "Regresa a Carlos con el mapa."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_5_map"
+          },
+          "id": "quest_13_library_secrets_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need a map from the Library of Lore. Can you find it for me?",
+          "target_language": "Necesito un mapa de la Biblioteca de Sabiduría. ¿Puedes encontrarlo para mí?"
+        },
+        "quest_complete": {
+          "native_language": "This is exactly what I needed! Thank you.",
+          "target_language": "¡Esto es exactamente lo que necesitaba! Gracias."
+        }
+      },
+      "id": "quest_13_library_secrets",
+      "giver_npc_id": "npc_3_luis"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Herb Gathering",
+        "target_language": "Recolecta hierbas"
+      },
+      "description": {
+        "native_language": "Luis needs herbs for a special recipe.",
+        "target_language": "Luis necesita hierbas para una receta especial."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "herb",
+          "target_language": "hierba"
+        },
+        {
+          "native_language": "gather",
+          "target_language": "recolectar"
+        },
+        {
+          "native_language": "recipe",
+          "target_language": "receta"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Sunny Park to gather herbs.",
+            "target_language": "Ve al Parque Soleado para recolectar hierbas."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_6_sunny_park"
+          },
+          "id": "quest_14_herb_gathering_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Gather herbs from the park.",
+            "target_language": "Recolecta hierbas del parque."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_6_herb"
+          },
+          "id": "quest_14_herb_gathering_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the herbs back to Luis.",
+            "target_language": "Lleva las hierbas de vuelta a Luis."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_6_herb"
+          },
+          "id": "quest_14_herb_gathering_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you gather some herbs for my special recipe?",
+          "target_language": "¿Puedes recolectar algunas hierbas para mi receta especial?"
+        },
+        "quest_complete": {
+          "native_language": "These herbs are perfect! Thank you for your help.",
+          "target_language": "¡Estas hierbas son perfectas! Gracias por tu ayuda."
+        }
+      },
+      "id": "quest_14_herb_gathering",
+      "giver_npc_id": "npc_2_isabella"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Explore the Central Plaza",
+        "target_language": "Explora la Plaza Central"
+      },
+      "description": {
+        "native_language": "Discover what's new at the Central Plaza.",
+        "target_language": "Descubre qué hay de nuevo en la Plaza Central."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "plaza",
+          "target_language": "plaza"
+        },
+        {
+          "native_language": "explore",
+          "target_language": "explorar"
+        },
+        {
+          "native_language": "new",
+          "target_language": "nuevo"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Central Plaza to explore.",
+            "target_language": "Ve a la Plaza Central para explorar."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_7_central_plaza"
+          },
+          "id": "quest_15_explore_the_central_plaza_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Carlos at the plaza about what's new.",
+            "target_language": "Habla con Carlos en la plaza sobre qué hay de nuevo."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_20_carlos"
+          },
+          "id": "quest_15_explore_the_central_plaza_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Pedro with your findings.",
+            "target_language": "Informa a Pedro de tus hallazgos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_7_pedro"
+          },
+          "id": "quest_15_explore_the_central_plaza_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Explore the Central Plaza and tell me if you find anything new.",
+          "target_language": "Explora la Plaza Central y dime si encuentras algo nuevo."
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the information! It's always good to know.",
+          "target_language": "¡Gracias por la información! Siempre es bueno saberlo."
+        }
+      },
+      "id": "quest_15_explore_the_central_plaza",
+      "giver_npc_id": "npc_7_pedro"
+    },
+    {
+      "type": "main",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince the Artisan",
+        "target_language": "Convence al artesano"
+      },
+      "description": {
+        "native_language": "Pablo at the Artisan's Workshop needs convincing to share his crafting secrets.",
+        "target_language": "Pablo en el Taller del Artesano necesita ser convencido para compartir sus secretos de artesanía."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        },
+        {
+          "native_language": "artisan",
+          "target_language": "artesano"
+        },
+        {
+          "native_language": "secret",
+          "target_language": "secreto"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Pablo at the Artisan's Workshop.",
+            "target_language": "Habla con Pablo en el Taller del Artesano."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_13_pablo"
+          },
+          "id": "quest_16_convince_the_artisan_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Convince Pablo to share his secrets.",
+            "target_language": "Convence a Pablo para que comparta sus secretos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_13_pablo"
+          },
+          "id": "quest_16_convince_the_artisan_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Ana with the secrets.",
+            "target_language": "Informa a Ana con los secretos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_14_ana"
+          },
+          "id": "quest_16_convince_the_artisan_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I heard Pablo has some secrets. Can you convince him to share them with us?",
+          "target_language": "Escuché que Pablo tiene algunos secretos. ¿Puedes convencerlo de que los comparta con nosotros?"
+        },
+        "quest_complete": {
+          "native_language": "Amazing! These secrets will help us a lot.",
+          "target_language": "¡Increíble! Estos secretos nos ayudarán mucho."
+        }
+      },
+      "id": "quest_16_convince_the_artisan",
+      "giver_npc_id": "npc_13_pablo"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Stone Collector",
+        "target_language": "Recolector de piedras"
+      },
+      "description": {
+        "native_language": "Carlos at the Central Plaza needs a special stone for a project.",
+        "target_language": "Carlos en la Plaza Central necesita una piedra especial para un proyecto."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "stone",
+          "target_language": "piedra"
+        },
+        {
+          "native_language": "project",
+          "target_language": "proyecto"
+        },
+        {
+          "native_language": "collect",
+          "target_language": "recolectar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Collect a stone from the Central Plaza.",
+            "target_language": "Recolecta una piedra de la Plaza Central."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_7_stone"
+          },
+          "id": "quest_17_stone_collector_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Bring the stone to Carlos.",
+            "target_language": "Lleva la piedra a Carlos."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_7_stone"
+          },
+          "id": "quest_17_stone_collector_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need a special stone for my project. Can you help me find one?",
+          "target_language": "Necesito una piedra especial para mi proyecto. ¿Puedes ayudarme a encontrar una?"
+        },
+        "quest_complete": {
+          "native_language": "This stone is perfect for my project. Thank you!",
+          "target_language": "Esta piedra es perfecta para mi proyecto. ¡Gracias!"
+        }
+      },
+      "id": "quest_17_stone_collector",
+      "giver_npc_id": "npc_20_carlos"
+    },
+    {
+      "type": "side",
+      "pattern": "social",
+      "name": {
+        "native_language": "Make a New Friend",
+        "target_language": "Haz un nuevo amigo"
+      },
+      "description": {
+        "native_language": "Meet Rosa at the Sunny Park and learn about her.",
+        "target_language": "Conoce a Rosa en el Parque Soleado y aprende sobre ella."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        },
+        {
+          "native_language": "learn",
+          "target_language": "aprender"
+        },
+        {
+          "native_language": "meet",
+          "target_language": "conocer"
+        }
+      ],
+      "grammar_points": [
+        "self-introduction",
+        "expressing feelings"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Meet Rosa at the Sunny Park.",
+            "target_language": "Conoce a Rosa en el Parque Soleado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_16_rosa"
+          },
+          "id": "quest_18_make_a_new_friend_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Learn about Rosa's interests.",
+            "target_language": "Aprende sobre los intereses de Rosa."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_16_rosa"
+          },
+          "id": "quest_18_make_a_new_friend_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Share what you learned with Emilio.",
+            "target_language": "Comparte lo que aprendiste con Emilio."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_17_emilio"
+          },
+          "id": "quest_18_make_a_new_friend_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Why don't you meet Rosa in the park? She's very friendly.",
+          "target_language": "¿Por qué no conoces a Rosa en el parque? Es muy amigable."
+        },
+        "quest_complete": {
+          "native_language": "I'm glad you made a new friend!",
+          "target_language": "¡Me alegra que hayas hecho un nuevo amigo!"
+        }
+      },
+      "id": "quest_18_make_a_new_friend",
+      "giver_npc_id": "npc_17_emilio"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Market Inquiry",
+        "target_language": "Consulta del Mercado"
+      },
+      "description": {
+        "native_language": "Ask around the market to learn about the best fruit stands.",
+        "target_language": "Pregunta en el mercado para conocer los mejores puestos de fruta."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "fruit",
+          "target_language": "fruta"
+        },
+        {
+          "native_language": "best",
+          "target_language": "mejor"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "pregunta"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Ana about fruit stands.",
+            "target_language": "Habla con Ana sobre los puestos de fruta."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_ana"
+          },
+          "id": "quest_23_market_inquiry_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Diego for more information.",
+            "target_language": "Habla con Diego para más información."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_9_diego"
+          },
+          "id": "quest_23_market_inquiry_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Do you know which fruit stands are the best?",
+          "target_language": "¿Sabes cuáles son los mejores puestos de fruta?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the information!",
+          "target_language": "¡Gracias por la información!"
+        }
+      },
+      "id": "quest_23_market_inquiry",
+      "giver_npc_id": "npc_2_isabella"
+    },
+    {
+      "type": "main",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Bread Delivery",
+        "target_language": "Entrega de Pan"
+      },
+      "description": {
+        "native_language": "Deliver bread from Miguel to Carlos at the Cozy Inn.",
+        "target_language": "Entrega pan de Miguel a Carlos en la Posada Acogedora."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        }
+      ],
+      "grammar_points": [
+        "future intent",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Receive bread from Miguel.",
+            "target_language": "Recibe pan de Miguel."
+          },
+          "completion_type": "received_item",
+          "completion_criteria": {
+            "target_id": "item_2_bread"
+          },
+          "id": "quest_24_bread_delivery_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Travel to the Cozy Inn.",
+            "target_language": "Viaja a la Posada Acogedora."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_3_cozy_inn"
+          },
+          "id": "quest_24_bread_delivery_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Give the bread to Carlos.",
+            "target_language": "Dale el pan a Carlos."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_bread"
+          },
+          "id": "quest_24_bread_delivery_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you deliver this bread to Carlos at the inn?",
+          "target_language": "¿Puedes entregar este pan a Carlos en la posada?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_24_bread_delivery",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince the Librarian",
+        "target_language": "Convencer al Bibliotecario"
+      },
+      "description": {
+        "native_language": "Persuade Carlos to let you borrow a special book.",
+        "target_language": "Convence a Carlos de que te deje tomar prestado un libro especial."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "book",
+          "target_language": "libro"
+        },
+        {
+          "native_language": "borrow",
+          "target_language": "prestar"
+        },
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        }
+      ],
+      "grammar_points": [
+        "polite requests",
+        "conditional"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Carlos about borrowing the book.",
+            "target_language": "Habla con Carlos sobre tomar prestado el libro."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_11_carlos"
+          },
+          "id": "quest_25_convince_the_librarian_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Make a polite request to borrow it.",
+            "target_language": "Haz una solicitud cortés para tomarlo prestado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_11_carlos"
+          },
+          "id": "quest_25_convince_the_librarian_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you convince Carlos to lend you the book?",
+          "target_language": "¿Puedes convencer a Carlos de que te preste el libro?"
+        },
+        "quest_complete": {
+          "native_language": "Great! You got the book!",
+          "target_language": "¡Genial! ¡Conseguiste el libro!"
+        }
+      },
+      "id": "quest_25_convince_the_librarian",
+      "giver_npc_id": "npc_11_carlos"
+    },
+    {
+      "type": "repeatable",
+      "pattern": "social",
+      "name": {
+        "native_language": "Meet the Locals",
+        "target_language": "Conoce a los Locales"
+      },
+      "description": {
+        "native_language": "Make new friends by talking to people at the Sunny Park.",
+        "target_language": "Haz nuevos amigos hablando con la gente en el Parque Soleado."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        },
+        {
+          "native_language": "park",
+          "target_language": "parque"
+        },
+        {
+          "native_language": "talk",
+          "target_language": "hablar"
+        }
+      ],
+      "grammar_points": [
+        "self-introduction",
+        "questions about others"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Rosa at the park.",
+            "target_language": "Habla con Rosa en el parque."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_16_rosa"
+          },
+          "id": "quest_26_meet_the_locals_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Introduce yourself to Emilio.",
+            "target_language": "Preséntate a Emilio."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_17_emilio"
+          },
+          "id": "quest_26_meet_the_locals_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Have a friendly chat with Elena.",
+            "target_language": "Ten una charla amistosa con Elena."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_18_elena"
+          },
+          "id": "quest_26_meet_the_locals_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you meet some new people at the park?",
+          "target_language": "¿Puedes conocer a algunas personas nuevas en el parque?"
+        },
+        "quest_complete": {
+          "native_language": "You've made some new friends!",
+          "target_language": "¡Has hecho nuevos amigos!"
+        }
+      },
+      "id": "quest_26_meet_the_locals",
+      "giver_npc_id": "npc_15_luis"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Umbrella Delivery",
+        "target_language": "Entrega de Paraguas"
+      },
+      "description": {
+        "native_language": "Deliver an umbrella from Elena to the Weather Pavilion.",
+        "target_language": "Entrega un paraguas de Elena al Pabellón del Tiempo."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "umbrella",
+          "target_language": "paraguas"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "pavilion",
+          "target_language": "pabellón"
+        }
+      ],
+      "grammar_points": [
+        "location prepositions",
+        "future intent"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase an umbrella from the Weather Pavilion.",
+            "target_language": "Compra un paraguas del Pabellón del Tiempo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_9_umbrella"
+          },
+          "id": "quest_28_umbrella_delivery_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the umbrella to Pedro at the Weather Pavilion.",
+            "target_language": "Entrega el paraguas a Pedro en el Pabellón del Tiempo."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_9_umbrella"
+          },
+          "id": "quest_28_umbrella_delivery_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you take this umbrella over to Pedro?",
+          "target_language": "¿Podrías llevar este paraguas a Pedro?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_28_umbrella_delivery",
+      "giver_npc_id": "npc_21_elena"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Artisan Knowledge",
+        "target_language": "Conocimiento del Artesano"
+      },
+      "description": {
+        "native_language": "Gather information about crafting techniques from artisans.",
+        "target_language": "Recoge información sobre técnicas de artesanía de los artesanos."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "artisan",
+          "target_language": "artesano"
+        },
+        {
+          "native_language": "crafting",
+          "target_language": "artesanía"
+        },
+        {
+          "native_language": "techniques",
+          "target_language": "técnicas"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "indirect speech"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Ask Carlos about crafting techniques.",
+            "target_language": "Pregunta a Carlos sobre técnicas de artesanía."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_29_carlos"
+          },
+          "id": "quest_30_artisan_knowledge_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Sofia for more details.",
+            "target_language": "Habla con Sofia para más detalles."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_34_sofia"
+          },
+          "id": "quest_30_artisan_knowledge_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Carlos with your findings.",
+            "target_language": "Informa a Carlos de tus hallazgos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_29_carlos"
+          },
+          "id": "quest_30_artisan_knowledge_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you gather some information on crafting techniques?",
+          "target_language": "¿Puedes recoger información sobre técnicas de artesanía?"
+        },
+        "quest_complete": {
+          "native_language": "Your insights are very helpful!",
+          "target_language": "¡Tus ideas son muy útiles!"
+        }
+      },
+      "id": "quest_30_artisan_knowledge",
+      "giver_npc_id": "npc_29_carlos"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Bread for Carlos",
+        "target_language": "Pan para Carlos"
+      },
+      "description": {
+        "native_language": "Deliver a loaf of bread to Carlos at the Cozy Inn.",
+        "target_language": "Entrega una barra de pan a Carlos en la Posada Acogedora."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        }
+      ],
+      "grammar_points": [
+        "giving/receiving",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the market and buy bread.",
+            "target_language": "Ve al mercado y compra pan."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_bread"
+          },
+          "id": "quest_32_bread_for_carlos_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Take the bread to Carlos at the inn.",
+            "target_language": "Lleva el pan a Carlos en la posada."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_bread"
+          },
+          "id": "quest_32_bread_for_carlos_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you take this bread to Carlos?",
+          "target_language": "¿Puedes llevar este pan a Carlos?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for delivering the bread!",
+          "target_language": "¡Gracias por entregar el pan!"
+        }
+      },
+      "id": "quest_32_bread_for_carlos",
+      "giver_npc_id": "npc_2_isabella"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "The Lost Key",
+        "target_language": "La Llave Perdida"
+      },
+      "description": {
+        "native_language": "Find the key in the Library of Lore and bring it to Carlos.",
+        "target_language": "Encuentra la llave en la Biblioteca de Lore y llévala a Carlos."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "key",
+          "target_language": "llave"
+        },
+        {
+          "native_language": "library",
+          "target_language": "biblioteca"
+        },
+        {
+          "native_language": "bring",
+          "target_language": "llevar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Library of Lore.",
+            "target_language": "Ve a la Biblioteca de Lore."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_4_library_of_lore"
+          },
+          "id": "quest_33_the_lost_key_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the key in the library.",
+            "target_language": "Encuentra la llave en la biblioteca."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_key"
+          },
+          "id": "quest_33_the_lost_key_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the key to Carlos at the Cozy Inn.",
+            "target_language": "Lleva la llave a Carlos en la Posada Acogedora."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_key"
+          },
+          "id": "quest_33_the_lost_key_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I lost my key, can you help?",
+          "target_language": "Perdí mi llave, ¿puedes ayudarme?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for finding my key!",
+          "target_language": "¡Gracias por encontrar mi llave!"
+        }
+      },
+      "id": "quest_33_the_lost_key",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Market Insights",
+        "target_language": "Perspectivas del Mercado"
+      },
+      "description": {
+        "native_language": "Gather information about the market for Isabella.",
+        "target_language": "Recoge información sobre el mercado para Isabella."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "market",
+          "target_language": "mercado"
+        },
+        {
+          "native_language": "information",
+          "target_language": "información"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "preguntar"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "relative clauses"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Miguel about the market.",
+            "target_language": "Habla con Miguel sobre el mercado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_miguel"
+          },
+          "id": "quest_34_market_insights_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Report the information to Isabella.",
+            "target_language": "Informa a Isabella sobre la información."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_2_isabella"
+          },
+          "id": "quest_34_market_insights_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out more about the market?",
+          "target_language": "¿Puedes averiguar más sobre el mercado?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the information!",
+          "target_language": "¡Gracias por la información!"
+        }
+      },
+      "id": "quest_34_market_insights",
+      "giver_npc_id": "npc_2_isabella"
+    },
+    {
+      "type": "main",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Explore the Sunny Park",
+        "target_language": "Explora el Parque Soleado"
+      },
+      "description": {
+        "native_language": "Discover the hidden herb in the Sunny Park.",
+        "target_language": "Descubre la hierba oculta en el Parque Soleado."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "park",
+          "target_language": "parque"
+        },
+        {
+          "native_language": "herb",
+          "target_language": "hierba"
+        },
+        {
+          "native_language": "explore",
+          "target_language": "explorar"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Sunny Park.",
+            "target_language": "Ve al Parque Soleado."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_6_sunny_park"
+          },
+          "id": "quest_35_explore_the_sunny_park_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the hidden herb in the park.",
+            "target_language": "Encuentra la hierba oculta en el parque."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_6_herb"
+          },
+          "id": "quest_35_explore_the_sunny_park_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you explore the park for me?",
+          "target_language": "¿Puedes explorar el parque por mí?"
+        },
+        "quest_complete": {
+          "native_language": "Great find! Thank you!",
+          "target_language": "¡Gran hallazgo! ¡Gracias!"
+        }
+      },
+      "id": "quest_35_explore_the_sunny_park",
+      "giver_npc_id": "npc_3_luis"
+    },
+    {
+      "type": "side",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Stone Collection",
+        "target_language": "Colección de Piedras"
+      },
+      "description": {
+        "native_language": "Collect a stone from Central Plaza for Rosa.",
+        "target_language": "Recoge una piedra de la Plaza Central para Rosa."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "stone",
+          "target_language": "piedra"
+        },
+        {
+          "native_language": "collect",
+          "target_language": "recoger"
+        },
+        {
+          "native_language": "plaza",
+          "target_language": "plaza"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "possession"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to Central Plaza to collect a stone.",
+            "target_language": "Ve a la Plaza Central para recoger una piedra."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_7_central_plaza"
+          },
+          "id": "quest_36_stone_collection_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the stone in Central Plaza.",
+            "target_language": "Encuentra la piedra en la Plaza Central."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_7_stone"
+          },
+          "id": "quest_36_stone_collection_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the stone back to Rosa.",
+            "target_language": "Lleva la piedra de vuelta a Rosa."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_7_stone"
+          },
+          "id": "quest_36_stone_collection_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring me a stone from the plaza?",
+          "target_language": "¿Puedes traerme una piedra de la plaza?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the stone!",
+          "target_language": "¡Gracias por la piedra!"
+        }
+      },
+      "id": "quest_36_stone_collection",
+      "giver_npc_id": "npc_16_rosa"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Weather Report",
+        "target_language": "Reporte del Tiempo"
+      },
+      "description": {
+        "native_language": "Gather a weather report from the Weather Pavilion for Pedro.",
+        "target_language": "Recoge un informe del tiempo del Pabellón del Tiempo para Pedro."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "weather",
+          "target_language": "tiempo"
+        },
+        {
+          "native_language": "report",
+          "target_language": "informe"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "preguntar"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "indirect speech"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Weather Pavilion.",
+            "target_language": "Ve al Pabellón del Tiempo."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_9_weather_pavilion"
+          },
+          "id": "quest_39_weather_report_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Elena for the weather report.",
+            "target_language": "Habla con Elena para obtener el informe del tiempo."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_21_elena"
+          },
+          "id": "quest_39_weather_report_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Pedro with the weather information.",
+            "target_language": "Informa a Pedro con la información del tiempo."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_24_pedro"
+          },
+          "id": "quest_39_weather_report_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you get a weather report for me?",
+          "target_language": "¿Puedes conseguir un informe del tiempo para mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the weather update!",
+          "target_language": "¡Gracias por la actualización del tiempo!"
+        }
+      },
+      "id": "quest_39_weather_report",
+      "giver_npc_id": "npc_22_luis"
+    },
+    {
+      "type": "side",
+      "pattern": "social",
+      "name": {
+        "native_language": "Friendship with Sofia",
+        "target_language": "Amistad con Sofía"
+      },
+      "description": {
+        "native_language": "Build a friendship with Sofia by helping her with a task.",
+        "target_language": "Construye una amistad con Sofía ayudándola con una tarea."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "friendship",
+          "target_language": "amistad"
+        },
+        {
+          "native_language": "help",
+          "target_language": "ayuda"
+        },
+        {
+          "native_language": "task",
+          "target_language": "tarea"
+        }
+      ],
+      "grammar_points": [
+        "self-introduction",
+        "questions about others"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Introduce yourself to Sofia at the Master's Tower.",
+            "target_language": "Preséntate a Sofía en la Torre del Maestro."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_46_sofia"
+          },
+          "id": "quest_40_friendship_with_sofia_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Help Sofia with her task.",
+            "target_language": "Ayuda a Sofía con su tarea."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_46_sofia"
+          },
+          "id": "quest_40_friendship_with_sofia_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Would you like to meet Sofia and help her?",
+          "target_language": "¿Te gustaría conocer a Sofía y ayudarla?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for helping Sofia!",
+          "target_language": "¡Gracias por ayudar a Sofía!"
+        }
+      },
+      "id": "quest_40_friendship_with_sofia",
+      "giver_npc_id": "npc_4_sofia"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 40,
+    "total_valid": 23,
+    "total_invalid": 17,
+    "target_minimum": 20,
+    "target_met": true
+  }
+}

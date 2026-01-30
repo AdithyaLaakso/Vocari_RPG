@@ -6,6 +6,7 @@ from .npc_generator import NPCGenerator
 from .map_generator import MapGenerator
 from .quest_generator import QuestGenerator
 from .item_generator import ItemGenerator
+from .game_generator import GameGenerator
 from .quest_validator import QuestValidator, ValidationSeverity, ValidationIssue
 from .tutor_generator import TutorGenerator
 from .skill_generator import SkillGenerator
@@ -66,6 +67,10 @@ from .models import (
     SkillThreshold,
     LevelProgressionRequirement,
     LevelProgressionConfig,
+    # Mini-game models
+    GameTriggerType,
+    GameTrigger,
+    MiniGame,
 )
 
 __all__ = [
@@ -76,6 +81,7 @@ __all__ = [
     'MapGenerator',
     'QuestGenerator',
     'ItemGenerator',
+    'GameGenerator',
     'QuestValidator',
     'ValidationSeverity',
     'ValidationIssue',
@@ -136,4 +142,8 @@ __all__ = [
     'SkillThreshold',
     'LevelProgressionRequirement',
     'LevelProgressionConfig',
+    # Mini-game models
+    'GameTriggerType',
+    'GameTrigger',
+    'MiniGame',
 ]

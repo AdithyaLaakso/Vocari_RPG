@@ -104,12 +104,13 @@ class TaskCompletionCriteria(BaseModel):
     location_index: Optional[int] = Field(default=None, description="Index of target location (for at_location)")
     npc_index: Optional[int] = Field(default=None, description="Index of target NPC (for talked_to, gave_item, received_item)")
     item_index: Optional[int] = Field(default=None, description="Index of target item (for has_item, gave_item, received_item)")
+    game_index: Optional[int] = Field(default=None, description="Index of game to complete (for completed_game)")
 
 
 class QuestTask(BaseModel):
     order: int
     description: BilingualText
-    completion_type: Literal["at_location", "talked_to", "has_item", "gave_item", "received_item"]
+    completion_type: Literal["at_location", "talked_to", "has_item", "gave_item", "received_item", "completed_game"]
     completion_criteria: TaskCompletionCriteria
 
 
@@ -511,3 +512,59 @@ class TriggerValidationResult(BaseModel):
     is_valid: bool
     errors: List[TriggerValidationError] = []
     warnings: List[str] = []
+
+
+# ============================================================================
+# Mini-Game Models
+# ============================================================================
+
+class GameTriggerType(str, Enum):
+    """How a mini-game is triggered."""
+    LOCATION = "location"  # Available when player is at a location
+    NPC = "npc"            # Triggered by interacting with an NPC
+
+
+class GameTrigger(BaseModel):
+    """Specifies how a mini-game is triggered."""
+    trigger_type: GameTriggerType
+    target_index: int = Field(description="Index of location or NPC that triggers this game")
+
+class MiniGame(BaseModel):
+    """
+    A mini-game exercise within the RPG.
+
+    Mini-games are educational exercises that:
+    1. Are thematically related to quests
+    2. Teach vocabulary/grammar relevant to the quest
+    3. Are fun and interactive
+
+    Games are dynamically generated - no fixed types.
+    """
+    name: BilingualText
+    description: BilingualText
+    language_level: LanguageLevel
+    trigger: GameTrigger
+
+    # Educational content
+    target_vocabulary: List[BilingualText] = Field(
+        default=[],
+        description="Vocabulary words this game teaches"
+    )
+    grammar_focus: List[str] = Field(
+        default=[],
+        description="Grammar points this game reinforces"
+    )
+
+    # Quest integration
+    related_quest_index: Optional[int] = Field(
+        default=None,
+        description="Index of quest this game relates to (if any)"
+    )
+
+    # Game prompt for Lua generation - describes the unique game concept
+    game_prompt: str = Field(
+        description="Detailed prompt describing the game mechanics, visuals, and educational content for Lua generation"
+    )
+
+    # Rewards
+    item_reward: int

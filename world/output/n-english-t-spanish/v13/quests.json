@@ -1,0 +1,371 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver the Water",
+        "target_language": "Entrega el Agua"
+      },
+      "description": {
+        "native_language": "Deliver water from the Village Inn to the Colorful Garden.",
+        "target_language": "Entrega agua desde la Posada del Pueblo al Jardín Colorido."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        },
+        {
+          "native_language": "garden",
+          "target_language": "jardín"
+        }
+      ],
+      "grammar_points": [
+        "location prepositions",
+        "giving/receiving"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase water from the Village Inn.",
+            "target_language": "Compra agua en la Posada del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_3_water"
+          },
+          "id": "quest_12_deliver_the_water_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Take the water to Diego at the Colorful Garden.",
+            "target_language": "Lleva el agua a Diego en el Jardín Colorido."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_3_water"
+          },
+          "id": "quest_12_deliver_the_water_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you deliver some water to Diego in the garden?",
+          "target_language": "¿Puedes entregar un poco de agua a Diego en el jardín?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_12_deliver_the_water",
+      "giver_npc_id": "npc_6_sofia"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Apple Gathering",
+        "target_language": "Recolección de manzanas"
+      },
+      "description": {
+        "native_language": "Help Miguel collect apples from the Village Square.",
+        "target_language": "Ayuda a Miguel a recolectar manzanas en la Plaza del Pueblo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "village",
+          "target_language": "pueblo"
+        },
+        {
+          "native_language": "square",
+          "target_language": "plaza"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "nouns"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Collect an apple from the Village Square.",
+            "target_language": "Recoge una manzana de la Plaza del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_apple_gathering_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Give the apple to Miguel.",
+            "target_language": "Dale la manzana a Miguel."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_apple_gathering_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring me an apple from the plaza?",
+          "target_language": "¿Puedes traerme una manzana de la plaza?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_21_apple_gathering",
+      "giver_npc_id": "npc_1_miguel"
+    },
+    {
+      "type": "main",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver Water",
+        "target_language": "Entregar agua"
+      },
+      "description": {
+        "native_language": "Bring water from the Village Inn to the Colorful Garden.",
+        "target_language": "Lleva agua de la Posada del Pueblo al Jardín Colorido."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        },
+        {
+          "native_language": "garden",
+          "target_language": "jardín"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "prepositions",
+        "giving/receiving"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Buy water from the Village Inn.",
+            "target_language": "Compra agua en la Posada del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_3_water"
+          },
+          "id": "quest_22_deliver_water_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the water to Diego in the Colorful Garden.",
+            "target_language": "Entrega el agua a Diego en el Jardín Colorido."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_3_water"
+          },
+          "id": "quest_22_deliver_water_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you take this water to Diego in the garden?",
+          "target_language": "¿Podrías llevar esta agua a Diego en el jardín?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_22_deliver_water",
+      "giver_npc_id": "npc_6_sofia"
+    },
+    {
+      "type": "repeatable",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Water for the Inn",
+        "target_language": "Agua para la Posada"
+      },
+      "description": {
+        "native_language": "Deliver water from the Village Inn to Ramon.",
+        "target_language": "Entrega agua de la Posada del Pueblo a Ramón."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase water from the Village Inn.",
+            "target_language": "Compra agua de la Posada del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_3_water"
+          },
+          "id": "quest_33_water_for_the_inn_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the water to Ramon at the Village Inn.",
+            "target_language": "Entrega el agua a Ramón en la Posada del Pueblo."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_3_water"
+          },
+          "id": "quest_33_water_for_the_inn_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "We need water for Ramon, can you help?",
+          "target_language": "Necesitamos agua para Ramón, ¿puedes ayudar?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the water!",
+          "target_language": "¡Gracias por el agua!"
+        }
+      },
+      "id": "quest_33_water_for_the_inn",
+      "giver_npc_id": "npc_6_sofia"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Colorful Inquiry",
+        "target_language": "Consulta Colorida"
+      },
+      "description": {
+        "native_language": "Find out the name of the flower that blooms in the Colorful Garden.",
+        "target_language": "Descubre el nombre de la flor que florece en el Jardín Colorido."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "flower",
+          "target_language": "flor"
+        },
+        {
+          "native_language": "garden",
+          "target_language": "jardín"
+        },
+        {
+          "native_language": "find out",
+          "target_language": "descubre"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "nouns"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Ask Diego about the flower in the Colorful Garden.",
+            "target_language": "Pregunta a Diego sobre la flor en el Jardín Colorido."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_diego"
+          },
+          "id": "quest_42_colorful_inquiry_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Elena in the Colorful Garden about the flower.",
+            "target_language": "Habla con Elena en el Jardín Colorido sobre la flor."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_4_elena"
+          },
+          "id": "quest_42_colorful_inquiry_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Diego with the flower's name.",
+            "target_language": "Informa a Diego con el nombre de la flor."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_diego"
+          },
+          "id": "quest_42_colorful_inquiry_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out the name of the beautiful flower here?",
+          "target_language": "¿Puedes averiguar el nombre de la hermosa flor aquí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you, now I know it's called 'Flor del Sol'.",
+          "target_language": "Gracias, ahora sé que se llama 'Flor del Sol'."
+        }
+      },
+      "id": "quest_42_colorful_inquiry",
+      "giver_npc_id": "npc_3_diego"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 50,
+    "total_valid": 5,
+    "total_invalid": 45,
+    "target_minimum": 20,
+    "target_met": false
+  }
+}

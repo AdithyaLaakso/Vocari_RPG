@@ -189,8 +189,6 @@ Be specific to {self.target_language} grammar (e.g., for Spanish include ser/est
             result = self.call_openai_json(
                 system_prompt=system_prompt,
                 user_prompt=user_prompt,
-                max_tokens=2000,
-                temperature=0.5
             )
             return result
         except Exception as e:

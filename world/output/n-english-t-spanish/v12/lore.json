@@ -1,0 +1,90 @@
+{
+  "world_name": {
+    "native_language": "The Enchanted Village of Luminara",
+    "target_language": "El Pueblo Encantado de Luminara"
+  },
+  "world_description": {
+    "native_language": "Luminara is a quaint village nestled in a lush valley, where magic subtly intertwines with everyday life.",
+    "target_language": "Luminara es un pintoresco pueblo enclavado en un valle verde, donde la magia se entrelaza sutilmente con la vida cotidiana."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "Luminara has been a peaceful place for generations, renowned for its vibrant markets and friendly people.",
+      "target_language": "Luminara ha sido un lugar pacífico por generaciones, conocido por sus vibrantes mercados y gente amigable."
+    },
+    "player_origin": {
+      "native_language": "You are a traveler from a distant land, drawn to Luminara by tales of its magical charms and unique culture.",
+      "target_language": "Eres un viajero de una tierra lejana, atraído a Luminara por cuentos de sus encantos mágicos y cultura única."
+    },
+    "motivation": {
+      "native_language": "To help the villagers in their daily tasks and uncover the secrets of their enchanting world.",
+      "target_language": "Ayudar a los aldeanos en sus tareas diarias y descubrir los secretos de su mundo encantador."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "Medieval-inspired with a touch of magic.",
+      "target_language": "Inspirado en la época medieval con un toque de magia."
+    },
+    "atmosphere": {
+      "native_language": "Welcoming and vibrant, with a hint of mystery in the air.",
+      "target_language": "Acogedor y vibrante, con un toque de misterio en el aire."
+    },
+    "culture": {
+      "native_language": "Luminara's culture is rich with traditions and celebrations, reflecting the diversity of its people.",
+      "target_language": "La cultura de Luminara es rica en tradiciones y celebraciones, reflejando la diversidad de su gente."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "The Whispering Willow",
+        "target_language": "El Sauce Susurrante"
+      },
+      "description": {
+        "native_language": "A mystical tree that grants wisdom to those who listen to its gentle whispers.",
+        "target_language": "Un árbol místico que otorga sabiduría a aquellos que escuchan sus suaves susurros."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "The Guardians of the Grove",
+        "target_language": "Los Guardianes del Bosque"
+      },
+      "description": {
+        "native_language": "A group dedicated to preserving the natural and magical balance of Luminara.",
+        "target_language": "Un grupo dedicado a preservar el equilibrio natural y mágico de Luminara."
+      },
+      "role_in_world": {
+        "native_language": "They ensure the village remains a harmonious place, protecting it from any dark forces.",
+        "target_language": "Ellos aseguran que el pueblo siga siendo un lugar armonioso, protegiéndolo de cualquier fuerza oscura."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Community and collaboration",
+      "target_language": "Comunidad y colaboración"
+    },
+    {
+      "native_language": "Discovery and learning",
+      "target_language": "Descubrimiento y aprendizaje"
+    },
+    {
+      "native_language": "Harmony with nature",
+      "target_language": "Armonía con la naturaleza"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "To communicate effectively with the villagers and participate in their customs.",
+      "target_language": "Para comunicarse eficazmente con los aldeanos y participar en sus costumbres."
+    },
+    "how_language_fits": {
+      "native_language": "Spanish is the primary language spoken in Luminara, essential for daily interactions and understanding the world around you.",
+      "target_language": "El español es el idioma principal hablado en Luminara, esencial para las interacciones diarias y para entender el mundo que te rodea."
+    }
+  }
+}

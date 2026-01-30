@@ -194,6 +194,18 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "lua_dardo",
+      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/lua_dardo-0.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "luavm_widget",
+      "rootUri": "file:///home/Adithya/.pub-cache/git/luavm_widget-5832f0d94c7b65c12f2dafb9aaf59ff365110662/",
+      "packageUri": "lib/",
+      "languageVersion": "3.9"
+    },
+    {
       "name": "matcher",
       "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/matcher-0.12.17",
       "packageUri": "lib/",
@@ -330,6 +342,12 @@
       "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/source_span-1.10.1",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "sprintf",
+      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/sprintf-6.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "stack_trace",

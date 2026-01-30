@@ -13,6 +13,7 @@ from .npc_generator import NPCGenerator
 from .map_generator import MapGenerator
 from .item_generator import ItemGenerator
 from .quest_generator import QuestGenerator
+from .game_generator import GameGenerator
 from .tutor_generator import TutorGenerator
 from .skill_generator import SkillGenerator
 from .trigger_generator import TriggerGenerator
@@ -50,7 +51,7 @@ class WorldOrchestrator:
         world_data = {}
 
         # Step 1: Generate or load world lore
-        print("  [1/9] World lore...")
+        print("  [1/10] World lore...")
         cached_lore = self._load_cached("lore.json")
         if cached_lore:
             print("    Using cached lore.json")
@@ -66,7 +67,7 @@ class WorldOrchestrator:
             world_data['lore'] = lore_gen.generate()
 
         # Step 2: Generate or load map/locations
-        print("  [2/9] Map and locations...")
+        print("  [2/10] Map and locations...")
         cached_map = self._load_cached("map.json")
         if cached_map:
             print("    Using cached map.json")
@@ -82,7 +83,7 @@ class WorldOrchestrator:
             world_data['map'] = map_gen.generate(world_data['lore'])
 
         # Step 3: Generate or load NPCs
-        print("  [3/9] NPCs...")
+        print("  [3/10] NPCs...")
         cached_npcs = self._load_cached("npcs.json")
         if cached_npcs:
             print("    Using cached npcs.json")
@@ -98,7 +99,7 @@ class WorldOrchestrator:
             world_data['npcs'] = npc_gen.generate(world_data['lore'], world_data['map'])
 
         # Step 4: Generate or load items
-        print("  [4/9] Items...")
+        print("  [4/10] Items...")
         cached_items = self._load_cached("items.json")
         if cached_items:
             print("    Using cached items.json")
@@ -114,7 +115,7 @@ class WorldOrchestrator:
             world_data['items'] = item_gen.generate(world_data['lore'], world_data['map'])
 
         # Step 5: Generate or load quests
-        print("  [5/9] Quests...")
+        print("  [5/10] Quests...")
         cached_quests = self._load_cached("quests.json")
         if cached_quests:
             print("    Using cached quests.json")
@@ -134,8 +135,29 @@ class WorldOrchestrator:
                 world_data['items']
             )
 
-        # Step 6: Generate or load tutor data
-        print("  [6/9] Tutor data...")
+        # Step 6: Generate or load mini-games
+        print("  [6/10] Mini-games...")
+        cached_games = self._load_cached("games.json")
+        if cached_games:
+            print("    Using cached games.json")
+            world_data['games'] = cached_games
+        else:
+            print("    Generating mini-games...")
+            game_gen = GameGenerator(
+                embedder=self.embedder,
+                target_language=self.target_language,
+                native_language=self.native_language,
+                output_path=self.output_path
+            )
+            world_data['games'] = game_gen.generate(
+                world_data['map'],
+                world_data['npcs'],
+                world_data['items'],
+                world_data['quests']
+            )
+
+        # Step 7: Generate or load tutor data
+        print("  [7/10] Tutor data...")
         cached_tutor = self._load_cached("tutor.json")
         if cached_tutor:
             print("    Using cached tutor.json")
@@ -154,8 +176,8 @@ class WorldOrchestrator:
                 world_data['npcs']
             )
 
-        # Step 7: Generate or load language skills
-        print("  [7/9] Language skills...")
+        # Step 8: Generate or load language skills
+        print("  [8/10] Language skills...")
         cached_skills = self._load_cached("skills.json")
         if cached_skills:
             print("    Using cached skills.json")
@@ -175,8 +197,8 @@ class WorldOrchestrator:
                 grammar_curriculum
             )
 
-        # Step 8: Generate or load skill progression triggers
-        print("  [8/9] Skill progression triggers...")
+        # Step 9: Generate or load skill progression triggers
+        print("  [9/10] Skill progression triggers...")
         cached_triggers = self._load_cached("triggers.json")
         if cached_triggers:
             print("    Using cached triggers.json")
@@ -195,8 +217,8 @@ class WorldOrchestrator:
                 world_data['npcs'],
             )
 
-        # Step 9: Generate or load level progression requirements
-        print("  [9/9] Level progression requirements...")
+        # Step 10: Generate or load level progression requirements
+        print("  [10/10] Level progression requirements...")
         cached_progression = self._load_cached("level_progression.json")
         if cached_progression:
             print("    Using cached level_progression.json")

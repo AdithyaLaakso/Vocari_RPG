@@ -6,6 +6,7 @@ import '../game_models.dart';
 import '../providers/game_provider.dart';
 import '../location_card.dart';
 import '../npc_dialogue_sheet.dart';
+import '../mini_game_sheet.dart';
 import '../quest_notification.dart';
 import '../widgets/narrator_panel.dart';
 import '../widgets/game_map_widget.dart';
@@ -761,8 +762,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   Widget _buildLookAroundSection(GameProvider gameProvider) {
     final playerLevel = gameProvider.player?.languageLevel ?? 'A0';
     final hasItems = gameProvider.locationItems.isNotEmpty;
+    final hasGames = gameProvider.locationGames.isNotEmpty;
 
-    if (!hasItems) {
+    if (!hasItems && !hasGames) {
       return const SizedBox.shrink();
     }
 
@@ -850,10 +852,138 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                   .slideX(begin: -0.1),
             );
           }),
+
+          // Mini-games at this location
+          if (hasGames) ...[
+            const SizedBox(height: 16),
+
+            Text(
+              'Mini-Games',
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: Colors.purple,
+              ),
+            ).animate().fadeIn(delay: 200.ms),
+
+            const SizedBox(height: 12),
+
+            ...gameProvider.locationGames.asMap().entries.map((entry) {
+              final index = entry.key;
+              final game = entry.value;
+
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: _buildMiniGameCard(game, gameProvider)
+                    .animate()
+                    .fadeIn(delay: Duration(milliseconds: 250 + (index * 80)))
+                    .slideX(begin: -0.1),
+              );
+            }),
+          ],
         ],
 
         const SizedBox(height: 16),
       ],
+    );
+  }
+
+  /// Build a card for a mini-game
+  Widget _buildMiniGameCard(MiniGame game, GameProvider gameProvider) {
+    final isCompleted = gameProvider.isGameCompleted(game.id);
+
+    return InkWell(
+      onTap: () => showMiniGameSheet(context, game),
+      borderRadius: BorderRadius.circular(12),
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Colors.purple.withOpacity(0.1),
+          border: Border.all(
+            color: isCompleted
+                ? Colors.green.withOpacity(0.5)
+                : Colors.purple.withOpacity(0.3),
+          ),
+        ),
+        child: Row(
+          children: [
+            // Game icon
+            Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.purple.withOpacity(0.2),
+              ),
+              child: Center(
+                child: isCompleted
+                    ? const Icon(Icons.check_circle, color: Colors.green, size: 28)
+                    : const Text('\u{1F3AE}', style: TextStyle(fontSize: 24)),
+              ),
+            ),
+
+            const SizedBox(width: 12),
+
+            // Game info
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    game.displayName,
+                    style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    game.displayDescription,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.white70,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(width: 8),
+
+            // XP reward badge
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Colors.amber.withOpacity(0.2),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(Icons.star, color: Colors.amber, size: 14),
+                  const SizedBox(width: 4),
+                  Text(
+                    '${game.skillPoints}',
+                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                      color: Colors.amber,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(width: 8),
+
+            // Play button
+            Icon(
+              Icons.play_circle_fill,
+              color: Colors.purple.withOpacity(0.7),
+              size: 28,
+            ),
+          ],
+        ),
+      ),
     );
   }
 

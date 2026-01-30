@@ -1,0 +1,813 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Valley of Languages",
+      "target_language": "Valle de Lenguas"
+    },
+    "description": {
+      "native_language": "A magical land where language learning is celebrated.",
+      "target_language": "Una tierra mágica donde se celebra el aprendizaje de idiomas."
+    },
+    "scale": "region"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Village of Beginnings",
+        "target_language": "Aldea de Comienzos"
+      },
+      "description": {
+        "native_language": "A welcoming place for new language learners.",
+        "target_language": "Un lugar acogedor para nuevos aprendices de idiomas."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_village_of_beginnings"
+    },
+    {
+      "name": {
+        "native_language": "Town of Knowledge",
+        "target_language": "Pueblo del Conocimiento"
+      },
+      "description": {
+        "native_language": "A bustling town full of curious minds.",
+        "target_language": "Un pueblo bullicioso lleno de mentes curiosas."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_town_of_knowledge"
+    },
+    {
+      "name": {
+        "native_language": "City of Discovery",
+        "target_language": "Ciudad del Descubrimiento"
+      },
+      "description": {
+        "native_language": "A vibrant city where learning never stops.",
+        "target_language": "Una ciudad vibrante donde el aprendizaje nunca se detiene."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_city_of_discovery"
+    },
+    {
+      "name": {
+        "native_language": "Hills of Reflection",
+        "target_language": "Colinas de Reflexión"
+      },
+      "description": {
+        "native_language": "Peaceful hills perfect for contemplation.",
+        "target_language": "Colinas tranquilas perfectas para la contemplación."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_hills_of_reflection"
+    },
+    {
+      "name": {
+        "native_language": "Realm of Mastery",
+        "target_language": "Reino de Maestría"
+      },
+      "description": {
+        "native_language": "A majestic realm for seasoned learners.",
+        "target_language": "Un reino majestuoso para aprendices experimentados."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_realm_of_mastery"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Main Square",
+        "target_language": "Plaza Principal"
+      },
+      "description": {
+        "native_language": "The heart of the village, where everyone gathers.",
+        "target_language": "El corazón de la aldea, donde todos se reúnen."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "numbers 1-10"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic greetings",
+        "target_language": "saludos básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and welcoming.",
+        "target_language": "Animada y acogedora."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "loc_1_main_square",
+      "region_id": "region_1_village_of_beginnings",
+      "connections": [
+        "loc_2_colorful_market",
+        "loc_3_cozy_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Market",
+        "target_language": "Mercado Colorido"
+      },
+      "description": {
+        "native_language": "A vibrant market with all the colors of the rainbow.",
+        "target_language": "Un mercado vibrante con todos los colores del arcoíris."
+      },
+      "type": "shop",
+      "language_topics": [
+        "colors",
+        "yes/no"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors",
+        "target_language": "colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling with activity.",
+        "target_language": "Bullicioso con actividad."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 0
+      },
+      "id": "loc_2_colorful_market",
+      "region_id": "region_1_village_of_beginnings",
+      "connections": [
+        "loc_1_main_square",
+        "loc_4_library_of_lore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Cozy Inn",
+        "target_language": "Posada Acogedora"
+      },
+      "description": {
+        "native_language": "A warm inn where travelers rest.",
+        "target_language": "Una posada cálida donde descansan los viajeros."
+      },
+      "type": "inn",
+      "language_topics": [
+        "greetings",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic objects",
+        "target_language": "objetos básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and comfortable.",
+        "target_language": "Cálida y cómoda."
+      },
+      "coordinates": {
+        "x": -1,
+        "y": 0
+      },
+      "id": "loc_3_cozy_inn",
+      "region_id": "region_1_village_of_beginnings",
+      "connections": [
+        "loc_1_main_square",
+        "loc_5_artisan_s_workshop"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Library of Lore",
+        "target_language": "Biblioteca del Saber"
+      },
+      "description": {
+        "native_language": "A grand library filled with books and knowledge.",
+        "target_language": "Una gran biblioteca llena de libros y conocimiento."
+      },
+      "type": "building",
+      "language_topics": [
+        "introductions",
+        "days/months"
+      ],
+      "vocabulary_domain": {
+        "native_language": "introductions",
+        "target_language": "introducciones"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and scholarly.",
+        "target_language": "Silenciosa y erudita."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_4_library_of_lore",
+      "region_id": "region_2_town_of_knowledge",
+      "connections": [
+        "loc_2_colorful_market",
+        "loc_6_sunny_park"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Artisan's Workshop",
+        "target_language": "Taller del Artesano"
+      },
+      "description": {
+        "native_language": "A creative space where artisans craft their wares.",
+        "target_language": "Un espacio creativo donde los artesanos fabrican sus productos."
+      },
+      "type": "building",
+      "language_topics": [
+        "basic objects",
+        "days/months"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic objects",
+        "target_language": "objetos básicos"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Creative and industrious.",
+        "target_language": "Creativa e industriosa."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_5_artisan_s_workshop",
+      "region_id": "region_2_town_of_knowledge",
+      "connections": [
+        "loc_4_library_of_lore",
+        "loc_7_central_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Sunny Park",
+        "target_language": "Parque Soleado"
+      },
+      "description": {
+        "native_language": "A sunny outdoor area perfect for relaxation.",
+        "target_language": "Un área al aire libre soleada, perfecta para la relajación."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers 1-100",
+        "colors"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and refreshing.",
+        "target_language": "Tranquilo y refrescante."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 0
+      },
+      "id": "loc_6_sunny_park",
+      "region_id": "region_2_town_of_knowledge",
+      "connections": [
+        "loc_4_library_of_lore",
+        "loc_8_culinary_house"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Central Plaza",
+        "target_language": "Plaza Central"
+      },
+      "description": {
+        "native_language": "The bustling center of the city.",
+        "target_language": "El bullicioso centro de la ciudad."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "family",
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "family",
+        "target_language": "familia"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Busy and lively.",
+        "target_language": "Ocupado y animado."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 0
+      },
+      "id": "loc_7_central_plaza",
+      "region_id": "region_3_city_of_discovery",
+      "connections": [
+        "loc_6_sunny_park",
+        "loc_9_weather_pavilion",
+        "loc_10_reflection_meadow"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Culinary House",
+        "target_language": "Casa Culinaria"
+      },
+      "description": {
+        "native_language": "A place where people gather to cook and share meals.",
+        "target_language": "Un lugar donde las personas se reúnen para cocinar y compartir comidas."
+      },
+      "type": "building",
+      "language_topics": [
+        "food",
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food",
+        "target_language": "comida"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "id": "loc_8_culinary_house",
+      "region_id": "region_3_city_of_discovery",
+      "connections": [
+        "loc_7_central_plaza",
+        "loc_11_craftsman_s_haven"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Weather Pavilion",
+        "target_language": "Pabellón del Clima"
+      },
+      "description": {
+        "native_language": "A pavilion dedicated to understanding the weather.",
+        "target_language": "Un pabellón dedicado a entender el clima."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "weather",
+        "directions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "weather",
+        "target_language": "clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Open and breezy.",
+        "target_language": "Abierto y ventoso."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 0
+      },
+      "id": "loc_9_weather_pavilion",
+      "region_id": "region_3_city_of_discovery",
+      "connections": [
+        "loc_8_culinary_house",
+        "loc_12_tranquil_lake"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Reflection Meadow",
+        "target_language": "Prado de Reflexión"
+      },
+      "description": {
+        "native_language": "A serene meadow ideal for contemplation.",
+        "target_language": "Un prado sereno ideal para la contemplación."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "daily routines",
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "daily routines",
+        "target_language": "rutinas diarias"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and inspiring.",
+        "target_language": "Pacífico e inspirador."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 0
+      },
+      "id": "loc_10_reflection_meadow",
+      "region_id": "region_4_hills_of_reflection",
+      "connections": [
+        "loc_9_weather_pavilion",
+        "loc_13_master_s_tower"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Craftsman's Haven",
+        "target_language": "Refugio del Artesano"
+      },
+      "description": {
+        "native_language": "A workshop nestled in the hills.",
+        "target_language": "Un taller enclavado en las colinas."
+      },
+      "type": "building",
+      "language_topics": [
+        "hobbies",
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "hobbies",
+        "target_language": "pasatiempos"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Creative and tranquil.",
+        "target_language": "Creativo y tranquilo."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 1
+      },
+      "id": "loc_11_craftsman_s_haven",
+      "region_id": "region_4_hills_of_reflection",
+      "connections": [
+        "loc_11_craftsman_s_haven",
+        "loc_14_garden_of_wisdom"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Tranquil Lake",
+        "target_language": "Lago Tranquilo"
+      },
+      "description": {
+        "native_language": "A serene lake perfect for reflection.",
+        "target_language": "Un lago sereno perfecto para la reflexión."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events",
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "descriptions",
+        "target_language": "descripciones"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and reflective.",
+        "target_language": "Calma y reflexiva."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 0
+      },
+      "id": "loc_12_tranquil_lake",
+      "region_id": "region_4_hills_of_reflection",
+      "connections": [
+        "loc_12_tranquil_lake",
+        "loc_15_chamber_of_strategies"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Master's Tower",
+        "target_language": "Torre del Maestro"
+      },
+      "description": {
+        "native_language": "The pinnacle of learning in the realm.",
+        "target_language": "La cúspide del aprendizaje en el reino."
+      },
+      "type": "building",
+      "language_topics": [
+        "travel",
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel",
+        "target_language": "viajar"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Majestic and awe-inspiring.",
+        "target_language": "Majestuoso e impresionante."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 0
+      },
+      "id": "loc_13_master_s_tower",
+      "region_id": "region_5_realm_of_mastery",
+      "connections": [
+        "loc_13_master_s_tower"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Garden of Wisdom",
+        "target_language": "Jardín de la Sabiduría"
+      },
+      "description": {
+        "native_language": "A beautiful garden where ideas bloom.",
+        "target_language": "Un hermoso jardín donde florecen las ideas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "work",
+        "plans"
+      ],
+      "vocabulary_domain": {
+        "native_language": "work",
+        "target_language": "trabajo"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and intellectual.",
+        "target_language": "Pacífico e intelectual."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 1
+      },
+      "id": "loc_14_garden_of_wisdom",
+      "region_id": "region_5_realm_of_mastery",
+      "connections": [
+        "loc_14_garden_of_wisdom"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Chamber of Strategies",
+        "target_language": "Cámara de Estrategias"
+      },
+      "description": {
+        "native_language": "A place where plans are crafted and strategies formed.",
+        "target_language": "Un lugar donde se elaboran planes y se forman estrategias."
+      },
+      "type": "building",
+      "language_topics": [
+        "health",
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "health",
+        "target_language": "salud"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Focused and strategic.",
+        "target_language": "Enfocado y estratégico."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 0
+      },
+      "id": "loc_15_chamber_of_strategies",
+      "region_id": "region_5_realm_of_mastery",
+      "connections": [
+        "loc_15_chamber_of_strategies"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_main_square",
+      "to_location": "loc_2_colorful_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_main_square",
+      "to_location": "loc_3_cozy_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_colorful_market",
+      "to_location": "loc_4_library_of_lore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_cozy_inn",
+      "to_location": "loc_5_artisan_s_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_library_of_lore",
+      "to_location": "loc_6_sunny_park",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_artisan_s_workshop",
+      "to_location": "loc_4_library_of_lore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_artisan_s_workshop",
+      "to_location": "loc_7_central_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_sunny_park",
+      "to_location": "loc_8_culinary_house",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_central_plaza",
+      "to_location": "loc_6_sunny_park",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_central_plaza",
+      "to_location": "loc_9_weather_pavilion",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_central_plaza",
+      "to_location": "loc_10_reflection_meadow",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_culinary_house",
+      "to_location": "loc_7_central_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_culinary_house",
+      "to_location": "loc_11_craftsman_s_haven",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_weather_pavilion",
+      "to_location": "loc_8_culinary_house",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_weather_pavilion",
+      "to_location": "loc_12_tranquil_lake",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_reflection_meadow",
+      "to_location": "loc_9_weather_pavilion",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_reflection_meadow",
+      "to_location": "loc_13_master_s_tower",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_craftsman_s_haven",
+      "to_location": "loc_11_craftsman_s_haven",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_craftsman_s_haven",
+      "to_location": "loc_14_garden_of_wisdom",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_tranquil_lake",
+      "to_location": "loc_12_tranquil_lake",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_tranquil_lake",
+      "to_location": "loc_15_chamber_of_strategies",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_master_s_tower",
+      "to_location": "loc_13_master_s_tower",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_garden_of_wisdom",
+      "to_location": "loc_14_garden_of_wisdom",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_15_chamber_of_strategies",
+      "to_location": "loc_15_chamber_of_strategies",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_main_square"
+}

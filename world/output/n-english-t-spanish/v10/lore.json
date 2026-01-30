@@ -1,0 +1,90 @@
+{
+  "world_name": {
+    "native_language": "Valle de Lenguas",
+    "target_language": "Valley of Languages"
+  },
+  "world_description": {
+    "native_language": "A quaint village surrounded by lush forests and magical springs where language is the key to communication and understanding.",
+    "target_language": "Un pintoresco pueblo rodeado de frondosos bosques y manantiales mágicos donde el lenguaje es la clave para la comunicación y el entendimiento."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "Valle de Lenguas is a place where people from different lands come to learn and share languages, fostering a unique community.",
+      "target_language": "El Valle de Lenguas es un lugar donde personas de diferentes tierras vienen a aprender y compartir idiomas, fomentando una comunidad única."
+    },
+    "player_origin": {
+      "native_language": "You are a traveler from a distant land, eager to learn the language and customs of this enchanting village.",
+      "target_language": "Eres un viajero de una tierra lejana, ansioso por aprender el idioma y las costumbres de este encantador pueblo."
+    },
+    "motivation": {
+      "native_language": "Your goal is to immerse yourself in this community, forming connections and unlocking the secrets of the magical springs.",
+      "target_language": "Tu objetivo es sumergirte en esta comunidad, formar conexiones y descubrir los secretos de los manantiales mágicos."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "Medieval with a touch of magic.",
+      "target_language": "Medieval con un toque de magia."
+    },
+    "atmosphere": {
+      "native_language": "Welcoming and vibrant, full of life and laughter.",
+      "target_language": "Acogedor y vibrante, lleno de vida y risas."
+    },
+    "culture": {
+      "native_language": "A blend of ancient traditions and new ideas, where language learning is celebrated.",
+      "target_language": "Una mezcla de antiguas tradiciones y nuevas ideas, donde se celebra el aprendizaje de idiomas."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Manantial de Sabiduría",
+        "target_language": "Spring of Wisdom"
+      },
+      "description": {
+        "native_language": "A magical spring that grants wisdom and understanding of languages to those who drink from it.",
+        "target_language": "Un manantial mágico que otorga sabiduría y comprensión de idiomas a aquellos que beben de él."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "Guardianes de la Lengua",
+        "target_language": "Guardians of the Language"
+      },
+      "description": {
+        "native_language": "A group dedicated to preserving the rich linguistic heritage of the valley.",
+        "target_language": "Un grupo dedicado a preservar el rico patrimonio lingüístico del valle."
+      },
+      "role_in_world": {
+        "native_language": "They guide newcomers in their language journey and protect the magical springs.",
+        "target_language": "Guían a los recién llegados en su viaje lingüístico y protegen los manantiales mágicos."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Discovery",
+      "target_language": "Descubrimiento"
+    },
+    {
+      "native_language": "Connection",
+      "target_language": "Conexión"
+    },
+    {
+      "native_language": "Cultural Exchange",
+      "target_language": "Intercambio Cultural"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "To communicate and engage with the residents and unlock the mysteries of the valley.",
+      "target_language": "Para comunicarse e interactuar con los residentes y descubrir los misterios del valle."
+    },
+    "how_language_fits": {
+      "native_language": "The language is woven into daily interactions, market transactions, and quests for knowledge.",
+      "target_language": "El idioma está entrelazado en las interacciones diarias, transacciones en el mercado y misiones de conocimiento."
+    }
+  }
+}

@@ -1,0 +1,1510 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Water Delivery",
+        "target_language": "Entrega de Agua"
+      },
+      "description": {
+        "native_language": "Deliver a bottle of water to Lina at the Village Entrance.",
+        "target_language": "Entregar una botella de agua a Lina en la Entrada del Pueblo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "bottle",
+          "target_language": "botella"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather water from the Village Entrance.",
+            "target_language": "Recoge agua en la Entrada del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_2_water_delivery_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the water to Lina.",
+            "target_language": "Entrega el agua a Lina."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_2_water_delivery_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you deliver this water to Lina?",
+          "target_language": "¿Podrías entregar esta agua a Lina?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_2_water_delivery",
+      "giver_npc_id": "npc_2_lina_the_guard"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Find the Rainbow",
+        "target_language": "Encuentra el Arcoíris"
+      },
+      "description": {
+        "native_language": "Ask around to find information about the Rainbow Pond.",
+        "target_language": "Pregunta para encontrar información sobre el Estanque Arcoíris."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "rainbow",
+          "target_language": "arcoíris"
+        },
+        {
+          "native_language": "pond",
+          "target_language": "estanque"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "preguntar"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Pablo about the Rainbow Pond.",
+            "target_language": "Habla con Pablo sobre el Estanque Arcoíris."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_pablo_the_child"
+          },
+          "id": "quest_3_find_the_rainbow_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Learn about the Rainbow Pond from Tina.",
+            "target_language": "Aprende sobre el Estanque Arcoíris de Tina."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_7_tina_the_craftsman"
+          },
+          "id": "quest_3_find_the_rainbow_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out more about the Rainbow Pond?",
+          "target_language": "¿Puedes averiguar más sobre el Estanque Arcoíris?"
+        },
+        "quest_complete": {
+          "native_language": "Great, now I know about the Rainbow Pond!",
+          "target_language": "¡Genial, ahora sé sobre el Estanque Arcoíris!"
+        }
+      },
+      "id": "quest_3_find_the_rainbow",
+      "giver_npc_id": "npc_3_pablo_the_child"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince Carmen",
+        "target_language": "Convence a Carmen"
+      },
+      "description": {
+        "native_language": "Persuade Carmen to join the village festival.",
+        "target_language": "Convence a Carmen para que se una al festival del pueblo."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "festival",
+          "target_language": "festival"
+        },
+        {
+          "native_language": "join",
+          "target_language": "unirse"
+        },
+        {
+          "native_language": "persuade",
+          "target_language": "convencer"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Carmen about joining the festival.",
+            "target_language": "Habla con Carmen sobre unirse al festival."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_carmen_the_villager"
+          },
+          "id": "quest_5_convince_carmen_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Convince Carmen with a polite request.",
+            "target_language": "Convence a Carmen con una petición educada."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_carmen_the_villager"
+          },
+          "id": "quest_5_convince_carmen_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you persuade Carmen to join our festival?",
+          "target_language": "¿Puedes convencer a Carmen para que se una a nuestro festival?"
+        },
+        "quest_complete": {
+          "native_language": "Carmen has agreed to join, thank you!",
+          "target_language": "Carmen ha aceptado unirse, ¡gracias!"
+        }
+      },
+      "id": "quest_5_convince_carmen",
+      "giver_npc_id": "npc_6_luis_the_farmer"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Market Supplies",
+        "target_language": "Suministros del Mercado"
+      },
+      "description": {
+        "native_language": "Gather supplies from Luminara Market for Miguel.",
+        "target_language": "Recoge suministros del Mercado de Luminara para Miguel."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "market",
+          "target_language": "mercado"
+        },
+        {
+          "native_language": "supplies",
+          "target_language": "suministros"
+        },
+        {
+          "native_language": "gather",
+          "target_language": "recoger"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to Luminara Market to purchase cheese.",
+            "target_language": "Ve al Mercado de Luminara para comprar queso."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_12_cheese"
+          },
+          "id": "quest_6_market_supplies_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Return to Miguel with the cheese.",
+            "target_language": "Regresa a Miguel con el queso."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_12_cheese"
+          },
+          "id": "quest_6_market_supplies_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need cheese from the market, can you help?",
+          "target_language": "Necesito queso del mercado, ¿puedes ayudar?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for bringing the cheese!",
+          "target_language": "¡Gracias por traer el queso!"
+        }
+      },
+      "id": "quest_6_market_supplies",
+      "giver_npc_id": "npc_20_miguel"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Herbal Tea for Elena",
+        "target_language": "Té de Hierbas para Elena"
+      },
+      "description": {
+        "native_language": "Deliver herbal tea to Elena at the Herbalist's Hut.",
+        "target_language": "Entrega té de hierbas a Elena en la Cabaña del Herbolario."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "herbal tea",
+          "target_language": "té de hierbas"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "hut",
+          "target_language": "cabaña"
+        }
+      ],
+      "grammar_points": [
+        "location prepositions",
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase herbal tea from the Herbalist's Hut.",
+            "target_language": "Compra té de hierbas en la Cabaña del Herbolario."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_14_herbal_tea"
+          },
+          "id": "quest_7_herbal_tea_for_elena_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the herbal tea to Elena.",
+            "target_language": "Entrega el té de hierbas a Elena."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_14_herbal_tea"
+          },
+          "id": "quest_7_herbal_tea_for_elena_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you deliver this herbal tea to Elena?",
+          "target_language": "¿Podrías entregar este té de hierbas a Elena?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_7_herbal_tea_for_elena",
+      "giver_npc_id": "npc_21_elena"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver Water to Lina",
+        "target_language": "Entrega agua a Lina"
+      },
+      "description": {
+        "native_language": "Deliver a bottle of water to Lina.",
+        "target_language": "Entrega una botella de agua a Lina."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "bottle",
+          "target_language": "botella"
+        },
+        {
+          "native_language": "here",
+          "target_language": "aquí"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Collect water at the Village Entrance.",
+            "target_language": "Recoge agua en la entrada del pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_12_deliver_water_to_lina_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the water to Lina.",
+            "target_language": "Entrega el agua a Lina."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_12_deliver_water_to_lina_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you take this water to Lina?",
+          "target_language": "¿Podrías llevar esta agua a Lina?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for delivering the water.",
+          "target_language": "Gracias por entregar el agua."
+        }
+      },
+      "id": "quest_12_deliver_water_to_lina",
+      "giver_npc_id": "npc_5_carmen_the_villager"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Gather News for Miguel",
+        "target_language": "Recoge noticias para Miguel"
+      },
+      "description": {
+        "native_language": "Find out the latest news in Luminara Town Square.",
+        "target_language": "Descubre las últimas noticias en la Plaza de Luminara."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "news",
+          "target_language": "noticias"
+        },
+        {
+          "native_language": "market",
+          "target_language": "mercado"
+        },
+        {
+          "native_language": "today",
+          "target_language": "hoy"
+        }
+      ],
+      "grammar_points": [
+        "question formation",
+        "indirect speech"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Tomas the Elder for news.",
+            "target_language": "Habla con Tomás el Anciano para recibir noticias."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_17_tomas_the_elder"
+          },
+          "id": "quest_15_gather_news_for_miguel_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Return to Miguel with the news.",
+            "target_language": "Regresa a Miguel con las noticias."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_11_miguel_the_fruit_seller"
+          },
+          "id": "quest_15_gather_news_for_miguel_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out what's happening in the square?",
+          "target_language": "¿Puedes averiguar qué está pasando en la plaza?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for bringing me the news!",
+          "target_language": "¡Gracias por traerme las noticias!"
+        }
+      },
+      "id": "quest_15_gather_news_for_miguel",
+      "giver_npc_id": "npc_11_miguel_the_fruit_seller"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Cheese for Elena",
+        "target_language": "Queso para Elena"
+      },
+      "description": {
+        "native_language": "Buy cheese and bring it to Elena at the inn.",
+        "target_language": "Compra queso y llévalo a Elena en la posada."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "cheese",
+          "target_language": "queso"
+        },
+        {
+          "native_language": "buy",
+          "target_language": "comprar"
+        },
+        {
+          "native_language": "inn",
+          "target_language": "posada"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "possession"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to Luminara Market to buy cheese.",
+            "target_language": "Ve al mercado de Luminara a comprar queso."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_7_luminara_market"
+          },
+          "id": "quest_16_cheese_for_elena_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Purchase cheese.",
+            "target_language": "Compra queso."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_12_cheese"
+          },
+          "id": "quest_16_cheese_for_elena_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the cheese to Elena at the inn.",
+            "target_language": "Lleva el queso a Elena en la posada."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_12_cheese"
+          },
+          "id": "quest_16_cheese_for_elena_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "We need cheese at the inn. Can you buy some?",
+          "target_language": "Necesitamos queso en la posada. ¿Puedes comprar algo?"
+        },
+        "quest_complete": {
+          "native_language": "Perfect, this cheese is just what we needed.",
+          "target_language": "Perfecto, este queso es justo lo que necesitábamos."
+        }
+      },
+      "id": "quest_16_cheese_for_elena",
+      "giver_npc_id": "npc_12_elena_the_innkeeper"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince the Herbalist",
+        "target_language": "Convence al Herborista"
+      },
+      "description": {
+        "native_language": "Persuade Lydia to provide herbal tea.",
+        "target_language": "Convence a Lydia para que proporcione té de hierbas."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "herbal tea",
+          "target_language": "té de hierbas"
+        },
+        {
+          "native_language": "please",
+          "target_language": "por favor"
+        },
+        {
+          "native_language": "help",
+          "target_language": "ayuda"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Visit Lydia at the Herbalist's Hut.",
+            "target_language": "Visita a Lydia en la cabaña del herborista."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_13_enchanted_glade"
+          },
+          "id": "quest_17_convince_the_herbalist_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Ask Lydia for herbal tea.",
+            "target_language": "Pide a Lydia té de hierbas."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_40_lydia_the_herbalist"
+          },
+          "id": "quest_17_convince_the_herbalist_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Convince Lydia to help.",
+            "target_language": "Convence a Lydia para que ayude."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_40_lydia_the_herbalist"
+          },
+          "id": "quest_17_convince_the_herbalist_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "We need Lydia's herbal tea. Can you persuade her?",
+          "target_language": "Necesitamos el té de hierbas de Lydia. ¿Puedes convencerla?"
+        },
+        "quest_complete": {
+          "native_language": "Great, Lydia agreed to help!",
+          "target_language": "¡Genial, Lydia accedió a ayudar!"
+        }
+      },
+      "id": "quest_17_convince_the_herbalist",
+      "giver_npc_id": "npc_21_elena"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Water for the Guard",
+        "target_language": "Agua para el Guardia"
+      },
+      "description": {
+        "native_language": "Deliver water from the Village Entrance to Lina the Guard.",
+        "target_language": "Entrega agua desde la entrada del pueblo a Lina la Guardia."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "guard",
+          "target_language": "guardia"
+        },
+        {
+          "native_language": "please",
+          "target_language": "por favor"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Collect water at the Village Entrance.",
+            "target_language": "Recoge agua en la entrada del pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_22_water_for_the_guard_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the water to Lina the Guard.",
+            "target_language": "Entrega el agua a Lina la Guardia."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_22_water_for_the_guard_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Lina needs water. Can you deliver it, please?",
+          "target_language": "Lina necesita agua. ¿Puedes entregarla, por favor?"
+        },
+        "quest_complete": {
+          "native_language": "Great, Lina will be happy!",
+          "target_language": "¡Genial, Lina estará feliz!"
+        }
+      },
+      "id": "quest_22_water_for_the_guard",
+      "giver_npc_id": "npc_5_carmen_the_villager"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "The Curious Child",
+        "target_language": "El Niño Curioso"
+      },
+      "description": {
+        "native_language": "Help Pablo the Child learn about the Sunflower Field.",
+        "target_language": "Ayuda a Pablo el Niño a aprender sobre el Campo de Girasoles."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "field",
+          "target_language": "campo"
+        },
+        {
+          "native_language": "learn",
+          "target_language": "aprender"
+        },
+        {
+          "native_language": "child",
+          "target_language": "niño"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Luis the Farmer about the Sunflower Field.",
+            "target_language": "Habla con Luis el Granjero sobre el Campo de Girasoles."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_luis_the_farmer"
+          },
+          "id": "quest_25_the_curious_child_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Tell Pablo what you learned about the field.",
+            "target_language": "Dile a Pablo lo que aprendiste sobre el campo."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_pablo_the_child"
+          },
+          "id": "quest_25_the_curious_child_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out more about the Sunflower Field for me?",
+          "target_language": "¿Puedes averiguar más sobre el Campo de Girasoles para mí?"
+        },
+        "quest_complete": {
+          "native_language": "Wow, that's interesting!",
+          "target_language": "¡Vaya, eso es interesante!"
+        }
+      },
+      "id": "quest_25_the_curious_child",
+      "giver_npc_id": "npc_3_pablo_the_child"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "The Hidden Map",
+        "target_language": "El Mapa Escondido"
+      },
+      "description": {
+        "native_language": "Find the hidden map in Luminara Town Square for Elena the Innkeeper.",
+        "target_language": "Encuentra el mapa escondido en la Plaza de Luminara para Elena la Posadera."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "map",
+          "target_language": "mapa"
+        },
+        {
+          "native_language": "square",
+          "target_language": "plaza"
+        },
+        {
+          "native_language": "hidden",
+          "target_language": "escondido"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to Luminara Town Square.",
+            "target_language": "Ve a la Plaza de Luminara."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_4_luminara_town_square"
+          },
+          "id": "quest_26_the_hidden_map_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the hidden map in the square.",
+            "target_language": "Encuentra el mapa escondido en la plaza."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_6_map"
+          },
+          "id": "quest_26_the_hidden_map_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the map to Elena the Innkeeper.",
+            "target_language": "Lleva el mapa a Elena la Posadera."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_6_map"
+          },
+          "id": "quest_26_the_hidden_map_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "There's a hidden map in the town square. Can you find it?",
+          "target_language": "Hay un mapa escondido en la plaza del pueblo. ¿Puedes encontrarlo?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the map!",
+          "target_language": "¡Gracias por el mapa!"
+        }
+      },
+      "id": "quest_26_the_hidden_map",
+      "giver_npc_id": "npc_12_elena_the_innkeeper"
+    },
+    {
+      "type": "main",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "The Farmer's Request",
+        "target_language": "La Petición del Granjero"
+      },
+      "description": {
+        "native_language": "Convince Pablo the Guard to allow Luz the Farmer to access the Festival Grounds.",
+        "target_language": "Convence a Pablo el Guardia para que permita a Luz la Granjera acceder a los Terrenos del Festival."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "request",
+          "target_language": "petición"
+        },
+        {
+          "native_language": "farmer",
+          "target_language": "granjero"
+        },
+        {
+          "native_language": "guard",
+          "target_language": "guardia"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Pablo the Guard about Luz's request.",
+            "target_language": "Habla con Pablo el Guardia sobre la petición de Luz."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_13_pablo_the_guard"
+          },
+          "id": "quest_27_the_farmer_s_request_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Convince Pablo to let Luz enter.",
+            "target_language": "Convence a Pablo para que deje entrar a Luz."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_13_pablo_the_guard"
+          },
+          "id": "quest_27_the_farmer_s_request_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Tell Luz the Farmer the good news.",
+            "target_language": "Dile a Luz la Granjera las buenas noticias."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_16_luz_the_farmer"
+          },
+          "id": "quest_27_the_farmer_s_request_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you help me convince Pablo to let me into the Festival Grounds?",
+          "target_language": "¿Puedes ayudarme a convencer a Pablo para que me deje entrar a los Terrenos del Festival?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for your help!",
+          "target_language": "¡Gracias por tu ayuda!"
+        }
+      },
+      "id": "quest_27_the_farmer_s_request",
+      "giver_npc_id": "npc_16_luz_the_farmer"
+    },
+    {
+      "type": "side",
+      "pattern": "social",
+      "name": {
+        "native_language": "Friendly Faces",
+        "target_language": "Caras Amistosas"
+      },
+      "description": {
+        "native_language": "Make a new friend by helping Carlos the Guard with a small task.",
+        "target_language": "Haz un nuevo amigo ayudando a Carlos el Guardia con una pequeña tarea."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        },
+        {
+          "native_language": "help",
+          "target_language": "ayuda"
+        },
+        {
+          "native_language": "task",
+          "target_language": "tarea"
+        }
+      ],
+      "grammar_points": [
+        "self-introduction",
+        "expressing feelings"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Introduce yourself to Carlos the Guard.",
+            "target_language": "Preséntate a Carlos el Guardia."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_10_carlos_the_guard"
+          },
+          "id": "quest_28_friendly_faces_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Help Carlos with his task at Rainbow Pond.",
+            "target_language": "Ayuda a Carlos con su tarea en el Estanque Arcoíris."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_rainbow_pond"
+          },
+          "id": "quest_28_friendly_faces_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Talk to Carlos about how the task went.",
+            "target_language": "Habla con Carlos sobre cómo fue la tarea."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_10_carlos_the_guard"
+          },
+          "id": "quest_28_friendly_faces_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you help me and maybe become friends?",
+          "target_language": "¿Puedes ayudarme y tal vez hacernos amigos?"
+        },
+        "quest_complete": {
+          "native_language": "I'm glad we met!",
+          "target_language": "¡Me alegra que nos hayamos conocido!"
+        }
+      },
+      "id": "quest_28_friendly_faces",
+      "giver_npc_id": "npc_10_carlos_the_guard"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "The Enchanted Glade Mystery",
+        "target_language": "El Misterio del Claro Encantado"
+      },
+      "description": {
+        "native_language": "Discover secrets about the Enchanted Glade from Lydia the Herbalist.",
+        "target_language": "Descubre secretos sobre el Claro Encantado de Lydia la Herbolaria."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "glade",
+          "target_language": "claro"
+        },
+        {
+          "native_language": "herbalist",
+          "target_language": "herbolaria"
+        },
+        {
+          "native_language": "secret",
+          "target_language": "secreto"
+        }
+      ],
+      "grammar_points": [
+        "indirect speech",
+        "descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Lydia the Herbalist about the Enchanted Glade.",
+            "target_language": "Habla con Lydia la Herbolaria sobre el Claro Encantado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_40_lydia_the_herbalist"
+          },
+          "id": "quest_29_the_enchanted_glade_mystery_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Report back what you learned about the glade.",
+            "target_language": "Informa lo que aprendiste sobre el claro."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_40_lydia_the_herbalist"
+          },
+          "id": "quest_29_the_enchanted_glade_mystery_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you learn more about the Enchanted Glade for me?",
+          "target_language": "¿Puedes aprender más sobre el Claro Encantado para mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the information!",
+          "target_language": "¡Gracias por la información!"
+        }
+      },
+      "id": "quest_29_the_enchanted_glade_mystery",
+      "giver_npc_id": "npc_40_lydia_the_herbalist"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gather Apples",
+        "target_language": "Recoger Manzanas"
+      },
+      "description": {
+        "native_language": "Tom the Merchant needs apples for his store. Can you gather some?",
+        "target_language": "Tom el Comerciante necesita manzanas para su tienda. ¿Puedes recoger algunas?"
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "store",
+          "target_language": "tienda"
+        },
+        {
+          "native_language": "gather",
+          "target_language": "recoger"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather an apple from the Village Entrance.",
+            "target_language": "Recoge una manzana en la Entrada del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_31_gather_apples_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Bring the apple to Tom the Merchant.",
+            "target_language": "Lleva la manzana a Tom el Comerciante."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_31_gather_apples_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Hello! Can you help me gather some apples?",
+          "target_language": "¡Hola! ¿Puedes ayudarme a recoger algunas manzanas?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apples!",
+          "target_language": "¡Gracias por las manzanas!"
+        }
+      },
+      "id": "quest_31_gather_apples",
+      "giver_npc_id": "npc_1_tom_the_merchant"
+    },
+    {
+      "type": "main",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Explore the Rainbow Pond",
+        "target_language": "Explora el Estanque Arcoíris"
+      },
+      "description": {
+        "native_language": "Discover the beauty of Rainbow Pond and find a special flower.",
+        "target_language": "Descubre la belleza del Estanque Arcoíris y encuentra una flor especial."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "pond",
+          "target_language": "estanque"
+        },
+        {
+          "native_language": "flower",
+          "target_language": "flor"
+        },
+        {
+          "native_language": "special",
+          "target_language": "especial"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Travel to the Rainbow Pond.",
+            "target_language": "Viaja al Estanque Arcoíris."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_rainbow_pond"
+          },
+          "id": "quest_32_explore_the_rainbow_pond_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the special flower at Rainbow Pond.",
+            "target_language": "Encuentra la flor especial en el Estanque Arcoíris."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_3_flower"
+          },
+          "id": "quest_32_explore_the_rainbow_pond_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Have you seen the Rainbow Pond? It's very beautiful!",
+          "target_language": "¿Has visto el Estanque Arcoíris? ¡Es muy hermoso!"
+        },
+        "quest_complete": {
+          "native_language": "You found the flower! How lovely!",
+          "target_language": "¡Encontraste la flor! ¡Qué lindo!"
+        }
+      },
+      "id": "quest_32_explore_the_rainbow_pond",
+      "giver_npc_id": "npc_2_lina_the_guard"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver Water to Lina",
+        "target_language": "Entrega Agua a Lina"
+      },
+      "description": {
+        "native_language": "Lina the Guard needs water. Deliver it to her.",
+        "target_language": "Lina la Guardia necesita agua. Entrégala a ella."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "guard",
+          "target_language": "guardia"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        }
+      ],
+      "grammar_points": [
+        "giving/receiving",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather water at the Village Entrance.",
+            "target_language": "Recoge agua en la Entrada del Pueblo."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_33_deliver_water_to_lina_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Deliver the water to Lina the Guard.",
+            "target_language": "Entrega el agua a Lina la Guardia."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_33_deliver_water_to_lina_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you bring this water to Lina?",
+          "target_language": "¿Puedes llevar esta agua a Lina?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for delivering the water.",
+          "target_language": "Gracias por entregar el agua."
+        }
+      },
+      "id": "quest_33_deliver_water_to_lina",
+      "giver_npc_id": "npc_5_carmen_the_villager"
+    },
+    {
+      "type": "side",
+      "pattern": "social",
+      "name": {
+        "native_language": "Meet Pablo the Child",
+        "target_language": "Conoce a Pablo el Niño"
+      },
+      "description": {
+        "native_language": "Introduce yourself to Pablo and learn about his favorite games.",
+        "target_language": "Preséntate a Pablo y aprende sobre sus juegos favoritos."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "child",
+          "target_language": "niño"
+        },
+        {
+          "native_language": "games",
+          "target_language": "juegos"
+        },
+        {
+          "native_language": "favorite",
+          "target_language": "favorito"
+        }
+      ],
+      "grammar_points": [
+        "self-introduction",
+        "questions about others"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Pablo the Child at Rainbow Pond.",
+            "target_language": "Habla con Pablo el Niño en el Estanque Arcoíris."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_pablo_the_child"
+          },
+          "id": "quest_34_meet_pablo_the_child_task_1"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Pablo loves to play games. Why don't you introduce yourself?",
+          "target_language": "A Pablo le encanta jugar. ¿Por qué no te presentas?"
+        },
+        "quest_complete": {
+          "native_language": "Nice to meet you! Do you like games too?",
+          "target_language": "¡Encantado de conocerte! ¿Te gustan los juegos también?"
+        }
+      },
+      "id": "quest_34_meet_pablo_the_child",
+      "giver_npc_id": "npc_3_pablo_the_child"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Gather Weather Information",
+        "target_language": "Recoge Información del Tiempo"
+      },
+      "description": {
+        "native_language": "Find out what the weather will be like for the festival.",
+        "target_language": "Averigua cómo será el tiempo para el festival."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "weather",
+          "target_language": "tiempo"
+        },
+        {
+          "native_language": "festival",
+          "target_language": "festival"
+        },
+        {
+          "native_language": "information",
+          "target_language": "información"
+        }
+      ],
+      "grammar_points": [
+        "question formation",
+        "indirect speech"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Elena the Innkeeper at The Cozy Inn for weather information.",
+            "target_language": "Habla con Elena la Posadera en La Posada Acogedora para obtener información del tiempo."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_12_elena_the_innkeeper"
+          },
+          "id": "quest_35_gather_weather_information_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Report back to Miguel the Fruit Seller at Luminara Town Square.",
+            "target_language": "Informa a Miguel el Vendedor de Frutas en la Plaza de Luminara."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_11_miguel_the_fruit_seller"
+          },
+          "id": "quest_35_gather_weather_information_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out what the weather will be like?",
+          "target_language": "¿Puedes averiguar cómo será el tiempo?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you! Now we can plan for the festival.",
+          "target_language": "¡Gracias! Ahora podemos planificar el festival."
+        }
+      },
+      "id": "quest_35_gather_weather_information",
+      "giver_npc_id": "npc_11_miguel_the_fruit_seller"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince Fiona to Share a Story",
+        "target_language": "Convence a Fiona para Compartir una Historia"
+      },
+      "description": {
+        "native_language": "Fiona knows many tales. Convince her to share one.",
+        "target_language": "Fiona conoce muchas historias. Convéncela de compartir una."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "story",
+          "target_language": "historia"
+        },
+        {
+          "native_language": "share",
+          "target_language": "compartir"
+        },
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        }
+      ],
+      "grammar_points": [
+        "polite requests",
+        "conditional"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Fiona at the Fairy Circle.",
+            "target_language": "Habla con Fiona en el Círculo de Hadas."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_42_fiona_the_storyteller"
+          },
+          "id": "quest_38_convince_fiona_to_share_a_stor_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Convince Fiona to tell you a story.",
+            "target_language": "Convence a Fiona para que te cuente una historia."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_42_fiona_the_storyteller"
+          },
+          "id": "quest_38_convince_fiona_to_share_a_stor_task_2"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Fiona has many stories to tell. Can you convince her to share one?",
+          "target_language": "Fiona tiene muchas historias que contar. ¿Puedes convencerla de compartir una?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the story, Fiona!",
+          "target_language": "¡Gracias por la historia, Fiona!"
+        }
+      },
+      "id": "quest_38_convince_fiona_to_share_a_stor",
+      "giver_npc_id": "npc_42_fiona_the_storyteller"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 40,
+    "total_valid": 21,
+    "total_invalid": 19,
+    "target_minimum": 20,
+    "target_met": true
+  }
+}

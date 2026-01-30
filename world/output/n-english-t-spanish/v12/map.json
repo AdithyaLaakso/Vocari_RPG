@@ -1,0 +1,818 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "The Enchanted Village of Luminara",
+      "target_language": "El Pueblo Encantado de Luminara"
+    },
+    "description": {
+      "native_language": "A magical village with vibrant culture and welcoming atmosphere.",
+      "target_language": "Un pueblo mágico con una cultura vibrante y un ambiente acogedor."
+    },
+    "scale": "village"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Whispering Meadows",
+        "target_language": "Praderas Susurrantes"
+      },
+      "description": {
+        "native_language": "A serene area with lush greenery and gentle winds.",
+        "target_language": "Una zona serena con vegetación exuberante y vientos suaves."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_whispering_meadows"
+    },
+    {
+      "name": {
+        "native_language": "Central Plaza",
+        "target_language": "Plaza Central"
+      },
+      "description": {
+        "native_language": "The bustling heart of Luminara where villagers gather.",
+        "target_language": "El bullicioso corazón de Luminara donde se reúnen los aldeanos."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_central_plaza"
+    },
+    {
+      "name": {
+        "native_language": "Market Quarter",
+        "target_language": "Barrio del Mercado"
+      },
+      "description": {
+        "native_language": "A lively market area brimming with shops and stalls.",
+        "target_language": "Una animada zona de mercado llena de tiendas y puestos."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_market_quarter"
+    },
+    {
+      "name": {
+        "native_language": "Scholars' Lane",
+        "target_language": "Calle de los Eruditos"
+      },
+      "description": {
+        "native_language": "A quiet street home to the village's school and library.",
+        "target_language": "Una calle tranquila que alberga la escuela y la biblioteca del pueblo."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_scholars_lane"
+    },
+    {
+      "name": {
+        "native_language": "Mystic Woods",
+        "target_language": "Bosque Místico"
+      },
+      "description": {
+        "native_language": "A mysterious forest with ancient trees and hidden secrets.",
+        "target_language": "Un bosque misterioso con árboles antiguos y secretos ocultos."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_mystic_woods"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Village Entrance",
+        "target_language": "Entrada del Pueblo"
+      },
+      "description": {
+        "native_language": "The welcoming entrance to Luminara, surrounded by flowers.",
+        "target_language": "La acogedora entrada a Luminara, rodeada de flores."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "directions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic greetings",
+        "target_language": "saludos básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_1_village_entrance",
+      "region_id": "region_1_whispering_meadows",
+      "connections": [
+        "loc_2_rainbow_pond",
+        "loc_3_sunflower_field"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Rainbow Pond",
+        "target_language": "Estanque Arcoíris"
+      },
+      "description": {
+        "native_language": "A tranquil pond reflecting the colors of the sky.",
+        "target_language": "Un estanque tranquilo que refleja los colores del cielo."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors",
+        "target_language": "colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and colorful.",
+        "target_language": "Pacífico y colorido."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 2
+      },
+      "id": "loc_2_rainbow_pond",
+      "region_id": "region_1_whispering_meadows",
+      "connections": [
+        "loc_1_village_entrance",
+        "loc_4_luminara_town_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Sunflower Field",
+        "target_language": "Campo de Girasoles"
+      },
+      "description": {
+        "native_language": "A bright field filled with tall sunflowers.",
+        "target_language": "Un campo brillante lleno de altos girasoles."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "nature",
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature",
+        "target_language": "naturaleza"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Sunny and cheerful.",
+        "target_language": "Soleado y alegre."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_3_sunflower_field",
+      "region_id": "region_1_whispering_meadows",
+      "connections": [
+        "loc_1_village_entrance",
+        "loc_5_the_cozy_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Luminara Town Square",
+        "target_language": "Plaza del Pueblo de Luminara"
+      },
+      "description": {
+        "native_language": "The bustling center of village life and activity.",
+        "target_language": "El bullicioso centro de la vida y actividad del pueblo."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "introductions",
+        "social interactions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic introductions",
+        "target_language": "presentaciones básicas"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and dynamic.",
+        "target_language": "Animado y dinámico."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 2
+      },
+      "id": "loc_4_luminara_town_square",
+      "region_id": "region_2_central_plaza",
+      "connections": [
+        "loc_1_village_entrance",
+        "loc_6_festival_grounds",
+        "loc_7_luminara_market"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "The Cozy Inn",
+        "target_language": "La Posada Acogedora"
+      },
+      "description": {
+        "native_language": "A warm inn offering food and shelter to travelers.",
+        "target_language": "Una cálida posada que ofrece comida y refugio a los viajeros."
+      },
+      "type": "building",
+      "language_topics": [
+        "food",
+        "hospitality"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food",
+        "target_language": "comida"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Comfortable and inviting.",
+        "target_language": "Cómodo y acogedor."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 3
+      },
+      "id": "loc_5_the_cozy_inn",
+      "region_id": "region_2_central_plaza",
+      "connections": [
+        "loc_4_luminara_town_square",
+        "loc_8_herbalist_s_hut"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Festival Grounds",
+        "target_language": "Campo de Festivales"
+      },
+      "description": {
+        "native_language": "A spacious area used for celebrations and events.",
+        "target_language": "Un área espaciosa utilizada para celebraciones y eventos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "days/months",
+        "celebrations"
+      ],
+      "vocabulary_domain": {
+        "native_language": "celebrations",
+        "target_language": "celebraciones"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Festive and joyous.",
+        "target_language": "Festivo y alegre."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "id": "loc_6_festival_grounds",
+      "region_id": "region_2_central_plaza",
+      "connections": [
+        "loc_4_luminara_town_square",
+        "loc_9_cobbler_s_workshop"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Luminara Market",
+        "target_language": "Mercado de Luminara"
+      },
+      "description": {
+        "native_language": "A bustling market full of vendors and shoppers.",
+        "target_language": "Un mercado bullicioso lleno de vendedores y compradores."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "money"
+      ],
+      "vocabulary_domain": {
+        "native_language": "shopping basics",
+        "target_language": "compras básicas"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Vibrant and busy.",
+        "target_language": "Vibrante y ocupado."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 2
+      },
+      "id": "loc_7_luminara_market",
+      "region_id": "region_3_market_quarter",
+      "connections": [
+        "loc_5_the_cozy_inn",
+        "loc_10_luminara_school",
+        "loc_11_luminara_library"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Herbalist's Hut",
+        "target_language": "Cabaña del Herbolario"
+      },
+      "description": {
+        "native_language": "A small hut selling herbs and potions.",
+        "target_language": "Una pequeña cabaña que vende hierbas y pociones."
+      },
+      "type": "shop",
+      "language_topics": [
+        "health",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "health",
+        "target_language": "salud"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and earthy.",
+        "target_language": "Calmo y terrenal."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 3
+      },
+      "id": "loc_8_herbalist_s_hut",
+      "region_id": "region_3_market_quarter",
+      "connections": [
+        "loc_7_luminara_market",
+        "loc_12_bookstore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Cobbler's Workshop",
+        "target_language": "Taller del Zapatero"
+      },
+      "description": {
+        "native_language": "A workshop where shoes are made and repaired.",
+        "target_language": "Un taller donde se hacen y reparan zapatos."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "crafts"
+      ],
+      "vocabulary_domain": {
+        "native_language": "crafts",
+        "target_language": "artesanías"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Busy and skillful.",
+        "target_language": "Ocupado y habilidoso."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 1
+      },
+      "id": "loc_9_cobbler_s_workshop",
+      "region_id": "region_3_market_quarter",
+      "connections": [
+        "loc_7_luminara_market",
+        "loc_13_enchanted_glade"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Luminara School",
+        "target_language": "Escuela de Luminara"
+      },
+      "description": {
+        "native_language": "A place of learning for the young villagers.",
+        "target_language": "Un lugar de aprendizaje para los jóvenes aldeanos."
+      },
+      "type": "building",
+      "language_topics": [
+        "education",
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "education",
+        "target_language": "educación"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and studious.",
+        "target_language": "Tranquilo y estudioso."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 5
+      },
+      "id": "loc_10_luminara_school",
+      "region_id": "region_4_scholars_lane",
+      "connections": [
+        "loc_10_luminara_school",
+        "loc_14_ancient_tree"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Luminara Library",
+        "target_language": "Biblioteca de Luminara"
+      },
+      "description": {
+        "native_language": "A vast library filled with books and scrolls.",
+        "target_language": "Una vasta biblioteca llena de libros y pergaminos."
+      },
+      "type": "building",
+      "language_topics": [
+        "literature",
+        "reading"
+      ],
+      "vocabulary_domain": {
+        "native_language": "literature",
+        "target_language": "literatura"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and wise.",
+        "target_language": "Tranquilo y sabio."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 6
+      },
+      "id": "loc_11_luminara_library",
+      "region_id": "region_4_scholars_lane",
+      "connections": [
+        "loc_10_luminara_school",
+        "loc_15_fairy_circle"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Bookstore",
+        "target_language": "Librería"
+      },
+      "description": {
+        "native_language": "A small store selling books and stationery.",
+        "target_language": "Una pequeña tienda que vende libros y papelería."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "literature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "literature",
+        "target_language": "literatura"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Cozy and informative.",
+        "target_language": "Acogedor e informativo."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 4
+      },
+      "id": "loc_12_bookstore",
+      "region_id": "region_4_scholars_lane",
+      "connections": [
+        "loc_11_luminara_library"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Enchanted Glade",
+        "target_language": "Claro Encantado"
+      },
+      "description": {
+        "native_language": "A magical clearing in the forest known for its beauty.",
+        "target_language": "Un claro mágico en el bosque conocido por su belleza."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "nature",
+        "magic"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature",
+        "target_language": "naturaleza"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Mystical and serene.",
+        "target_language": "Místico y sereno."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 3
+      },
+      "id": "loc_13_enchanted_glade",
+      "region_id": "region_5_mystic_woods",
+      "connections": [
+        "loc_12_bookstore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Ancient Tree",
+        "target_language": "Árbol Antiguo"
+      },
+      "description": {
+        "native_language": "A massive tree believed to be centuries old.",
+        "target_language": "Un árbol masivo que se cree que tiene siglos de antigüedad."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "history",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "history",
+        "target_language": "historia"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Powerful and ancient.",
+        "target_language": "Poderoso y antiguo."
+      },
+      "coordinates": {
+        "x": 10,
+        "y": 2
+      },
+      "id": "loc_14_ancient_tree",
+      "region_id": "region_5_mystic_woods",
+      "connections": [
+        "loc_13_enchanted_glade"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Fairy Circle",
+        "target_language": "Círculo de Hadas"
+      },
+      "description": {
+        "native_language": "A mystical circle of mushrooms said to be enchanted.",
+        "target_language": "Un círculo místico de hongos que se dice que está encantado."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "magic",
+        "legends"
+      ],
+      "vocabulary_domain": {
+        "native_language": "magic",
+        "target_language": "magia"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Enchanted and mysterious.",
+        "target_language": "Encantado y misterioso."
+      },
+      "coordinates": {
+        "x": 11,
+        "y": 4
+      },
+      "id": "loc_15_fairy_circle",
+      "region_id": "region_5_mystic_woods",
+      "connections": [
+        "loc_14_ancient_tree"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_village_entrance",
+      "to_location": "loc_2_rainbow_pond",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_village_entrance",
+      "to_location": "loc_3_sunflower_field",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_rainbow_pond",
+      "to_location": "loc_4_luminara_town_square",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_sunflower_field",
+      "to_location": "loc_5_the_cozy_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_luminara_town_square",
+      "to_location": "loc_1_village_entrance",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_luminara_town_square",
+      "to_location": "loc_6_festival_grounds",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_luminara_town_square",
+      "to_location": "loc_7_luminara_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_the_cozy_inn",
+      "to_location": "loc_4_luminara_town_square",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_the_cozy_inn",
+      "to_location": "loc_8_herbalist_s_hut",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_festival_grounds",
+      "to_location": "loc_9_cobbler_s_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_luminara_market",
+      "to_location": "loc_5_the_cozy_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_luminara_market",
+      "to_location": "loc_10_luminara_school",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_luminara_market",
+      "to_location": "loc_11_luminara_library",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_herbalist_s_hut",
+      "to_location": "loc_7_luminara_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_herbalist_s_hut",
+      "to_location": "loc_12_bookstore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_cobbler_s_workshop",
+      "to_location": "loc_7_luminara_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_cobbler_s_workshop",
+      "to_location": "loc_13_enchanted_glade",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_luminara_school",
+      "to_location": "loc_10_luminara_school",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_luminara_school",
+      "to_location": "loc_14_ancient_tree",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_luminara_library",
+      "to_location": "loc_10_luminara_school",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_luminara_library",
+      "to_location": "loc_15_fairy_circle",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_bookstore",
+      "to_location": "loc_11_luminara_library",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_enchanted_glade",
+      "to_location": "loc_12_bookstore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_ancient_tree",
+      "to_location": "loc_13_enchanted_glade",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_15_fairy_circle",
+      "to_location": "loc_14_ancient_tree",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_village_entrance"
+}

@@ -1,0 +1,310 @@
+{
+  "games": [
+    {
+      "name": {
+        "native_language": "Water Delivery",
+        "target_language": "Entrega de Agua"
+      },
+      "description": {
+        "native_language": "Deliver water bottles by selecting the correct path.",
+        "target_language": "Entrega botellas de agua seleccionando el camino correcto."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        "agua",
+        "botella",
+        "entregar"
+      ],
+      "grammar_focus": "imperative, present tense",
+      "game_prompt": "The player navigates a maze-like grid to deliver water. The grid has paths marked by arrows with simple commands like 'go left' or 'go right', represented by arrows and words in Spanish. The player clicks on the correct path to advance. The maze is designed with a blue color scheme to represent water and uses simple shapes like arrows and bottles. Winning requires reaching the end of the maze with minimal mistakes. An animation of water flowing along the correct path plays when the right choice is made.",
+      "skill_points": 10,
+      "lua_code": "-- Fallback game: Water Delivery\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_1_water_delivery",
+      "trigger_id": "npc_2_lina_the_guard",
+      "trigger_type": "npc",
+      "related_quest_id": "quest_2_water_delivery"
+    },
+    {
+      "name": {
+        "native_language": "Find the Rainbow",
+        "target_language": "Encuentra el Arcoíris"
+      },
+      "description": {
+        "native_language": "Assemble a rainbow by matching colors with their names.",
+        "target_language": "Arma un arcoíris emparejando colores con sus nombres."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        "arcoíris",
+        "estanque",
+        "preguntar"
+      ],
+      "grammar_focus": "questions, present tense",
+      "game_prompt": "The player sees a series of colored circles and must drag the correct Spanish color name to each circle to form a rainbow. The background is a serene pond with gentle animations of water ripples. Each correct match lights up the circle, and a rainbow gradually forms. The game includes questions like '¿De qué color es esto?' Players win by completing the rainbow, with a sparkling animation celebrating their success.",
+      "skill_points": 15,
+      "lua_code": "-- Fallback game: Find the Rainbow\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_2_find_the_rainbow",
+      "trigger_id": "loc_2_rainbow_pond",
+      "trigger_type": "location",
+      "related_quest_id": "quest_3_find_the_rainbow"
+    },
+    {
+      "name": {
+        "native_language": "Convince Carmen",
+        "target_language": "Convencer a Carmen"
+      },
+      "description": {
+        "native_language": "Craft persuasive sentences to convince Carmen to join the festival.",
+        "target_language": "Crea frases persuasivas para convencer a Carmen de unirse al festival."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        "festival",
+        "unirse",
+        "convencer"
+      ],
+      "grammar_focus": "conditional, polite requests",
+      "game_prompt": "The game presents sentence fragments on cards. The player must arrange them into polite requests or conditional statements to convince Carmen to join the festival. The scene is set in a lively village square with colorful banners. Players drag and drop fragments into a sentence box. Winning requires constructing three correct sentences. Successful attempts trigger a happy animation of Carmen nodding and joining the festival.",
+      "skill_points": 25,
+      "lua_code": "-- Fallback game: Convince Carmen\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_3_convince_carmen",
+      "trigger_id": "npc_5_carmen_the_villager",
+      "trigger_type": "npc",
+      "related_quest_id": "quest_5_convince_carmen"
+    },
+    {
+      "name": {
+        "native_language": "Market Supplies",
+        "target_language": "Suministros del Mercado"
+      },
+      "description": {
+        "native_language": "Collect market supplies by following simple commands.",
+        "target_language": "Recoge suministros del mercado siguiendo comandos simples."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        "mercado",
+        "suministros",
+        "recoger"
+      ],
+      "grammar_focus": "imperative, questions",
+      "game_prompt": "In a bustling market scene, the player receives commands such as 'Recoge el pan' or '¿Dónde está la fruta?'. Items appear, and the player clicks to collect them. The market is depicted with vibrant colors, and each correct action adds the item to a shopping cart visual. Winning requires collecting all items under a time limit, with celebratory music playing upon completion.",
+      "skill_points": 20,
+      "lua_code": "-- Fallback game: Market Supplies\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_4_market_supplies",
+      "trigger_id": "loc_7_luminara_market",
+      "trigger_type": "location",
+      "related_quest_id": "quest_6_market_supplies"
+    },
+    {
+      "name": {
+        "native_language": "Herbal Tea for Elena",
+        "target_language": "Té de Hierbas para Elena"
+      },
+      "description": {
+        "native_language": "Deliver herbal tea by navigating location clues.",
+        "target_language": "Entrega té de hierbas navegando pistas de ubicación."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        "té de hierbas",
+        "entregar",
+        "cabaña"
+      ],
+      "grammar_focus": "location prepositions, imperative",
+      "game_prompt": "The player must deliver tea by choosing the correct path based on preposition clues like 'detrás de la cabaña'. The scene is a forest path with huts and signs. Players click signs with different prepositions to advance. Winning is achieved by reaching Elena's hut, with a gentle animation of steam rising from the tea as Elena receives it.",
+      "skill_points": 25,
+      "lua_code": "-- Fallback game: Herbal Tea for Elena\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_5_herbal_tea_for_elena",
+      "trigger_id": "npc_21_elena",
+      "trigger_type": "npc",
+      "related_quest_id": "quest_7_herbal_tea_for_elena"
+    },
+    {
+      "name": {
+        "native_language": "Water for the Guard",
+        "target_language": "Agua para el Guardia"
+      },
+      "description": {
+        "native_language": "Provide water to the guard by selecting correct locations.",
+        "target_language": "Proporciona agua al guardia seleccionando ubicaciones correctas."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        "agua",
+        "guardia",
+        "por favor"
+      ],
+      "grammar_focus": "imperative, location prepositions",
+      "game_prompt": "The player sees a map with different guards stationed at various points. They must click on the correct guard based on location prepositions like 'al lado del árbol'. The map is simple with clear labels and a brown color scheme for pathways. Correct selections show a water bottle appearing next to the guard, and winning is achieved by correctly delivering water to three guards.",
+      "skill_points": 10,
+      "lua_code": "-- Fallback game: Water for the Guard\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_6_water_for_the_guard",
+      "trigger_id": "npc_10_carlos_the_guard",
+      "trigger_type": "npc",
+      "related_quest_id": "quest_22_water_for_the_guard"
+    },
+    {
+      "name": {
+        "native_language": "Cheese for Elena",
+        "target_language": "Queso para Elena"
+      },
+      "description": {
+        "native_language": "Buy cheese by completing shopping lists.",
+        "target_language": "Compra queso completando listas de compras."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        "queso",
+        "comprar",
+        "posada"
+      ],
+      "grammar_focus": "imperative, possession",
+      "game_prompt": "The player completes a shopping list by listening to commands like 'Compra el queso en la tienda'. The scene shows different stalls with items. Players match items to commands by clicking. The background is a cozy inn with a warm color palette. Winning involves collecting all items on the list, triggering an animation of Elena enjoying her cheese.",
+      "skill_points": 20,
+      "lua_code": "-- Fallback game: Cheese for Elena\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_7_cheese_for_elena",
+      "trigger_id": "npc_12_elena_the_innkeeper",
+      "trigger_type": "npc",
+      "related_quest_id": "quest_16_cheese_for_elena"
+    },
+    {
+      "name": {
+        "native_language": "The Hidden Map",
+        "target_language": "El Mapa Escondido"
+      },
+      "description": {
+        "native_language": "Find the hidden map by solving location clues.",
+        "target_language": "Encuentra el mapa escondido resolviendo pistas de ubicación."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        "mapa",
+        "plaza",
+        "escondido"
+      ],
+      "grammar_focus": "imperative, location descriptions",
+      "game_prompt": "The player solves riddles to find a hidden map. Each riddle gives a clue about the map's location using descriptions like 'debajo de la banca'. The scene is a busy town square with interactive elements. Clicking the correct location reveals part of the map. Winning occurs when the map is fully revealed, accompanied by a triumphant sound and animation.",
+      "skill_points": 30,
+      "lua_code": "-- Fallback game: The Hidden Map\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_8_the_hidden_map",
+      "trigger_id": "loc_12_bookstore",
+      "trigger_type": "location",
+      "related_quest_id": "quest_26_the_hidden_map"
+    },
+    {
+      "name": {
+        "native_language": "The Farmer's Request",
+        "target_language": "La Petición del Granjero"
+      },
+      "description": {
+        "native_language": "Help the farmer by fulfilling his polite requests.",
+        "target_language": "Ayuda al granjero cumpliendo sus peticiones amables."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        "petición",
+        "granjero",
+        "guardia"
+      ],
+      "grammar_focus": "conditional, polite requests",
+      "game_prompt": "The player listens to requests from the farmer and selects the correct response from multiple choice options. The scene is a field with a friendly farmer character. Requests are presented in Spanish with polite phrases like '¿Podrías traerme...?'. Correct responses reward the player with virtual crops, and winning involves fulfilling all requests, with a final animation of a flourishing field.",
+      "skill_points": 25,
+      "lua_code": "-- Fallback game: The Farmer's Request\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_9_the_farmer_s_request",
+      "trigger_id": "npc_6_luis_the_farmer",
+      "trigger_type": "npc",
+      "related_quest_id": "quest_27_the_farmer_s_request"
+    },
+    {
+      "name": {
+        "native_language": "Friendly Faces",
+        "target_language": "Caras Amistosas"
+      },
+      "description": {
+        "native_language": "Meet friends and express feelings through mini-games.",
+        "target_language": "Conoce amigos y expresa sentimientos a través de mini-juegos."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        "amigo",
+        "ayuda",
+        "tarea"
+      ],
+      "grammar_focus": "self-introduction, expressing feelings",
+      "game_prompt": "The player participates in mini-games to meet new friends. Each mini-game involves an interaction, such as matching expressions to feelings or completing dialogue with introductions like 'Me llamo...'. The setting is a vibrant glade with animated characters. Players must successfully complete all mini-games, with winning resulting in a friendly gathering animation.",
+      "skill_points": 30,
+      "lua_code": "-- Fallback game: Friendly Faces\nlocal score = 0\nlocal gameOver = false\nlocal message = \"\"\n\nfunction init()\n    message = \"Click to start\"\nend\n\nfunction update(dt)\n    if isMouseJustPressed() and not gameOver then\n        score = score + 10\n        if score >= 30 then\n            gameOver = true\n            message = \"You win!\"\n        end\n    end\nend\n\nfunction draw()\n    clear(\"#1a1a2e\")\n    drawText(\"Score: \" .. score, 10, 10, \"#ffffff\", 20)\n    drawText(message, getScreenWidth()/2 - 50, getScreenHeight()/2, \"#00ff00\", 24)\n    if gameOver then\n        drawText(\"Game Complete!\", getScreenWidth()/2 - 70, getScreenHeight()/2 + 40, \"#ffff00\", 20)\n    end\nend\n",
+      "id": "game_10_friendly_faces",
+      "trigger_id": "loc_13_enchanted_glade",
+      "trigger_type": "location",
+      "related_quest_id": "quest_28_friendly_faces"
+    }
+  ],
+  "_games_by_location": {
+    "loc_2_rainbow_pond": [
+      "game_2_find_the_rainbow"
+    ],
+    "loc_7_luminara_market": [
+      "game_4_market_supplies"
+    ],
+    "loc_12_bookstore": [
+      "game_8_the_hidden_map"
+    ],
+    "loc_13_enchanted_glade": [
+      "game_10_friendly_faces"
+    ]
+  },
+  "_games_by_npc": {
+    "npc_2_lina_the_guard": [
+      "game_1_water_delivery"
+    ],
+    "npc_5_carmen_the_villager": [
+      "game_3_convince_carmen"
+    ],
+    "npc_21_elena": [
+      "game_5_herbal_tea_for_elena"
+    ],
+    "npc_10_carlos_the_guard": [
+      "game_6_water_for_the_guard"
+    ],
+    "npc_12_elena_the_innkeeper": [
+      "game_7_cheese_for_elena"
+    ],
+    "npc_6_luis_the_farmer": [
+      "game_9_the_farmer_s_request"
+    ]
+  },
+  "_games_by_quest": {
+    "quest_2_water_delivery": [
+      "game_1_water_delivery"
+    ],
+    "quest_3_find_the_rainbow": [
+      "game_2_find_the_rainbow"
+    ],
+    "quest_5_convince_carmen": [
+      "game_3_convince_carmen"
+    ],
+    "quest_6_market_supplies": [
+      "game_4_market_supplies"
+    ],
+    "quest_7_herbal_tea_for_elena": [
+      "game_5_herbal_tea_for_elena"
+    ],
+    "quest_22_water_for_the_guard": [
+      "game_6_water_for_the_guard"
+    ],
+    "quest_16_cheese_for_elena": [
+      "game_7_cheese_for_elena"
+    ],
+    "quest_26_the_hidden_map": [
+      "game_8_the_hidden_map"
+    ],
+    "quest_27_the_farmer_s_request": [
+      "game_9_the_farmer_s_request"
+    ],
+    "quest_28_friendly_faces": [
+      "game_10_friendly_faces"
+    ]
+  }
+}

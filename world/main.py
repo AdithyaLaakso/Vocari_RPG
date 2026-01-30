@@ -110,7 +110,7 @@ def main():
     )
     version_path.mkdir(parents=True, exist_ok=True)
 
-    print(f"=== Language Learning RPG World Generator ===")
+    print("=== Language Learning RPG World Generator ===")
     print(f"Target Language: {args.target_language}")
     print(f"Native Language: {args.native_language}")
 
@@ -155,7 +155,7 @@ def main():
         metadata_file = embed_path / "embeddings_metadata.json"
 
         if not embeddings_file.exists() or not metadata_file.exists():
-            print(f"Error: Embeddings directory must contain 'embeddings.pkl' and 'embeddings_metadata.json'")
+            print("Error: Embeddings directory must contain 'embeddings.pkl' and 'embeddings_metadata.json'")
             print(f"  Found: {list(embed_path.glob('*.pkl'))} and {list(embed_path.glob('*.json'))}")
             sys.exit(1)
 

@@ -53,12 +53,14 @@ class QuestValidator:
         locations: Dict[str, Any],
         npcs: Dict[str, Any],
         items: Dict[str, Any],
-        world_map: Optional[Dict[str, Any]] = None
+        world_map: Optional[Dict[str, Any]] = None,
+        games: Optional[Dict[str, Any]] = None
     ):
         # Build lookup structures
         self.locations = {loc['id']: loc for loc in locations.get('locations', [])}
         self.npcs = {npc['id']: npc for npc in npcs.get('npcs', [])}
         self.items = {item['id']: item for item in items.get('items', [])}
+        self.games = {game['id']: game for game in (games or {}).get('games', [])}
 
         # Build reverse lookups
         self.npc_locations = {npc['id']: npc.get('location_id') for npc in npcs.get('npcs', [])}
@@ -518,6 +520,16 @@ class QuestValidator:
                         task_id=task.get('id'),
                         rule="valid_references",
                         message=f"Item '{target_id}' does not exist"
+                    ))
+
+            elif comp_type == 'completed_game':
+                if target_id not in self.games:
+                    issues.append(ValidationIssue(
+                        severity=ValidationSeverity.ERROR,
+                        quest_id=quest_id,
+                        task_id=task.get('id'),
+                        rule="valid_references",
+                        message=f"Game '{target_id}' does not exist"
                     ))
 
         return issues

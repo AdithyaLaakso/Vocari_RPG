@@ -1,0 +1,408 @@
+{
+  "items": [
+    {
+      "name": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "description": {
+        "native_language": "A fresh red apple.",
+        "target_language": "Una manzana roja fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_colorful_market",
+      "acquisition_type": "purchase",
+      "language_level": "A0",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 1,
+      "vocabulary_word": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "usage_hint": {
+        "native_language": "You can eat this for energy.",
+        "target_language": "Puedes comer esto para obtener energía."
+      },
+      "id": "item_1_apple"
+    },
+    {
+      "name": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "description": {
+        "native_language": "A loaf of bread.",
+        "target_language": "Una barra de pan."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_colorful_market",
+      "acquisition_type": "purchase",
+      "language_level": "A0",
+      "quantity_available": 15,
+      "respawns": true,
+      "price": 2,
+      "vocabulary_word": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "usage_hint": {
+        "native_language": "A staple food, perfect for sandwiches.",
+        "target_language": "Un alimento básico, perfecto para sándwiches."
+      },
+      "id": "item_2_bread"
+    },
+    {
+      "name": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "description": {
+        "native_language": "A bottle of fresh water.",
+        "target_language": "Una botella de agua fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_3_cozy_inn",
+      "acquisition_type": "purchase",
+      "language_level": "A0",
+      "quantity_available": 20,
+      "respawns": true,
+      "price": 1,
+      "vocabulary_word": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "usage_hint": {
+        "native_language": "Stay hydrated with this drink.",
+        "target_language": "Mantente hidratado con esta bebida."
+      },
+      "id": "item_3_water"
+    },
+    {
+      "name": {
+        "native_language": "key",
+        "target_language": "llave"
+      },
+      "description": {
+        "native_language": "A small bronze key.",
+        "target_language": "Una pequeña llave de bronce."
+      },
+      "category": "tool",
+      "location_id": "loc_4_library_of_lore",
+      "acquisition_type": "find",
+      "language_level": "A0+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "key",
+        "target_language": "llave"
+      },
+      "usage_hint": {
+        "native_language": "Opens a specific door in the library.",
+        "target_language": "Abre una puerta específica en la biblioteca."
+      },
+      "id": "item_4_key"
+    },
+    {
+      "name": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "description": {
+        "native_language": "A map of the local area.",
+        "target_language": "Un mapa de la zona local."
+      },
+      "category": "document",
+      "location_id": "loc_4_library_of_lore",
+      "acquisition_type": "receive",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "usage_hint": {
+        "native_language": "Helps you navigate the valley.",
+        "target_language": "Te ayuda a navegar por el valle."
+      },
+      "id": "item_5_map"
+    },
+    {
+      "name": {
+        "native_language": "herb",
+        "target_language": "hierba"
+      },
+      "description": {
+        "native_language": "A healing herb.",
+        "target_language": "Una hierba curativa."
+      },
+      "category": "material",
+      "location_id": "loc_6_sunny_park",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "herb",
+        "target_language": "hierba"
+      },
+      "usage_hint": {
+        "native_language": "Used in making potions.",
+        "target_language": "Usada en la elaboración de pociones."
+      },
+      "id": "item_6_herb"
+    },
+    {
+      "name": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "description": {
+        "native_language": "A smooth stone.",
+        "target_language": "Una piedra lisa."
+      },
+      "category": "material",
+      "location_id": "loc_7_central_plaza",
+      "acquisition_type": "gather",
+      "language_level": "A1",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "usage_hint": {
+        "native_language": "Can be used in crafting.",
+        "target_language": "Puede ser usada en la artesanía."
+      },
+      "id": "item_7_stone"
+    },
+    {
+      "name": {
+        "native_language": "chicken",
+        "target_language": "pollo"
+      },
+      "description": {
+        "native_language": "Fresh chicken meat.",
+        "target_language": "Carne de pollo fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_8_culinary_house",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 5,
+      "vocabulary_word": {
+        "native_language": "chicken",
+        "target_language": "pollo"
+      },
+      "usage_hint": {
+        "native_language": "Used in various dishes.",
+        "target_language": "Usado en varios platos."
+      },
+      "id": "item_8_chicken"
+    },
+    {
+      "name": {
+        "native_language": "umbrella",
+        "target_language": "paraguas"
+      },
+      "description": {
+        "native_language": "A sturdy umbrella.",
+        "target_language": "Un paraguas resistente."
+      },
+      "category": "tool",
+      "location_id": "loc_9_weather_pavilion",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 3,
+      "vocabulary_word": {
+        "native_language": "umbrella",
+        "target_language": "paraguas"
+      },
+      "usage_hint": {
+        "native_language": "Useful on rainy days.",
+        "target_language": "Útil en días de lluvia."
+      },
+      "id": "item_9_umbrella"
+    },
+    {
+      "name": {
+        "native_language": "lantern",
+        "target_language": "linterna"
+      },
+      "description": {
+        "native_language": "A bright lantern.",
+        "target_language": "Una linterna brillante."
+      },
+      "category": "tool",
+      "location_id": "loc_11_craftsman_s_haven",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "lantern",
+        "target_language": "linterna"
+      },
+      "usage_hint": {
+        "native_language": "Lights up dark areas.",
+        "target_language": "Ilumina áreas oscuras."
+      },
+      "id": "item_10_lantern"
+    },
+    {
+      "name": {
+        "native_language": "necklace",
+        "target_language": "collar"
+      },
+      "description": {
+        "native_language": "A beautiful necklace.",
+        "target_language": "Un collar hermoso."
+      },
+      "category": "valuable",
+      "location_id": "loc_12_tranquil_lake",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "necklace",
+        "target_language": "collar"
+      },
+      "usage_hint": {
+        "native_language": "A valuable jewelry piece.",
+        "target_language": "Una pieza de joyería valiosa."
+      },
+      "id": "item_11_necklace"
+    },
+    {
+      "name": {
+        "native_language": "potion",
+        "target_language": "poción"
+      },
+      "description": {
+        "native_language": "A magical healing potion.",
+        "target_language": "Una poción mágica curativa."
+      },
+      "category": "consumable",
+      "location_id": "loc_13_master_s_tower",
+      "acquisition_type": "receive",
+      "language_level": "A2",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "potion",
+        "target_language": "poción"
+      },
+      "usage_hint": {
+        "native_language": "Restores health when used.",
+        "target_language": "Restaura la salud cuando se usa."
+      },
+      "id": "item_12_potion"
+    },
+    {
+      "name": {
+        "native_language": "ring",
+        "target_language": "anillo"
+      },
+      "description": {
+        "native_language": "A gold ring with a gem.",
+        "target_language": "Un anillo de oro con una gema."
+      },
+      "category": "valuable",
+      "location_id": "loc_14_garden_of_wisdom",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "ring",
+        "target_language": "anillo"
+      },
+      "usage_hint": {
+        "native_language": "A valuable and beautiful ring.",
+        "target_language": "Un anillo valioso y hermoso."
+      },
+      "id": "item_13_ring"
+    },
+    {
+      "name": {
+        "native_language": "book",
+        "target_language": "libro"
+      },
+      "description": {
+        "native_language": "A book of ancient wisdom.",
+        "target_language": "Un libro de sabiduría antigua."
+      },
+      "category": "document",
+      "location_id": "loc_15_chamber_of_strategies",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "book",
+        "target_language": "libro"
+      },
+      "usage_hint": {
+        "native_language": "Contains valuable strategies.",
+        "target_language": "Contiene estrategias valiosas."
+      },
+      "id": "item_14_book"
+    }
+  ],
+  "_items_by_location": {
+    "loc_2_colorful_market": [
+      "item_1_apple",
+      "item_2_bread"
+    ],
+    "loc_3_cozy_inn": [
+      "item_3_water"
+    ],
+    "loc_4_library_of_lore": [
+      "item_4_key",
+      "item_5_map"
+    ],
+    "loc_6_sunny_park": [
+      "item_6_herb"
+    ],
+    "loc_7_central_plaza": [
+      "item_7_stone"
+    ],
+    "loc_8_culinary_house": [
+      "item_8_chicken"
+    ],
+    "loc_9_weather_pavilion": [
+      "item_9_umbrella"
+    ],
+    "loc_11_craftsman_s_haven": [
+      "item_10_lantern"
+    ],
+    "loc_12_tranquil_lake": [
+      "item_11_necklace"
+    ],
+    "loc_13_master_s_tower": [
+      "item_12_potion"
+    ],
+    "loc_14_garden_of_wisdom": [
+      "item_13_ring"
+    ],
+    "loc_15_chamber_of_strategies": [
+      "item_14_book"
+    ]
+  }
+}

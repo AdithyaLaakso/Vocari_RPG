@@ -1,0 +1,248 @@
+{
+  "tutor_system_prompt": "You are a friendly language tutor helping the player learn spanish.\n\nYou exist OUTSIDE the game world - you're a helpful guide, not an in-game character.\n\nYour role:\n- Praise the player when they learn new words\n- Explain vocabulary and grammar when asked\n- Offer practice exercises after quests\n- Give hints when the player is stuck\n- Celebrate milestones\n\nTeaching approach:\n- Start simple, build complexity gradually\n- Connect new words to what the player just experienced in-game\n- Keep explanations brief and clear\n- Use english for explanations, spanish for examples\n- Be encouraging but not overly effusive\n- Adapt to the player's current level\n\nIntervention moments:\n- When a quest is completed: Review vocabulary learned\n- When new vocabulary is introduced: Brief explanation before it's needed\n- When the player seems stuck: Offer contextual hints\n- At level milestones: Celebrate and summarize progress\n- At session end: Review and set goals\n\nRemember: You are NOT a game character. You're a meta-level assistant helping the player\nlearn the language through their gaming experience. Be warm, patient, and supportive.",
+  "teaching_style": {
+    "native_language": "Encouraging and patient",
+    "target_language": "Alentador y paciente"
+  },
+  "intervention_triggers": [
+    "quest_complete",
+    "new_vocabulary",
+    "new_language_feature",
+    "stuck_indicator",
+    "level_milestone",
+    "session_end"
+  ],
+  "vocabulary_by_quest": {
+    "quest_2_water_delivery": [
+      "agua (water)",
+      "botella (bottle)",
+      "entregar (deliver)",
+      "recoge",
+      "agua",
+      "entrega"
+    ],
+    "quest_3_find_the_rainbow": [
+      "arcoíris (rainbow)",
+      "estanque (pond)",
+      "preguntar (ask)",
+      "habla",
+      "pablo",
+      "aprende",
+      "sobre"
+    ],
+    "quest_5_convince_carmen": [
+      "festival (festival)",
+      "unirse (join)",
+      "convencer (persuade)",
+      "habla",
+      "carmen",
+      "convence"
+    ],
+    "quest_6_market_supplies": [
+      "mercado (market)",
+      "suministros (supplies)",
+      "recoger (gather)",
+      "mercado",
+      "luminara",
+      "regresa",
+      "miguel"
+    ],
+    "quest_7_herbal_tea_for_elena": [
+      "té de hierbas (herbal tea)",
+      "entregar (deliver)",
+      "cabaña (hut)",
+      "compra",
+      "hierbas",
+      "entrega"
+    ],
+    "quest_12_deliver_water_to_lina": [
+      "agua (water)",
+      "botella (bottle)",
+      "aquí (here)",
+      "recoge",
+      "agua",
+      "entrega"
+    ],
+    "quest_15_gather_news_for_miguel": [
+      "noticias (news)",
+      "mercado (market)",
+      "hoy (today)",
+      "habla",
+      "tomás",
+      "regresa",
+      "miguel"
+    ],
+    "quest_16_cheese_for_elena": [
+      "queso (cheese)",
+      "comprar (buy)",
+      "posada (inn)",
+      "mercado",
+      "luminara",
+      "compra",
+      "queso",
+      "lleva"
+    ],
+    "quest_17_convince_the_herbalist": [
+      "té de hierbas (herbal tea)",
+      "por favor (please)",
+      "ayuda (help)",
+      "visita",
+      "lydia",
+      "pide",
+      "convence"
+    ],
+    "quest_22_water_for_the_guard": [
+      "agua (water)",
+      "guardia (guard)",
+      "por favor (please)",
+      "recoge",
+      "agua",
+      "entrega"
+    ],
+    "quest_25_the_curious_child": [
+      "campo (field)",
+      "aprender (learn)",
+      "niño (child)",
+      "habla",
+      "luis",
+      "dile",
+      "pablo"
+    ],
+    "quest_26_the_hidden_map": [
+      "mapa (map)",
+      "plaza (square)",
+      "escondido (hidden)",
+      "plaza",
+      "luminara",
+      "encuentra",
+      "mapa",
+      "lleva"
+    ],
+    "quest_27_the_farmer_s_request": [
+      "petición (request)",
+      "granjero (farmer)",
+      "guardia (guard)",
+      "habla",
+      "pablo",
+      "convence",
+      "dile",
+      "luz"
+    ],
+    "quest_28_friendly_faces": [
+      "amigo (friend)",
+      "ayuda (help)",
+      "tarea (task)",
+      "preséntate",
+      "carlos",
+      "ayuda",
+      "habla"
+    ],
+    "quest_29_the_enchanted_glade_mystery": [
+      "claro (glade)",
+      "herbolaria (herbalist)",
+      "secreto (secret)",
+      "habla",
+      "lydia",
+      "informa",
+      "aprendiste"
+    ],
+    "quest_31_gather_apples": [
+      "manzana (apple)",
+      "tienda (store)",
+      "recoger (gather)",
+      "recoge",
+      "manzana",
+      "lleva"
+    ],
+    "quest_32_explore_the_rainbow_pond": [
+      "estanque (pond)",
+      "flor (flower)",
+      "especial (special)",
+      "viaja",
+      "estanque",
+      "encuentra",
+      "flor"
+    ],
+    "quest_33_deliver_water_to_lina": [
+      "agua (water)",
+      "guardia (guard)",
+      "entregar (deliver)",
+      "recoge",
+      "agua",
+      "entrega"
+    ],
+    "quest_34_meet_pablo_the_child": [
+      "niño (child)",
+      "juegos (games)",
+      "favorito (favorite)",
+      "habla",
+      "pablo"
+    ],
+    "quest_35_gather_weather_information": [
+      "tiempo (weather)",
+      "festival (festival)",
+      "información (information)",
+      "habla",
+      "elena",
+      "informa",
+      "miguel"
+    ],
+    "quest_38_convince_fiona_to_share_a_stor": [
+      "historia (story)",
+      "compartir (share)",
+      "convencer (convince)",
+      "habla",
+      "fiona",
+      "convence"
+    ]
+  },
+  "grammar_by_level": {
+    "A0": [
+      "Basic greetings and farewells (Hola, Adiós)",
+      "Simple affirmations and negations (Sí, No)",
+      "Introduction to gendered nouns (el/la)",
+      "Basic numbers (1-10)",
+      "Common courtesy expressions (Por favor, Gracias)"
+    ],
+    "A0+": [
+      "Definite and indefinite articles (el, la, un, una)",
+      "Basic present tense of regular verbs (hablar, comer, vivir)",
+      "Simple yes/no questions (¿Eres tú?, ¿Es él?)",
+      "Basic personal pronouns (yo, tú, él, ella)",
+      "Simple adjectives and agreement (grande, pequeño)"
+    ],
+    "A1": [
+      "Present tense conjugation of regular verbs (-ar, -er, -ir)",
+      "Introduction to ser and estar (usage and differences)",
+      "Negation with no (No tengo, No quiero)",
+      "Basic question words (qué, quién, dónde, cuándo)",
+      "Possessive adjectives (mi, tu, su)"
+    ],
+    "A1+": [
+      "Common irregular verbs in present tense (ir, tener, hacer)",
+      "Introduction to simple past tense (pretérito) of regular verbs",
+      "Use of conjunctions (y, o, pero)",
+      "Introduction to gustar and similar verbs",
+      "Basic prepositions (en, a, de, con)"
+    ],
+    "A2": [
+      "Past tense: distinction between pretérito and imperfecto",
+      "Simple future tense (ir a + infinitive)",
+      "Introduction to conditional sentences (si clauses)",
+      "Reflexive verbs and pronouns (me levanto, te duchas)",
+      "Comparatives and superlatives (más que, el/la más)"
+    ]
+  },
+  "_meta": {
+    "target_language": "spanish",
+    "native_language": "english",
+    "total_quests_indexed": 21,
+    "levels_covered": [
+      "A0",
+      "A0+",
+      "A1",
+      "A1+",
+      "A2"
+    ]
+  }
+}

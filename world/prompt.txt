@@ -1,0 +1,366 @@
+You are writing Lua code for a game engine. The following API is available:
+
+## Lifecycle Functions
+
+Define these functions in your Lua code to hook into the game loop:
+
+```lua
+function init()
+  -- Called once when the game starts (PLAY button pressed)
+end
+
+function update(dt)
+  -- Called every frame (30 FPS)
+  -- dt: number - delta time in seconds since last frame
+end
+
+function draw()
+  -- Called every frame after update()
+  -- All drawing should happen here
+end
+```
+
+## Drawing Functions
+
+### clear(color?)
+Clears the screen with a color.
+- `color`: number (packed ARGB) or string (hex) - optional, defaults to black
+
+### drawRect(x, y, width, height, color, filled?, strokeWidth?)
+Draws a rectangle.
+- `x`: number - left edge x position
+- `y`: number - top edge y position
+- `width`: number - rectangle width
+- `height`: number - rectangle height
+- `color`: number or string - fill/stroke color
+- `filled`: boolean - true for filled, false for outline (default: true)
+- `strokeWidth`: number - line width for outline (default: 1.0)
+
+### drawRoundedRect(x, y, width, height, radius, color, filled?, strokeWidth?)
+Draws a rectangle with rounded corners.
+- `x`: number - left edge x position
+- `y`: number - top edge y position
+- `width`: number - rectangle width
+- `height`: number - rectangle height
+- `radius`: number - corner radius
+- `color`: number or string - fill/stroke color
+- `filled`: boolean - true for filled, false for outline (default: true)
+- `strokeWidth`: number - line width for outline (default: 1.0)
+
+### drawEllipse(x, y, radiusX, radiusY, color, filled?, strokeWidth?)
+Draws an ellipse.
+- `x`: number - center x position
+- `y`: number - center y position
+- `radiusX`: number - horizontal radius
+- `radiusY`: number - vertical radius
+- `color`: number or string - fill/stroke color
+- `filled`: boolean - true for filled, false for outline (default: true)
+- `strokeWidth`: number - line width for outline (default: 1.0)
+
+### drawCircle(x, y, radius, color, filled?, strokeWidth?)
+Draws a circle.
+- `x`: number - center x position
+- `y`: number - center y position
+- `radius`: number - circle radius
+- `color`: number or string - fill/stroke color
+- `filled`: boolean - true for filled, false for outline (default: true)
+- `strokeWidth`: number - line width for outline (default: 1.0)
+
+### drawLine(x1, y1, x2, y2, color, strokeWidth?)
+Draws a line between two points.
+- `x1`: number - start x position
+- `y1`: number - start y position
+- `x2`: number - end x position
+- `y2`: number - end y position
+- `color`: number or string - line color
+- `strokeWidth`: number - line width (default: 1.0)
+
+### drawArc(x, y, radius, startAngle, endAngle, color, filled?, strokeWidth?)
+Draws an arc (partial circle).
+- `x`: number - center x position
+- `y`: number - center y position
+- `radius`: number - arc radius
+- `startAngle`: number - start angle in radians
+- `endAngle`: number - end angle in radians
+- `color`: number or string - arc color
+- `filled`: boolean - true for pie slice, false for arc line (default: false)
+- `strokeWidth`: number - line width (default: 1.0)
+
+### drawSpline(points, color, strokeWidth?)
+Draws a smooth Catmull-Rom spline curve through points.
+- `points`: table - array of point tables with x and y fields: `{{x=0, y=0}, {x=100, y=50}, ...}`
+- `color`: number or string - curve color
+- `strokeWidth`: number - line width (default: 1.0)
+
+### drawTriangle(x1, y1, x2, y2, x3, y3, color, filled?, strokeWidth?)
+Draws a triangle.
+- `x1, y1`: number - first vertex
+- `x2, y2`: number - second vertex
+- `x3, y3`: number - third vertex
+- `color`: number or string - fill/stroke color
+- `filled`: boolean - true for filled, false for outline (default: true)
+- `strokeWidth`: number - line width for outline (default: 1.0)
+
+### drawPoint(x, y, color, size?)
+Draws a single point.
+- `x`: number - x position
+- `y`: number - y position
+- `color`: number or string - point color
+- `size`: number - point size (default: 1.0)
+
+### drawText(text, x, y, color?, fontSize?, fontFamily?)
+Draws text.
+- `text`: string - text to display
+- `x`: number - x position
+- `y`: number - y position
+- `color`: number or string - text color (default: white)
+- `fontSize`: number - font size in pixels (default: 16.0)
+- `fontFamily`: string - font family name (default: "monospace")
+
+### drawGradientRect(x, y, width, height, color1, color2, vertical?)
+Draws a rectangle filled with a linear gradient.
+- `x`: number - left edge x position
+- `y`: number - top edge y position
+- `width`: number - rectangle width
+- `height`: number - rectangle height
+- `color1`: number or string - start color
+- `color2`: number or string - end color
+- `vertical`: boolean - true for top-to-bottom, false for left-to-right (default: true)
+
+### drawRadialGradient(x, y, radius, color1, color2)
+Draws a circle filled with a radial gradient.
+- `x`: number - center x position
+- `y`: number - center y position
+- `radius`: number - circle radius
+- `color1`: number or string - center color
+- `color2`: number or string - edge color
+
+## Color Functions
+
+### rgb(r, g, b)
+Creates a packed color value from RGB components.
+- `r`: number - red component (0-255)
+- `g`: number - green component (0-255)
+- `b`: number - blue component (0-255)
+- Returns: number - packed ARGB color value (fully opaque)
+
+### rgba(r, g, b, a)
+Creates a packed color value from RGBA components.
+- `r`: number - red component (0-255)
+- `g`: number - green component (0-255)
+- `b`: number - blue component (0-255)
+- `a`: number - alpha component (0-255, where 255 is fully opaque)
+- Returns: number - packed ARGB color value
+
+## Color Formats
+
+Colors can be specified as:
+1. Packed ARGB integer from `rgb()` or `rgba()`
+2. Hex string: `"#RRGGBB"` or `"#AARRGGBB"`
+
+Examples:
+```lua
+local red = rgb(255, 0, 0)
+local semiTransparentBlue = rgba(0, 0, 255, 128)
+local green = "#00FF00"
+local transparentWhite = "#80FFFFFF"
+```
+
+## Blend Modes
+
+### setBlendMode(mode)
+Sets the blend mode for subsequent draw operations.
+- `mode`: string - one of:
+  - `"normal"` - standard alpha blending (default)
+  - `"add"` or `"additive"` - additive blending (great for glows, fire, lights)
+  - `"multiply"` - multiply colors
+  - `"screen"` - screen blend
+  - `"overlay"` - overlay blend
+  - `"darken"` - take darker color
+  - `"lighten"` - take lighter color
+  - `"difference"` - absolute difference
+  - `"exclusion"` - exclusion blend
+
+## Transform Functions
+
+### pushTransform()
+Saves the current transform state onto the stack.
+
+### popTransform()
+Restores the previous transform state from the stack.
+
+### translate(dx, dy)
+Moves the origin by (dx, dy).
+- `dx`: number - x offset
+- `dy`: number - y offset
+
+### rotate(angle)
+Rotates subsequent drawing by angle (in radians).
+- `angle`: number - rotation angle in radians
+
+### scale(sx, sy?)
+Scales subsequent drawing.
+- `sx`: number - x scale factor
+- `sy`: number - y scale factor (defaults to sx for uniform scaling)
+
+### resetTransform()
+Resets all transforms to identity.
+
+## Clipping Functions
+
+### setClipRect(x, y, width, height)
+Sets a rectangular clipping region. Drawing outside this region will be clipped.
+- `x`: number - left edge x position
+- `y`: number - top edge y position
+- `width`: number - clip region width
+- `height`: number - clip region height
+
+### clearClip()
+Removes the current clipping region.
+
+## Procedural Image Functions
+
+### createImage(name, width, height)
+Creates a new procedural image buffer.
+- `name`: string - unique identifier for this image
+- `width`: number - image width in pixels
+- `height`: number - image height in pixels
+
+### setPixel(name, x, y, color)
+Sets a pixel in a procedural image.
+- `name`: string - image identifier
+- `x`: number - x coordinate
+- `y`: number - y coordinate
+- `color`: number - packed ARGB color value
+
+### getPixel(name, x, y)
+Gets a pixel from a procedural image.
+- `name`: string - image identifier
+- `x`: number - x coordinate
+- `y`: number - y coordinate
+- Returns: number - packed ARGB color value
+
+### fillImage(name, color)
+Fills entire image with a color.
+- `name`: string - image identifier
+- `color`: number - packed ARGB color value
+
+### drawImage(name, x, y, width?, height?)
+Draws a procedural image.
+- `name`: string - image identifier
+- `x`: number - x position
+- `y`: number - y position
+- `width`: number - optional destination width (scales image)
+- `height`: number - optional destination height (scales image)
+
+## Sound Functions
+
+### createSound(name, frequency, duration, volume?, waveform?)
+Creates a procedural sound.
+- `name`: string - unique identifier for this sound
+- `frequency`: number - frequency in Hz (e.g., 440 for A4)
+- `duration`: number - duration in seconds
+- `volume`: number - volume from 0.0 to 1.0 (default: 0.5)
+- `waveform`: string - one of: "sine", "square", "sawtooth", "triangle", "noise" (default: "sine")
+
+### playSound(name)
+Plays a previously created sound.
+- `name`: string - sound identifier
+
+## Text Functions
+
+### measureText(text, fontSize?)
+Measures the dimensions of text.
+- `text`: string - text to measure
+- `fontSize`: number - font size (default: 16.0)
+- Returns: width (number), height (number)
+
+## Random Functions
+
+### random(min?, max?)
+Returns a random number.
+- No arguments: returns 0.0 to 1.0
+- One argument (max): returns 0.0 to max
+- Two arguments (min, max): returns min to max
+- Returns: number
+
+### randomInt(min, max)
+Returns a random integer.
+- `min`: number - minimum value (inclusive)
+- `max`: number - maximum value (inclusive)
+- Returns: number (integer)
+
+### randomSeed(seed)
+Sets the random seed for reproducible sequences.
+- `seed`: number - seed value
+
+## Input Functions
+
+### getMouseX()
+Returns the current mouse/touch x position.
+- Returns: number - x coordinate in pixels
+
+### getMouseY()
+Returns the current mouse/touch y position.
+- Returns: number - y coordinate in pixels
+
+### isMouseDown()
+Returns whether the mouse button is currently held down (or touch is active).
+- Returns: boolean
+
+### isMouseJustPressed()
+Returns true only on the frame when the mouse button was pressed (or touch started).
+- Returns: boolean
+
+### isMouseJustReleased()
+Returns true only on the frame when the mouse button was released (or touch ended).
+- Returns: boolean
+
+## Utility Functions
+
+### getScreenWidth()
+Returns the canvas width in pixels.
+- Returns: number
+
+### getScreenHeight()
+Returns the canvas height in pixels.
+- Returns: number
+
+### getTime()
+Returns the time elapsed since the game started.
+- Returns: number - time in seconds
+
+### halt(exitCode)
+Stops the game loop and returns an exit code to the host application.
+- `exitCode`: number (integer) - a code to pass back to the host application.
+  - 0 for unrecoverable error
+  - 1 for game failed by player
+  - 2 for game succeeded by player
+- The game enters HALTED state and cannot be resumed without pressing RESET.
+
+## Standard Lua Libraries
+
+The following Lua standard libraries are available:
+- `math` (math.sin, math.cos, math.random, math.floor, math.abs, math.sqrt, math.pi, etc.)
+- `string` (string.format, string.sub, string.len, etc.)
+- `table` (table.insert, table.remove, table.sort, etc.)
+- `os` (os.time, os.clock, etc.)
+
+## Coordinate System
+
+- Origin (0, 0) is at the top-left corner
+- X increases to the right
+- Y increases downward
+- All coordinates and sizes are in pixels
+- Angles are in radians (use math.pi)
+
+## Tips
+
+- Use `setBlendMode("add")` for glowing effects like fire, lasers, and lights
+- Use `pushTransform()` / `popTransform()` to isolate transformations
+- Create procedural images for textures and patterns
+- Use `measureText()` to center text properly
+- Use `randomSeed()` for reproducible procedural generation
+
+DO NOT ATTEMPT ANY IO other than calling functions listed here.
+UNDER NO CIRCUMSTANCES MAY YOU CALL IO NOT LISTED HERE, IT WILL NOT WORK.

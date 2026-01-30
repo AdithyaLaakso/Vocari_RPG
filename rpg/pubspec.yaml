@@ -17,6 +17,9 @@ dependencies:
   audioplayers: ^5.2.1
   uuid: ^4.2.2
   http: ^1.6.0
+  luavm_widget:
+    git:
+      https://github.com/AdithyaLaakso/luavm_widget
 
 dev_dependencies:
   flutter_test:

@@ -1,0 +1,1479 @@
+{
+  "triggers": [
+    {
+      "skill_id": "vocab_greetings_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_greetings_basic' correctly 2 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_greetings_basic",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "vocab_greetings_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_greetings_basic' (use 6+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_greetings_basic",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "vocab_numbers_1_10",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_numbers_1_10' correctly 2 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_numbers_1_10",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "vocab_numbers_1_10",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_numbers_1_10' (use 6+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_numbers_1_10",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "vocab_colors_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_colors_basic' correctly 2 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_colors_basic",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "vocab_colors_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_colors_basic' (use 6+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_colors_basic",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "vocab_yes_no",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_yes_no' correctly 2 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_yes_no",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "vocab_yes_no",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_yes_no' (use 6+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_yes_no",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "vocab_basic_objects",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_basic_objects' correctly 3 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_basic_objects",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "vocab_basic_objects",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_basic_objects' (use 9+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_basic_objects",
+        "operator": ">=",
+        "threshold": 9
+      }
+    },
+    {
+      "skill_id": "vocab_days_months_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_days_months_basic' correctly 3 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_days_months_basic",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "vocab_days_months_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_days_months_basic' (use 9+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_days_months_basic",
+        "operator": ">=",
+        "threshold": 9
+      }
+    },
+    {
+      "skill_id": "vocab_family_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_family_basic' correctly 4 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_family_basic",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "vocab_family_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_family_basic' (use 12+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_family_basic",
+        "operator": ">=",
+        "threshold": 12
+      }
+    },
+    {
+      "skill_id": "vocab_food_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_food_basic' correctly 4 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_food_basic",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "vocab_food_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_food_basic' (use 12+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_food_basic",
+        "operator": ">=",
+        "threshold": 12
+      }
+    },
+    {
+      "skill_id": "vocab_weather_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_weather_basic' correctly 4 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_weather_basic",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "vocab_weather_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_weather_basic' (use 12+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_weather_basic",
+        "operator": ">=",
+        "threshold": 12
+      }
+    },
+    {
+      "skill_id": "vocab_directions_basic",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_directions_basic' correctly 4 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_directions_basic",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "vocab_directions_basic",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_directions_basic' (use 12+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_directions_basic",
+        "operator": ">=",
+        "threshold": 12
+      }
+    },
+    {
+      "skill_id": "vocab_shopping_basics",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_shopping_basics' correctly 4 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_shopping_basics",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "vocab_shopping_basics",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_shopping_basics' (use 12+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_shopping_basics",
+        "operator": ">=",
+        "threshold": 12
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_daily_routines' correctly 5 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_daily_routines",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_daily_routines' (use 15+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_daily_routines",
+        "operator": ">=",
+        "threshold": 15
+      }
+    },
+    {
+      "skill_id": "vocab_hobbies",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_hobbies' correctly 5 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_hobbies",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "vocab_hobbies",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_hobbies' (use 15+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_hobbies",
+        "operator": ">=",
+        "threshold": 15
+      }
+    },
+    {
+      "skill_id": "vocab_descriptions",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_descriptions' correctly 5 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_descriptions",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "vocab_descriptions",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_descriptions' (use 15+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_descriptions",
+        "operator": ">=",
+        "threshold": 15
+      }
+    },
+    {
+      "skill_id": "vocab_travel",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_travel' correctly 6 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_travel",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "vocab_travel",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_travel' (use 18+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_travel",
+        "operator": ">=",
+        "threshold": 18
+      }
+    },
+    {
+      "skill_id": "vocab_work",
+      "points_awarded": 10,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Use vocabulary from 'vocab_work' correctly 6 times",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_work",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "vocab_work",
+      "points_awarded": 25,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Master vocabulary from 'vocab_work' (use 18+ times)",
+      "trigger": {
+        "trigger_type": "vocab_used_correctly",
+        "target_id": "vocab_work",
+        "operator": ">=",
+        "threshold": 18
+      }
+    },
+    {
+      "skill_id": "grammar_greetings_farewells",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_greetings_farewells' correctly 1 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_greetings_farewells",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "grammar_greetings_farewells",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_greetings_farewells' 2+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_greetings_farewells",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_simple_affirmations_negations",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_simple_affirmations_negations' correctly 1 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_simple_affirmations_negations",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "grammar_simple_affirmations_negations",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_simple_affirmations_negations' 2+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_simple_affirmations_negations",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_gendered_nouns",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_gendered_nouns' correctly 1 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_gendered_nouns",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "grammar_gendered_nouns",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_gendered_nouns' 2+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_gendered_nouns",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_basic_numbers",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_basic_numbers' correctly 1 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_basic_numbers",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "grammar_basic_numbers",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_basic_numbers' 2+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_basic_numbers",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_common_courtesy",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_common_courtesy' correctly 1 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_common_courtesy",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "grammar_common_courtesy",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_common_courtesy' 2+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_common_courtesy",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_definite_indefinite_articles",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_definite_indefinite_articles' correctly 2 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_definite_indefinite_articles",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_definite_indefinite_articles",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_definite_indefinite_articles' 4+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_definite_indefinite_articles",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_basic_present_tense",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_basic_present_tense' correctly 2 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_basic_present_tense",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_basic_present_tense",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_basic_present_tense' 4+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_basic_present_tense",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_simple_yes_no_questions",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_simple_yes_no_questions' correctly 2 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_simple_yes_no_questions",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_simple_yes_no_questions",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_simple_yes_no_questions' 4+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_simple_yes_no_questions",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_basic_personal_pronouns",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_basic_personal_pronouns' correctly 2 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_basic_personal_pronouns",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_basic_personal_pronouns",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_basic_personal_pronouns' 4+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_basic_personal_pronouns",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_simple_adjectives_agreement",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_simple_adjectives_agreement' correctly 2 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_simple_adjectives_agreement",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "grammar_simple_adjectives_agreement",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_simple_adjectives_agreement' 4+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_simple_adjectives_agreement",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_present_tense_conjugation",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_present_tense_conjugation' correctly 3 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_present_tense_conjugation",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "grammar_present_tense_conjugation",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_present_tense_conjugation' 6+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_present_tense_conjugation",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "grammar_ser_vs_estar",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_ser_vs_estar' correctly 3 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_ser_vs_estar",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "grammar_ser_vs_estar",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_ser_vs_estar' 6+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_ser_vs_estar",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "grammar_negation_with_no",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_negation_with_no' correctly 3 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_negation_with_no",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "grammar_negation_with_no",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_negation_with_no' 6+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_negation_with_no",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "grammar_basic_question_words",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_basic_question_words' correctly 3 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_basic_question_words",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "grammar_basic_question_words",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_basic_question_words' 6+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_basic_question_words",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "grammar_possessive_adjectives",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_possessive_adjectives' correctly 3 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_possessive_adjectives",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "grammar_possessive_adjectives",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_possessive_adjectives' 6+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_possessive_adjectives",
+        "operator": ">=",
+        "threshold": 6
+      }
+    },
+    {
+      "skill_id": "grammar_irregular_verbs_present",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_irregular_verbs_present' correctly 4 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_irregular_verbs_present",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_irregular_verbs_present",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_irregular_verbs_present' 8+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_irregular_verbs_present",
+        "operator": ">=",
+        "threshold": 8
+      }
+    },
+    {
+      "skill_id": "grammar_simple_past_tense",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_simple_past_tense' correctly 4 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_simple_past_tense",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_simple_past_tense",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_simple_past_tense' 8+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_simple_past_tense",
+        "operator": ">=",
+        "threshold": 8
+      }
+    },
+    {
+      "skill_id": "grammar_use_of_conjunctions",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_use_of_conjunctions' correctly 4 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_use_of_conjunctions",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_use_of_conjunctions",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_use_of_conjunctions' 8+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_use_of_conjunctions",
+        "operator": ">=",
+        "threshold": 8
+      }
+    },
+    {
+      "skill_id": "grammar_gustar_and_similar_verbs",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_gustar_and_similar_verbs' correctly 4 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_gustar_and_similar_verbs",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "grammar_gustar_and_similar_verbs",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_gustar_and_similar_verbs' 8+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_gustar_and_similar_verbs",
+        "operator": ">=",
+        "threshold": 8
+      }
+    },
+    {
+      "skill_id": "grammar_past_tense_distinction",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_past_tense_distinction' correctly 5 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_past_tense_distinction",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "grammar_past_tense_distinction",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_past_tense_distinction' 10+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_past_tense_distinction",
+        "operator": ">=",
+        "threshold": 10
+      }
+    },
+    {
+      "skill_id": "grammar_simple_future_tense",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_simple_future_tense' correctly 5 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_simple_future_tense",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "grammar_simple_future_tense",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_simple_future_tense' 10+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_simple_future_tense",
+        "operator": ">=",
+        "threshold": 10
+      }
+    },
+    {
+      "skill_id": "grammar_conditional_sentences",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 3,
+      "description": "Use grammar pattern 'grammar_conditional_sentences' correctly 5 times",
+      "trigger": {
+        "trigger_type": "grammar_used_correctly",
+        "target_id": "grammar_conditional_sentences",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "grammar_conditional_sentences",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Produce grammar pattern 'grammar_conditional_sentences' 10+ times",
+      "trigger": {
+        "trigger_type": "grammar_pattern_produced",
+        "target_id": "grammar_conditional_sentences",
+        "operator": ">=",
+        "threshold": 10
+      }
+    },
+    {
+      "skill_id": "prag_greeting_basic",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_greeting_basic' appropriately 1 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_greeting_basic",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "prag_greeting_time_of_day",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_greeting_time_of_day' appropriately 1 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_greeting_time_of_day",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "prag_farewells_basic",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_farewells_basic' appropriately 1 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_farewells_basic",
+        "operator": ">=",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "prag_introductions_basic",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_introductions_basic' appropriately 2 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_introductions_basic",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "prag_formal_informal_address",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_formal_informal_address' appropriately 2 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_formal_informal_address",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "prag_polite_requests",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_polite_requests' appropriately 2 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_polite_requests",
+        "operator": ">=",
+        "threshold": 2
+      }
+    },
+    {
+      "skill_id": "prag_responding_to_greetings",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_responding_to_greetings' appropriately 3 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_responding_to_greetings",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "prag_thanking",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_thanking' appropriately 3 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_thanking",
+        "operator": ">=",
+        "threshold": 3
+      }
+    },
+    {
+      "skill_id": "prag_apologizing",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_apologizing' appropriately 4 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_apologizing",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "prag_leave_taking",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_leave_taking' appropriately 4 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_leave_taking",
+        "operator": ">=",
+        "threshold": 4
+      }
+    },
+    {
+      "skill_id": "prag_expressing_opinions",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_expressing_opinions' appropriately 5 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_expressing_opinions",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "prag_expressing_needs",
+      "points_awarded": 15,
+      "repeatable": true,
+      "cooldown_interactions": 5,
+      "description": "Demonstrate skill 'prag_expressing_needs' appropriately 5 times",
+      "trigger": {
+        "trigger_type": "skill_demonstrated",
+        "target_id": "prag_expressing_needs",
+        "operator": ">=",
+        "threshold": 5
+      }
+    },
+    {
+      "skill_id": "vocab_greetings_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_2_water_delivery'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_2_water_delivery",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_basic_objects",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_3_find_the_rainbow'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_3_find_the_rainbow",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_5_convince_carmen'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_5_convince_carmen",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_family_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_6_market_supplies'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_6_market_supplies",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_7_herbal_tea_for_elena'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_7_herbal_tea_for_elena",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_basic_objects",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_12_deliver_water_to_lina'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_12_deliver_water_to_lina",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_15_gather_news_for_miguel'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_15_gather_news_for_miguel",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_family_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_16_cheese_for_elena'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_16_cheese_for_elena",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_travel",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_17_convince_the_herbalist'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_17_convince_the_herbalist",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_greetings_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_22_water_for_the_guard'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_22_water_for_the_guard",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_family_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_25_the_curious_child'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_25_the_curious_child",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_26_the_hidden_map'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_26_the_hidden_map",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_daily_routines",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_27_the_farmer_s_request'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_27_the_farmer_s_request",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_travel",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_28_friendly_faces'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_28_friendly_faces",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_travel",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_29_the_enchanted_glade_mystery'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_29_the_enchanted_glade_mystery",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_greetings_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_31_gather_apples'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_31_gather_apples",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_greetings_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_32_explore_the_rainbow_pond'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_32_explore_the_rainbow_pond",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_basic_objects",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_33_deliver_water_to_lina'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_33_deliver_water_to_lina",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_basic_objects",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_34_meet_pablo_the_child'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_34_meet_pablo_the_child",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_family_basic",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_35_gather_weather_information'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_35_gather_weather_information",
+        "operator": "==",
+        "threshold": 1
+      }
+    },
+    {
+      "skill_id": "vocab_travel",
+      "points_awarded": 20,
+      "repeatable": false,
+      "cooldown_interactions": 0,
+      "description": "Complete quest 'quest_38_convince_fiona_to_share_a_stor'",
+      "trigger": {
+        "trigger_type": "quest_completed",
+        "target_id": "quest_38_convince_fiona_to_share_a_stor",
+        "operator": "==",
+        "threshold": 1
+      }
+    }
+  ],
+  "_trigger_count": 109,
+  "_triggers_by_skill": {
+    "vocab_greetings_basic": 6,
+    "vocab_numbers_1_10": 2,
+    "vocab_colors_basic": 2,
+    "vocab_yes_no": 2,
+    "vocab_basic_objects": 6,
+    "vocab_days_months_basic": 2,
+    "vocab_family_basic": 6,
+    "vocab_food_basic": 2,
+    "vocab_weather_basic": 2,
+    "vocab_directions_basic": 2,
+    "vocab_shopping_basics": 2,
+    "vocab_daily_routines": 7,
+    "vocab_hobbies": 2,
+    "vocab_descriptions": 2,
+    "vocab_travel": 6,
+    "vocab_work": 2,
+    "grammar_greetings_farewells": 2,
+    "grammar_simple_affirmations_negations": 2,
+    "grammar_gendered_nouns": 2,
+    "grammar_basic_numbers": 2,
+    "grammar_common_courtesy": 2,
+    "grammar_definite_indefinite_articles": 2,
+    "grammar_basic_present_tense": 2,
+    "grammar_simple_yes_no_questions": 2,
+    "grammar_basic_personal_pronouns": 2,
+    "grammar_simple_adjectives_agreement": 2,
+    "grammar_present_tense_conjugation": 2,
+    "grammar_ser_vs_estar": 2,
+    "grammar_negation_with_no": 2,
+    "grammar_basic_question_words": 2,
+    "grammar_possessive_adjectives": 2,
+    "grammar_irregular_verbs_present": 2,
+    "grammar_simple_past_tense": 2,
+    "grammar_use_of_conjunctions": 2,
+    "grammar_gustar_and_similar_verbs": 2,
+    "grammar_past_tense_distinction": 2,
+    "grammar_simple_future_tense": 2,
+    "grammar_conditional_sentences": 2,
+    "prag_greeting_basic": 1,
+    "prag_greeting_time_of_day": 1,
+    "prag_farewells_basic": 1,
+    "prag_introductions_basic": 1,
+    "prag_formal_informal_address": 1,
+    "prag_polite_requests": 1,
+    "prag_responding_to_greetings": 1,
+    "prag_thanking": 1,
+    "prag_apologizing": 1,
+    "prag_leave_taking": 1,
+    "prag_expressing_opinions": 1,
+    "prag_expressing_needs": 1
+  },
+  "_meta": {
+    "target_language": "spanish",
+    "native_language": "english",
+    "total_triggers": 109
+  }
+}

@@ -81,8 +81,6 @@ class BaseGenerator:
         system_prompt: str,
         user_prompt: str,
         model: str = "gpt-4o",
-        temperature: float = 0.7,
-        max_tokens: int = 4096,
         response_format: Optional[Dict] = None
     ) -> str:
         """Call OpenAI API and return the response content."""
@@ -90,8 +88,6 @@ class BaseGenerator:
             system_prompt=system_prompt,
             user_prompt=user_prompt,
             model=model,
-            temperature=temperature,
-            max_tokens=max_tokens,
             response_format=response_format
         )
         return content
@@ -101,8 +97,6 @@ class BaseGenerator:
         system_prompt: str,
         user_prompt: str,
         model: str = "gpt-4o",
-        temperature: float = 0.7,
-        max_tokens: int = 4096,
         response_format: Optional[Dict] = None
     ) -> tuple[str, str]:
         """Call OpenAI API and return the response and finish reason."""
@@ -114,8 +108,6 @@ class BaseGenerator:
         kwargs = {
             "model": model,
             "messages": messages,
-            "temperature": temperature,
-            "max_tokens": max_tokens
         }
 
         if response_format:
@@ -132,7 +124,6 @@ class BaseGenerator:
         user_prompt: str,
         response_model: Type[T],
         model: str = "gpt-4o",
-        temperature: float = 0.7,
     ) -> T:
         """Call OpenAI with Pydantic structured output.
 
@@ -146,7 +137,6 @@ class BaseGenerator:
                 {"role": "user", "content": user_prompt}
             ],
             response_format=response_model,
-            temperature=temperature,
         )
         return response.choices[0].message.parsed
 
@@ -155,8 +145,6 @@ class BaseGenerator:
         system_prompt: str,
         user_prompt: str,
         model: str = "gpt-4o",
-        temperature: float = 0.7,
-        max_tokens: int = 4096,
         max_retries: int = 3
     ) -> Dict[str, Any]:
         """Call OpenAI API and parse JSON response with retry logic.
@@ -171,8 +159,6 @@ class BaseGenerator:
                     system_prompt=system_prompt,
                     user_prompt=user_prompt,
                     model=model,
-                    temperature=temperature,
-                    max_tokens=max_tokens,
                     response_format={"type": "json_object"}
                 )
 

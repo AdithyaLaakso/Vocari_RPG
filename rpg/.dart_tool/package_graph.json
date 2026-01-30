@@ -13,6 +13,7 @@
         "flutter_animate",
         "google_fonts",
         "http",
+        "luavm_widget",
         "provider",
         "shared_preferences",
         "uuid"
@@ -45,6 +46,14 @@
         "stream_channel",
         "test_api",
         "vector_math"
+      ]
+    },
+    {
+      "name": "luavm_widget",
+      "version": "1.0.0+1",
+      "dependencies": [
+        "flutter",
+        "lua_dardo"
       ]
     },
     {
@@ -231,6 +240,13 @@
         "stream_channel",
         "string_scanner",
         "term_glyph"
+      ]
+    },
+    {
+      "name": "lua_dardo",
+      "version": "0.0.5",
+      "dependencies": [
+        "sprintf"
       ]
     },
     {
@@ -579,6 +595,11 @@
         "meta",
         "path"
       ]
+    },
+    {
+      "name": "sprintf",
+      "version": "6.0.2",
+      "dependencies": []
     }
   ],
   "configVersion": 1

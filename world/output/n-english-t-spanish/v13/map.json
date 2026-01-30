@@ -1,0 +1,761 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Verdalia",
+      "target_language": "Verdalia"
+    },
+    "description": {
+      "native_language": "A vibrant world where language and adventure intertwine.",
+      "target_language": "Un mundo vibrante donde el idioma y la aventura se entrelazan."
+    },
+    "scale": "region"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "The Enchanted Village",
+        "target_language": "La Aldea Encantada"
+      },
+      "description": {
+        "native_language": "A charming village where beginners start their journey.",
+        "target_language": "Una aldea encantadora donde los principiantes comienzan su viaje."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_the_enchanted_village"
+    },
+    {
+      "name": {
+        "native_language": "The Market Town",
+        "target_language": "El Pueblo del Mercado"
+      },
+      "description": {
+        "native_language": "A bustling town filled with opportunities to learn and trade.",
+        "target_language": "Un pueblo bullicioso lleno de oportunidades para aprender y comerciar."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_the_market_town"
+    },
+    {
+      "name": {
+        "native_language": "The Scholar's Haven",
+        "target_language": "El Refugio del Erudito"
+      },
+      "description": {
+        "native_language": "A place of knowledge and discovery, perfect for expanding one's vocabulary.",
+        "target_language": "Un lugar de conocimiento y descubrimiento, perfecto para expandir el vocabulario."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_the_scholar_s_haven"
+    },
+    {
+      "name": {
+        "native_language": "The Adventurer's Fields",
+        "target_language": "Los Campos del Aventurero"
+      },
+      "description": {
+        "native_language": "A sprawling landscape with diverse activities and experiences.",
+        "target_language": "Un paisaje extenso con diversas actividades y experiencias."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_the_adventurer_s_fields"
+    },
+    {
+      "name": {
+        "native_language": "The Traveler's Port",
+        "target_language": "El Puerto del Viajero"
+      },
+      "description": {
+        "native_language": "A bustling port offering insights into travel and future plans.",
+        "target_language": "Un puerto bullicioso que ofrece ideas sobre viajes y planes futuros."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_the_traveler_s_port"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Village Square",
+        "target_language": "Plaza del Pueblo"
+      },
+      "description": {
+        "native_language": "The heart of the village where everyone gathers.",
+        "target_language": "El corazón del pueblo donde todos se reúnen."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "yes/no"
+      ],
+      "vocabulary_domain": {
+        "native_language": "greetings",
+        "target_language": "saludos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and welcoming.",
+        "target_language": "Animado y acogedor."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_1_village_square",
+      "region_id": "region_1_the_enchanted_village",
+      "connections": [
+        "loc_2_colorful_garden",
+        "loc_3_village_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Garden",
+        "target_language": "Jardín Colorido"
+      },
+      "description": {
+        "native_language": "A vibrant garden to learn about colors.",
+        "target_language": "Un jardín vibrante para aprender sobre los colores."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors",
+        "target_language": "colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bright and cheerful.",
+        "target_language": "Brillante y alegre."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_2_colorful_garden",
+      "region_id": "region_1_the_enchanted_village",
+      "connections": [
+        "loc_1_village_square",
+        "loc_3_village_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Village Inn",
+        "target_language": "Posada del Pueblo"
+      },
+      "description": {
+        "native_language": "A cozy inn offering warmth and basic hospitality.",
+        "target_language": "Una posada acogedora que ofrece calidez y hospitalidad básica."
+      },
+      "type": "building",
+      "language_topics": [
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food",
+        "target_language": "comida"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 2
+      },
+      "id": "loc_3_village_inn",
+      "region_id": "region_1_the_enchanted_village",
+      "connections": [
+        "loc_1_village_square",
+        "loc_2_colorful_garden"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Central Market",
+        "target_language": "Mercado Central"
+      },
+      "description": {
+        "native_language": "A lively market filled with various stalls.",
+        "target_language": "Un mercado animado lleno de diversos puestos."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping basics"
+      ],
+      "vocabulary_domain": {
+        "native_language": "shopping",
+        "target_language": "compras"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and vibrant.",
+        "target_language": "Bullicioso y vibrante."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 1
+      },
+      "id": "loc_4_central_market",
+      "region_id": "region_2_the_market_town",
+      "connections": [
+        "loc_5_craftsman_s_alley",
+        "loc_6_baker_s_street"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Craftsman's Alley",
+        "target_language": "Callejón del Artesano"
+      },
+      "description": {
+        "native_language": "A narrow alley where artisans display their crafts.",
+        "target_language": "Un callejón estrecho donde los artesanos exhiben sus artesanías."
+      },
+      "type": "shop",
+      "language_topics": [
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "crafts",
+        "target_language": "artesanías"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Artistic and inspiring.",
+        "target_language": "Artístico e inspirador."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "id": "loc_5_craftsman_s_alley",
+      "region_id": "region_2_the_market_town",
+      "connections": [
+        "loc_4_central_market",
+        "loc_6_baker_s_street"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Baker's Street",
+        "target_language": "Calle del Panadero"
+      },
+      "description": {
+        "native_language": "The aroma of freshly baked bread fills the air.",
+        "target_language": "El aroma del pan recién horneado llena el aire."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "bakery",
+        "target_language": "panadería"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and fragrant.",
+        "target_language": "Cálido y fragante."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      },
+      "id": "loc_6_baker_s_street",
+      "region_id": "region_2_the_market_town",
+      "connections": [
+        "loc_4_central_market",
+        "loc_5_craftsman_s_alley"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Library of Lore",
+        "target_language": "Biblioteca de Sabiduría"
+      },
+      "description": {
+        "native_language": "A tranquil place filled with books and learning opportunities.",
+        "target_language": "Un lugar tranquilo lleno de libros y oportunidades de aprendizaje."
+      },
+      "type": "building",
+      "language_topics": [
+        "family",
+        "education"
+      ],
+      "vocabulary_domain": {
+        "native_language": "library",
+        "target_language": "biblioteca"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and studious.",
+        "target_language": "Tranquilo y estudiantil."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "id": "loc_7_library_of_lore",
+      "region_id": "region_3_the_scholar_s_haven",
+      "connections": [
+        "loc_8_the_scholar_s_hall",
+        "loc_9_cafe_of_contemplation"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "The Scholar's Hall",
+        "target_language": "El Salón del Erudito"
+      },
+      "description": {
+        "native_language": "A gathering place for scholars and learners.",
+        "target_language": "Un lugar de encuentro para eruditos y estudiantes."
+      },
+      "type": "building",
+      "language_topics": [
+        "education"
+      ],
+      "vocabulary_domain": {
+        "native_language": "education",
+        "target_language": "educación"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Intellectual and inspiring.",
+        "target_language": "Intelectual e inspirador."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 1
+      },
+      "id": "loc_8_the_scholar_s_hall",
+      "region_id": "region_3_the_scholar_s_haven",
+      "connections": [
+        "loc_7_library_of_lore",
+        "loc_9_cafe_of_contemplation"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Cafe of Contemplation",
+        "target_language": "Cafetería de Contemplación"
+      },
+      "description": {
+        "native_language": "A cozy cafe perfect for quiet reflection.",
+        "target_language": "Una cafetería acogedora perfecta para la reflexión tranquila."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food",
+        "basic conversations"
+      ],
+      "vocabulary_domain": {
+        "native_language": "cafe",
+        "target_language": "cafetería"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Relaxed and inviting.",
+        "target_language": "Relajado y acogedor."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 2
+      },
+      "id": "loc_9_cafe_of_contemplation",
+      "region_id": "region_3_the_scholar_s_haven",
+      "connections": [
+        "loc_7_library_of_lore",
+        "loc_8_the_scholar_s_hall"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Meadow of Memories",
+        "target_language": "Pradera de Memorias"
+      },
+      "description": {
+        "native_language": "A field of wildflowers and memories of past adventures.",
+        "target_language": "Un campo de flores silvestres y recuerdos de aventuras pasadas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature",
+        "target_language": "naturaleza"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and nostalgic.",
+        "target_language": "Pacífico y nostálgico."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 1
+      },
+      "id": "loc_10_meadow_of_memories",
+      "region_id": "region_4_the_adventurer_s_fields",
+      "connections": [
+        "loc_11_the_orchard",
+        "loc_12_the_tinker_s_workshop"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "The Orchard",
+        "target_language": "El Huerto"
+      },
+      "description": {
+        "native_language": "An orchard full of ripe fruits and learning.",
+        "target_language": "Un huerto lleno de frutas maduras y aprendizaje."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "food",
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "agriculture",
+        "target_language": "agricultura"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Fruity and lush.",
+        "target_language": "Frutal y exuberante."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 1
+      },
+      "id": "loc_11_the_orchard",
+      "region_id": "region_4_the_adventurer_s_fields",
+      "connections": [
+        "loc_10_meadow_of_memories",
+        "loc_12_the_tinker_s_workshop"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "The Tinker's Workshop",
+        "target_language": "El Taller del Reparador"
+      },
+      "description": {
+        "native_language": "A busy workshop full of curious gadgets.",
+        "target_language": "Un taller ocupado lleno de gadgets curiosos."
+      },
+      "type": "building",
+      "language_topics": [
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "crafts and repairs",
+        "target_language": "artesanías y reparaciones"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Inventive and bustling.",
+        "target_language": "Inventivo y bullicioso."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 2
+      },
+      "id": "loc_12_the_tinker_s_workshop",
+      "region_id": "region_4_the_adventurer_s_fields",
+      "connections": [
+        "loc_10_meadow_of_memories",
+        "loc_11_the_orchard"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Dock",
+        "target_language": "Muelle del Viajero"
+      },
+      "description": {
+        "native_language": "A dock where ships embark on journeys across the sea.",
+        "target_language": "Un muelle donde los barcos emprenden viajes por el mar."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "travel"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel",
+        "target_language": "viajes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Adventurous and hopeful.",
+        "target_language": "Aventurero y esperanzador."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 1
+      },
+      "id": "loc_13_traveler_s_dock",
+      "region_id": "region_5_the_traveler_s_port",
+      "connections": [
+        "loc_14_harbor_market",
+        "loc_15_captain_s_quarters"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Harbor Market",
+        "target_language": "Mercado del Puerto"
+      },
+      "description": {
+        "native_language": "A market bustling with goods from distant lands.",
+        "target_language": "Un mercado bullicioso con productos de tierras distantes."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "market",
+        "target_language": "mercado"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Exotic and bustling.",
+        "target_language": "Exótico y bullicioso."
+      },
+      "coordinates": {
+        "x": 10,
+        "y": 1
+      },
+      "id": "loc_14_harbor_market",
+      "region_id": "region_5_the_traveler_s_port",
+      "connections": [
+        "loc_13_traveler_s_dock",
+        "loc_15_captain_s_quarters"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Captain's Quarters",
+        "target_language": "Camarotes del Capitán"
+      },
+      "description": {
+        "native_language": "The quarters of the ship's captain, full of maps and plans.",
+        "target_language": "Los camarotes del capitán del barco, llenos de mapas y planes."
+      },
+      "type": "building",
+      "language_topics": [
+        "plans",
+        "future tense"
+      ],
+      "vocabulary_domain": {
+        "native_language": "navigation",
+        "target_language": "navegación"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Strategic and adventurous.",
+        "target_language": "Estratégico y aventurero."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 2
+      },
+      "id": "loc_15_captain_s_quarters",
+      "region_id": "region_5_the_traveler_s_port",
+      "connections": [
+        "loc_13_traveler_s_dock",
+        "loc_14_harbor_market"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_village_square",
+      "to_location": "loc_2_colorful_garden",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_village_square",
+      "to_location": "loc_3_village_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_colorful_garden",
+      "to_location": "loc_3_village_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_central_market",
+      "to_location": "loc_5_craftsman_s_alley",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_central_market",
+      "to_location": "loc_6_baker_s_street",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_craftsman_s_alley",
+      "to_location": "loc_6_baker_s_street",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_library_of_lore",
+      "to_location": "loc_8_the_scholar_s_hall",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_library_of_lore",
+      "to_location": "loc_9_cafe_of_contemplation",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_the_scholar_s_hall",
+      "to_location": "loc_9_cafe_of_contemplation",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_meadow_of_memories",
+      "to_location": "loc_11_the_orchard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_meadow_of_memories",
+      "to_location": "loc_12_the_tinker_s_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_the_orchard",
+      "to_location": "loc_12_the_tinker_s_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_traveler_s_dock",
+      "to_location": "loc_14_harbor_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_traveler_s_dock",
+      "to_location": "loc_15_captain_s_quarters",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_harbor_market",
+      "to_location": "loc_15_captain_s_quarters",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_village_square"
+}

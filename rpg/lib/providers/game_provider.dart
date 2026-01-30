@@ -37,6 +37,8 @@ class GameProvider extends ChangeNotifier {
   Map<String, dynamic> _itemsByLocation = {};
   // Track picked up items per location (for respawning items, track which have been picked)
   final Map<String, Set<String>> _pickedUpItems = {};
+  // Track completed mini-games
+  final Set<String> _completedGames = {};
 
   // Getters
   Player? get player => _player;
@@ -199,6 +201,7 @@ class GameProvider extends ChangeNotifier {
       Map<String, dynamic>? skillsData;
       Map<String, dynamic>? triggersData;
       Map<String, dynamic>? levelProgressionData;
+      Map<String, dynamic>? gamesData;
 
       try {
         final skillResults = await Future.wait([
@@ -212,6 +215,15 @@ class GameProvider extends ChangeNotifier {
       } catch (e) {
         debugPrint('Warning: Could not load skill system files: $e');
         debugPrint('Game will continue without skill progression system.');
+      }
+
+      // Load mini-games data (optional)
+      try {
+        final gamesJson = await rootBundle.loadString('assets/data/games.json');
+        gamesData = json.decode(gamesJson) as Map<String, dynamic>;
+      } catch (e) {
+        debugPrint('Warning: Could not load games.json: $e');
+        debugPrint('Game will continue without mini-games system.');
       }
 
       // Parse items into a map by ID
@@ -241,6 +253,13 @@ class GameProvider extends ChangeNotifier {
         'lore': loreData,
         // Items data
         'items': itemsMap,
+        // Mini-games data (if available)
+        if (gamesData != null) ...{
+          'games': gamesData['games'],
+          '_games_by_location': gamesData['_games_by_location'],
+          '_games_by_npc': gamesData['_games_by_npc'],
+          '_games_by_quest': gamesData['_games_by_quest'],
+        },
       };
 
       _world = GameWorld.fromJson(combinedData);
@@ -929,6 +948,11 @@ class GameProvider extends ChangeNotifier {
         }
         return false;
 
+      case 'completed_game':
+        // Check if player has completed the specified mini-game
+        final targetGame = task.completionCriteria['target_id'] as String?;
+        return targetGame != null && _completedGames.contains(targetGame);
+
       default:
         return false;
     }
@@ -1124,6 +1148,56 @@ class GameProvider extends ChangeNotifier {
         .toList();
   }
 
+  // ============================================================
+  // Mini-Games System
+  // ============================================================
+
+  /// Get set of completed game IDs
+  Set<String> get completedGames => Set.unmodifiable(_completedGames);
+
+  /// Check if a specific game has been completed
+  bool isGameCompleted(String gameId) => _completedGames.contains(gameId);
+
+  /// Get mini-games available at the current location
+  List<MiniGame> get locationGames {
+    if (_currentLocation == null || _world == null) return [];
+    return _world!.getGamesForLocation(_currentLocation!.id);
+  }
+
+  /// Get mini-games offered by a specific NPC
+  List<MiniGame> getGamesForNPC(String npcId) {
+    if (_world == null) return [];
+    return _world!.getGamesForNpc(npcId);
+  }
+
+  /// Get a specific mini-game by ID
+  MiniGame? getGame(String gameId) {
+    return _world?.games[gameId];
+  }
+
+  /// Record completion of a mini-game
+  /// exitCode: 0 = error, 1 = success, 2 = unsuccessful
+  void recordGameCompletion(String gameId, int exitCode) {
+    if (_player == null || _world == null) return;
+
+    final game = _world!.games[gameId];
+    if (game == null) return;
+
+    // Mark game as completed (regardless of success/failure for quest purposes)
+    _completedGames.add(gameId);
+
+    // Award skill points only on successful completion
+    if (exitCode == 1 && game.skillPoints > 0) {
+      _player!.xp += game.skillPoints;
+      addToLog('Earned ${game.skillPoints} XP from ${game.displayName}!');
+    }
+
+    // Check if any quests need this game completion
+    checkAllQuestProgress();
+
+    notifyListeners();
+  }
+
   /// Get quest progress information for an active quest
   Map<String, dynamic>? getQuestProgress(String questId) {
     if (_player == null || _world == null) return null;
@@ -1271,7 +1345,6 @@ class GameProvider extends ChangeNotifier {
     languageService.currentLanguage = language;
     notifyListeners();
   }
-
   // ===========================================
   // NPC INTERACTION SYSTEM
   // ===========================================

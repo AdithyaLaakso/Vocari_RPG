@@ -1,0 +1,86 @@
+{
+  "world_name": {
+    "native_language": "Valle de Estrellas",
+    "target_language": "Valley of Stars"
+  },
+  "world_description": {
+    "native_language": "A quaint village nestled between rolling hills and ancient forests, where magic subtly weaves through everyday life.",
+    "target_language": "Un pintoresco pueblo enclavado entre colinas ondulantes y bosques antiguos, donde la magia se entrelaza sutilmente con la vida cotidiana."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "The Valley of Stars is a place where the mundane and the magical coexist. The villagers lead simple lives, surrounded by mysteries of the forest and whispers of ancient magic.",
+      "target_language": "El Valle de Estrellas es un lugar donde lo mundano y lo mágico coexisten. Los aldeanos llevan vidas sencillas, rodeados de misterios del bosque y susurros de magia antigua."
+    },
+    "player_origin": {
+      "native_language": "The player arrives as a traveler seeking knowledge and adventure, drawn by tales of the valley's wonders.",
+      "target_language": "El jugador llega como un viajero en busca de conocimiento y aventura, atraído por los relatos de las maravillas del valle."
+    },
+    "motivation": {
+      "native_language": "To uncover the secrets of the valley and become a part of its enchanting community.",
+      "target_language": "Descubrir los secretos del valle y convertirse en parte de su encantadora comunidad."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "A timeless blend of the medieval and the mystical, where traditions are cherished and magic is respected.",
+      "target_language": "Una mezcla intemporal de lo medieval y lo místico, donde se valoran las tradiciones y se respeta la magia."
+    },
+    "atmosphere": {
+      "native_language": "Welcoming and serene, with a sense of wonder that lingers in the air.",
+      "target_language": "Acogedora y serena, con un sentido de maravilla que perdura en el aire."
+    },
+    "culture": {
+      "native_language": "Rich in folklore and community spirit, the villagers celebrate festivals that honor both the harvest and the stars.",
+      "target_language": "Rica en folclore y espíritu comunitario, los aldeanos celebran festivales que honran tanto la cosecha como las estrellas."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Luz de Estrella",
+        "target_language": "Star Light"
+      },
+      "description": {
+        "native_language": "A gentle glow that guides travelers and protects the village from harm.",
+        "target_language": "Un suave resplandor que guía a los viajeros y protege al pueblo del daño."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "Los Guardianes del Bosque",
+        "target_language": "The Forest Guardians"
+      },
+      "description": {
+        "native_language": "A group of protectors who ensure the balance between nature and the village.",
+        "target_language": "Un grupo de protectores que aseguran el equilibrio entre la naturaleza y el pueblo."
+      },
+      "role_in_world": {
+        "native_language": "They maintain harmony and teach the villagers about the importance of respecting the natural world.",
+        "target_language": "Mantienen la armonía y enseñan a los aldeanos sobre la importancia de respetar el mundo natural."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Discovery and community",
+      "target_language": "Descubrimiento y comunidad"
+    },
+    {
+      "native_language": "Harmony with nature",
+      "target_language": "Armonía con la naturaleza"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "To communicate with the villagers, understand local customs, and unlock the valley’s secrets.",
+      "target_language": "Para comunicarse con los aldeanos, entender las costumbres locales y desvelar los secretos del valle."
+    },
+    "how_language_fits": {
+      "native_language": "The language is woven into daily interactions, market transactions, and cultural exchanges.",
+      "target_language": "El idioma se entrelaza en las interacciones diarias, transacciones en el mercado e intercambios culturales."
+    }
+  }
+}

@@ -1,5 +1,4 @@
 import 'dart:math';
-import '../language_system.dart';
 
 /// Service for managing bilingual text display with level-based language shifting.
 ///
@@ -14,17 +13,11 @@ class BilingualTextService {
   final Random _random = Random();
 
   // Language configuration (extensible for future languages)
-  String _nativeLanguage = 'en';
-  String _targetLanguage = 'es';
+  final String _nativeLanguage = 'en';
+  final String _targetLanguage = 'es';
 
   String get nativeLanguage => _nativeLanguage;
   String get targetLanguage => _targetLanguage;
-
-  /// Set the language pair
-  void setLanguages({required String native, required String target}) {
-    _nativeLanguage = native;
-    _targetLanguage = target;
-  }
 
   /// Get the probability of showing target language based on CEFR level.
   /// Returns a value between 0.0 (always native) and 1.0 (always target).

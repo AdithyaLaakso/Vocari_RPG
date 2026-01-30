@@ -557,5 +557,4 @@ Remember: IN-CHARACTER ONLY. No meta-language about teaching."""
         return self.call_openai(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
-            max_tokens=2000
         )
