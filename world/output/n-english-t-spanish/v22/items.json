@@ -1,0 +1,574 @@
+{
+  "items": [
+    {
+      "name": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "description": {
+        "native_language": "A fresh apple found near the spring.",
+        "target_language": "Una manzana fresca encontrada cerca del manantial."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_word_spring",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "usage_hint": {
+        "native_language": "You can eat this.",
+        "target_language": "Puedes comer esto."
+      },
+      "id": "item_1_apple"
+    },
+    {
+      "name": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "description": {
+        "native_language": "Clear spring water.",
+        "target_language": "Agua clara de manantial."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_word_spring",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "usage_hint": {
+        "native_language": "Good for drinking.",
+        "target_language": "Bueno para beber."
+      },
+      "id": "item_2_water"
+    },
+    {
+      "name": {
+        "native_language": "leaf",
+        "target_language": "hoja"
+      },
+      "description": {
+        "native_language": "A green leaf from a nearby tree.",
+        "target_language": "Una hoja verde de un árbol cercano."
+      },
+      "category": "material",
+      "location_id": "loc_3_greet_s_crossroads",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "leaf",
+        "target_language": "hoja"
+      },
+      "usage_hint": {
+        "native_language": "Could be part of a quest.",
+        "target_language": "Podría ser parte de una misión."
+      },
+      "id": "item_3_leaf"
+    },
+    {
+      "name": {
+        "native_language": "coin",
+        "target_language": "moneda"
+      },
+      "description": {
+        "native_language": "A shiny coin left on the path.",
+        "target_language": "Una moneda brillante dejada en el camino."
+      },
+      "category": "valuable",
+      "location_id": "loc_2_path_of_numbers",
+      "acquisition_type": "find",
+      "language_level": "A0",
+      "quantity_available": 5,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "coin",
+        "target_language": "moneda"
+      },
+      "usage_hint": {
+        "native_language": "Useful for purchases.",
+        "target_language": "Útil para compras."
+      },
+      "id": "item_4_coin"
+    },
+    {
+      "name": {
+        "native_language": "notebook",
+        "target_language": "cuaderno"
+      },
+      "description": {
+        "native_language": "A simple notebook for writing.",
+        "target_language": "Un cuaderno simple para escribir."
+      },
+      "category": "document",
+      "location_id": "loc_6_village_school",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 2,
+      "vocabulary_word": {
+        "native_language": "notebook",
+        "target_language": "cuaderno"
+      },
+      "usage_hint": {
+        "native_language": "Good for taking notes.",
+        "target_language": "Bueno para tomar notas."
+      },
+      "id": "item_5_notebook"
+    },
+    {
+      "name": {
+        "native_language": "apple pie",
+        "target_language": "pastel de manzana"
+      },
+      "description": {
+        "native_language": "A delicious apple pie.",
+        "target_language": "Un delicioso pastel de manzana."
+      },
+      "category": "consumable",
+      "location_id": "loc_4_market_square",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 5,
+      "vocabulary_word": {
+        "native_language": "pie",
+        "target_language": "pastel"
+      },
+      "usage_hint": {
+        "native_language": "Can be eaten to restore energy.",
+        "target_language": "Puede comerse para recuperar energía."
+      },
+      "id": "item_6_apple_pie"
+    },
+    {
+      "name": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "description": {
+        "native_language": "A loaf of freshly baked bread.",
+        "target_language": "Una barra de pan recién horneado."
+      },
+      "category": "consumable",
+      "location_id": "loc_5_town_inn",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 15,
+      "respawns": true,
+      "price": 3,
+      "vocabulary_word": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "usage_hint": {
+        "native_language": "Nutritious and filling.",
+        "target_language": "Nutritivo y saciante."
+      },
+      "id": "item_7_bread"
+    },
+    {
+      "name": {
+        "native_language": "pencil",
+        "target_language": "lápiz"
+      },
+      "description": {
+        "native_language": "A wooden pencil for writing.",
+        "target_language": "Un lápiz de madera para escribir."
+      },
+      "category": "tool",
+      "location_id": "loc_6_village_school",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 1,
+      "vocabulary_word": {
+        "native_language": "pencil",
+        "target_language": "lápiz"
+      },
+      "usage_hint": {
+        "native_language": "Useful for jotting down notes.",
+        "target_language": "Útil para tomar notas."
+      },
+      "id": "item_8_pencil"
+    },
+    {
+      "name": {
+        "native_language": "family portrait",
+        "target_language": "retrato de familia"
+      },
+      "description": {
+        "native_language": "A charming portrait of a local family.",
+        "target_language": "Un encantador retrato de una familia local."
+      },
+      "category": "document",
+      "location_id": "loc_7_family_fields",
+      "acquisition_type": "find",
+      "language_level": "A1",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "portrait",
+        "target_language": "retrato"
+      },
+      "usage_hint": {
+        "native_language": "Might be important for a quest.",
+        "target_language": "Podría ser importante para una misión."
+      },
+      "id": "item_9_family_portrait"
+    },
+    {
+      "name": {
+        "native_language": "cheese",
+        "target_language": "queso"
+      },
+      "description": {
+        "native_language": "A wedge of farm-made cheese.",
+        "target_language": "Una cuña de queso hecho en la granja."
+      },
+      "category": "consumable",
+      "location_id": "loc_7_family_fields",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 4,
+      "vocabulary_word": {
+        "native_language": "cheese",
+        "target_language": "queso"
+      },
+      "usage_hint": {
+        "native_language": "Pairs well with bread.",
+        "target_language": "Combina bien con pan."
+      },
+      "id": "item_10_cheese"
+    },
+    {
+      "name": {
+        "native_language": "salad",
+        "target_language": "ensalada"
+      },
+      "description": {
+        "native_language": "A fresh green salad.",
+        "target_language": "Una ensalada fresca y verde."
+      },
+      "category": "consumable",
+      "location_id": "loc_8_culinary_courtyard",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 3,
+      "vocabulary_word": {
+        "native_language": "salad",
+        "target_language": "ensalada"
+      },
+      "usage_hint": {
+        "native_language": "Healthy and refreshing.",
+        "target_language": "Saludable y refrescante."
+      },
+      "id": "item_11_salad"
+    },
+    {
+      "name": {
+        "native_language": "raincoat",
+        "target_language": "impermeable"
+      },
+      "description": {
+        "native_language": "A protective raincoat.",
+        "target_language": "Un impermeable protector."
+      },
+      "category": "tool",
+      "location_id": "loc_9_weather_way",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 3,
+      "respawns": true,
+      "price": 12,
+      "vocabulary_word": {
+        "native_language": "raincoat",
+        "target_language": "impermeable"
+      },
+      "usage_hint": {
+        "native_language": "Useful for staying dry in the rain.",
+        "target_language": "Útil para mantenerse seco bajo la lluvia."
+      },
+      "id": "item_12_raincoat"
+    },
+    {
+      "name": {
+        "native_language": "umbrella",
+        "target_language": "paraguas"
+      },
+      "description": {
+        "native_language": "A large, colorful umbrella.",
+        "target_language": "Un paraguas grande y colorido."
+      },
+      "category": "tool",
+      "location_id": "loc_9_weather_way",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 8,
+      "vocabulary_word": {
+        "native_language": "umbrella",
+        "target_language": "paraguas"
+      },
+      "usage_hint": {
+        "native_language": "Keeps you dry in rainy weather.",
+        "target_language": "Te mantiene seco en días lluviosos."
+      },
+      "id": "item_13_umbrella"
+    },
+    {
+      "name": {
+        "native_language": "alarm clock",
+        "target_language": "despertador"
+      },
+      "description": {
+        "native_language": "A ringing alarm clock.",
+        "target_language": "Un despertador sonando."
+      },
+      "category": "tool",
+      "location_id": "loc_10_routine_ridge",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "clock",
+        "target_language": "reloj"
+      },
+      "usage_hint": {
+        "native_language": "Can be used to wake up in the morning.",
+        "target_language": "Puede usarse para despertarse en la mañana."
+      },
+      "id": "item_14_alarm_clock"
+    },
+    {
+      "name": {
+        "native_language": "journal",
+        "target_language": "diario"
+      },
+      "description": {
+        "native_language": "A personal journal left behind.",
+        "target_language": "Un diario personal dejado atrás."
+      },
+      "category": "document",
+      "location_id": "loc_12_story_summit",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "journal",
+        "target_language": "diario"
+      },
+      "usage_hint": {
+        "native_language": "Contains mysterious stories.",
+        "target_language": "Contiene historias misteriosas."
+      },
+      "id": "item_15_journal"
+    },
+    {
+      "name": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "description": {
+        "native_language": "A detailed map of the valley.",
+        "target_language": "Un mapa detallado del valle."
+      },
+      "category": "tool",
+      "location_id": "loc_12_story_summit",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 3,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "usage_hint": {
+        "native_language": "Useful for exploring new areas.",
+        "target_language": "Útil para explorar nuevas áreas."
+      },
+      "id": "item_16_map"
+    },
+    {
+      "name": {
+        "native_language": "travel guide",
+        "target_language": "guía de viajes"
+      },
+      "description": {
+        "native_language": "A handy travel guide.",
+        "target_language": "Una práctica guía de viajes."
+      },
+      "category": "document",
+      "location_id": "loc_13_travel_terrace",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 10,
+      "vocabulary_word": {
+        "native_language": "guide",
+        "target_language": "guía"
+      },
+      "usage_hint": {
+        "native_language": "Contains tips for your journey.",
+        "target_language": "Contiene consejos para tu viaje."
+      },
+      "id": "item_17_travel_guide"
+    },
+    {
+      "name": {
+        "native_language": "herbal remedy",
+        "target_language": "remedio herbal"
+      },
+      "description": {
+        "native_language": "A remedy made from local herbs.",
+        "target_language": "Un remedio hecho de hierbas locales."
+      },
+      "category": "consumable",
+      "location_id": "loc_15_health_haven",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 7,
+      "respawns": true,
+      "price": 15,
+      "vocabulary_word": {
+        "native_language": "remedy",
+        "target_language": "remedio"
+      },
+      "usage_hint": {
+        "native_language": "Used for healing minor wounds.",
+        "target_language": "Se usa para curar heridas menores."
+      },
+      "id": "item_18_herbal_remedy"
+    },
+    {
+      "name": {
+        "native_language": "health potion",
+        "target_language": "poción de salud"
+      },
+      "description": {
+        "native_language": "A potion to restore health.",
+        "target_language": "Una poción para restaurar la salud."
+      },
+      "category": "consumable",
+      "location_id": "loc_15_health_haven",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 20,
+      "vocabulary_word": {
+        "native_language": "potion",
+        "target_language": "poción"
+      },
+      "usage_hint": {
+        "native_language": "Drink to recover health points.",
+        "target_language": "Bebe para recuperar puntos de salud."
+      },
+      "id": "item_19_health_potion"
+    },
+    {
+      "name": {
+        "native_language": "work manual",
+        "target_language": "manual de trabajo"
+      },
+      "description": {
+        "native_language": "A manual containing job instructions.",
+        "target_language": "Un manual con instrucciones laborales."
+      },
+      "category": "document",
+      "location_id": "loc_14_work_plaza",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 3,
+      "respawns": true,
+      "price": 12,
+      "vocabulary_word": {
+        "native_language": "manual",
+        "target_language": "manual"
+      },
+      "usage_hint": {
+        "native_language": "Provides guidance for tasks.",
+        "target_language": "Proporciona orientación para tareas."
+      },
+      "id": "item_20_work_manual"
+    }
+  ],
+  "_items_by_location": {
+    "loc_1_word_spring": [
+      "item_1_apple",
+      "item_2_water"
+    ],
+    "loc_3_greet_s_crossroads": [
+      "item_3_leaf"
+    ],
+    "loc_2_path_of_numbers": [
+      "item_4_coin"
+    ],
+    "loc_6_village_school": [
+      "item_5_notebook",
+      "item_8_pencil"
+    ],
+    "loc_4_market_square": [
+      "item_6_apple_pie"
+    ],
+    "loc_5_town_inn": [
+      "item_7_bread"
+    ],
+    "loc_7_family_fields": [
+      "item_9_family_portrait",
+      "item_10_cheese"
+    ],
+    "loc_8_culinary_courtyard": [
+      "item_11_salad"
+    ],
+    "loc_9_weather_way": [
+      "item_12_raincoat",
+      "item_13_umbrella"
+    ],
+    "loc_10_routine_ridge": [
+      "item_14_alarm_clock"
+    ],
+    "loc_12_story_summit": [
+      "item_15_journal",
+      "item_16_map"
+    ],
+    "loc_13_travel_terrace": [
+      "item_17_travel_guide"
+    ],
+    "loc_15_health_haven": [
+      "item_18_herbal_remedy",
+      "item_19_health_potion"
+    ],
+    "loc_14_work_plaza": [
+      "item_20_work_manual"
+    ]
+  }
+}

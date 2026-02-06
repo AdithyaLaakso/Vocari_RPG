@@ -1,0 +1,86 @@
+{
+  "world_name": {
+    "native_language": "El Pueblo de Luz Clara",
+    "target_language": "The Village of Bright Light"
+  },
+  "world_description": {
+    "native_language": "Un pequeño pueblo encantador rodeado de montañas verdes y prados mágicos. Los aldeanos son conocidos por su calidez y hospitalidad, y hay un mercado central lleno de coloridos productos y música alegre.",
+    "target_language": "A charming small town surrounded by green mountains and magical meadows. The villagers are known for their warmth and hospitality, and there is a central market filled with colorful products and cheerful music."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "Hace mucho tiempo, Luz Clara era un lugar de antiguos secretos y magia leve. Con el paso del tiempo, el pueblo prosperó gracias a la armonía entre la naturaleza y las personas.",
+      "target_language": "Long ago, Bright Light was a place of ancient secrets and mild magic. Over time, the town thrived due to the harmony between nature and people."
+    },
+    "player_origin": {
+      "native_language": "El jugador es un aventurero que ha llegado a Luz Clara con la esperanza de explorar su cultura rica y aprender el idioma para conectarse mejor con los aldeanos.",
+      "target_language": "The player is an adventurer who has arrived in Bright Light with hopes to explore its rich culture and learn the language to better connect with the villagers."
+    },
+    "motivation": {
+      "native_language": "Impulsado por historias sobre un festival mágico que ocurre solo una vez cada década, el jugador debe aprender rápidamente la lengua local y las costumbres para participar y descubrir los secretos de Luz Clara.",
+      "target_language": "Driven by tales of a magical festival that occurs only once a decade, the player must quickly learn the local language and customs to participate and uncover the secrets of Bright Light."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "Una época pasada de tecnologías simples donde los carromatos y las luces de gas son comunes.",
+      "target_language": "A bygone era of simple technologies where wagons and gaslights are common."
+    },
+    "atmosphere": {
+      "native_language": "Alegre y acogedora, con calles llenas de risas y música. Todo el mundo está dispuesto a ayudar y enseñar.",
+      "target_language": "Joyous and welcoming, with streets filled with laughter and music. Everyone is ready to help and teach."
+    },
+    "culture": {
+      "native_language": "Una mezcla vibrante de celebraciones tradicionales, música folclórica y recetas familiares transmitidas de generación en generación.",
+      "target_language": "A vibrant mix of traditional celebrations, folk music, and family recipes passed down through generations."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Luz Brillante",
+        "target_language": "Bright Light"
+      },
+      "description": {
+        "native_language": "Una luz sobrenatural que aparece en las noches de luna llena, llenando el pueblo de una mística incandescencia que potencia las habilidades lingüísticas de aquellos que buscan aprender. Se dice que en estas noches, los aldeanos hablan en versos poéticos, facilitando el aprendizaje.",
+        "target_language": "A supernatural light that appears on full moon nights, filling the town with a mystical glow that enhances the language skills of those wishing to learn. It is said that on these nights, villagers speak in poetic verse, making learning easier."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "Los Protectores de la Cultura",
+        "target_language": "The Protectors of Culture"
+      },
+      "description": {
+        "native_language": "Un grupo de aldeanos dedicados a preservar y compartir las tradiciones y la lengua del pueblo.",
+        "target_language": "A group of villagers dedicated to preserving and sharing the town's traditions and language."
+      },
+      "role_in_world": {
+        "native_language": "Organizan eventos culturales y sesiones de intercambio lingüístico que facilitan la integración del jugador en la comunidad.",
+        "target_language": "They organize cultural events and language exchange sessions that facilitate the player's integration into the community."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Aprendizaje y amistad",
+      "target_language": "Learning and friendship"
+    },
+    {
+      "native_language": "Cultura y tradición",
+      "target_language": "Culture and tradition"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "Para participar en el festival y resolver los misterios del pueblo, es esencial entender el idioma local.",
+      "target_language": "To participate in the festival and unravel the town's mysteries, it is essential to understand the local language."
+    },
+    "how_language_fits": {
+      "native_language": "El jugador practicará su español interactuando con los aldeanos y participando en actividades diarias como compras en el mercado, asistir a clases en la escuela del pueblo o simplemente charlar en la plaza.",
+      "target_language": "The player will practice their Spanish by interacting with villagers and participating in daily activities such as shopping at the market, attending classes at the town school, or simply chatting in the square."
+    }
+  }
+}

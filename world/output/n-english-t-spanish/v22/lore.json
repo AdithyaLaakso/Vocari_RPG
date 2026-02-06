@@ -1,0 +1,82 @@
+{
+  "world_name": {
+    "native_language": "El Valle de las Palabras",
+    "target_language": "The Valley of Words"
+  },
+  "world_description": {
+    "native_language": "Un pintoresco valle donde el lenguaje tiene poder y belleza. Aquí, las palabras son la clave para conectarse con los habitantes y descubrir secretos.",
+    "target_language": "A picturesque valley where language holds power and beauty. Here, words are the key to connecting with the inhabitants and uncovering secrets."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "En un tiempo antiguo, un cometa pasó por el cielo, llenando el valle con un aura mágica que dio vida a los idiomas. Desde entonces, el lenguaje se convirtió en la esencia de cada ser que habita el valle.",
+      "target_language": "In ancient times, a comet passed through the sky, filling the valley with a magical aura that brought languages to life. Since then, language has become the essence of every being inhabiting the valley."
+    },
+    "player_origin": {
+      "native_language": "El jugador, un joven aventurero, ha llegado al valle en busca de sabiduría y habilidades lingüísticas para ayudar a su aldea natal.",
+      "target_language": "The player, a young adventurer, has arrived in the valley seeking wisdom and language skills to help their native village."
+    },
+    "motivation": {
+      "native_language": "Motivado por el deseo de comunicarse con compañeros y aprender de diferentes culturas, el jugador se embarca en un viaje hacia la fluidez.",
+      "target_language": "Motivated by the desire to communicate with peers and learn from different cultures, the player embarks on a journey towards fluency."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "Una era de fantasía tranquila, repleta de pequeñas aldeas y caminos sinuosos.",
+      "target_language": "A peaceful fantasy era, filled with small villages and winding paths."
+    },
+    "atmosphere": {
+      "native_language": "Una atmósfera acogedora y cálida, donde cada esquina invita a la curiosidad y el aprendizaje.",
+      "target_language": "A warm and welcoming atmosphere, where every corner invites curiosity and learning."
+    },
+    "culture": {
+      "native_language": "El valle es el hogar de una mezcla vibrante de tradiciones españolas, con fiestas coloridas, música alegre y comida deliciosa.",
+      "target_language": "The valley is home to a vibrant mix of Spanish traditions, with colorful festivals, cheerful music, and delicious food."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Los Susurradores de Palabras",
+        "target_language": "The Whisperers of Words"
+      },
+      "description": {
+        "native_language": "Pequeñas criaturas mágicas que ayudan a aquellos que buscan aprender idiomas al susurrar palabras desconocidas en su oído.",
+        "target_language": "Small magical creatures that aid those seeking to learn languages by whispering unfamiliar words into their ear."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "Los Guardianes de la Lengua",
+        "target_language": "The Guardians of the Tongue"
+      },
+      "description": {
+        "native_language": "Un grupo de sabios dedicados a preservar y enseñar la magia del lenguaje a todos los viajeros que vienen al valle.",
+        "target_language": "A group of sages dedicated to preserving and teaching the magic of language to all travelers who come to the valley."
+      },
+      "role_in_world": {
+        "native_language": "Son los mentores principales y ayudan al jugador a mejorar sus habilidades lingüísticas a través de desafíos y tareas.",
+        "target_language": "They are the primary mentors and help the player improve their language skills through challenges and tasks."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Aprendizaje de idiomas como un medio para conectar culturas.",
+      "target_language": "Language learning as a means to connect cultures."
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "El dominio del idioma es esencial para interactuar con los habitantes del valle y resolver misterios antiguos.",
+      "target_language": "Mastering the language is essential to interact with the valley's inhabitants and solve ancient mysteries."
+    },
+    "how_language_fits": {
+      "native_language": "El lenguaje es el núcleo de la estructura del juego, permitiendo al jugador desbloquear nuevas áreas e historias a medida que progresa.",
+      "target_language": "Language is at the core of the game's structure, allowing the player to unlock new areas and stories as they progress."
+    }
+  }
+}

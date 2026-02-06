@@ -1,0 +1,754 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Map of Valedonia",
+      "target_language": "Mapa de Valedonia"
+    },
+    "description": {
+      "native_language": "A serene and welcoming world where learners embark on a magical journey to master the Spanish language.",
+      "target_language": "Un mundo acogedor y sereno donde los estudiantes emprenden un viaje mágico para dominar el idioma español."
+    },
+    "scale": "region"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Greenhill Village",
+        "target_language": "Aldea Colina Verde"
+      },
+      "description": {
+        "native_language": "A small village filled with friendly faces and basic necessities.",
+        "target_language": "Una pequeña aldea llena de caras amistosas y necesidades básicas."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_greenhill_village"
+    },
+    {
+      "name": {
+        "native_language": "Silver Meadow",
+        "target_language": "Pradera Plateada"
+      },
+      "description": {
+        "native_language": "A lively area of commerce and community gatherings.",
+        "target_language": "Una zona animada de comercio y reuniones comunitarias."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_silver_meadow"
+    },
+    {
+      "name": {
+        "native_language": "Rosewood Town",
+        "target_language": "Pueblo Madera de Rosa"
+      },
+      "description": {
+        "native_language": "A bustling town center with shops and learning institutions.",
+        "target_language": "Un bullicioso centro de pueblo con tiendas e instituciones educativas."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_rosewood_town"
+    },
+    {
+      "name": {
+        "native_language": "Crystal Lake",
+        "target_language": "Lago Cristal"
+      },
+      "description": {
+        "native_language": "A peaceful retreat known for its natural beauty and inspiring landscapes.",
+        "target_language": "Un retiro pacífico conocido por su belleza natural y paisajes inspiradores."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_crystal_lake"
+    },
+    {
+      "name": {
+        "native_language": "Goldcrest City",
+        "target_language": "Ciudad Cresta de Oro"
+      },
+      "description": {
+        "native_language": "A grand city where new and old worlds meet, brimming with opportunities.",
+        "target_language": "Una gran ciudad donde el nuevo mundo y el viejo se encuentran, llena de oportunidades."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_goldcrest_city"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Welcome Square",
+        "target_language": "Plaza de Bienvenida"
+      },
+      "description": {
+        "native_language": "The heart of Greenhill Village, where newcomers are greeted warmly.",
+        "target_language": "El corazón de Aldea Colina Verde, donde los recién llegados son recibidos con calidez."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "yes/no"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic communication",
+        "target_language": "comunicación básica"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Friendly and welcoming.",
+        "target_language": "Amistosa y acogedora."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "loc_1_welcome_square",
+      "region_id": "region_1_greenhill_village",
+      "connections": [
+        "loc_2_colorful_house"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful House",
+        "target_language": "Casa Colorida"
+      },
+      "description": {
+        "native_language": "A quaint, colorful house that introduces basic colors and objects.",
+        "target_language": "Una casa pintoresca y colorida que presenta los colores y objetos básicos."
+      },
+      "type": "home",
+      "language_topics": [
+        "colors",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "home items",
+        "target_language": "elementos del hogar"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bright and cheerful.",
+        "target_language": "Brillante y alegre."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 0
+      },
+      "id": "loc_2_colorful_house",
+      "region_id": "region_1_greenhill_village",
+      "connections": [
+        "loc_1_welcome_square",
+        "loc_3_number_stream"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Number Stream",
+        "target_language": "Arroyo de Números"
+      },
+      "description": {
+        "native_language": "A babbling brook where players learn numbers.",
+        "target_language": "Un arroyo burbujeante donde los jugadores aprenden los números."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers 1-10"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and educational.",
+        "target_language": "Pacífico y educativo."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_3_number_stream",
+      "region_id": "region_1_greenhill_village",
+      "connections": [
+        "loc_2_colorful_house",
+        "loc_4_market_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Market Square",
+        "target_language": "Plaza del Mercado"
+      },
+      "description": {
+        "native_language": "A bustling market filled with vendors and lively trade.",
+        "target_language": "Un mercado bullicioso lleno de vendedores y comercio animado."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "shopping"
+      ],
+      "vocabulary_domain": {
+        "native_language": "marketplace vocabulary",
+        "target_language": "vocabulario del mercado"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and bustling.",
+        "target_language": "Animado y bullicioso."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 1
+      },
+      "id": "loc_4_market_square",
+      "region_id": "region_2_silver_meadow",
+      "connections": [
+        "loc_5_botanic_gardens",
+        "loc_6_cafeteria_central"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Botanic Gardens",
+        "target_language": "Jardines Botánicos"
+      },
+      "description": {
+        "native_language": "A place of natural splendor, perfect for learning about days and months.",
+        "target_language": "Un lugar de esplendor natural, perfecto para aprender sobre los días y meses."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "days/months"
+      ],
+      "vocabulary_domain": {
+        "native_language": "calendar terms",
+        "target_language": "términos del calendario"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and serene.",
+        "target_language": "Calma y serenidad."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_5_botanic_gardens",
+      "region_id": "region_2_silver_meadow",
+      "connections": [
+        "loc_4_market_square",
+        "loc_7_library_of_lore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Cafeteria Central",
+        "target_language": "Cafetería Central"
+      },
+      "description": {
+        "native_language": "The central hub of Silver Meadow where you can practice introductions.",
+        "target_language": "El centro neurálgico de Pradera Plateada donde puedes practicar presentaciones."
+      },
+      "type": "building",
+      "language_topics": [
+        "introductions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "social interactions",
+        "target_language": "interacciones sociales"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_6_cafeteria_central",
+      "region_id": "region_2_silver_meadow",
+      "connections": [
+        "loc_4_market_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Library of Lore",
+        "target_language": "Biblioteca del Conocimiento"
+      },
+      "description": {
+        "native_language": "An ancient library full of wisdom and basic conversational topics.",
+        "target_language": "Una antigua biblioteca llena de sabiduría y temas de conversación básicos."
+      },
+      "type": "building",
+      "language_topics": [
+        "family",
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic conversations",
+        "target_language": "conversaciones básicas"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and studious.",
+        "target_language": "Silenciosa y estudiosa."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 2
+      },
+      "id": "loc_7_library_of_lore",
+      "region_id": "region_3_rosewood_town",
+      "connections": [
+        "loc_8_rosewood_plaza",
+        "loc_9_town_bakery"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Rosewood Plaza",
+        "target_language": "Plaza de Madera de Rosa"
+      },
+      "description": {
+        "native_language": "The main plaza of Rosewood Town, a bustling place for basic conversations.",
+        "target_language": "La plaza principal de Pueblo Madera de Rosa, un lugar bullicioso para conversaciones básicas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "directions",
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "directions and weather",
+        "target_language": "direcciones y clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and lively.",
+        "target_language": "Bullicioso y animado."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 2
+      },
+      "id": "loc_8_rosewood_plaza",
+      "region_id": "region_3_rosewood_town",
+      "connections": [
+        "loc_7_library_of_lore",
+        "loc_10_crystal_vista"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Town Bakery",
+        "target_language": "Panadería del Pueblo"
+      },
+      "description": {
+        "native_language": "A cozy bakery offering a taste of traditional foods.",
+        "target_language": "Una acogedora panadería que ofrece un sabor de comidas tradicionales."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food",
+        "shopping basics"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food and shopping",
+        "target_language": "comida y compras"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Aromatic and welcoming.",
+        "target_language": "Aromático y acogedor."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 2
+      },
+      "id": "loc_9_town_bakery",
+      "region_id": "region_3_rosewood_town",
+      "connections": [
+        "loc_7_library_of_lore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Crystal Vista",
+        "target_language": "Vista de Cristal"
+      },
+      "description": {
+        "native_language": "Overlooking Crystal Lake, perfect for reflecting on past events.",
+        "target_language": "Con vistas al Lago Cristal, perfecto para reflexionar sobre eventos pasados."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "event retelling",
+        "target_language": "relato de eventos"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Serene and inspirational.",
+        "target_language": "Sereno e inspirador."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 3
+      },
+      "id": "loc_10_crystal_vista",
+      "region_id": "region_4_crystal_lake",
+      "connections": [
+        "loc_11_herbalist_s_haven",
+        "loc_12_crystal_cove_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Herbalist's Haven",
+        "target_language": "Refugio del Herbolario"
+      },
+      "description": {
+        "native_language": "A nook for learning about health and routines.",
+        "target_language": "Un rincón para aprender sobre la salud y rutinas."
+      },
+      "type": "shop",
+      "language_topics": [
+        "health",
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "healthcare terms",
+        "target_language": "términos de salud"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and restorative.",
+        "target_language": "Calmado y restaurador."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 3
+      },
+      "id": "loc_11_herbalist_s_haven",
+      "region_id": "region_4_crystal_lake",
+      "connections": [
+        "loc_10_crystal_vista",
+        "loc_13_city_center_park"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Crystal Cove Inn",
+        "target_language": "Posada de la Cala de Cristal"
+      },
+      "description": {
+        "native_language": "An inn by the lake offering insights into hobbies and relaxation.",
+        "target_language": "Una posada junto al lago que ofrece perspectivas sobre los pasatiempos y la relajación."
+      },
+      "type": "inn",
+      "language_topics": [
+        "hobbies",
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "leisure activities",
+        "target_language": "actividades de ocio"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Relaxed and welcoming.",
+        "target_language": "Relajado y acogedor."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 3
+      },
+      "id": "loc_12_crystal_cove_inn",
+      "region_id": "region_4_crystal_lake",
+      "connections": [
+        "loc_10_crystal_vista"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "City Center Park",
+        "target_language": "Parque del Centro de la Ciudad"
+      },
+      "description": {
+        "native_language": "The main park where future plans and aspirations are shared.",
+        "target_language": "El parque principal donde se comparten futuros planes y aspiraciones."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "plans",
+        "future tense"
+      ],
+      "vocabulary_domain": {
+        "native_language": "future planning",
+        "target_language": "planificación futura"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Inspirational and hopeful.",
+        "target_language": "Inspirador y esperanzador."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 4
+      },
+      "id": "loc_13_city_center_park",
+      "region_id": "region_5_goldcrest_city",
+      "connections": [
+        "loc_14_tech_tower",
+        "loc_15_golden_harbour"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Tech Tower",
+        "target_language": "Torre Tecnológica"
+      },
+      "description": {
+        "native_language": "A marvel of modernity, integrating technology like never before.",
+        "target_language": "Una maravilla de la modernidad, integrando la tecnología como nunca antes."
+      },
+      "type": "building",
+      "language_topics": [
+        "work",
+        "technology"
+      ],
+      "vocabulary_domain": {
+        "native_language": "professional terms",
+        "target_language": "términos profesionales"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Cutting-edge and efficient.",
+        "target_language": "De vanguardia y eficiente."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 4
+      },
+      "id": "loc_14_tech_tower",
+      "region_id": "region_5_goldcrest_city",
+      "connections": [
+        "loc_13_city_center_park"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Golden Harbour",
+        "target_language": "Puerto Dorado"
+      },
+      "description": {
+        "native_language": "Where travel opportunities abound and tales of adventure are shared.",
+        "target_language": "Donde abundan las oportunidades de viaje y se comparten los relatos de aventura."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "travel",
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel vocabulary",
+        "target_language": "vocabulario de viajes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Adventurous and inviting.",
+        "target_language": "Aventurero y acogedor."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      },
+      "id": "loc_15_golden_harbour",
+      "region_id": "region_5_goldcrest_city",
+      "connections": [
+        "loc_13_city_center_park"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_welcome_square",
+      "to_location": "loc_2_colorful_house",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_colorful_house",
+      "to_location": "loc_3_number_stream",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_number_stream",
+      "to_location": "loc_4_market_square",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_market_square",
+      "to_location": "loc_5_botanic_gardens",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_market_square",
+      "to_location": "loc_6_cafeteria_central",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_botanic_gardens",
+      "to_location": "loc_7_library_of_lore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_library_of_lore",
+      "to_location": "loc_8_rosewood_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_library_of_lore",
+      "to_location": "loc_9_town_bakery",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_rosewood_plaza",
+      "to_location": "loc_10_crystal_vista",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_crystal_vista",
+      "to_location": "loc_11_herbalist_s_haven",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_crystal_vista",
+      "to_location": "loc_12_crystal_cove_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_herbalist_s_haven",
+      "to_location": "loc_13_city_center_park",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_city_center_park",
+      "to_location": "loc_14_tech_tower",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_city_center_park",
+      "to_location": "loc_15_golden_harbour",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_welcome_square"
+}

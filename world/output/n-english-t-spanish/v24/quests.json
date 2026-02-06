@@ -1,0 +1,808 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "main",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Bread for Breakfast",
+        "target_language": "Pan para el Desayuno"
+      },
+      "description": {
+        "native_language": "Deliver a loaf of bread from Ana to Luis at the café.",
+        "target_language": "Entrega un pan de la panadería de Ana a Luis en el café."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "café",
+          "target_language": "café"
+        },
+        {
+          "native_language": "breakfast",
+          "target_language": "desayuno"
+        }
+      ],
+      "grammar_points": [
+        "giving/receiving",
+        "location prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase a loaf of bread from Ana at the Panadería Aromatica.",
+            "target_language": "Compra un pan de Ana en la Panadería Aromática."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_5_loaf_of_bread"
+          },
+          "id": "quest_2_bread_for_breakfast_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the minigame to learn directions to the Café de los Susurros.",
+            "target_language": "Completa el minijuego para aprender las direcciones al Café de los Susurros."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_2_bread_for_breakfast_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the loaf of bread to Luis at the Café de los Susurros.",
+            "target_language": "Entrega el pan a Luis en el Café de los Susurros."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_5_loaf_of_bread"
+          },
+          "id": "quest_2_bread_for_breakfast_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you take this bread to Luis for breakfast?",
+          "target_language": "¿Puedes llevar este pan a Luis para el desayuno?"
+        },
+        "quest_complete": {
+          "native_language": "Great job! Now Luis can enjoy a nice breakfast.",
+          "target_language": "¡Buen trabajo! Ahora Luis puede disfrutar de un buen desayuno."
+        }
+      },
+      "id": "quest_2_bread_for_breakfast",
+      "giver_npc_id": "npc_10_ana"
+    },
+    {
+      "type": "main",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Message of the Main Street",
+        "target_language": "Mensaje de la Calle Principal"
+      },
+      "description": {
+        "native_language": "Deliver a water bottle from Marcos at the Main Street to Sofia in the Friendship Park.",
+        "target_language": "Entrega una botella de agua de Marcos en la Calle Principal a Sofía en el Parque de la Amistad."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water bottle",
+          "target_language": "botella de agua"
+        },
+        {
+          "native_language": "street",
+          "target_language": "calle"
+        },
+        {
+          "native_language": "park",
+          "target_language": "parque"
+        }
+      ],
+      "grammar_points": [
+        "imperatives",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Marcos on Main Street and get a water bottle.",
+            "target_language": "Habla con Marcos en la Calle Principal y recibe una botella de agua."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_marcos"
+          },
+          "id": "quest_12_message_of_the_main_street_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Collect a water bottle from Main Street.",
+            "target_language": "Recoge una botella de agua de la Calle Principal."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water_bottle"
+          },
+          "id": "quest_12_message_of_the_main_street_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the minigame to practice travel and directions vocabulary.",
+            "target_language": "Completa el minijuego para practicar vocabulario de viaje y direcciones."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_12_message_of_the_main_street_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Deliver the water bottle to Sofia in the Friendship Park.",
+            "target_language": "Entrega la botella de agua a Sofía en el Parque de la Amistad."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water_bottle"
+          },
+          "id": "quest_12_message_of_the_main_street_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you take this water bottle to Sofia in the park?",
+          "target_language": "¿Podrías llevar esta botella de agua a Sofía en el parque?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the delivery!",
+          "target_language": "¡Gracias por la entrega!"
+        }
+      },
+      "id": "quest_12_message_of_the_main_street",
+      "giver_npc_id": "npc_1_marcos"
+    },
+    {
+      "type": "side",
+      "pattern": "social",
+      "name": {
+        "native_language": "Amistad en el Parque",
+        "target_language": "Friendship in the Park"
+      },
+      "description": {
+        "native_language": "Meet Ana in the Friendship Park, learn about her and help her pick a blue stone.",
+        "target_language": "Conoce a Ana en el Parque de la Amistad, aprende sobre ella y ayúdala a recoger una piedra azul."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "blue",
+          "target_language": "azul"
+        },
+        {
+          "native_language": "stone",
+          "target_language": "piedra"
+        },
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        }
+      ],
+      "grammar_points": [
+        "basic questions",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Friendship Park and talk to Ana.",
+            "target_language": "Ve al Parque de la Amistad y habla con Ana."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_ana"
+          },
+          "id": "quest_13_amistad_en_el_parque_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Pick up a blue stone from the Friendship Park.",
+            "target_language": "Recoge una piedra azul del Parque de la Amistad."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_3_blue_stone"
+          },
+          "id": "quest_13_amistad_en_el_parque_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the minigame to practice colors and basic objects.",
+            "target_language": "Completa el minijuego para practicar colores y objetos básicos."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_13_amistad_en_el_parque_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you help Ana in the park and learn more about her?",
+          "target_language": "¿Puedes ayudar a Ana en el parque y aprender más sobre ella?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for helping Ana!",
+          "target_language": "¡Gracias por ayudar a Ana!"
+        }
+      },
+      "id": "quest_13_amistad_en_el_parque",
+      "giver_npc_id": "npc_2_sofia"
+    },
+    {
+      "type": "side",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gloria's Request",
+        "target_language": "La Petición de Gloria"
+      },
+      "description": {
+        "native_language": "Collect a bottle of water.",
+        "target_language": "Recolecta una botella de agua."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "bottle",
+          "target_language": "botella"
+        },
+        {
+          "native_language": "want",
+          "target_language": "quiero"
+        }
+      ],
+      "grammar_points": [
+        "nouns",
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Visit the main street to find a bottle of water.",
+            "target_language": "Visita la calle principal para encontrar una botella de agua."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_calle_principal"
+          },
+          "id": "quest_22_gloria_s_request_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Pick up the bottle of water.",
+            "target_language": "Recoge la botella de agua."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water_bottle"
+          },
+          "id": "quest_22_gloria_s_request_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Bring the bottle of water back to Lucia.",
+            "target_language": "Lleva la botella de agua de vuelta a Lucia."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_lucia"
+          },
+          "id": "quest_22_gloria_s_request_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Play the hydration-themed vocabulary game.",
+            "target_language": "Juega el juego de vocabulario temático de hidratación."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_22_gloria_s_request_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I'm thirsty! Could you help me by fetching some water?",
+          "target_language": "¡Tengo sed! ¿Podrías ayudarme trayendo algo de agua?"
+        },
+        "quest_complete": {
+          "native_language": "How refreshing! Thank you for the water!",
+          "target_language": "¡Qué refrescante! ¡Gracias por el agua!"
+        }
+      },
+      "id": "quest_22_gloria_s_request",
+      "giver_npc_id": "npc_6_lucia"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Sweet Fruit Delivery",
+        "target_language": "Entrega Dulce de Fruta"
+      },
+      "description": {
+        "native_language": "Find a banana for Diego.",
+        "target_language": "Encuentra un plátano para Diego."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "banana",
+          "target_language": "plátano"
+        },
+        {
+          "native_language": "fruit",
+          "target_language": "fruta"
+        },
+        {
+          "native_language": "buy",
+          "target_language": "comprar"
+        }
+      ],
+      "grammar_points": [
+        "transactions",
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Visit the fruit stand to get a banana.",
+            "target_language": "Visita el puesto de fruta para conseguir un plátano."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_4_puesto_de_fruta"
+          },
+          "id": "quest_23_sweet_fruit_delivery_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Purchase one banana.",
+            "target_language": "Compra un plátano."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_banana"
+          },
+          "id": "quest_23_sweet_fruit_delivery_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Return to Diego with the banana.",
+            "target_language": "Regresa a Diego con el plátano."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_4_diego"
+          },
+          "id": "quest_23_sweet_fruit_delivery_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Complete the fruit buying minigame.",
+            "target_language": "Completa el minijuego de comprar frutas."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_23_sweet_fruit_delivery_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I've been craving a banana. Could you fetch one for me?",
+          "target_language": "He estado anhelando un plátano. ¿Podrías conseguir uno para mí?"
+        },
+        "quest_complete": {
+          "native_language": "Perfect! Thanks for bringing the banana.",
+          "target_language": "¡Perfecto! Gracias por traer el plátano."
+        }
+      },
+      "id": "quest_23_sweet_fruit_delivery",
+      "giver_npc_id": "npc_4_diego"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Welcome Gift",
+        "target_language": "Regalo de Bienvenida"
+      },
+      "description": {
+        "native_language": "Help Marcos find an apple as a gift for his friend.",
+        "target_language": "Ayuda a Marcos a encontrar una manzana como regalo para su amigo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "gift",
+          "target_language": "regalo"
+        },
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Marcos at the main street.",
+            "target_language": "Habla con Marcos en la calle principal."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_marcos"
+          },
+          "id": "quest_31_welcome_gift_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find an apple at the welcome fountain.",
+            "target_language": "Encuentra una manzana en la fuente de bienvenida."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_1_fuente_de_bienvenida"
+          },
+          "id": "quest_31_welcome_gift_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the vocabulary game to remember the word for apple.",
+            "target_language": "Completa el juego de vocabulario para recordar la palabra para manzana."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_31_welcome_gift_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Give the apple to Marcos.",
+            "target_language": "Dale la manzana a Marcos."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_31_welcome_gift_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Hello! Can you help me find an apple for my friend?",
+          "target_language": "¡Hola! ¿Puedes ayudarme a encontrar una manzana para mi amigo?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you! My friend will love this gift.",
+          "target_language": "¡Gracias! A mi amigo le encantará este regalo."
+        }
+      },
+      "id": "quest_31_welcome_gift",
+      "giver_npc_id": "npc_1_marcos"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Nature's Colors",
+        "target_language": "Colores de la Naturaleza"
+      },
+      "description": {
+        "native_language": "Discover the blue stone in the Park of Friendship.",
+        "target_language": "Descubre la piedra azul en el Parque de la Amistad."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "park",
+          "target_language": "parque"
+        },
+        {
+          "native_language": "stone",
+          "target_language": "piedra"
+        },
+        {
+          "native_language": "blue",
+          "target_language": "azul"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Sofia at the Park of Friendship for a hint.",
+            "target_language": "Habla con Sofía en el Parque de la Amistad para obtener una pista."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_2_sofia"
+          },
+          "id": "quest_32_nature_s_colors_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the blue stone in the park.",
+            "target_language": "Encuentra la piedra azul en el parque."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_3_parque_de_la_amistad"
+          },
+          "id": "quest_32_nature_s_colors_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete a game to learn color vocabulary.",
+            "target_language": "Completa un juego para aprender el vocabulario de los colores."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_32_nature_s_colors_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Report back to Sofia about your discovery.",
+            "target_language": "Informa a Sofía sobre tu descubrimiento."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_2_sofia"
+          },
+          "id": "quest_32_nature_s_colors_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I heard there's a beautiful blue stone in the park. Can you find it?",
+          "target_language": "Escuché que hay una hermosa piedra azul en el parque. ¿Puedes encontrarla?"
+        },
+        "quest_complete": {
+          "native_language": "You found it! Thank you for showing me.",
+          "target_language": "¡La encontraste! Gracias por mostrármela."
+        }
+      },
+      "id": "quest_32_nature_s_colors",
+      "giver_npc_id": "npc_2_sofia"
+    },
+    {
+      "type": "repeatable",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Fruit Gathering",
+        "target_language": "Recolección de Frutas"
+      },
+      "description": {
+        "native_language": "Collect a banana from the fruit stand for Carlos.",
+        "target_language": "Recoge un plátano del puesto de fruta para Carlos."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "banana",
+          "target_language": "plátano"
+        },
+        {
+          "native_language": "fruit stand",
+          "target_language": "puesto de fruta"
+        },
+        {
+          "native_language": "collect",
+          "target_language": "recoger"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Carlos at the fruit stand about bananas.",
+            "target_language": "Habla con Carlos en el puesto de fruta sobre los plátanos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_9_carlos"
+          },
+          "id": "quest_33_fruit_gathering_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Purchase a banana at the fruit stand.",
+            "target_language": "Compra un plátano en el puesto de fruta."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_banana"
+          },
+          "id": "quest_33_fruit_gathering_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete a game to learn fruit vocabulary.",
+            "target_language": "Completa un juego para aprender el vocabulario de las frutas."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_33_fruit_gathering_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return to Carlos with the banana.",
+            "target_language": "Regresa con Carlos con el plátano."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_banana"
+          },
+          "id": "quest_33_fruit_gathering_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you buy me a banana from the stand?",
+          "target_language": "¿Podrías comprarme un plátano del puesto?"
+        },
+        "quest_complete": {
+          "native_language": "Great! Thank you for the banana.",
+          "target_language": "¡Genial! Gracias por el plátano."
+        }
+      },
+      "id": "quest_33_fruit_gathering",
+      "giver_npc_id": "npc_9_carlos"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Bread Run",
+        "target_language": "Encargo de Pan"
+      },
+      "description": {
+        "native_language": "Deliver a loaf of bread to Diego at the Café of Whispers.",
+        "target_language": "Entrega una barra de pan a Diego en el Café de los Susurros."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "café",
+          "target_language": "café"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        }
+      ],
+      "grammar_points": [
+        "present tense",
+        "prepositions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Receive a loaf of bread from Ana at the bakery.",
+            "target_language": "Recibe una barra de pan de Ana en la panadería."
+          },
+          "completion_type": "received_item",
+          "completion_criteria": {
+            "target_id": "item_5_loaf_of_bread"
+          },
+          "id": "quest_34_bread_run_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Get directions from Ana to the Café of Whispers.",
+            "target_language": "Obtén direcciones de Ana al Café de los Susurros."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_10_ana"
+          },
+          "id": "quest_34_bread_run_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the bread to Diego at the café.",
+            "target_language": "Entregar el pan a Diego en el café."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_5_loaf_of_bread"
+          },
+          "id": "quest_34_bread_run_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Complete a directional vocabulary game.",
+            "target_language": "Completa un juego de vocabulario direccional."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_34_bread_run_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you take this bread to the café? Diego is waiting for it.",
+          "target_language": "¿Puedes llevar este pan al café? Diego lo está esperando."
+        },
+        "quest_complete": {
+          "native_language": "Thank you! Diego must be happy with the fresh bread.",
+          "target_language": "¡Gracias! Diego debe estar contento con el pan fresco."
+        }
+      },
+      "id": "quest_34_bread_run",
+      "giver_npc_id": "npc_16_diego"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 51,
+    "total_valid": 9,
+    "total_invalid": 42,
+    "target_minimum": 20,
+    "target_met": false
+  }
+}

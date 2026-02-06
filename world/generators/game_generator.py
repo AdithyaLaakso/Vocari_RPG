@@ -107,13 +107,18 @@ class GameGenerator(BaseGenerator):
 
     def _generate_game_specs(self) -> List[Dict[str, Any]]:
         """Generate game specifications based on quests."""
-        # Select quests that would benefit from games
-        # Aim for about 1 game per 2-3 quests
-        target_game_count = max(5, len(self.quests_list) // 2)
+        # CRITICAL: Every quest MUST have at least one game
+        # Generate one game per quest to ensure full coverage
+        target_game_count = len(self.quests_list)
 
         system_prompt = f"""{self.get_base_system_prompt()}
 
 You are designing UNIQUE and FUN mini-games for a language learning RPG.
+
+CRITICAL REQUIREMENT:
+- You MUST generate exactly ONE game for EACH quest
+- Every quest needs its own minigame - no quest should be left without one
+- Each game MUST have a related_quest_index pointing to its quest
 
 Each game should:
 1. Be THEMATICALLY connected to a quest (setting, characters, items)
@@ -135,7 +140,9 @@ Focus on creative uses of shapes, colors, text, and interaction."""
         locations_info = self._format_locations_indexed()
         npcs_info = self._format_npcs_indexed()
 
-        user_prompt = f"""Design {target_game_count} unique mini-games for these quests.
+        user_prompt = f"""Design exactly {target_game_count} unique mini-games - ONE for EACH quest listed below.
+
+CRITICAL: Every quest MUST have exactly one game. The number of games must equal the number of quests.
 
 === QUESTS (with vocabulary and grammar) ===
 {quests_info}
@@ -155,7 +162,7 @@ For each game, provide:
    - target_index: Index of the location or NPC
 5. target_vocabulary: Words the game teaches (from the quest)
 6. grammar_focus: Grammar points practiced (if any)
-7. related_quest_index: Index of the related quest
+7. related_quest_index: Index of the related quest (REQUIRED - every game must link to a quest)
 8. game_prompt: DETAILED description for generating Lua code, including:
    - Game mechanics (how it works)
    - Visual design (colors, layout, shapes)
@@ -164,7 +171,12 @@ For each game, provide:
    - Any animations or effects
 9. skill_points: Points awarded (10-30 based on difficulty)
 
-Make each game UNIQUE - avoid repetitive mechanics!
+REQUIREMENTS:
+- Generate exactly {target_game_count} games (one per quest)
+- Each game MUST have a valid related_quest_index (0 to {target_game_count - 1})
+- Every quest index must be covered by exactly one game
+- Make each game UNIQUE - avoid repetitive mechanics!
+
 Target: {self.target_language}, Native: {self.native_language}
 
 Return as JSON: {{"games": [...]}}"""
@@ -189,11 +201,9 @@ Return as JSON: {{"games": [...]}}"""
         level = game_spec.get('language_level', 'A0')
 
         # Format vocabulary for the prompt
-        vocab_str = "\n".join([
-            v for v in vocabulary
-        ]) if vocabulary else "  (none specified)"
+        vocab_str = str(vocabulary)
 
-        grammar_str = ", ".join(grammar) if grammar else "(none specified)"
+        grammar_str = str(grammar)
 
         system_prompt = f"""You are a Lua game developer. You ONLY output valid Lua code, nothing else.
 No explanations, no markdown, no comments outside the code. Just pure Lua.

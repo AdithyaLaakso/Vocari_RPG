@@ -1,0 +1,82 @@
+{
+  "world_name": {
+    "native_language": "Valedonia",
+    "target_language": "Valedonia"
+  },
+  "world_description": {
+    "native_language": "A whimsical village nestled between verdant hills and a sparkling river where inhabitants speak a unique mix of languages.",
+    "target_language": "Un pueblo encantador ubicado entre colinas verdes y un río brillante donde los habitantes hablan una mezcla única de idiomas."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "Valedonia has always been a center of cultural exchange due to its location on an ancient trade route.",
+      "target_language": "Valedonia siempre ha sido un centro de intercambio cultural debido a su ubicación en una antigua ruta comercial."
+    },
+    "player_origin": {
+      "native_language": "You are a traveler who has recently arrived in Valedonia to learn about its culture and language.",
+      "target_language": "Eres un viajero que recientemente llegó a Valedonia para aprender sobre su cultura e idioma."
+    },
+    "motivation": {
+      "native_language": "The player seeks to understand the secrets of Valedonia and connect with its people to become part of their vibrant community.",
+      "target_language": "El jugador busca entender los secretos de Valedonia y conectarse con su gente para convertirse en parte de su vibrante comunidad."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "A timeless era where old traditions meet new influences.",
+      "target_language": "Una era atemporal donde las viejas tradiciones se encuentran con nuevas influencias."
+    },
+    "atmosphere": {
+      "native_language": "Welcoming and serene, filled with bustling marketplaces and cozy cafes.",
+      "target_language": "Acogedora y serena, llena de concurridos mercados y acogedores cafés."
+    },
+    "culture": {
+      "native_language": "A blend of traditional Spanish-speaking customs with mystical fairy-tale elements.",
+      "target_language": "Una mezcla de costumbres tradicionales de habla hispana con elementos místicos de cuento de hadas."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Luminary Crystals",
+        "target_language": "Cristales Luminosos"
+      },
+      "description": {
+        "native_language": "These crystals gently glow in the dark, illuminating paths for travelers and aiding communication between languages.",
+        "target_language": "Estos cristales brillan suavemente en la oscuridad, iluminando caminos para los viajeros y ayudando a la comunicación entre idiomas."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "The Language Guild",
+        "target_language": "El Gremio de Lenguas"
+      },
+      "description": {
+        "native_language": "A group of scholars dedicated to preserving and teaching the languages of Valedonia.",
+        "target_language": "Un grupo de académicos dedicados a preservar y enseñar los idiomas de Valedonia."
+      },
+      "role_in_world": {
+        "native_language": "They organize language lessons and cultural events to welcome newcomers.",
+        "target_language": "Organizan lecciones de idiomas y eventos culturales para dar la bienvenida a los recién llegados."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Interconnection between language and culture.",
+      "target_language": "Interconexión entre idioma y cultura."
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "To communicate with villagers and participate in community life, learning the local language is essential.",
+      "target_language": "Para comunicarse con los aldeanos y participar en la vida comunitaria, aprender el idioma local es esencial."
+    },
+    "how_language_fits": {
+      "native_language": "The game’s tasks and dialogues are designed to teach language naturally through interaction.",
+      "target_language": "Las tareas y diálogos del juego están diseñados para enseñar el idioma de forma natural a través de la interacción."
+    }
+  }
+}

@@ -1,0 +1,441 @@
+{
+  "items": [
+    {
+      "name": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "description": {
+        "native_language": "A fresh red apple.",
+        "target_language": "Una manzana roja fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_fuente_de_bienvenida",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "usage_hint": {
+        "native_language": "Eat it to restore health.",
+        "target_language": "Cómela para restaurar salud."
+      },
+      "id": "item_1_apple"
+    },
+    {
+      "name": {
+        "native_language": "water bottle",
+        "target_language": "botella de agua"
+      },
+      "description": {
+        "native_language": "A clear bottle of water.",
+        "target_language": "Una botella de agua clara."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_calle_principal",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "usage_hint": {
+        "native_language": "Drink it to quench thirst.",
+        "target_language": "Bébela para saciar la sed."
+      },
+      "id": "item_2_water_bottle"
+    },
+    {
+      "name": {
+        "native_language": "blue stone",
+        "target_language": "piedra azul"
+      },
+      "description": {
+        "native_language": "A shiny blue stone found in the park.",
+        "target_language": "Una piedra azul brillante encontrada en el parque."
+      },
+      "category": "material",
+      "location_id": "loc_3_parque_de_la_amistad",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "usage_hint": {
+        "native_language": "Can be used for crafting.",
+        "target_language": "Se puede usar para crear."
+      },
+      "id": "item_3_blue_stone"
+    },
+    {
+      "name": {
+        "native_language": "banana",
+        "target_language": "plátano"
+      },
+      "description": {
+        "native_language": "A ripe banana, perfect for a snack.",
+        "target_language": "Un plátano maduro, perfecto para un bocadillo."
+      },
+      "category": "consumable",
+      "location_id": "loc_4_puesto_de_fruta",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 5,
+      "vocabulary_word": {
+        "native_language": "banana",
+        "target_language": "plátano"
+      },
+      "usage_hint": {
+        "native_language": "Eat it for quick energy.",
+        "target_language": "Cómelo para obtener energía rápida."
+      },
+      "id": "item_4_banana"
+    },
+    {
+      "name": {
+        "native_language": "loaf of bread",
+        "target_language": "pan"
+      },
+      "description": {
+        "native_language": "A warm loaf of fresh bread.",
+        "target_language": "Un pan fresco y cálido."
+      },
+      "category": "consumable",
+      "location_id": "loc_5_panader_a_aromatica",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 15,
+      "respawns": true,
+      "price": 3,
+      "vocabulary_word": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "usage_hint": {
+        "native_language": "Useful to make a sandwich.",
+        "target_language": "Útil para hacer un sándwich."
+      },
+      "id": "item_5_loaf_of_bread"
+    },
+    {
+      "name": {
+        "native_language": "cup of coffee",
+        "target_language": "taza de café"
+      },
+      "description": {
+        "native_language": "A steaming cup of coffee.",
+        "target_language": "Una taza de café humeante."
+      },
+      "category": "consumable",
+      "location_id": "loc_6_caf_de_los_susurros",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": 20,
+      "respawns": true,
+      "price": 4,
+      "vocabulary_word": {
+        "native_language": "coffee",
+        "target_language": "café"
+      },
+      "usage_hint": {
+        "native_language": "Drink it to stay awake.",
+        "target_language": "Bébelo para mantenerte despierto."
+      },
+      "id": "item_6_cup_of_coffee"
+    },
+    {
+      "name": {
+        "native_language": "magic wand",
+        "target_language": "varita mágica"
+      },
+      "description": {
+        "native_language": "A simple magic wand for learning spells.",
+        "target_language": "Una varita mágica simple para aprender hechizos."
+      },
+      "category": "tool",
+      "location_id": "loc_7_escuela_de_magia",
+      "acquisition_type": "receive",
+      "language_level": "A1",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "wand",
+        "target_language": "varita"
+      },
+      "usage_hint": {
+        "native_language": "Use it to cast basic spells.",
+        "target_language": "Úsala para lanzar hechizos básicos."
+      },
+      "id": "item_7_magic_wand"
+    },
+    {
+      "name": {
+        "native_language": "history book",
+        "target_language": "libro de historia"
+      },
+      "description": {
+        "native_language": "An old book full of village history.",
+        "target_language": "Un libro antiguo lleno de la historia del pueblo."
+      },
+      "category": "document",
+      "location_id": "loc_8_casa_del_historiador",
+      "acquisition_type": "find",
+      "language_level": "A1",
+      "quantity_available": -1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "book",
+        "target_language": "libro"
+      },
+      "usage_hint": {
+        "native_language": "Read it to learn about history.",
+        "target_language": "Léelo para aprender sobre la historia."
+      },
+      "id": "item_8_history_book"
+    },
+    {
+      "name": {
+        "native_language": "notebook",
+        "target_language": "cuaderno"
+      },
+      "description": {
+        "native_language": "A blank notebook for writing notes.",
+        "target_language": "Un cuaderno en blanco para tomar notas."
+      },
+      "category": "document",
+      "location_id": "loc_9_centro_de_investigaci_n",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 30,
+      "respawns": true,
+      "price": 2,
+      "vocabulary_word": {
+        "native_language": "notebook",
+        "target_language": "cuaderno"
+      },
+      "usage_hint": {
+        "native_language": "Use it to jot down ideas.",
+        "target_language": "Úsalo para anotar ideas."
+      },
+      "id": "item_9_notebook"
+    },
+    {
+      "name": {
+        "native_language": "theater script",
+        "target_language": "guion de teatro"
+      },
+      "description": {
+        "native_language": "A script from the latest play.",
+        "target_language": "Un guion de la última obra de teatro."
+      },
+      "category": "document",
+      "location_id": "loc_10_teatro_de_sombras",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": -1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "script",
+        "target_language": "guion"
+      },
+      "usage_hint": {
+        "native_language": "Read it to practice lines.",
+        "target_language": "Léelo para practicar líneas."
+      },
+      "id": "item_10_theater_script"
+    },
+    {
+      "name": {
+        "native_language": "guitar",
+        "target_language": "guitarra"
+      },
+      "description": {
+        "native_language": "An acoustic guitar for musicians.",
+        "target_language": "Una guitarra acústica para músicos."
+      },
+      "category": "tool",
+      "location_id": "loc_11_estudio_de_m_sica",
+      "acquisition_type": "purchase",
+      "language_level": "A1+",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 20,
+      "vocabulary_word": {
+        "native_language": "guitar",
+        "target_language": "guitarra"
+      },
+      "usage_hint": {
+        "native_language": "Use it to play beautiful music.",
+        "target_language": "Úsala para tocar música hermosa."
+      },
+      "id": "item_11_guitar"
+    },
+    {
+      "name": {
+        "native_language": "paintbrush",
+        "target_language": "pincel"
+      },
+      "description": {
+        "native_language": "A soft brush for painting.",
+        "target_language": "Un pincel suave para pintar."
+      },
+      "category": "tool",
+      "location_id": "loc_12_galer_a_celestial",
+      "acquisition_type": "purchase",
+      "language_level": "A1+",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 8,
+      "vocabulary_word": {
+        "native_language": "paintbrush",
+        "target_language": "pincel"
+      },
+      "usage_hint": {
+        "native_language": "Use it for creating artwork.",
+        "target_language": "Úsalo para crear arte."
+      },
+      "id": "item_12_paintbrush"
+    },
+    {
+      "name": {
+        "native_language": "herb pouch",
+        "target_language": "bolsa de hierbas"
+      },
+      "description": {
+        "native_language": "A small pouch filled with various herbs.",
+        "target_language": "Una pequeña bolsa llena de varias hierbas."
+      },
+      "category": "material",
+      "location_id": "loc_13_bosque_de_los_secretos",
+      "acquisition_type": "gather",
+      "language_level": "A2",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "herb",
+        "target_language": "hierba"
+      },
+      "usage_hint": {
+        "native_language": "Useful for making potions.",
+        "target_language": "Útil para hacer pociones."
+      },
+      "id": "item_13_herb_pouch"
+    },
+    {
+      "name": {
+        "native_language": "ancient coin",
+        "target_language": "moneda antigua"
+      },
+      "description": {
+        "native_language": "A rare coin from another era.",
+        "target_language": "Una moneda rara de otra era."
+      },
+      "category": "valuable",
+      "location_id": "loc_14_ruinas_escondidas",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 3,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "coin",
+        "target_language": "moneda"
+      },
+      "usage_hint": {
+        "native_language": "Collect it for treasure.",
+        "target_language": "Cómprala como tesoro."
+      },
+      "id": "item_14_ancient_coin"
+    },
+    {
+      "name": {
+        "native_language": "morning dew",
+        "target_language": "rocío de la mañana"
+      },
+      "description": {
+        "native_language": "Drops of fresh morning dew.",
+        "target_language": "Gotas de rocío fresco de la mañana."
+      },
+      "category": "material",
+      "location_id": "loc_15_claror_del_amanecer",
+      "acquisition_type": "gather",
+      "language_level": "A2",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "dew",
+        "target_language": "rocío"
+      },
+      "usage_hint": {
+        "native_language": "Use it to enhance potions.",
+        "target_language": "Úsalo para mejorar pociones."
+      },
+      "id": "item_15_morning_dew"
+    }
+  ],
+  "_items_by_location": {
+    "loc_1_fuente_de_bienvenida": [
+      "item_1_apple"
+    ],
+    "loc_2_calle_principal": [
+      "item_2_water_bottle"
+    ],
+    "loc_3_parque_de_la_amistad": [
+      "item_3_blue_stone"
+    ],
+    "loc_4_puesto_de_fruta": [
+      "item_4_banana"
+    ],
+    "loc_5_panader_a_aromatica": [
+      "item_5_loaf_of_bread"
+    ],
+    "loc_6_caf_de_los_susurros": [
+      "item_6_cup_of_coffee"
+    ],
+    "loc_7_escuela_de_magia": [
+      "item_7_magic_wand"
+    ],
+    "loc_8_casa_del_historiador": [
+      "item_8_history_book"
+    ],
+    "loc_9_centro_de_investigaci_n": [
+      "item_9_notebook"
+    ],
+    "loc_10_teatro_de_sombras": [
+      "item_10_theater_script"
+    ],
+    "loc_11_estudio_de_m_sica": [
+      "item_11_guitar"
+    ],
+    "loc_12_galer_a_celestial": [
+      "item_12_paintbrush"
+    ],
+    "loc_13_bosque_de_los_secretos": [
+      "item_13_herb_pouch"
+    ],
+    "loc_14_ruinas_escondidas": [
+      "item_14_ancient_coin"
+    ],
+    "loc_15_claror_del_amanecer": [
+      "item_15_morning_dew"
+    ]
+  }
+}

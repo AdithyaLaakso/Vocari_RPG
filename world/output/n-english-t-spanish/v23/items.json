@@ -1,0 +1,817 @@
+{
+  "items": [
+    {
+      "name": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "description": {
+        "native_language": "A juicy red apple.",
+        "target_language": "Una jugosa manzana roja."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_welcome_clearing",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "usage_hint": {
+        "native_language": "Can be eaten to restore energy.",
+        "target_language": "Se puede comer para restaurar energía."
+      },
+      "id": "item_1_apple"
+    },
+    {
+      "name": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "description": {
+        "native_language": "A refreshing bottle of water.",
+        "target_language": "Una refrescante botella de agua."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_golden_grove",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "usage_hint": {
+        "native_language": "Drink to quench thirst.",
+        "target_language": "Bebe para calmar la sed."
+      },
+      "id": "item_2_water"
+    },
+    {
+      "name": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "description": {
+        "native_language": "A loaf of freshly baked bread.",
+        "target_language": "Un pan recién horneado."
+      },
+      "category": "consumable",
+      "location_id": "loc_3_sunny_banks",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "usage_hint": {
+        "native_language": "Eat to restore health.",
+        "target_language": "Come para restaurar la salud."
+      },
+      "id": "item_3_bread"
+    },
+    {
+      "name": {
+        "native_language": "berry",
+        "target_language": "baya"
+      },
+      "description": {
+        "native_language": "A small, sweet berry.",
+        "target_language": "Una pequeña baya dulce."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_golden_grove",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "berry",
+        "target_language": "baya"
+      },
+      "usage_hint": {
+        "native_language": "Eat to restore energy.",
+        "target_language": "Come para restaurar energía."
+      },
+      "id": "item_4_berry"
+    },
+    {
+      "name": {
+        "native_language": "leaf",
+        "target_language": "hoja"
+      },
+      "description": {
+        "native_language": "A large green leaf.",
+        "target_language": "Una gran hoja verde."
+      },
+      "category": "material",
+      "location_id": "loc_1_welcome_clearing",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "leaf",
+        "target_language": "hoja"
+      },
+      "usage_hint": {
+        "native_language": "Can be used for crafting.",
+        "target_language": "Se puede usar para hacer manualidades."
+      },
+      "id": "item_5_leaf"
+    },
+    {
+      "name": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "description": {
+        "native_language": "A smooth river stone.",
+        "target_language": "Una piedra de río lisa."
+      },
+      "category": "material",
+      "location_id": "loc_3_sunny_banks",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "usage_hint": {
+        "native_language": "Used in construction or crafting.",
+        "target_language": "Usada en construcción o manualidades."
+      },
+      "id": "item_6_stone"
+    },
+    {
+      "name": {
+        "native_language": "flower",
+        "target_language": "flor"
+      },
+      "description": {
+        "native_language": "A delicate wildflower.",
+        "target_language": "Una delicada flor silvestre."
+      },
+      "category": "gift",
+      "location_id": "loc_3_sunny_banks",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "flower",
+        "target_language": "flor"
+      },
+      "usage_hint": {
+        "native_language": "Give as a gift to an NPC.",
+        "target_language": "Dálo como regalo a un NPC."
+      },
+      "id": "item_7_flower"
+    },
+    {
+      "name": {
+        "native_language": "button",
+        "target_language": "botón"
+      },
+      "description": {
+        "native_language": "A small shiny button.",
+        "target_language": "Un pequeño botón brillante."
+      },
+      "category": "material",
+      "location_id": "loc_1_welcome_clearing",
+      "acquisition_type": "find",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "button",
+        "target_language": "botón"
+      },
+      "usage_hint": {
+        "native_language": "Can be used in sewing.",
+        "target_language": "Se puede usar en costura."
+      },
+      "id": "item_8_button"
+    },
+    {
+      "name": {
+        "native_language": "feather",
+        "target_language": "pluma"
+      },
+      "description": {
+        "native_language": "A soft bird feather.",
+        "target_language": "Una suave pluma de ave."
+      },
+      "category": "material",
+      "location_id": "loc_4_sylvan_trail",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "feather",
+        "target_language": "pluma"
+      },
+      "usage_hint": {
+        "native_language": "Use for writing or decorating.",
+        "target_language": "Usa para escribir o decorar."
+      },
+      "id": "item_9_feather"
+    },
+    {
+      "name": {
+        "native_language": "mushroom",
+        "target_language": "hongo"
+      },
+      "description": {
+        "native_language": "A small edible mushroom.",
+        "target_language": "Un pequeño hongo comestible."
+      },
+      "category": "consumable",
+      "location_id": "loc_5_enchanted_glade",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "mushroom",
+        "target_language": "hongo"
+      },
+      "usage_hint": {
+        "native_language": "Use in cooking recipes.",
+        "target_language": "Usa en recetas de cocina."
+      },
+      "id": "item_10_mushroom"
+    },
+    {
+      "name": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "description": {
+        "native_language": "A detailed map of the forest.",
+        "target_language": "Un mapa detallado del bosque."
+      },
+      "category": "tool",
+      "location_id": "loc_6_old_oak_tavern",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 5,
+      "vocabulary_word": {
+        "native_language": "map",
+        "target_language": "mapa"
+      },
+      "usage_hint": {
+        "native_language": "Use to find your way in the forest.",
+        "target_language": "Úsalo para encontrar tu camino en el bosque."
+      },
+      "id": "item_11_map"
+    },
+    {
+      "name": {
+        "native_language": "key",
+        "target_language": "llave"
+      },
+      "description": {
+        "native_language": "A small iron key.",
+        "target_language": "Una pequeña llave de hierro."
+      },
+      "category": "tool",
+      "location_id": "loc_6_old_oak_tavern",
+      "acquisition_type": "receive",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "key",
+        "target_language": "llave"
+      },
+      "usage_hint": {
+        "native_language": "Use to open a mysterious door.",
+        "target_language": "Úsala para abrir una puerta misteriosa."
+      },
+      "id": "item_12_key"
+    },
+    {
+      "name": {
+        "native_language": "milk",
+        "target_language": "leche"
+      },
+      "description": {
+        "native_language": "A bottle of fresh milk.",
+        "target_language": "Una botella de leche fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_6_old_oak_tavern",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 2,
+      "vocabulary_word": {
+        "native_language": "milk",
+        "target_language": "leche"
+      },
+      "usage_hint": {
+        "native_language": "Drink to restore health.",
+        "target_language": "Bebe para restaurar salud."
+      },
+      "id": "item_13_milk"
+    },
+    {
+      "name": {
+        "native_language": "tea",
+        "target_language": "té"
+      },
+      "description": {
+        "native_language": "A cup of warm tea.",
+        "target_language": "Una taza de té caliente."
+      },
+      "category": "consumable",
+      "location_id": "loc_6_old_oak_tavern",
+      "acquisition_type": "purchase",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 3,
+      "vocabulary_word": {
+        "native_language": "tea",
+        "target_language": "té"
+      },
+      "usage_hint": {
+        "native_language": "Drink for relaxation.",
+        "target_language": "Bebe para relajarte."
+      },
+      "id": "item_14_tea"
+    },
+    {
+      "name": {
+        "native_language": "book",
+        "target_language": "libro"
+      },
+      "description": {
+        "native_language": "An old tale book.",
+        "target_language": "Un libro de cuentos antiguo."
+      },
+      "category": "document",
+      "location_id": "loc_8_lamplight_library",
+      "acquisition_type": "find",
+      "language_level": "A1",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "book",
+        "target_language": "libro"
+      },
+      "usage_hint": {
+        "native_language": "Read to learn a story.",
+        "target_language": "Lee para aprender una historia."
+      },
+      "id": "item_15_book"
+    },
+    {
+      "name": {
+        "native_language": "apple pie",
+        "target_language": "tarta de manzana"
+      },
+      "description": {
+        "native_language": "A warm apple pie.",
+        "target_language": "Una tarta de manzana caliente."
+      },
+      "category": "consumable",
+      "location_id": "loc_11_lakeside_cafe",
+      "acquisition_type": "purchase",
+      "language_level": "A1+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 4,
+      "vocabulary_word": {
+        "native_language": "apple pie",
+        "target_language": "tarta de manzana"
+      },
+      "usage_hint": {
+        "native_language": "Eat to feel better.",
+        "target_language": "Come para sentirte mejor."
+      },
+      "id": "item_16_apple_pie"
+    },
+    {
+      "name": {
+        "native_language": "magic stone",
+        "target_language": "piedra mágica"
+      },
+      "description": {
+        "native_language": "A glowing magic stone.",
+        "target_language": "Una piedra mágica que brilla."
+      },
+      "category": "valuable",
+      "location_id": "loc_13_starwatch_camp",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 3,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "magic stone",
+        "target_language": "piedra mágica"
+      },
+      "usage_hint": {
+        "native_language": "Use for special rituals.",
+        "target_language": "Úsala para rituales especiales."
+      },
+      "id": "item_17_magic_stone"
+    },
+    {
+      "name": {
+        "native_language": "leather",
+        "target_language": "cuero"
+      },
+      "description": {
+        "native_language": "A strip of sturdy leather.",
+        "target_language": "Una tira de cuero resistente."
+      },
+      "category": "material",
+      "location_id": "loc_7_silver_swing_market",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 6,
+      "vocabulary_word": {
+        "native_language": "leather",
+        "target_language": "cuero"
+      },
+      "usage_hint": {
+        "native_language": "Use to make strong items.",
+        "target_language": "Usa para hacer artículos fuertes."
+      },
+      "id": "item_18_leather"
+    },
+    {
+      "name": {
+        "native_language": "silver necklace",
+        "target_language": "collar de plata"
+      },
+      "description": {
+        "native_language": "An elegant silver necklace.",
+        "target_language": "Un elegante collar de plata."
+      },
+      "category": "valuable",
+      "location_id": "loc_7_silver_swing_market",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 15,
+      "vocabulary_word": {
+        "native_language": "silver necklace",
+        "target_language": "collar de plata"
+      },
+      "usage_hint": {
+        "native_language": "Wear to appear stylish.",
+        "target_language": "Úsalo para lucir elegante."
+      },
+      "id": "item_19_silver_necklace"
+    },
+    {
+      "name": {
+        "native_language": "lamp",
+        "target_language": "lámpara"
+      },
+      "description": {
+        "native_language": "A bright kerosene lamp.",
+        "target_language": "Una brillante lámpara de queroseno."
+      },
+      "category": "tool",
+      "location_id": "loc_10_crescent_cottage",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "lamp",
+        "target_language": "lámpara"
+      },
+      "usage_hint": {
+        "native_language": "Use in dark places.",
+        "target_language": "Úsala en lugares oscuros."
+      },
+      "id": "item_20_lamp"
+    },
+    {
+      "name": {
+        "native_language": "rope",
+        "target_language": "cuerda"
+      },
+      "description": {
+        "native_language": "A long sturdy rope.",
+        "target_language": "Una larga cuerda resistente."
+      },
+      "category": "tool",
+      "location_id": "loc_5_enchanted_glade",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "rope",
+        "target_language": "cuerda"
+      },
+      "usage_hint": {
+        "native_language": "Use for climbing.",
+        "target_language": "Úsala para escalar."
+      },
+      "id": "item_21_rope"
+    },
+    {
+      "name": {
+        "native_language": "herbs",
+        "target_language": "hierbas"
+      },
+      "description": {
+        "native_language": "A bundle of medicinal herbs.",
+        "target_language": "Un manojo de hierbas medicinales."
+      },
+      "category": "material",
+      "location_id": "loc_12_windy_path",
+      "acquisition_type": "gather",
+      "language_level": "A1+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "herbs",
+        "target_language": "hierbas"
+      },
+      "usage_hint": {
+        "native_language": "Use in potions.",
+        "target_language": "Usa en pociones."
+      },
+      "id": "item_22_herbs"
+    },
+    {
+      "name": {
+        "native_language": "diary",
+        "target_language": "diario"
+      },
+      "description": {
+        "native_language": "A personal diary.",
+        "target_language": "Un diario personal."
+      },
+      "category": "document",
+      "location_id": "loc_14_starlit_observatory",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "diary",
+        "target_language": "diario"
+      },
+      "usage_hint": {
+        "native_language": "Read for insights and secrets.",
+        "target_language": "Lee para obtener ideas y secretos."
+      },
+      "id": "item_23_diary"
+    },
+    {
+      "name": {
+        "native_language": "mixing bowl",
+        "target_language": "cuenco para mezclar"
+      },
+      "description": {
+        "native_language": "A large mixing bowl.",
+        "target_language": "Un gran cuenco para mezclar."
+      },
+      "category": "tool",
+      "location_id": "loc_11_lakeside_cafe",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "mixing bowl",
+        "target_language": "cuenco para mezclar"
+      },
+      "usage_hint": {
+        "native_language": "Use for preparing meals.",
+        "target_language": "Usa para preparar comidas."
+      },
+      "id": "item_24_mixing_bowl"
+    },
+    {
+      "name": {
+        "native_language": "golden coin",
+        "target_language": "moneda de oro"
+      },
+      "description": {
+        "native_language": "A shiny gold coin.",
+        "target_language": "Una brillante moneda de oro."
+      },
+      "category": "valuable",
+      "location_id": "loc_13_starwatch_camp",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 2,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "golden coin",
+        "target_language": "moneda de oro"
+      },
+      "usage_hint": {
+        "native_language": "Use for trading.",
+        "target_language": "Úsala para intercambiar."
+      },
+      "id": "item_25_golden_coin"
+    },
+    {
+      "name": {
+        "native_language": "ladder",
+        "target_language": "escalera"
+      },
+      "description": {
+        "native_language": "A wooden ladder.",
+        "target_language": "Una escalera de madera."
+      },
+      "category": "tool",
+      "location_id": "loc_10_crescent_cottage",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "ladder",
+        "target_language": "escalera"
+      },
+      "usage_hint": {
+        "native_language": "Use to reach high places.",
+        "target_language": "Usa para alcanzar lugares altos."
+      },
+      "id": "item_26_ladder"
+    },
+    {
+      "name": {
+        "native_language": "spices",
+        "target_language": "especias"
+      },
+      "description": {
+        "native_language": "A pouch of assorted spices.",
+        "target_language": "Una bolsa de especias variadas."
+      },
+      "category": "material",
+      "location_id": "loc_7_silver_swing_market",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 4,
+      "vocabulary_word": {
+        "native_language": "spices",
+        "target_language": "especias"
+      },
+      "usage_hint": {
+        "native_language": "Use to enhance cooked meals.",
+        "target_language": "Usa para mejorar comidas cocinadas."
+      },
+      "id": "item_27_spices"
+    },
+    {
+      "name": {
+        "native_language": "quill",
+        "target_language": "pluma"
+      },
+      "description": {
+        "native_language": "A writing quill.",
+        "target_language": "Una pluma de escritura."
+      },
+      "category": "tool",
+      "location_id": "loc_14_starlit_observatory",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "quill",
+        "target_language": "pluma"
+      },
+      "usage_hint": {
+        "native_language": "Use to write messages.",
+        "target_language": "Usa para escribir mensajes."
+      },
+      "id": "item_28_quill"
+    },
+    {
+      "name": {
+        "native_language": "pearl",
+        "target_language": "perla"
+      },
+      "description": {
+        "native_language": "A beautiful white pearl.",
+        "target_language": "Una hermosa perla blanca."
+      },
+      "category": "valuable",
+      "location_id": "loc_15_twilight_summit",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "pearl",
+        "target_language": "perla"
+      },
+      "usage_hint": {
+        "native_language": "Use as a trading item.",
+        "target_language": "Usa como objeto de intercambio."
+      },
+      "id": "item_29_pearl"
+    }
+  ],
+  "_items_by_location": {
+    "loc_1_welcome_clearing": [
+      "item_1_apple",
+      "item_5_leaf",
+      "item_8_button"
+    ],
+    "loc_2_golden_grove": [
+      "item_2_water",
+      "item_4_berry"
+    ],
+    "loc_3_sunny_banks": [
+      "item_3_bread",
+      "item_6_stone",
+      "item_7_flower"
+    ],
+    "loc_4_sylvan_trail": [
+      "item_9_feather"
+    ],
+    "loc_5_enchanted_glade": [
+      "item_10_mushroom",
+      "item_21_rope"
+    ],
+    "loc_6_old_oak_tavern": [
+      "item_11_map",
+      "item_12_key",
+      "item_13_milk",
+      "item_14_tea"
+    ],
+    "loc_8_lamplight_library": [
+      "item_15_book"
+    ],
+    "loc_11_lakeside_cafe": [
+      "item_16_apple_pie",
+      "item_24_mixing_bowl"
+    ],
+    "loc_13_starwatch_camp": [
+      "item_17_magic_stone",
+      "item_25_golden_coin"
+    ],
+    "loc_7_silver_swing_market": [
+      "item_18_leather",
+      "item_19_silver_necklace",
+      "item_27_spices"
+    ],
+    "loc_10_crescent_cottage": [
+      "item_20_lamp",
+      "item_26_ladder"
+    ],
+    "loc_12_windy_path": [
+      "item_22_herbs"
+    ],
+    "loc_14_starlit_observatory": [
+      "item_23_diary",
+      "item_28_quill"
+    ],
+    "loc_15_twilight_summit": [
+      "item_29_pearl"
+    ]
+  }
+}

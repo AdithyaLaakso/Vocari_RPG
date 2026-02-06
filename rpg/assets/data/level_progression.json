@@ -34,10 +34,10 @@
         }
       ],
       "flexible_skill_pool": [
-        "pragmatic_greeting_basic",
-        "pragmatic_politeness_expressions",
-        "vocab_intro_names",
-        "vocab_numbers_1_100"
+        "pragmatic_greetings_basic",
+        "pragmatic_leave_taking_basic",
+        "pragmatic_thanking_basic",
+        "pragmatic_yes_no_responses"
       ],
       "flexible_skill_count": 2,
       "flexible_threshold": 10,
@@ -65,27 +65,27 @@
           "minimum_level": 50
         },
         {
-          "skill_id": "grammar_basic_greetings",
+          "skill_id": "grammar_greetings",
           "minimum_level": 50
         },
         {
-          "skill_id": "grammar_basic_yes_no",
+          "skill_id": "grammar_affirm_negation",
           "minimum_level": 50
         },
         {
-          "skill_id": "grammar_numbers_basic",
+          "skill_id": "grammar_numbers_colors",
           "minimum_level": 50
         }
       ],
       "flexible_skill_pool": [
-        "pragmatic_greeting_basic",
-        "pragmatic_politeness_expressions",
-        "pragmatic_introduction_basic",
-        "pragmatic_farewell_basic",
-        "pragmatic_questions_basic",
-        "vocab_family_members",
-        "vocab_food_basics",
-        "vocab_weather"
+        "pragmatic_greetings_basic",
+        "pragmatic_leave_taking_basic",
+        "pragmatic_thanking_basic",
+        "pragmatic_yes_no_responses",
+        "pragmatic_introductions",
+        "pragmatic_formal_vs_informal",
+        "pragmatic_asking_questions_basic",
+        "pragmatic_polite_requests"
       ],
       "flexible_skill_count": 4,
       "flexible_threshold": 30,
@@ -113,41 +113,41 @@
           "minimum_level": 65
         },
         {
-          "skill_id": "grammar_basic_greetings",
+          "skill_id": "grammar_greetings",
           "minimum_level": 65
         },
         {
-          "skill_id": "grammar_basic_yes_no",
+          "skill_id": "grammar_affirm_negation",
           "minimum_level": 65
         },
         {
-          "skill_id": "grammar_numbers_basic",
+          "skill_id": "grammar_numbers_colors",
           "minimum_level": 65
         },
         {
-          "skill_id": "grammar_colors_basic",
+          "skill_id": "vocab_introductions",
           "minimum_level": 65
         },
         {
-          "skill_id": "vocab_intro_names",
+          "skill_id": "vocab_days_months",
           "minimum_level": 65
         },
         {
-          "skill_id": "vocab_numbers_1_100",
+          "skill_id": "vocab_basic_objects",
           "minimum_level": 65
         }
       ],
       "flexible_skill_pool": [
-        "pragmatic_greeting_basic",
-        "pragmatic_politeness_expressions",
-        "pragmatic_introduction_basic",
-        "pragmatic_farewell_basic",
-        "pragmatic_questions_basic",
-        "pragmatic_formal_address",
-        "pragmatic_informal_address",
-        "pragmatic_accepting_invitations",
-        "vocab_activities",
-        "vocab_daily_routines"
+        "pragmatic_greetings_basic",
+        "pragmatic_leave_taking_basic",
+        "pragmatic_thanking_basic",
+        "pragmatic_yes_no_responses",
+        "pragmatic_introductions",
+        "pragmatic_formal_vs_informal",
+        "pragmatic_asking_questions_basic",
+        "pragmatic_polite_requests",
+        "pragmatic_expressing_opinions",
+        "pragmatic_making_apologies"
       ],
       "flexible_skill_count": 5,
       "flexible_threshold": 40,
@@ -163,8 +163,8 @@
     "A2"
   ],
   "_meta": {
-    "target_language": "spanish",
-    "native_language": "english",
+    "target_language": "Spanish",
+    "native_language": "English",
     "total_transitions": 4
   }
 }

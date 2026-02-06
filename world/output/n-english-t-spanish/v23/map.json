@@ -1,0 +1,763 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Vallecantos",
+      "target_language": "Vallecantos"
+    },
+    "description": {
+      "native_language": "A welcoming and serene village rich in tradition and colorful festivals.",
+      "target_language": "Un pueblo acogedor y sereno, rico en tradiciones y festivales coloridos."
+    },
+    "scale": "village"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Sunlit Meadows",
+        "target_language": "Prados Soleados"
+      },
+      "description": {
+        "native_language": "A gentle starting area with grassy fields, perfect for beginners.",
+        "target_language": "Un área inicial suave con campos de hierba, perfecta para principiantes."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_sunlit_meadows"
+    },
+    {
+      "name": {
+        "native_language": "Whispering Woods",
+        "target_language": "Bosques Susurrantes"
+      },
+      "description": {
+        "native_language": "A mystical forest filled with vibrant life and simple enchantments.",
+        "target_language": "Un bosque místico lleno de vida vibrante y encantamientos simples."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_whispering_woods"
+    },
+    {
+      "name": {
+        "native_language": "Silverbrook Town",
+        "target_language": "Pueblo de Riachuelos"
+      },
+      "description": {
+        "native_language": "A bustling town center with shops and a lively market.",
+        "target_language": "Un bullicioso centro del pueblo con tiendas y un mercado animado."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_silverbrook_town"
+    },
+    {
+      "name": {
+        "native_language": "Crescent Lake",
+        "target_language": "Lago Creciente"
+      },
+      "description": {
+        "native_language": "A peaceful lake surrounded by quaint cottages and scenic paths.",
+        "target_language": "Un lago tranquilo rodeado de acogedoras cabañas y senderos pintorescos."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_crescent_lake"
+    },
+    {
+      "name": {
+        "native_language": "Starry Peaks",
+        "target_language": "Picos Estrellados"
+      },
+      "description": {
+        "native_language": "High mountains offering challenging trails and breathtaking views.",
+        "target_language": "Altas montañas que ofrecen senderos desafiantes y vistas impresionantes."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_starry_peaks"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Welcome Clearing",
+        "target_language": "Claro de Bienvenida"
+      },
+      "description": {
+        "native_language": "A bright clearing where you can learn basic greetings.",
+        "target_language": "Un claro brillante donde puedes aprender saludos básicos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basics",
+        "target_language": "básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and welcoming.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_1_welcome_clearing",
+      "region_id": "region_1_sunlit_meadows",
+      "connections": [
+        "loc_2_golden_grove",
+        "loc_3_sunny_banks"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Golden Grove",
+        "target_language": "Arboleda Dorada"
+      },
+      "description": {
+        "native_language": "A beautiful grove perfect for counting and colors.",
+        "target_language": "Una hermosa arboleda perfecta para contar y colores."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers",
+        "colors"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature",
+        "target_language": "naturaleza"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and vibrant.",
+        "target_language": "Tranquilo y vibrante."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_2_golden_grove",
+      "region_id": "region_1_sunlit_meadows",
+      "connections": [
+        "loc_1_welcome_clearing",
+        "loc_4_sylvan_trail"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Sunny Banks",
+        "target_language": "Orillas Soleadas"
+      },
+      "description": {
+        "native_language": "A serene riverside where you practice yes and no.",
+        "target_language": "Una orilla serena donde practicas sí y no."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "yes/no",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "affirmations",
+        "target_language": "afirmaciones"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and soothing.",
+        "target_language": "Calmo y relajante."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 2
+      },
+      "id": "loc_3_sunny_banks",
+      "region_id": "region_1_sunlit_meadows",
+      "connections": [
+        "loc_1_welcome_clearing",
+        "loc_5_enchanted_glade"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Sylvan Trail",
+        "target_language": "Senda Silvana"
+      },
+      "description": {
+        "native_language": "A forest path where you meet fellow travelers.",
+        "target_language": "Un sendero forestal donde conoces a otros viajeros."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "introductions",
+        "simple commands"
+      ],
+      "vocabulary_domain": {
+        "native_language": "interactions",
+        "target_language": "interacciones"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Mystical and engaging.",
+        "target_language": "Místico y envolvente."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 1
+      },
+      "id": "loc_4_sylvan_trail",
+      "region_id": "region_2_whispering_woods",
+      "connections": [
+        "loc_2_golden_grove",
+        "loc_6_old_oak_tavern"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Enchanted Glade",
+        "target_language": "Claro Encantado"
+      },
+      "description": {
+        "native_language": "A magical meadow for learning days and months.",
+        "target_language": "Un prado mágico para aprender días y meses."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "days/months",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "time",
+        "target_language": "tiempo"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Whimsical and bright.",
+        "target_language": "Fantasioso y brillante."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 1
+      },
+      "id": "loc_5_enchanted_glade",
+      "region_id": "region_2_whispering_woods",
+      "connections": [
+        "loc_3_sunny_banks",
+        "loc_7_silver_swing_market"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Old Oak Tavern",
+        "target_language": "Taberna Roble Viejo"
+      },
+      "description": {
+        "native_language": "A cozy inn where locals relax and share stories.",
+        "target_language": "Una acogedora taberna donde los locales se relajan y comparten historias."
+      },
+      "type": "building",
+      "language_topics": [
+        "introductions",
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "hospitality",
+        "target_language": "hospitalidad"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      },
+      "id": "loc_6_old_oak_tavern",
+      "region_id": "region_2_whispering_woods",
+      "connections": [
+        "loc_4_sylvan_trail",
+        "loc_8_lamplight_library"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Silver Swing Market",
+        "target_language": "Mercado del Columpio de Plata"
+      },
+      "description": {
+        "native_language": "A vibrant market bustling with chatter and haggling.",
+        "target_language": "Un mercado vibrante lleno de charlas y regateos."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping basics",
+        "directions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "commerce",
+        "target_language": "comercio"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and bustling.",
+        "target_language": "Animado y bullicioso."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 1
+      },
+      "id": "loc_7_silver_swing_market",
+      "region_id": "region_3_silverbrook_town",
+      "connections": [
+        "loc_5_enchanted_glade",
+        "loc_9_bridge_of_whispers"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Lamplight Library",
+        "target_language": "Biblioteca Luz de Lámpara"
+      },
+      "description": {
+        "native_language": "A serene library for studying and discovering new knowledge.",
+        "target_language": "Una biblioteca serena para estudiar y descubrir nuevo conocimiento."
+      },
+      "type": "building",
+      "language_topics": [
+        "family",
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "education",
+        "target_language": "educación"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and wise.",
+        "target_language": "Tranquilo y sabio."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 2
+      },
+      "id": "loc_8_lamplight_library",
+      "region_id": "region_3_silverbrook_town",
+      "connections": [
+        "loc_6_old_oak_tavern",
+        "loc_10_crescent_cottage"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Bridge of Whispers",
+        "target_language": "Puente de Susurros"
+      },
+      "description": {
+        "native_language": "A stone bridge connecting the main village with quiet paths.",
+        "target_language": "Un puente de piedra que conecta el pueblo principal con caminos tranquilos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "directions",
+        "basic conversations"
+      ],
+      "vocabulary_domain": {
+        "native_language": "navigation",
+        "target_language": "navegación"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Echoes with stories.",
+        "target_language": "Resuena con historias."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 1
+      },
+      "id": "loc_9_bridge_of_whispers",
+      "region_id": "region_3_silverbrook_town",
+      "connections": [
+        "loc_7_silver_swing_market",
+        "loc_11_lakeside_cafe"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Crescent Cottage",
+        "target_language": "Cabaña Creciente"
+      },
+      "description": {
+        "native_language": "A cozy home for practicing daily routines and hobbies.",
+        "target_language": "Una acogedora cabaña para practicar rutinas diarias y hobbies."
+      },
+      "type": "home",
+      "language_topics": [
+        "daily routines",
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "domestic life",
+        "target_language": "vida doméstica"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Homely and artistic.",
+        "target_language": "Hogareño y artístico."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 2
+      },
+      "id": "loc_10_crescent_cottage",
+      "region_id": "region_4_crescent_lake",
+      "connections": [
+        "loc_8_lamplight_library",
+        "loc_12_windy_path"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Lakeside Cafe",
+        "target_language": "Café Junto al Lago"
+      },
+      "description": {
+        "native_language": "A charming cafe ideal for discussing past events.",
+        "target_language": "Un encantador café ideal para discutir eventos pasados."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food",
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "cuisine",
+        "target_language": "cocina"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Cozy and reflective.",
+        "target_language": "Acogedor y reflexivo."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 3
+      },
+      "id": "loc_11_lakeside_cafe",
+      "region_id": "region_4_crescent_lake",
+      "connections": [
+        "loc_9_bridge_of_whispers",
+        "loc_13_starwatch_camp"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Windy Path",
+        "target_language": "Camino Ventoso"
+      },
+      "description": {
+        "native_language": "A twisty path that wraps around the lake providing scenic views.",
+        "target_language": "Un camino serpenteante que rodea el lago proporcionando vistas pintorescas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "descriptions",
+        "daily life"
+      ],
+      "vocabulary_domain": {
+        "native_language": "scenery",
+        "target_language": "paisajes"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Breezy and fresh.",
+        "target_language": "Aireado y fresco."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      },
+      "id": "loc_12_windy_path",
+      "region_id": "region_4_crescent_lake",
+      "connections": [
+        "loc_10_crescent_cottage",
+        "loc_14_starlit_observatory"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Starwatch Camp",
+        "target_language": "Campamento Vigía de Estrellas"
+      },
+      "description": {
+        "native_language": "A campsite where travelers share plans and dreams under the stars.",
+        "target_language": "Un campamento donde los viajeros comparten planes y sueños bajo las estrellas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "plans",
+        "future tense"
+      ],
+      "vocabulary_domain": {
+        "native_language": "aspirations",
+        "target_language": "aspiraciones"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Dreamy and open.",
+        "target_language": "Soñador y abierto."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 2
+      },
+      "id": "loc_13_starwatch_camp",
+      "region_id": "region_5_starry_peaks",
+      "connections": [
+        "loc_11_lakeside_cafe",
+        "loc_15_twilight_summit"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Starlit Observatory",
+        "target_language": "Observatorio Estrellado"
+      },
+      "description": {
+        "native_language": "An observatory where you learn about the stars and form opinions.",
+        "target_language": "Un observatorio donde aprendes sobre las estrellas y formas opiniones."
+      },
+      "type": "building",
+      "language_topics": [
+        "opinions",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "exploration",
+        "target_language": "exploración"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Thoughtful and expansive.",
+        "target_language": "Reflexivo y expansivo."
+      },
+      "coordinates": {
+        "x": 10,
+        "y": 3
+      },
+      "id": "loc_14_starlit_observatory",
+      "region_id": "region_5_starry_peaks",
+      "connections": [
+        "loc_12_windy_path"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Twilight Summit",
+        "target_language": "Cumbre Crepuscular"
+      },
+      "description": {
+        "native_language": "The high peak where challenges await the most prepared.",
+        "target_language": "El pico alto donde desafíos esperan a los más preparados."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "comparatives",
+        "conditionals"
+      ],
+      "vocabulary_domain": {
+        "native_language": "challenges",
+        "target_language": "desafíos"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Elevated and visionary.",
+        "target_language": "Elevado y visionario."
+      },
+      "coordinates": {
+        "x": 10,
+        "y": 2
+      },
+      "id": "loc_15_twilight_summit",
+      "region_id": "region_5_starry_peaks",
+      "connections": [
+        "loc_13_starwatch_camp"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_welcome_clearing",
+      "to_location": "loc_2_golden_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_welcome_clearing",
+      "to_location": "loc_3_sunny_banks",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_golden_grove",
+      "to_location": "loc_4_sylvan_trail",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_sunny_banks",
+      "to_location": "loc_5_enchanted_glade",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_sylvan_trail",
+      "to_location": "loc_6_old_oak_tavern",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_enchanted_glade",
+      "to_location": "loc_7_silver_swing_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_old_oak_tavern",
+      "to_location": "loc_8_lamplight_library",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_silver_swing_market",
+      "to_location": "loc_9_bridge_of_whispers",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_lamplight_library",
+      "to_location": "loc_10_crescent_cottage",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_bridge_of_whispers",
+      "to_location": "loc_11_lakeside_cafe",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_crescent_cottage",
+      "to_location": "loc_12_windy_path",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_lakeside_cafe",
+      "to_location": "loc_13_starwatch_camp",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_windy_path",
+      "to_location": "loc_14_starlit_observatory",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_starwatch_camp",
+      "to_location": "loc_15_twilight_summit",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_welcome_clearing"
+}

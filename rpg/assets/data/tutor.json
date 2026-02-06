@@ -1,5 +1,5 @@
 {
-  "tutor_system_prompt": "You are a friendly language tutor helping the player learn spanish.\n\nYou exist OUTSIDE the game world - you're a helpful guide, not an in-game character.\n\nYour role:\n- Praise the player when they learn new words\n- Explain vocabulary and grammar when asked\n- Offer practice exercises after quests\n- Give hints when the player is stuck\n- Celebrate milestones\n\nTeaching approach:\n- Start simple, build complexity gradually\n- Connect new words to what the player just experienced in-game\n- Keep explanations brief and clear\n- Use english for explanations, spanish for examples\n- Be encouraging but not overly effusive\n- Adapt to the player's current level\n\nIntervention moments:\n- When a quest is completed: Review vocabulary learned\n- When new vocabulary is introduced: Brief explanation before it's needed\n- When the player seems stuck: Offer contextual hints\n- At level milestones: Celebrate and summarize progress\n- At session end: Review and set goals\n\nRemember: You are NOT a game character. You're a meta-level assistant helping the player\nlearn the language through their gaming experience. Be warm, patient, and supportive.",
+  "tutor_system_prompt": "You are a friendly language tutor helping the player learn Spanish.\n\nYou exist OUTSIDE the game world - you're a helpful guide, not an in-game character.\n\nYour role:\n- Praise the player when they learn new words\n- Explain vocabulary and grammar when asked\n- Offer practice exercises after quests\n- Give hints when the player is stuck\n- Celebrate milestones\n\nTeaching approach:\n- Start simple, build complexity gradually\n- Connect new words to what the player just experienced in-game\n- Keep explanations brief and clear\n- Use English for explanations, Spanish for examples\n- Be encouraging but not overly effusive\n- Adapt to the player's current level\n\nIntervention moments:\n- When a quest is completed: Review vocabulary learned\n- When new vocabulary is introduced: Brief explanation before it's needed\n- When the player seems stuck: Offer contextual hints\n- At level milestones: Celebrate and summarize progress\n- At session end: Review and set goals\n\nRemember: You are NOT a game character. You're a meta-level assistant helping the player\nlearn the language through their gaming experience. Be warm, patient, and supportive.",
   "teaching_style": {
     "native_language": "Encouraging and patient",
     "target_language": "Alentador y paciente"
@@ -13,132 +13,144 @@
     "session_end"
   ],
   "vocabulary_by_quest": {
-    "quest_1_the_lost_apple": [
-      "manzana (apple)",
-      "plaza del pueblo (town square)",
-      "encontrar (find)",
-      "pregunta",
-      "lucas",
-      "encuentra",
-      "manzana",
-      "devuelve"
-    ],
-    "quest_2_bread_delivery": [
+    "quest_2_bread_for_breakfast": [
       "pan (bread)",
-      "entregar (deliver)",
-      "mercado (marketplace)",
+      "café (café)",
+      "desayuno (breakfast)",
       "compra",
       "pan",
+      "completa",
+      "minijuego",
       "entrega"
     ],
-    "quest_4_the_green_grove_mystery": [
-      "secreto (secret)",
-      "bosque (grove)",
-      "flor (flower)",
+    "quest_12_message_of_the_main_street": [
+      "botella de agua (water bottle)",
+      "calle (street)",
+      "parque (park)",
       "habla",
-      "carmen",
-      "encuentra",
+      "marcos",
       "recoge",
-      "regresa",
-      "don"
+      "botella",
+      "completa",
+      "minijuego",
+      "entrega"
     ],
-    "quest_13_a_flower_for_isabella": [
-      "flor (flower)",
-      "hermosa (beautiful)",
-      "amigo/amiga (friend)",
-      "green",
-      "grove",
+    "quest_13_amistad_en_el_parque": [
+      "azul (blue)",
+      "piedra (stone)",
+      "amigo (friend)",
+      "parque",
+      "amistad",
       "recoge",
-      "flor",
-      "devuelve"
+      "piedra",
+      "completa",
+      "minijuego"
     ],
-    "quest_21_gather_apples": [
-      "manzana (apple)",
-      "pastel (pie)",
-      "recoger (gather)",
-      "pregunta",
-      "lucas",
-      "plaza",
-      "del",
+    "quest_22_gloria_s_request": [
+      "agua (water)",
+      "botella (bottle)",
+      "quiero (want)",
+      "visita",
+      "calle",
+      "recoge",
+      "botella",
       "lleva",
-      "manzanas"
+      "juega",
+      "juego"
     ],
-    "quest_22_deliver_bread_to_carmen": [
-      "pan (bread)",
-      "entregar (deliver)",
-      "taberna (tavern)",
-      "compra",
-      "pan",
-      "lleva"
-    ],
-    "quest_24_convince_pablo_to_join": [
-      "festival (festival)",
-      "equipo (team)",
-      "unirse (join)",
-      "pregúntale",
-      "mateo",
-      "habla",
-      "pablo",
-      "informa"
-    ],
-    "quest_31_fruit_for_the_feast": [
-      "manzana (apple)",
+    "quest_23_sweet_fruit_delivery": [
+      "plátano (banana)",
       "fruta (fruit)",
-      "sí (yes)",
+      "comprar (buy)",
+      "visita",
+      "puesto",
+      "compra",
+      "plátano",
+      "regresa",
+      "diego",
+      "completa"
+    ],
+    "quest_31_welcome_gift": [
+      "manzana (apple)",
+      "regalo (gift)",
+      "amigo (friend)",
+      "habla",
+      "marcos",
       "encuentra",
       "manzana",
-      "lleva"
+      "completa",
+      "juego",
+      "dale"
     ],
-    "quest_41_simple_gather_apple_for_lucas": [
-      "manzana (apple)",
-      "por favor (please)",
-      "gracias (thank you)",
-      "plaza",
-      "del",
-      "dale",
-      "manzana"
+    "quest_32_nature_s_colors": [
+      "parque (park)",
+      "piedra (stone)",
+      "azul (blue)",
+      "habla",
+      "sofía",
+      "encuentra",
+      "piedra",
+      "completa",
+      "juego",
+      "informa"
+    ],
+    "quest_33_fruit_gathering": [
+      "plátano (banana)",
+      "puesto de fruta (fruit stand)",
+      "recoger (collect)",
+      "habla",
+      "carlos",
+      "compra",
+      "plátano",
+      "completa",
+      "juego",
+      "regresa"
+    ],
+    "quest_34_bread_run": [
+      "pan (bread)",
+      "café (café)",
+      "entregar (deliver)",
+      "recibe",
+      "barra",
+      "obtén",
+      "direcciones",
+      "entregar",
+      "pan",
+      "completa"
     ]
   },
   "grammar_by_level": {
     "A0": [
-      "Basic greetings and farewells (e.g., Hola, Adiós)",
-      "Simple affirmations like 'Sí' and 'No'",
-      "The alphabet and pronunciation basics",
-      "Numbers 1-10 and basic colors",
-      "Common polite expressions (e.g., Gracias, Por favor)"
+      "Basic greetings and introductions (Hola, ¿Cómo estás?, Me llamo...)",
+      "Simple affirmations and farewells (Sí, No, Adiós)",
+      "Basic numbers and colors (uno, dos, tres; rojo, azul, verde)"
     ],
     "A0+": [
       "Definite and indefinite articles (el, la, los, las, un, una)",
-      "Basic present tense conjugation of regular verbs (-ar, -er, -ir)",
-      "Simple questions with '¿Qué?', '¿Quién?', '¿Cómo?'",
-      "Subject pronouns (yo, tú, él, ella, etc.)",
-      "Basic adjective agreement and positioning"
+      "Basic present tense of regular verbs (hablar, comer, vivir)",
+      "Simple questions using intonation (¿Tienes hambre?)"
     ],
     "A1": [
-      "Present tense conjugation of common irregular verbs (ser, estar, ir, tener)",
-      "Structure of simple sentences (subject-verb-object)",
-      "Negation using 'no' before the verb",
-      "Using question words in forming questions (e.g., ¿Dónde?, ¿Cuándo?)",
-      "Introduction to gendered nouns and adjective-noun agreement"
+      "Present tense of regular -ar, -er, -ir verbs",
+      "Negation with 'no + verb' (No hablo español)",
+      "Question words (¿Quién?, ¿Qué?, ¿Dónde?, ¿Cuándo?)"
     ],
     "A1+": [
-      "Conjugation of stem-changing verbs in the present tense (e.g., poder, querer, jugar)",
-      "Introduction to simple past tense (pretérito) for regular verbs",
-      "Use of conjunctions (y, o, pero, porque) to form compound sentences",
-      "Expressing likes/dislikes with 'gustar' and similar verbs",
-      "Introduction to reflexive verbs (e.g., levantarse, bañarse)"
+      "Introduction to irregular present tense verbs (ser, estar, ir)",
+      "Simple conjunctions like 'y', 'pero', 'o'",
+      "Introduction to the past tense (pretérito perfecto simple) for regular verbs"
     ],
     "A2": [
-      "Distinction between pretérito and imperfecto for past events",
-      "Simple future tense using 'ir a + infinitive'",
-      "Using 'ser' versus 'estar' for different types of 'to be'",
-      "Introduction to conditionals with 'si' for simple conditions",
-      "Direct and indirect object pronouns and their placement"
+      "Distinguishing between ser and estar",
+      "Simple future tense with 'ir a + infinitive' (Voy a comer)",
+      "Introduction to reflexive verbs (Me levanto, Te bañas)",
+      "Basic conditional sentences with 'si' (Si tengo tiempo, voy)",
+      "Using direct object pronouns (me, te, lo, la)"
     ]
   },
   "_meta": {
-    "target_language": "spanish",
-    "native_language": "english",
+    "target_language": "Spanish",
+    "native_language": "English",
     "total_quests_indexed": 9,
     "levels_covered": [
       "A0",

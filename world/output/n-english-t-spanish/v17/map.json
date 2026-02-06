@@ -1,0 +1,816 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "The Village of Bright Light",
+      "target_language": "El Pueblo de Luz Clara"
+    },
+    "description": {
+      "native_language": "A quaint village where language paths intertwine.",
+      "target_language": "Un pueblo pintoresco donde se entrelazan los caminos del idioma."
+    },
+    "scale": "village"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Beginners' Meadows",
+        "target_language": "Praderas de Principiantes"
+      },
+      "description": {
+        "native_language": "A welcoming area for new adventurers.",
+        "target_language": "Un área acogedora para nuevos aventureros."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_beginners_meadows"
+    },
+    {
+      "name": {
+        "native_language": "Novice Hills",
+        "target_language": "Colinas de Novatos"
+      },
+      "description": {
+        "native_language": "Gently sloping meadows with hidden gems.",
+        "target_language": "Praderas en pendiente suave con gemas escondidas."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_novice_hills"
+    },
+    {
+      "name": {
+        "native_language": "Scholars' Quarter",
+        "target_language": "Cuartel de los Académicos"
+      },
+      "description": {
+        "native_language": "Where knowledge seekers gather.",
+        "target_language": "Donde se congregan los buscadores de conocimiento."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_scholars_quarter"
+    },
+    {
+      "name": {
+        "native_language": "Rangers' Forest",
+        "target_language": "Bosque de los Guardianes"
+      },
+      "description": {
+        "native_language": "Mystical woods for promising learners.",
+        "target_language": "Bosques místicos para aprendices prometedores."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_rangers_forest"
+    },
+    {
+      "name": {
+        "native_language": "Adventurers' Outpost",
+        "target_language": "Puesto de los Aventureros"
+      },
+      "description": {
+        "native_language": "A bustling hub for experienced travelers.",
+        "target_language": "Un bullicioso centro para viajeros experimentados."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_adventurers_outpost"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Town Square",
+        "target_language": "Plaza del Pueblo"
+      },
+      "description": {
+        "native_language": "The heart of the village where everyone greets each other.",
+        "target_language": "El corazón del pueblo donde todos se saludan."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic greetings",
+        "target_language": "saludos básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and friendly.",
+        "target_language": "Animado y amigable."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "id": "loc_1_town_square",
+      "region_id": "region_1_beginners_meadows",
+      "connections": [
+        "loc_2_flower_market",
+        "loc_3_gaslight_inn",
+        "loc_4_rainbow_grove"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Flower Market",
+        "target_language": "Mercado de Flores"
+      },
+      "description": {
+        "native_language": "A vibrant market with vendors selling colorful flowers.",
+        "target_language": "Un vibrante mercado con vendedores de flores coloridas."
+      },
+      "type": "shop",
+      "language_topics": [
+        "colors",
+        "shopping"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors and basic objects",
+        "target_language": "colores y objetos básicos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Fragrant and bustling.",
+        "target_language": "Aromático y bullicioso."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      },
+      "id": "loc_2_flower_market",
+      "region_id": "region_1_beginners_meadows",
+      "connections": [
+        "loc_1_town_square",
+        "loc_4_rainbow_grove"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Gaslight Inn",
+        "target_language": "Posada de las Luces de Gas"
+      },
+      "description": {
+        "native_language": "A cozy inn where locals gather for warm meals.",
+        "target_language": "Una acogedora posada donde los locales se reúnen para comidas cálidas."
+      },
+      "type": "building",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic foods",
+        "target_language": "comidas básicas"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 3
+      },
+      "id": "loc_3_gaslight_inn",
+      "region_id": "region_1_beginners_meadows",
+      "connections": [
+        "loc_1_town_square",
+        "loc_5_crooked_path"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Rainbow Grove",
+        "target_language": "Arboleda del Arcoíris"
+      },
+      "description": {
+        "native_language": "A serene grove with colorful trees.",
+        "target_language": "Una arboleda serena con árboles coloridos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature and colors",
+        "target_language": "naturaleza y colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Tranquil and colorful.",
+        "target_language": "Tranquilo y colorido."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 7
+      },
+      "id": "loc_4_rainbow_grove",
+      "region_id": "region_1_beginners_meadows",
+      "connections": [
+        "loc_1_town_square",
+        "loc_2_flower_market",
+        "loc_6_quiet_library"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Crooked Path",
+        "target_language": "Camino Torcido"
+      },
+      "description": {
+        "native_language": "A winding road lined with ancient trees.",
+        "target_language": "Un camino serpenteante bordeado de árboles antiguos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "directions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic directions",
+        "target_language": "direcciones básicas"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Mystical and aged.",
+        "target_language": "Místico y envejecido."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 4
+      },
+      "id": "loc_5_crooked_path",
+      "region_id": "region_2_novice_hills",
+      "connections": [
+        "loc_3_gaslight_inn",
+        "loc_7_sunny_orchard"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Quiet Library",
+        "target_language": "Biblioteca Tranquila"
+      },
+      "description": {
+        "native_language": "A peaceful place filled with ancient tomes.",
+        "target_language": "Un lugar pacífico lleno de tomos antiguos."
+      },
+      "type": "building",
+      "language_topics": [
+        "reading",
+        "study"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic educational terms",
+        "target_language": "términos educativos básicos"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and erudite.",
+        "target_language": "Calmo y erudito."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      },
+      "id": "loc_6_quiet_library",
+      "region_id": "region_2_novice_hills",
+      "connections": [
+        "loc_4_rainbow_grove",
+        "loc_8_scholars_academy"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Sunny Orchard",
+        "target_language": "Huerto Soleado"
+      },
+      "description": {
+        "native_language": "A flourishing orchard with sweet fruits.",
+        "target_language": "Un huerto floreciente con frutas dulces."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "fruits",
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "fruits and nature",
+        "target_language": "frutas y naturaleza"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lush and refreshing.",
+        "target_language": "Exuberante y refrescante."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 3
+      },
+      "id": "loc_7_sunny_orchard",
+      "region_id": "region_2_novice_hills",
+      "connections": [
+        "loc_4_rainbow_grove",
+        "loc_9_rainy_cafe"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Scholars' Academy",
+        "target_language": "Academia de los Eruditos"
+      },
+      "description": {
+        "native_language": "A hub for eager learners and scholars.",
+        "target_language": "Un centro para aprendices ansiosos y eruditos."
+      },
+      "type": "building",
+      "language_topics": [
+        "education"
+      ],
+      "vocabulary_domain": {
+        "native_language": "academic terms",
+        "target_language": "términos académicos"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Scholarly and inspiring.",
+        "target_language": "Erudito e inspirador."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 2
+      },
+      "id": "loc_8_scholars_academy",
+      "region_id": "region_3_scholars_quarter",
+      "connections": [
+        "loc_6_quiet_library",
+        "loc_10_brick_bridge"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Rainy Cafe",
+        "target_language": "Cafetería Lluviosa"
+      },
+      "description": {
+        "native_language": "An old cafe where students converse.",
+        "target_language": "Una cafetería antigua donde los estudiantes conversan."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food",
+        "conversation"
+      ],
+      "vocabulary_domain": {
+        "native_language": "conversation and meals",
+        "target_language": "conversación y comidas"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Cozy and chatty.",
+        "target_language": "Acogedor y parlanchín."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      },
+      "id": "loc_9_rainy_cafe",
+      "region_id": "region_3_scholars_quarter",
+      "connections": [
+        "loc_7_sunny_orchard",
+        "loc_11_lost_forest"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Brick Bridge",
+        "target_language": "Puente de Ladrillo"
+      },
+      "description": {
+        "native_language": "An ancient bridge overlooking the river.",
+        "target_language": "Un puente antiguo que mira sobre el río."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "objects",
+        "transport"
+      ],
+      "vocabulary_domain": {
+        "native_language": "objects and directions",
+        "target_language": "objetos y direcciones"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Majestic and serene.",
+        "target_language": "Majestuoso y sereno."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 8
+      },
+      "id": "loc_10_brick_bridge",
+      "region_id": "region_3_scholars_quarter",
+      "connections": [
+        "loc_8_scholars_academy",
+        "loc_12_scribe_house"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Lost Forest",
+        "target_language": "Bosque Perdido"
+      },
+      "description": {
+        "native_language": "A deep forest filled with secrets.",
+        "target_language": "Un bosque profundo lleno de secretos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "nature",
+        "adventure"
+      ],
+      "vocabulary_domain": {
+        "native_language": "advanced nature vocabulary",
+        "target_language": "vocabulario de naturaleza avanzado"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Mysterious and dense.",
+        "target_language": "Misterioso y denso."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 2
+      },
+      "id": "loc_11_lost_forest",
+      "region_id": "region_4_rangers_forest",
+      "connections": [
+        "loc_9_rainy_cafe",
+        "loc_13_echoing_caves"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Scribe House",
+        "target_language": "Casa de los Escribas"
+      },
+      "description": {
+        "native_language": "A quiet place for writing and reflection.",
+        "target_language": "Un lugar tranquilo para escribir y reflexionar."
+      },
+      "type": "building",
+      "language_topics": [
+        "writing"
+      ],
+      "vocabulary_domain": {
+        "native_language": "writing and expression",
+        "target_language": "escritura y expresión"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Serene and thoughtful.",
+        "target_language": "Sereno y reflexivo."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 8
+      },
+      "id": "loc_12_scribe_house",
+      "region_id": "region_4_rangers_forest",
+      "connections": [
+        "loc_10_brick_bridge",
+        "loc_14_adventure_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Echoing Caves",
+        "target_language": "Cuevas Resonantes"
+      },
+      "description": {
+        "native_language": "Mysterious caves with echoing sounds.",
+        "target_language": "Cuevas misteriosas con sonidos resonantes."
+      },
+      "type": "dungeon",
+      "language_topics": [
+        "mystery",
+        "exploration"
+      ],
+      "vocabulary_domain": {
+        "native_language": "adventure and exploration",
+        "target_language": "aventura y exploración"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Echoing and enigmatic.",
+        "target_language": "Resonante y enigmático."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 9
+      },
+      "id": "loc_13_echoing_caves",
+      "region_id": "region_4_rangers_forest",
+      "connections": [
+        "loc_11_lost_forest",
+        "loc_15_marketplace"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Adventure Plaza",
+        "target_language": "Plaza de la Aventura"
+      },
+      "description": {
+        "native_language": "A bustling plaza filled with adventurers.",
+        "target_language": "Una bulliciosa plaza llena de aventureros."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "travel",
+        "meeting"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel and exploration",
+        "target_language": "viajes y exploración"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and adventurous.",
+        "target_language": "Animado y aventurero."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 9
+      },
+      "id": "loc_14_adventure_plaza",
+      "region_id": "region_5_adventurers_outpost",
+      "connections": [
+        "loc_12_scribe_house",
+        "loc_16_explorer_s_tavern"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Marketplace",
+        "target_language": "Mercado"
+      },
+      "description": {
+        "native_language": "A market buzzing with vendors and buyers.",
+        "target_language": "Un mercado animado con vendedores y compradores."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "bargaining"
+      ],
+      "vocabulary_domain": {
+        "native_language": "economic transactions",
+        "target_language": "transacciones económicas"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and energetic.",
+        "target_language": "Bullicioso y energético."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 6
+      },
+      "id": "loc_15_marketplace",
+      "region_id": "region_5_adventurers_outpost",
+      "connections": [
+        "loc_13_echoing_caves"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Explorer's Tavern",
+        "target_language": "Taberna del Explorador"
+      },
+      "description": {
+        "native_language": "A place where tales of adventures are shared.",
+        "target_language": "Un lugar donde se comparten relatos de aventuras."
+      },
+      "type": "building",
+      "language_topics": [
+        "stories",
+        "adventure"
+      ],
+      "vocabulary_domain": {
+        "native_language": "storytelling and legends",
+        "target_language": "narración de historias y leyendas"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Hospitable and festive.",
+        "target_language": "Hospitalario y festivo."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 5
+      },
+      "id": "loc_16_explorer_s_tavern",
+      "region_id": "region_5_adventurers_outpost",
+      "connections": [
+        "loc_14_adventure_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_town_square",
+      "to_location": "loc_2_flower_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_town_square",
+      "to_location": "loc_3_gaslight_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_town_square",
+      "to_location": "loc_4_rainbow_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_flower_market",
+      "to_location": "loc_4_rainbow_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_gaslight_inn",
+      "to_location": "loc_5_crooked_path",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_rainbow_grove",
+      "to_location": "loc_6_quiet_library",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_crooked_path",
+      "to_location": "loc_7_sunny_orchard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_quiet_library",
+      "to_location": "loc_8_scholars_academy",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_sunny_orchard",
+      "to_location": "loc_4_rainbow_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_sunny_orchard",
+      "to_location": "loc_9_rainy_cafe",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_scholars_academy",
+      "to_location": "loc_10_brick_bridge",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_rainy_cafe",
+      "to_location": "loc_11_lost_forest",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_brick_bridge",
+      "to_location": "loc_12_scribe_house",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_lost_forest",
+      "to_location": "loc_13_echoing_caves",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_scribe_house",
+      "to_location": "loc_14_adventure_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_echoing_caves",
+      "to_location": "loc_15_marketplace",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_adventure_plaza",
+      "to_location": "loc_16_explorer_s_tavern",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_town_square"
+}

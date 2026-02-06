@@ -118,6 +118,9 @@ class QuestGenerator(BaseGenerator):
         """Generate quests for all language levels with retry logic."""
         print("  Generating quests...")
 
+        # Store games data for use in _generate_batch
+        self._games_data = games
+
         # Build lookup tables for index->ID conversion
         self.location_ids = [loc['id'] for loc in world_map.get('locations', [])]
         self.npc_ids = [npc['id'] for npc in npcs.get('npcs', [])]
@@ -135,7 +138,8 @@ class QuestGenerator(BaseGenerator):
             self.npc_locations[npc['id']] = npc.get('location_id')
 
         # Create validator (pass world_map twice: once for locations, once for path accessibility)
-        validator = QuestValidator(world_map, npcs, items, world_map)
+        # Also pass games data for minigame validation
+        validator = QuestValidator(world_map, npcs, items, world_map, games)
 
         # Build context for prompts - using indexed format
         locations_info = self._format_locations_indexed(world_map)
@@ -304,7 +308,15 @@ CRITICAL RULES:
 2. When referencing a location, use location_index: N
 3. When referencing an NPC, use npc_index: N
 4. When referencing an item, use item_index: N
-5. IMPORTANT: Items can only be obtained at their listed location!
+5. When referencing a game, use game_index: N
+6. IMPORTANT: Items can only be obtained at their listed location!
+
+MINIGAME REQUIREMENT (CRITICAL):
+- EVERY quest MUST include at least one minigame task
+- Use completion_type: "completed_game" with game_index to reference a minigame
+- Minigames reinforce vocabulary and grammar through interactive gameplay
+- If no games are listed, still include a completed_game task - games will be generated to match
+- Place the minigame task at a natural point in the quest (e.g., after learning new vocabulary)
 
 EDUCATIONAL VALUE:
 - target_vocabulary: List 3-6 key vocabulary words this quest reinforces
@@ -314,6 +326,7 @@ ANTI-PATTERNS TO AVOID:
 1. First task same location as quest giver -> auto-completes
 2. Telling player to get item X but sending them to wrong location
 3. Giving item before player acquires it
+4. Quest without a minigame -> rejected!
 
 TASK COMPLETION TYPES:
 - "at_location": player at location (use location_index)
@@ -321,7 +334,10 @@ TASK COMPLETION TYPES:
 - "has_item": player has item (use item_index)
 - "gave_item": player gave item to NPC (use item_index + npc_index for the NPC talked to before)
 - "received_item": player received item from NPC
-- "completed_game": player completed a mini-game (use game_index if games are provided)"""
+- "completed_game": player completed a mini-game (use game_index) - REQUIRED IN EVERY QUEST"""
+
+        # Format games info
+        games_info = self._format_games_indexed(getattr(self, '_games_data', None))
 
         user_prompt = f"""Generate {batch_size} quests. Use INDICES (0-based numbers) to reference entities.
 
@@ -334,6 +350,9 @@ TASK COMPLETION TYPES:
 === ITEMS WITH LOCATIONS (use index 0, 1, 2, etc.) ===
 {items_info}
 
+=== MINIGAMES (use index 0, 1, 2, etc.) ===
+{games_info}
+
 QUEST PATTERNS AND EDUCATIONAL FOCUS:
 {self._format_quest_patterns()}
 
@@ -345,6 +364,7 @@ REQUIREMENTS:
 5. Vary NPCs - don't use same NPC for all tasks
 6. Include target_vocabulary (3-6 bilingual words per quest)
 7. Include grammar_points (1-3 grammar structures per quest)
+8. CRITICAL: Every quest MUST have at least one "completed_game" task with a game_index!
 
 Target: {self.target_language}, Native: {self.native_language}"""
 
@@ -439,4 +459,17 @@ Target: {self.target_language}, Native: {self.native_language}"""
             lines.append(f"  Language focus: {', '.join(info['language_focus'])}")
             lines.append(f"  Typical vocabulary: {', '.join(info.get('typical_vocabulary', []))}")
             lines.append(f"  Typical grammar: {', '.join(info.get('typical_grammar', []))}")
+        return "\n".join(lines)
+
+    def _format_games_indexed(self, games: Dict[str, Any]) -> str:
+        """Format games with indices for the prompt."""
+        game_list = games.get('games', []) if games else []
+        if not game_list:
+            return "(No games available yet - will be generated based on quests)"
+        lines = []
+        for i, game in enumerate(game_list):
+            name = game.get('name', {})
+            name_str = name.get('native_language', game.get('id', f'game_{i}'))
+            level = game.get('language_level', 'A0')
+            lines.append(f"[{i}] {name_str} (level: {level})")
         return "\n".join(lines)

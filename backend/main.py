@@ -225,6 +225,7 @@ def validate_and_fix_messages(messages: list) -> list:
     # Handle any remaining pending tool calls at the end
     if pending_tool_calls:
         for tc_id, tc in pending_tool_calls.items():
+            print(f"used tools: {tc_id}: {tc}")
             fixed_messages.append({
                 "role": "tool",
                 "tool_call_id": tc_id,
@@ -241,8 +242,6 @@ class StreamChatRequest(BaseModel):
 
 
 async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, None]:
-    print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Starting stream generation for NPC: {request.npc_id}")
-    print(f"[GENERATE_STREAM] Message count: {request.message_count}, Tools count: {len(request.tools)}")
     sys.stdout.flush()
 
     # Send an SSE comment immediately to establish the stream and prevent buffering
@@ -292,11 +291,10 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         # Apply guardrails: Only allow tool calls after initial exchange
         # message_count: 0 = NPC opening, 1 = user first message, 2+ = can use tools
         allow_tools = request.message_count >= 2
-        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Allow tools: {allow_tools}")
+        print(f"[TOOL_DEBUG] NPC={request.npc_id} message_count={request.message_count} allow_tools={allow_tools} num_tools={len(openai_tools)}")
         sys.stdout.flush()
 
         # Create streaming response using async client
-        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Creating OpenAI stream...")
         sys.stdout.flush()
         stream = await async_client.chat.completions.create(
             model="gpt-4o-mini",
@@ -305,7 +303,6 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
             tool_choice="auto" if openai_tools and allow_tools else None,
             stream=True,
         )
-        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] OpenAI stream created, starting to iterate chunks...")
         sys.stdout.flush()
 
         collected_content = ""
@@ -323,7 +320,6 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
             if delta.content:
                 collected_content += delta.content
                 yield_data = f"data: {json.dumps({'type': 'content', 'content': delta.content})}\n\n"
-                print(f"[STREAM] [{datetime.datetime.now()}] Chunk #{chunk_count}: Yielding: {repr(delta.content)}")
                 sys.stdout.flush()
                 yield yield_data
                 # Force event loop to process I/O immediately
@@ -352,7 +348,6 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
                                 current["function"]["arguments"] += tc_delta.function.arguments
 
         # Send final message with complete content and any tool calls
-        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Stream complete. Total chunks: {chunk_count}, Total content length: {len(collected_content)}, Tool calls: {len(collected_tool_calls)}")
         sys.stdout.flush()
 
         final_response = {
@@ -362,7 +357,7 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         }
 
         if collected_tool_calls:
-            print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Sending final response with {len(collected_tool_calls)} tool calls")
+            print(f"[TOOL_DEBUG] NPC={request.npc_id} model returned {len(collected_tool_calls)} tool call(s): {[tc['function']['name'] for tc in collected_tool_calls]}")
             sys.stdout.flush()
             final_response["tool_calls"] = [
                 {
@@ -376,7 +371,7 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
                 for tc in collected_tool_calls
             ]
 
-        print(f"[GENERATE_STREAM] [{datetime.datetime.now()}] Yielding final 'done' message")
+        print(f"[TOOL_DEBUG] NPC={request.npc_id} sending final SSE: has_tool_calls={'tool_calls' in final_response} content_len={len(collected_content)}")
         sys.stdout.flush()
         yield f"data: {json.dumps(final_response)}\n\n"
         await asyncio.sleep(0)  # Force flush
@@ -394,9 +389,6 @@ async def chat_stream(request: StreamChatRequest):
     Streaming chat endpoint using Server-Sent Events (SSE).
     Returns text content as it's generated, then tool calls at the end.
     """
-    print(f"[STREAM ENDPOINT] Received streaming chat request for NPC: {request.npc_id}")
-    print(f"[STREAM ENDPOINT] Number of messages: {len(request.messages)}, message_count: {request.message_count}")
-
     return StreamingResponse(
         generate_stream(request),
         media_type="text/event-stream",

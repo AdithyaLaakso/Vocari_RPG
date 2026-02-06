@@ -1,0 +1,2173 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver Water to Pedro",
+        "target_language": "Entrega agua a Pedro"
+      },
+      "description": {
+        "native_language": "Pedro needs fresh water from the Golden Grove.",
+        "target_language": "Pedro necesita agua fresca de la Arboleda Dorada."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "fresh",
+          "target_language": "fresco"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "location prepositions",
+        "future intent"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Go to the Golden Grove to get water.",
+            "target_language": "Ve a la Arboleda Dorada para recoger agua."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_golden_grove"
+          },
+          "id": "quest_2_deliver_water_to_pedro_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Gather the fresh water.",
+            "target_language": "Recoge el agua fresca."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_2_deliver_water_to_pedro_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the deliver water game.",
+            "target_language": "Completa el juego de entregar agua."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_2_deliver_water_to_pedro_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Go back to Pedro and give him the water.",
+            "target_language": "Regresa a Pedro y dale el agua."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_2_deliver_water_to_pedro_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you bring me some fresh water?",
+          "target_language": "¿Podrías traerme algo de agua fresca?"
+        },
+        "quest_complete": {
+          "native_language": "This water is perfect, thank you!",
+          "target_language": "Esta agua es perfecta, ¡gracias!"
+        }
+      },
+      "id": "quest_2_deliver_water_to_pedro",
+      "giver_npc_id": "npc_1_pedro"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Learn About the Enchanted Glade",
+        "target_language": "Aprende sobre el Claro Encantado"
+      },
+      "description": {
+        "native_language": "Discover the secrets of the Enchanted Glade.",
+        "target_language": "Descubre los secretos del Claro Encantado."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "glade",
+          "target_language": "claro"
+        },
+        {
+          "native_language": "enchanted",
+          "target_language": "encantado"
+        },
+        {
+          "native_language": "secret",
+          "target_language": "secreto"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "descriptions",
+        "indirect speech"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Chloe about the Enchanted Glade.",
+            "target_language": "Habla con Chloe sobre el Claro Encantado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_10_chloe"
+          },
+          "id": "quest_3_learn_about_the_enchanted_glad_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the discover enchanted glade game.",
+            "target_language": "Completa el juego de descubrir el claro encantado."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_3_learn_about_the_enchanted_glad_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Speak with Gustavo to learn more.",
+            "target_language": "Habla con Gustavo para aprender más."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_11_gustavo"
+          },
+          "id": "quest_3_learn_about_the_enchanted_glad_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "The Enchanted Glade is full of wonders. Do you want to learn more?",
+          "target_language": "El Claro Encantado está lleno de maravillas. ¿Quieres aprender más?"
+        },
+        "quest_complete": {
+          "native_language": "You've learned much about the Glade.",
+          "target_language": "Has aprendido mucho sobre el Claro."
+        }
+      },
+      "id": "quest_3_learn_about_the_enchanted_glad",
+      "giver_npc_id": "npc_11_gustavo"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince Jorge to Join the Team",
+        "target_language": "Convence a Jorge para unirse al equipo"
+      },
+      "description": {
+        "native_language": "We need Jorge's help on the team.",
+        "target_language": "Necesitamos la ayuda de Jorge en el equipo."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "team",
+          "target_language": "equipo"
+        },
+        {
+          "native_language": "help",
+          "target_language": "ayuda"
+        },
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests",
+        "opinions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Jorge and learn his opinion.",
+            "target_language": "Habla con Jorge y escucha su opinión."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_27_jorge_the_villager"
+          },
+          "id": "quest_7_convince_jorge_to_join_the_tea_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the persuasion game to convince Jorge.",
+            "target_language": "Completa el juego de persuasión para convencer a Jorge."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_7_convince_jorge_to_join_the_tea_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Liam about Jorge's decision.",
+            "target_language": "Informa a Liam sobre la decisión de Jorge."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_19_liam_the_guard"
+          },
+          "id": "quest_7_convince_jorge_to_join_the_tea_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you talk to Jorge and try to convince him to join us?",
+          "target_language": "¿Puedes hablar con Jorge e intentar convencerlo de que se una a nosotros?"
+        },
+        "quest_complete": {
+          "native_language": "Great job! Thanks for convincing him.",
+          "target_language": "¡Buen trabajo! Gracias por convencerlo."
+        }
+      },
+      "id": "quest_7_convince_jorge_to_join_the_tea",
+      "giver_npc_id": "npc_19_liam_the_guard"
+    },
+    {
+      "type": "side",
+      "pattern": "social",
+      "name": {
+        "native_language": "Make Friends with Lina",
+        "target_language": "Haz amigos con Lina"
+      },
+      "description": {
+        "native_language": "Lina loves talking about gardens and flowers.",
+        "target_language": "A Lina le encanta hablar sobre jardines y flores."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        },
+        {
+          "native_language": "garden",
+          "target_language": "jardín"
+        },
+        {
+          "native_language": "flower",
+          "target_language": "flor"
+        }
+      ],
+      "grammar_points": [
+        "questions about others",
+        "expressing feelings",
+        "self-introduction"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Introduce yourself to Lina.",
+            "target_language": "Preséntate a Lina."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_30_lina_the_gardener"
+          },
+          "id": "quest_10_make_friends_with_lina_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Learn about Lina's hobbies.",
+            "target_language": "Aprende sobre los pasatiempos de Lina."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_30_lina_the_gardener"
+          },
+          "id": "quest_10_make_friends_with_lina_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the friendship minigame.",
+            "target_language": "Completa el minijuego de amistad."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_10_make_friends_with_lina_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Would you like to meet Lina? She has a beautiful garden.",
+          "target_language": "¿Te gustaría conocer a Lina? Tiene un jardín hermoso."
+        },
+        "quest_complete": {
+          "native_language": "You've made a new friend in Lina!",
+          "target_language": "¡Has hecho una nueva amiga en Lina!"
+        }
+      },
+      "id": "quest_10_make_friends_with_lina",
+      "giver_npc_id": "npc_30_lina_the_gardener"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gather Apples",
+        "target_language": "Recolecta manzanas"
+      },
+      "description": {
+        "native_language": "Help Mateo collect apples from the Welcome Clearing.",
+        "target_language": "Ayuda a Mateo a recolectar manzanas del Claro Bienvenida."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "gather",
+          "target_language": "recolectar"
+        },
+        {
+          "native_language": "welcome",
+          "target_language": "bienvenida"
+        }
+      ],
+      "grammar_points": [
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Mateo about the apples.",
+            "target_language": "Habla con Mateo sobre las manzanas."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_2_mateo"
+          },
+          "id": "quest_11_gather_apples_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to the Welcome Clearing to gather apples.",
+            "target_language": "Ve al Claro Bienvenida para recolectar manzanas."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_1_welcome_clearing"
+          },
+          "id": "quest_11_gather_apples_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Gather 3 apples at the Welcome Clearing.",
+            "target_language": "Recolecta 3 manzanas en el Claro Bienvenida."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_11_gather_apples_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Complete the gathering minigame.",
+            "target_language": "Completa el minijuego de recolección."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_11_gather_apples_task_4"
+        },
+        {
+          "order": 4,
+          "description": {
+            "native_language": "Return to Mateo with the apples.",
+            "target_language": "Regresa a Mateo con las manzanas."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_11_gather_apples_task_5"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I need help gathering apples for a pie. Could you assist me?",
+          "target_language": "Necesito ayuda para recolectar manzanas para una tarta. ¿Podrías ayudarme?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the apples! They will make a great pie.",
+          "target_language": "¡Gracias por las manzanas! Harán una gran tarta."
+        }
+      },
+      "id": "quest_11_gather_apples",
+      "giver_npc_id": "npc_2_mateo"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver Water",
+        "target_language": "Entrega agua"
+      },
+      "description": {
+        "native_language": "Deliver a canteen of water to Ana in Golden Grove.",
+        "target_language": "Entrega una cantimplora de agua a Ana en el Bosque Dorado."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        },
+        {
+          "native_language": "cottage",
+          "target_language": "cabaña"
+        }
+      ],
+      "grammar_points": [
+        "future intent",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Pedro to get the canteen of water.",
+            "target_language": "Habla con Pedro para obtener la cantimplora de agua."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_pedro"
+          },
+          "id": "quest_12_deliver_water_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Receive the canteen of water from Pedro.",
+            "target_language": "Recibe la cantimplora de agua de Pedro."
+          },
+          "completion_type": "received_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_12_deliver_water_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the delivery minigame.",
+            "target_language": "Completa el minijuego de entrega."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_12_deliver_water_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Deliver the water to Ana in Golden Grove.",
+            "target_language": "Entrega el agua a Ana en el Bosque Dorado."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_golden_grove"
+          },
+          "id": "quest_12_deliver_water_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you take this water to my friend Ana in Golden Grove?",
+          "target_language": "¿Podrías llevar esta agua a mi amiga Ana en el Bosque Dorado?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for bringing the water, I really needed it!",
+          "target_language": "¡Gracias por traer el agua, realmente la necesitaba!"
+        }
+      },
+      "id": "quest_12_deliver_water",
+      "giver_npc_id": "npc_4_ana"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Find the Feather",
+        "target_language": "Encuentra la pluma"
+      },
+      "description": {
+        "native_language": "Explore Sylvan Trail to find the rare feather.",
+        "target_language": "Explora la Senda Sylvana para encontrar la pluma rara."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "trail",
+          "target_language": "senda"
+        },
+        {
+          "native_language": "feather",
+          "target_language": "pluma"
+        },
+        {
+          "native_language": "explore",
+          "target_language": "explorar"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Hector about where to find the feather.",
+            "target_language": "Habla con Héctor sobre dónde encontrar la pluma."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_9_hector"
+          },
+          "id": "quest_13_find_the_feather_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to Sylvan Trail to look for the feather.",
+            "target_language": "Ve a la Senda Sylvana para buscar la pluma."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_4_sylvan_trail"
+          },
+          "id": "quest_13_find_the_feather_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Find the rare feather at Sylvan Trail.",
+            "target_language": "Encuentra la pluma rara en la Senda Sylvana."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_9_feather"
+          },
+          "id": "quest_13_find_the_feather_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Complete the exploration minigame.",
+            "target_language": "Completa el minijuego de exploración."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_13_find_the_feather_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "A rare feather is said to be at Sylvan Trail. Can you find it?",
+          "target_language": "Se dice que hay una pluma rara en la Senda Sylvana. ¿Puedes encontrarla?"
+        },
+        "quest_complete": {
+          "native_language": "You've found it! This feather is beautiful.",
+          "target_language": "¡Lo encontraste! Esta pluma es hermosa."
+        }
+      },
+      "id": "quest_13_find_the_feather",
+      "giver_npc_id": "npc_9_hector"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Berries for Medicine",
+        "target_language": "Bayas para remedios"
+      },
+      "description": {
+        "native_language": "Help Elena gather berries from Golden Grove.",
+        "target_language": "Ayuda a Elena a recolectar bayas del Bosque Dorado."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "berry",
+          "target_language": "baya"
+        },
+        {
+          "native_language": "medicine",
+          "target_language": "remedios"
+        },
+        {
+          "native_language": "gather",
+          "target_language": "recolectar"
+        }
+      ],
+      "grammar_points": [
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Elena about gathering berries.",
+            "target_language": "Habla con Elena sobre recolectar bayas."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_6_elena"
+          },
+          "id": "quest_14_berries_for_medicine_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to the Golden Grove to gather berries.",
+            "target_language": "Ve al Bosque Dorado para recolectar bayas."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_2_golden_grove"
+          },
+          "id": "quest_14_berries_for_medicine_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Gather berries at Golden Grove.",
+            "target_language": "Recolecta bayas en el Bosque Dorado."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_berry"
+          },
+          "id": "quest_14_berries_for_medicine_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Complete the gathering minigame.",
+            "target_language": "Completa el minijuego de recolección."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_14_berries_for_medicine_task_4"
+        },
+        {
+          "order": 4,
+          "description": {
+            "native_language": "Return to Elena with the berries.",
+            "target_language": "Regresa a Elena con las bayas."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_berry"
+          },
+          "id": "quest_14_berries_for_medicine_task_5"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you gather some berries for my medicine?",
+          "target_language": "¿Podrías recolectar algunas bayas para mis remedios?"
+        },
+        "quest_complete": {
+          "native_language": "These berries will help a lot, thank you!",
+          "target_language": "¡Estas bayas ayudarán mucho, gracias!"
+        }
+      },
+      "id": "quest_14_berries_for_medicine",
+      "giver_npc_id": "npc_6_elena"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Weather Report",
+        "target_language": "Informe del tiempo"
+      },
+      "description": {
+        "native_language": "Find out what the weather will be like tomorrow.",
+        "target_language": "Averigua cómo estará el tiempo mañana."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "weather",
+          "target_language": "tiempo"
+        },
+        {
+          "native_language": "report",
+          "target_language": "informe"
+        },
+        {
+          "native_language": "forecast",
+          "target_language": "pronóstico"
+        }
+      ],
+      "grammar_points": [
+        "question formation",
+        "relative clauses"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Clara the Scholar about tomorrow's weather.",
+            "target_language": "Habla con Clara la erudita sobre el tiempo de mañana."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_26_clara_the_scholar"
+          },
+          "id": "quest_15_weather_report_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Ask Emma the Weatherwoman at Silver Swing Market.",
+            "target_language": "Pregunta a Emma la mujer del tiempo en el Mercado Columpio de Plata."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_18_marta_the_merchant"
+          },
+          "id": "quest_15_weather_report_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the weather-related minigame.",
+            "target_language": "Completa el minijuego relacionado con el tiempo."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_15_weather_report_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Report back to Clara about the weather forecast.",
+            "target_language": "Informa a Clara sobre el pronóstico del tiempo."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_26_clara_the_scholar"
+          },
+          "id": "quest_15_weather_report_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find out what the weather will be like tomorrow?",
+          "target_language": "¿Puedes averiguar cómo estará el tiempo mañana?"
+        },
+        "quest_complete": {
+          "native_language": "Ah, good to know about the weather, thank you!",
+          "target_language": "Ah, bueno saberlo sobre el tiempo, ¡gracias!"
+        }
+      },
+      "id": "quest_15_weather_report",
+      "giver_npc_id": "npc_26_clara_the_scholar"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Convince the Merchant",
+        "target_language": "Convence al comerciante"
+      },
+      "description": {
+        "native_language": "Convince the merchant to sell you a magic stone.",
+        "target_language": "Convence al comerciante de que te venda una piedra mágica."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "convince",
+          "target_language": "convencer"
+        },
+        {
+          "native_language": "merchant",
+          "target_language": "comerciante"
+        },
+        {
+          "native_language": "stone",
+          "target_language": "piedra"
+        }
+      ],
+      "grammar_points": [
+        "conditional",
+        "polite requests"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Isabella about the magic stone.",
+            "target_language": "Habla con Isabella sobre la piedra mágica."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_37_isabella_the_guide"
+          },
+          "id": "quest_17_convince_the_merchant_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the merchant at Starwatch Camp.",
+            "target_language": "Encuentra al comerciante en el Campamento Observación de Estrellas."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_13_starwatch_camp"
+          },
+          "id": "quest_17_convince_the_merchant_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Convince the merchant to sell you the stone.",
+            "target_language": "Convence al comerciante de que te venda la piedra."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_17_convince_the_merchant_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return to Isabella with the purchased stone.",
+            "target_language": "Regresa a Isabella con la piedra comprada."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_17_magic_stone"
+          },
+          "id": "quest_17_convince_the_merchant_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "A magic stone is available, could you persuade the merchant to sell it to you?",
+          "target_language": "Se vende una piedra mágica, ¿podrías persuadir al comerciante de que te la venda?"
+        },
+        "quest_complete": {
+          "native_language": "Excellent work! This stone will be very useful.",
+          "target_language": "¡Excelente trabajo! Esta piedra será muy útil."
+        }
+      },
+      "id": "quest_17_convince_the_merchant",
+      "giver_npc_id": "npc_37_isabella_the_guide"
+    },
+    {
+      "type": "main",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Cross the Bridge of Whispers",
+        "target_language": "Cruza el Puente de los Susurros"
+      },
+      "description": {
+        "native_language": "Find a way to safely cross the Bridge of Whispers.",
+        "target_language": "Encuentra una manera de cruzar con seguridad el Puente de los Susurros."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "bridge",
+          "target_language": "puente"
+        },
+        {
+          "native_language": "cross",
+          "target_language": "cruzar"
+        },
+        {
+          "native_language": "whisper",
+          "target_language": "susurro"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Jorge the Villager about crossing the bridge.",
+            "target_language": "Habla con Jorge el aldeano sobre cruzar el puente."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_27_jorge_the_villager"
+          },
+          "id": "quest_18_cross_the_bridge_of_whispers_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find the hidden path near the Bridge of Whispers.",
+            "target_language": "Encuentra el sendero oculto cerca del Puente de los Susurros."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_9_bridge_of_whispers"
+          },
+          "id": "quest_18_cross_the_bridge_of_whispers_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Discover the safe passage using clues.",
+            "target_language": "Descubre el paso seguro usando pistas."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_18_cross_the_bridge_of_whispers_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Report back to Jorge about crossing the bridge.",
+            "target_language": "Informa a Jorge sobre cruzar el puente."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_27_jorge_the_villager"
+          },
+          "id": "quest_18_cross_the_bridge_of_whispers_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "There's a whisper of a safe way to cross the bridge. Can you find it?",
+          "target_language": "Hay un susurro de un modo seguro de cruzar el puente. ¿Puedes encontrarlo?"
+        },
+        "quest_complete": {
+          "native_language": "You did it! The bridge is safe thanks to you.",
+          "target_language": "¡Lo lograste! El puente es seguro gracias a ti."
+        }
+      },
+      "id": "quest_18_cross_the_bridge_of_whispers",
+      "giver_npc_id": "npc_27_jorge_the_villager"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "Ancient Stories",
+        "target_language": "Historias antiguas"
+      },
+      "description": {
+        "native_language": "Learn about the ancient tales of the region from Lucia the Storyteller.",
+        "target_language": "Aprende sobre los cuentos antiguos de la región de Lucía, la cuentista."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "story",
+          "target_language": "historia"
+        },
+        {
+          "native_language": "ancient",
+          "target_language": "antiguo"
+        },
+        {
+          "native_language": "tale",
+          "target_language": "cuento"
+        }
+      ],
+      "grammar_points": [
+        "indirect speech",
+        "relative clauses"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Lucia the Storyteller about ancient tales.",
+            "target_language": "Habla con Lucía, la cuentista, sobre cuentos antiguos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_43_lucia_the_storyteller"
+          },
+          "id": "quest_19_ancient_stories_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Visit the Starlit Observatory to gather lore.",
+            "target_language": "Visita el Observatorio Iluminado para reunir conocimientos."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_14_starlit_observatory"
+          },
+          "id": "quest_19_ancient_stories_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the storytelling minigame.",
+            "target_language": "Completa el minijuego de contar historias."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_19_ancient_stories_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Report back to Lucia with the stories you've heard.",
+            "target_language": "Informa a Lucía de las historias que has escuchado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_43_lucia_the_storyteller"
+          },
+          "id": "quest_19_ancient_stories_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Discover the ancient stories of our land. Lucia can help you learn them.",
+          "target_language": "Descubre las historias antiguas de nuestra tierra. Lucía puede ayudarte a aprenderlas."
+        },
+        "quest_complete": {
+          "native_language": "Your recount of the stories is amazing! Thank you for sharing.",
+          "target_language": "¡Tu narración de las historias es asombrosa! Gracias por compartir."
+        }
+      },
+      "id": "quest_19_ancient_stories",
+      "giver_npc_id": "npc_43_lucia_the_storyteller"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Find the Perfect Apple",
+        "target_language": "Encuentra la Manzana Perfecta"
+      },
+      "description": {
+        "native_language": "Help Pedro find a special apple for a recipe.",
+        "target_language": "Ayuda a Pedro a encontrar una manzana especial para una receta."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "tree",
+          "target_language": "árbol"
+        },
+        {
+          "native_language": "find",
+          "target_language": "encontrar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Mateo in the Welcome Clearing.",
+            "target_language": "Habla con Mateo en el Claro de Bienvenida."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_2_mateo"
+          },
+          "id": "quest_21_find_the_perfect_apple_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find an apple in the Welcome Clearing.",
+            "target_language": "Encuentra una manzana en el Claro de Bienvenida."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_find_the_perfect_apple_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete a mini-game to learn about trees.",
+            "target_language": "Completa un minijuego para aprender sobre los árboles."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_21_find_the_perfect_apple_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return the apple to Pedro.",
+            "target_language": "Devuelve la manzana a Pedro."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_find_the_perfect_apple_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you find me an apple from the clearing?",
+          "target_language": "¿Podrías encontrarme una manzana del claro?"
+        },
+        "quest_complete": {
+          "native_language": "You've found the perfect apple! Muchas gracias!",
+          "target_language": "¡Has encontrado la manzana perfecta! ¡Muchas gracias!"
+        }
+      },
+      "id": "quest_21_find_the_perfect_apple",
+      "giver_npc_id": "npc_1_pedro"
+    },
+    {
+      "type": "side",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gather Berries and Water",
+        "target_language": "Recoge Bayas y Agua"
+      },
+      "description": {
+        "native_language": "Help Ana by gathering berries and water for her.",
+        "target_language": "Ayuda a Ana recogiendo bayas y agua para ella."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "berry",
+          "target_language": "baya"
+        },
+        {
+          "native_language": "bring",
+          "target_language": "traer"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Collect water in the Golden Grove.",
+            "target_language": "Recoge agua en el Bosque Dorado."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_2_water"
+          },
+          "id": "quest_22_gather_berries_and_water_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Gather berries in the Golden Grove.",
+            "target_language": "Recoge bayas en el Bosque Dorado."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_berry"
+          },
+          "id": "quest_22_gather_berries_and_water_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete a mini-game about ingredients.",
+            "target_language": "Completa un minijuego sobre ingredientes."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_22_gather_berries_and_water_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Bring the berries and water back to Ana.",
+            "target_language": "Lleva las bayas y el agua de vuelta a Ana."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_berry"
+          },
+          "id": "quest_22_gather_berries_and_water_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you gather some water and berries for me?",
+          "target_language": "¿Podrías recoger un poco de agua y bayas para mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you, now I can make my potion!",
+          "target_language": "¡Gracias, ahora puedo hacer mi poción!"
+        }
+      },
+      "id": "quest_22_gather_berries_and_water",
+      "giver_npc_id": "npc_4_ana"
+    },
+    {
+      "type": "main",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Explore Sylvan Trail",
+        "target_language": "Explora Sendero Silvestre"
+      },
+      "description": {
+        "native_language": "Explore the Sylvan Trail and discover its secrets.",
+        "target_language": "Explora el Sendero Silvestre y descubre sus secretos."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "trail",
+          "target_language": "sendero"
+        },
+        {
+          "native_language": "secret",
+          "target_language": "secreto"
+        },
+        {
+          "native_language": "discover",
+          "target_language": "descubrir"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "existential statements"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather a feather on Sylvan Trail.",
+            "target_language": "Recoge una pluma en el Sendero Silvestre."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_9_feather"
+          },
+          "id": "quest_25_explore_sylvan_trail_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete a mini-game to learn about nature.",
+            "target_language": "Completa un minijuego para aprender sobre la naturaleza."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_25_explore_sylvan_trail_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Talk to Marta about the trail's secrets.",
+            "target_language": "Habla con Marta sobre los secretos del sendero."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_12_marta"
+          },
+          "id": "quest_25_explore_sylvan_trail_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you explore the Sylvan Trail for me?",
+          "target_language": "¿Puedes explorar el Sendero Silvestre por mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for uncovering the secrets!",
+          "target_language": "¡Gracias por descubrir los secretos!"
+        }
+      },
+      "id": "quest_25_explore_sylvan_trail",
+      "giver_npc_id": "npc_9_hector"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Gather Special Herbs",
+        "target_language": "Recoge Hierbas Especiales"
+      },
+      "description": {
+        "native_language": "Help Marta by gathering special herbs for her.",
+        "target_language": "Ayuda a Marta recogiendo hierbas especiales para ella."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "herbs",
+          "target_language": "hierbas"
+        },
+        {
+          "native_language": "special",
+          "target_language": "especial"
+        },
+        {
+          "native_language": "get",
+          "target_language": "obtener"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "imperative"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather herbs on Windy Path.",
+            "target_language": "Recoge hierbas en el Camino Ventoso."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_22_herbs"
+          },
+          "id": "quest_26_gather_special_herbs_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete a mini-game on combining herbs.",
+            "target_language": "Completa un minijuego sobre combinar hierbas."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_26_gather_special_herbs_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Return the herbs to Marta.",
+            "target_language": "Devuelve las hierbas a Marta."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_22_herbs"
+          },
+          "id": "quest_26_gather_special_herbs_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you gather special herbs for me on Windy Path?",
+          "target_language": "¿Puedes recoger hierbas especiales para mí en el Camino Ventoso?"
+        },
+        "quest_complete": {
+          "native_language": "Gracias, estas hierbas son perfectas!",
+          "target_language": "¡Gracias, estas hierbas son perfectas!"
+        }
+      },
+      "id": "quest_26_gather_special_herbs",
+      "giver_npc_id": "npc_29_ricardo_the_elder"
+    },
+    {
+      "type": "main",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver the Apple Pie",
+        "target_language": "Entrega el Pastel de Manzana"
+      },
+      "description": {
+        "native_language": "Deliver a fresh apple pie to the Lakeside Cafe.",
+        "target_language": "Entrega un pastel de manzana fresco al Café del Lago."
+      },
+      "language_level": "A1+",
+      "target_vocabulary": [
+        {
+          "native_language": "apple pie",
+          "target_language": "pastel de manzana"
+        },
+        {
+          "native_language": "cafe",
+          "target_language": "café"
+        },
+        {
+          "native_language": "deliver",
+          "target_language": "entregar"
+        }
+      ],
+      "grammar_points": [
+        "location prepositions",
+        "future intent"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase an apple pie from Sofia the Baker.",
+            "target_language": "Compra un pastel de manzana de Sofia la Panadera."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_16_apple_pie"
+          },
+          "id": "quest_28_deliver_the_apple_pie_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete a mini-game about bakery goods.",
+            "target_language": "Completa un minijuego sobre productos de panadería."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_28_deliver_the_apple_pie_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the apple pie to the Lakeside Cafe.",
+            "target_language": "Entrega el pastel de manzana al Café del Lago."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_16_apple_pie"
+          },
+          "id": "quest_28_deliver_the_apple_pie_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Please deliver this apple pie to the café.",
+          "target_language": "Por favor, entrega este pastel de manzana al café."
+        },
+        "quest_complete": {
+          "native_language": "The café is excited for the delivery!",
+          "target_language": "¡El café está emocionado por la entrega!"
+        }
+      },
+      "id": "quest_28_deliver_the_apple_pie",
+      "giver_npc_id": "npc_28_sofia_the_baker"
+    },
+    {
+      "type": "main",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Journey to Starwatch Camp",
+        "target_language": "Viaja al Campamento de Estrella"
+      },
+      "description": {
+        "native_language": "Explore the Starwatch Camp and learn about the night sky.",
+        "target_language": "Explora el Campamento de Estrella y aprende sobre el cielo nocturno."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "journey",
+          "target_language": "viaje"
+        },
+        {
+          "native_language": "camp",
+          "target_language": "campamento"
+        },
+        {
+          "native_language": "sky",
+          "target_language": "cielo"
+        }
+      ],
+      "grammar_points": [
+        "location descriptions",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Travel to Starwatch Camp.",
+            "target_language": "Viaja al Campamento de Estrella."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_13_starwatch_camp"
+          },
+          "id": "quest_29_journey_to_starwatch_camp_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Esteban the Merchant about the night sky.",
+            "target_language": "Habla con Esteban el Mercader sobre el cielo nocturno."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_36_esteban_the_merchant"
+          },
+          "id": "quest_29_journey_to_starwatch_camp_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete a mini-game about constellations.",
+            "target_language": "Completa un minijuego sobre constelaciones."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_29_journey_to_starwatch_camp_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Report your findings to Pedro the Potter.",
+            "target_language": "Informa tus hallazgos a Pedro el Alfarero."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_21_pedro_the_potter"
+          },
+          "id": "quest_29_journey_to_starwatch_camp_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you learn about the stars at the camp?",
+          "target_language": "¿Puedes aprender sobre las estrellas en el campamento?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the starry insights!",
+          "target_language": "¡Gracias por los conocimientos estrellados!"
+        }
+      },
+      "id": "quest_29_journey_to_starwatch_camp",
+      "giver_npc_id": "npc_19_liam_the_guard"
+    },
+    {
+      "type": "side",
+      "pattern": "information",
+      "name": {
+        "native_language": "The Secrets of the Observatory",
+        "target_language": "Los Secretos del Observatorio"
+      },
+      "description": {
+        "native_language": "Learn the secrets of the Starlit Observatory.",
+        "target_language": "Aprende los secretos del Observatorio Estrellado."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "observatory",
+          "target_language": "observatorio"
+        },
+        {
+          "native_language": "secret",
+          "target_language": "secreto"
+        },
+        {
+          "native_language": "learn",
+          "target_language": "aprender"
+        }
+      ],
+      "grammar_points": [
+        "question formation",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Find Marcos the Apprentice at the Starlit Observatory.",
+            "target_language": "Encuentra a Marcos el Aprendiz en el Observatorio Estrellado."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_38_marcos_the_apprentice"
+          },
+          "id": "quest_30_the_secrets_of_the_observatory_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete a mini-game to learn about celestial bodies.",
+            "target_language": "Completa un minijuego para aprender sobre cuerpos celestes."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_30_the_secrets_of_the_observatory_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Elda the Herbalist about your discoveries.",
+            "target_language": "Informa a Elda la Herborista sobre tus descubrimientos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_39_elda_the_herbalist"
+          },
+          "id": "quest_30_the_secrets_of_the_observatory_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "What secrets could the observatory hold? Find out!",
+          "target_language": "¿Qué secretos podría tener el observatorio? ¡Descúbrelo!"
+        },
+        "quest_complete": {
+          "native_language": "The observatory's secrets are fascinating! Gracias!",
+          "target_language": "¡Los secretos del observatorio son fascinantes! ¡Gracias!"
+        }
+      },
+      "id": "quest_30_the_secrets_of_the_observatory",
+      "giver_npc_id": "npc_39_elda_the_herbalist"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Deliver Bread to Lucia",
+        "target_language": "Entrega pan a Lucia"
+      },
+      "description": {
+        "native_language": "Lucia's grandmother has baked some bread. Help deliver it to Lucia.",
+        "target_language": "La abuela de Lucia ha hecho pan. Ayuda a entregárselo a Lucia."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "bread",
+          "target_language": "pan"
+        },
+        {
+          "native_language": "hello",
+          "target_language": "hola"
+        },
+        {
+          "native_language": "thank you",
+          "target_language": "gracias"
+        }
+      ],
+      "grammar_points": [
+        "greetings",
+        "directions",
+        "giving/receiving"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Receive the bread from Ana.",
+            "target_language": "Recibe el pan de Ana."
+          },
+          "completion_type": "received_item",
+          "completion_criteria": {
+            "target_id": "item_3_bread"
+          },
+          "id": "quest_32_deliver_bread_to_lucia_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the minigame to get directions to Lucia's location.",
+            "target_language": "Completa el minijuego para obtener direcciones al lugar de Lucia."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_32_deliver_bread_to_lucia_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the bread to Lucia at Sunny Banks.",
+            "target_language": "Entrega el pan a Lucia en Sunny Banks."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_3_bread"
+          },
+          "id": "quest_32_deliver_bread_to_lucia_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you take this bread to my friend Lucia?",
+          "target_language": "¿Puedes llevar este pan a mi amiga Lucia?"
+        },
+        "quest_complete": {
+          "native_language": "Oh, you brought Grandma's bread? Thank you so much!",
+          "target_language": "¿Oh, trajiste el pan de la abuela? ¡Muchas gracias!"
+        }
+      },
+      "id": "quest_32_deliver_bread_to_lucia",
+      "giver_npc_id": "npc_6_elena"
+    },
+    {
+      "type": "main",
+      "pattern": "information",
+      "name": {
+        "native_language": "Find the Hidden Map",
+        "target_language": "Encuentra el mapa oculto"
+      },
+      "description": {
+        "native_language": "Diego heard about a hidden map that reveals treasures. Ask around to find it.",
+        "target_language": "Diego escuchó sobre un mapa oculto que revela tesoros. Pregunta a los demás para encontrarlo."
+      },
+      "language_level": "A0+",
+      "target_vocabulary": [
+        {
+          "native_language": "map",
+          "target_language": "mapa"
+        },
+        {
+          "native_language": "ask",
+          "target_language": "preguntar"
+        },
+        {
+          "native_language": "find",
+          "target_language": "encontrar"
+        }
+      ],
+      "grammar_points": [
+        "questions",
+        "imperative",
+        "relative clauses"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Carla about the map.",
+            "target_language": "Habla con Carla sobre el mapa."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_13_carla"
+          },
+          "id": "quest_33_find_the_hidden_map_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to the Old Oak Tavern to purchase the map.",
+            "target_language": "Ve a la Taberna del Viejo Roble para comprar el mapa."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_11_map"
+          },
+          "id": "quest_33_find_the_hidden_map_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the minigame to verify the map's authenticity.",
+            "target_language": "Completa el minijuego para verificar la autenticidad del mapa."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_33_find_the_hidden_map_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return to Diego with the map.",
+            "target_language": "Regresa a Diego con el mapa."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_11_map"
+          },
+          "id": "quest_33_find_the_hidden_map_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I heard there's a hidden map. Can you find it for me?",
+          "target_language": "Escuché que hay un mapa oculto. ¿Puedes encontrarlo para mí?"
+        },
+        "quest_complete": {
+          "native_language": "This is it! Thank you for finding it.",
+          "target_language": "¡Este es! Gracias por encontrarlo."
+        }
+      },
+      "id": "quest_33_find_the_hidden_map",
+      "giver_npc_id": "npc_5_diego"
+    },
+    {
+      "type": "repeatable",
+      "pattern": "social",
+      "name": {
+        "native_language": "Help the Child at Bridge of Whispers",
+        "target_language": "Ayuda al niño en el Puente de los Susurros"
+      },
+      "description": {
+        "native_language": "Emilia the Child needs a friend. Spend some time with her.",
+        "target_language": "Emilia la Niña necesita un amigo. Pasa un tiempo con ella."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "friend",
+          "target_language": "amigo"
+        },
+        {
+          "native_language": "happy",
+          "target_language": "feliz"
+        },
+        {
+          "native_language": "play",
+          "target_language": "jugar"
+        }
+      ],
+      "grammar_points": [
+        "self-introduction",
+        "expressing feelings"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Introduce yourself to Emilia.",
+            "target_language": "Preséntate a Emilia."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_24_emilia_the_child"
+          },
+          "id": "quest_36_help_the_child_at_bridge_of_wh_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete a minigame with Emilia to make her happy.",
+            "target_language": "Completa un minijuego con Emilia para hacerla feliz."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_36_help_the_child_at_bridge_of_wh_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Talk to Emilia about what she likes to play.",
+            "target_language": "Habla con Emilia sobre lo que le gusta jugar."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_24_emilia_the_child"
+          },
+          "id": "quest_36_help_the_child_at_bridge_of_wh_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Would you like to play with me?",
+          "target_language": "¿Te gustaría jugar conmigo?"
+        },
+        "quest_complete": {
+          "native_language": "I had so much fun! Thank you!",
+          "target_language": "¡Me divertí mucho! ¡Gracias!"
+        }
+      },
+      "id": "quest_36_help_the_child_at_bridge_of_wh",
+      "giver_npc_id": "npc_24_emilia_the_child"
+    },
+    {
+      "type": "side",
+      "pattern": "delivery",
+      "name": {
+        "native_language": "Silver Necklace Delivery",
+        "target_language": "Entrega de collar de plata"
+      },
+      "description": {
+        "native_language": "Pedro the Potter needs a delivery to the Lakeside Café.",
+        "target_language": "Pedro el Alfarero necesita una entrega al Café junto al Lago."
+      },
+      "language_level": "A1",
+      "target_vocabulary": [
+        {
+          "native_language": "necklace",
+          "target_language": "collar"
+        },
+        {
+          "native_language": "silver",
+          "target_language": "plata"
+        },
+        {
+          "native_language": "café",
+          "target_language": "café"
+        }
+      ],
+      "grammar_points": [
+        "prepositions",
+        "future intent"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Purchase the silver necklace from Silver Swing Market.",
+            "target_language": "Compra el collar de plata en el Mercado de Cuervas Plateadas."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_19_silver_necklace"
+          },
+          "id": "quest_38_silver_necklace_delivery_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the minigame to review delivery details.",
+            "target_language": "Completa el minijuego para revisar los detalles de entrega."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_38_silver_necklace_delivery_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Deliver the necklace to Sofia the Baker at Lakeside Café.",
+            "target_language": "Entrega el collar a Sofía la Panadera en el Café junto al Lago."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_19_silver_necklace"
+          },
+          "id": "quest_38_silver_necklace_delivery_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you take this to the café for me?",
+          "target_language": "¿Puedes llevar esto al café por mí?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you! The necklace is beautiful.",
+          "target_language": "¡Gracias! El collar es hermoso."
+        }
+      },
+      "id": "quest_38_silver_necklace_delivery",
+      "giver_npc_id": "npc_21_pedro_the_potter"
+    },
+    {
+      "type": "main",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Discover the Starlit Observatory",
+        "target_language": "Descubre el Observatorio Estrellado"
+      },
+      "description": {
+        "native_language": "Isabella wants to know more about the Starlit Observatory. Explore it.",
+        "target_language": "Isabella quiere saber más sobre el Observatorio Estrellado. Explóralo."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "observatory",
+          "target_language": "observatorio"
+        },
+        {
+          "native_language": "stars",
+          "target_language": "estrellas"
+        },
+        {
+          "native_language": "discover",
+          "target_language": "descubrir"
+        }
+      ],
+      "grammar_points": [
+        "existential statements",
+        "comparisons",
+        "location descriptions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Travel to the Starlit Observatory.",
+            "target_language": "Viaja al Observatorio Estrellado."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_14_starlit_observatory"
+          },
+          "id": "quest_39_discover_the_starlit_observato_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the minigame to learn about the stars.",
+            "target_language": "Completa el minijuego para aprender sobre las estrellas."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_39_discover_the_starlit_observato_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Report back to Isabella with your findings.",
+            "target_language": "Informa a Isabella con tus hallazgos."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_37_isabella_the_guide"
+          },
+          "id": "quest_39_discover_the_starlit_observato_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "I am eager to know what the Starlit Observatory holds.",
+          "target_language": "Estoy ansiosa por saber qué guarda el Observatorio Estrellado."
+        },
+        "quest_complete": {
+          "native_language": "Incredible! Your discoveries are invaluable.",
+          "target_language": "¡Increíble! Tus descubrimientos son invaluables."
+        }
+      },
+      "id": "quest_39_discover_the_starlit_observato",
+      "giver_npc_id": "npc_37_isabella_the_guide"
+    },
+    {
+      "type": "side",
+      "pattern": "persuasion",
+      "name": {
+        "native_language": "Negotiate with Marcos the Guard",
+        "target_language": "Negociar con Marcos el Guardia"
+      },
+      "description": {
+        "native_language": "Negotiate with Marcos to allow access to a restricted area.",
+        "target_language": "Negocia con Marcos para permitir el acceso a un área restringida."
+      },
+      "language_level": "A2",
+      "target_vocabulary": [
+        {
+          "native_language": "access",
+          "target_language": "acceso"
+        },
+        {
+          "native_language": "negotiate",
+          "target_language": "negociar"
+        },
+        {
+          "native_language": "guard",
+          "target_language": "guardia"
+        }
+      ],
+      "grammar_points": [
+        "polite requests",
+        "conditionals"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Marcos the Guard about access.",
+            "target_language": "Habla con Marcos el Guardia sobre el acceso."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_34_marcos_the_guard"
+          },
+          "id": "quest_40_negotiate_with_marcos_the_guar_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Complete the minigame to negotiate access terms.",
+            "target_language": "Completa el minijuego para negociar los términos de acceso."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_40_negotiate_with_marcos_the_guar_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Return to Raúl with the results of your negotiation.",
+            "target_language": "Regresa a Raúl con los resultados de tu negociación."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_42_ra_l_the_guard"
+          },
+          "id": "quest_40_negotiate_with_marcos_the_guar_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you talk to Marcos for me? We need permission.",
+          "target_language": "¿Puedes hablar con Marcos por mí? Necesitamos permiso."
+        },
+        "quest_complete": {
+          "native_language": "Well done. Now we can proceed.",
+          "target_language": "Bien hecho. Ahora podemos proceder."
+        }
+      },
+      "id": "quest_40_negotiate_with_marcos_the_guar",
+      "giver_npc_id": "npc_42_ra_l_the_guard"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 40,
+    "total_valid": 25,
+    "total_invalid": 15,
+    "target_minimum": 20,
+    "target_met": true
+  }
+}

@@ -5,7 +5,7 @@ Provides deterministic validation rules to ensure quests are completable
 and logically consistent. Validates against the actual game world data.
 """
 
-from typing import Dict, Any, List, Set, Tuple, Optional
+from typing import Dict, Any, List, Set, Optional
 from dataclasses import dataclass
 from enum import Enum
 
@@ -14,7 +14,6 @@ class ValidationSeverity(Enum):
     ERROR = "error"      # Quest is impossible to complete
     WARNING = "warning"  # Quest has issues but might be completable
     INFO = "info"        # Suggestion for improvement
-
 
 @dataclass
 class ValidationIssue:
@@ -71,6 +70,18 @@ class QuestValidator:
             if loc_id not in self.items_at_location:
                 self.items_at_location[loc_id] = []
             self.items_at_location[loc_id].append(item['id'])
+
+        # Build game -> quest mapping (games that have related_quest_id)
+        self.games_by_quest: Dict[str, List[str]] = {}
+        for game in (games or {}).get('games', []):
+            quest_id = game.get('related_quest_id')
+            if quest_id:
+                if quest_id not in self.games_by_quest:
+                    self.games_by_quest[quest_id] = []
+                self.games_by_quest[quest_id].append(game['id'])
+
+        # Track which games are used by quests (for validate_all_minigames_used)
+        self.used_games: Set[str] = set()
 
         # Build level lookups
         self.npc_levels = {npc['id']: npc.get('language_level', 'A0') for npc in npcs.get('npcs', [])}
@@ -129,11 +140,14 @@ class QuestValidator:
                         self.location_connections[to_loc].add(from_loc)
 
     def validate_all(self, quests_data: Dict[str, Any]) -> List[ValidationIssue]:
-        """Run all validation rules on all quests."""
+        """Run all validation rules on all quests, plus global validations."""
         issues = []
 
         for quest in quests_data.get('quests', []):
             issues.extend(self.validate_quest(quest))
+
+        # Rule 15: Check that all minigames are used (global validation)
+        issues.extend(self.validate_all_minigames_used())
 
         return issues
 
@@ -182,6 +196,9 @@ class QuestValidator:
 
         # Rule 13: Item actually at location (items must exist at their stated locations)
         issues.extend(self._rule_item_actually_at_location(quest))
+
+        # Rule 14: Quest must have at least one minigame
+        issues.extend(self._rule_quest_has_minigame(quest))
 
         return issues
 
@@ -905,9 +922,76 @@ class QuestValidator:
 
         return issues
 
+    def _rule_quest_has_minigame(self, quest: Dict[str, Any]) -> List[ValidationIssue]:
+        """
+        RULE 14: Every quest must have at least one associated minigame.
+
+        A quest has a minigame if either:
+        1. It has a task with completion_type='completed_game', OR
+        2. A game exists with related_quest_id pointing to this quest
+
+        This ensures educational content is integrated into every quest.
+        """
+        issues = []
+        quest_id = quest.get('id', 'unknown')
+        tasks = quest.get('tasks', [])
+
+        # Check 1: Does the quest have a completed_game task?
+        has_game_task = False
+        for task in tasks:
+            if task.get('completion_type') == 'completed_game':
+                has_game_task = True
+                # Track which games are used
+                game_id = task.get('completion_criteria', {}).get('target_id')
+                if game_id:
+                    self.used_games.add(game_id)
+
+        # Check 2: Is there a game with related_quest_id pointing to this quest?
+        has_related_game = quest_id in self.games_by_quest
+        if has_related_game:
+            # Track these games as used too
+            for game_id in self.games_by_quest[quest_id]:
+                self.used_games.add(game_id)
+
+        if not has_game_task and not has_related_game:
+            issues.append(ValidationIssue(
+                severity=ValidationSeverity.ERROR,
+                quest_id=quest_id,
+                task_id=None,
+                rule="quest_has_minigame",
+                message="Quest has no associated minigame. Add a 'completed_game' task or ensure a game has related_quest_id pointing to this quest."
+            ))
+
+        return issues
+
+    def validate_all_minigames_used(self) -> List[ValidationIssue]:
+        """
+        RULE 15: Every minigame must be used by at least one quest.
+
+        Call this AFTER validate_all() to check that all minigames are referenced.
+        A minigame is "used" if:
+        1. A quest has a completed_game task referencing it, OR
+        2. The game's related_quest_id points to an existing quest
+        """
+        issues = []
+
+        for game_id, game in self.games.items():
+            if game_id not in self.used_games:
+                game_name = game.get('name', {}).get('target_language', game_id)
+                issues.append(ValidationIssue(
+                    severity=ValidationSeverity.ERROR,
+                    quest_id="N/A",
+                    task_id=None,
+                    rule="all_minigames_used",
+                    message=f"Minigame '{game_name}' ({game_id}) is not used by any quest. Add a 'completed_game' task or set related_quest_id."
+                ))
+
+        return issues
+
     def reset_pattern_tracking(self):
-        """Reset the seen task patterns. Call before validating a new batch."""
+        """Reset the seen task patterns and used games. Call before validating a new batch."""
         self.seen_task_patterns = set()
+        self.used_games = set()
 
     def get_error_count(self, issues: List[ValidationIssue]) -> int:
         """Count issues by severity."""

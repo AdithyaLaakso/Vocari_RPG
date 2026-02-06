@@ -217,9 +217,14 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
   }
 
   void _handleToolExecution(String toolName, Map<String, dynamic> args, ToolResult result) {
-    if (!mounted) return;
+    debugPrint('[TOOL_DEBUG] _handleToolExecution CALLED: tool=$toolName args=$args result.success=${result.success} result.data=${result.data}');
+    if (!mounted) {
+      debugPrint('[TOOL_DEBUG] _handleToolExecution: widget not mounted, skipping');
+      return;
+    }
 
     setState(() {
+      debugPrint('[TOOL_DEBUG] Processing tool: $toolName');
       switch (toolName) {
         case 'teach_vocabulary':
           _learnedVocabulary.add({

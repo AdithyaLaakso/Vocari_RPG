@@ -1,0 +1,797 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "The Valley of Words",
+      "target_language": "El Valle de las Palabras"
+    },
+    "description": {
+      "native_language": "A peaceful fantasy era, filled with small villages and winding paths.",
+      "target_language": "Una era de fantasía tranquila, repleta de pequeñas aldeas y caminos sinuosos."
+    },
+    "scale": "region"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Beginning Meadow",
+        "target_language": "El Prado del Comienzo"
+      },
+      "description": {
+        "native_language": "A serene meadow where language journeys begin.",
+        "target_language": "Un prado sereno donde comienzan los viajes de lenguaje."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_beginning_meadow"
+    },
+    {
+      "name": {
+        "native_language": "Seeker's Village",
+        "target_language": "La Villa del Explorador"
+      },
+      "description": {
+        "native_language": "A bustling village filled with eager language learners.",
+        "target_language": "Una villa bulliciosa llena de aprendices de idiomas entusiastas."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_seeker_s_village"
+    },
+    {
+      "name": {
+        "native_language": "Cultural Town",
+        "target_language": "La Ciudad Cultural"
+      },
+      "description": {
+        "native_language": "A vibrant town where culture and language intertwine.",
+        "target_language": "Una ciudad vibrante donde la cultura y el lenguaje se entrelazan."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_cultural_town"
+    },
+    {
+      "name": {
+        "native_language": "Wisdom Heights",
+        "target_language": "Las Alturas de la Sabiduría"
+      },
+      "description": {
+        "native_language": "A majestic area that offers new perspectives on language.",
+        "target_language": "Una majestuosa área que ofrece nuevas perspectivas sobre el idioma."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_wisdom_heights"
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Rest",
+        "target_language": "El Descanso del Viajero"
+      },
+      "description": {
+        "native_language": "A place where seasoned learners share tales and experiences.",
+        "target_language": "Un lugar donde los aprendices experimentados comparten historias y experiencias."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_traveler_s_rest"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Word Spring",
+        "target_language": "El Manantial de Palabras"
+      },
+      "description": {
+        "native_language": "A natural spring whispers basic words to eager ears.",
+        "target_language": "Un manantial natural susurra palabras básicas a oídos ansiosos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "colors",
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Basic words",
+        "target_language": "Palabras básicas"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Refreshing and enlightening",
+        "target_language": "Refrescante e iluminador"
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "loc_1_word_spring",
+      "region_id": "region_1_beginning_meadow",
+      "connections": [
+        "loc_2_path_of_numbers",
+        "loc_3_greet_s_crossroads"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Path of Numbers",
+        "target_language": "El Camino de los Números"
+      },
+      "description": {
+        "native_language": "A winding path with stones numbered from 1 to 10.",
+        "target_language": "Un camino sinuoso con piedras numeradas del 1 al 10."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Numbers 1-10",
+        "target_language": "Números 1-10"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and numerical",
+        "target_language": "Calma y numérica"
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 0
+      },
+      "id": "loc_2_path_of_numbers",
+      "region_id": "region_1_beginning_meadow",
+      "connections": [
+        "loc_1_word_spring",
+        "loc_3_greet_s_crossroads"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Greet's Crossroads",
+        "target_language": "La Encrucijada de Saludos"
+      },
+      "description": {
+        "native_language": "A crossroads teaches the simplest of greetings.",
+        "target_language": "Un cruce de caminos enseña los saludos más simples."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings",
+        "yes/no"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Greetings and responses",
+        "target_language": "Saludos y respuestas"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Welcoming and enlightening",
+        "target_language": "Acogedor e iluminador"
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_3_greet_s_crossroads",
+      "region_id": "region_1_beginning_meadow",
+      "connections": [
+        "loc_1_word_spring",
+        "loc_2_path_of_numbers"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Market Square",
+        "target_language": "La Plaza del Mercado"
+      },
+      "description": {
+        "native_language": "A lively market teaching basic objects and numbers.",
+        "target_language": "Un mercado animado que enseña objetos básicos y números."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Common objects and quantities",
+        "target_language": "Objetos comunes y cantidades"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Vibrant and bustling",
+        "target_language": "Vibrante y bullicioso"
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 1
+      },
+      "id": "loc_4_market_square",
+      "region_id": "region_2_seeker_s_village",
+      "connections": [
+        "loc_5_town_inn",
+        "loc_6_village_school"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Town Inn",
+        "target_language": "La Posada del Pueblo"
+      },
+      "description": {
+        "native_language": "An inn where faces and introductions become familiar.",
+        "target_language": "Una posada donde las caras y presentaciones se hacen familiares."
+      },
+      "type": "building",
+      "language_topics": [
+        "introductions",
+        "days/months"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Basic introductions and time",
+        "target_language": "Introducciones básicas y tiempo"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Cozy and conversational",
+        "target_language": "Acogedor y conversacional"
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_5_town_inn",
+      "region_id": "region_2_seeker_s_village",
+      "connections": [
+        "loc_4_market_square",
+        "loc_6_village_school",
+        "loc_7_family_fields"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Village School",
+        "target_language": "La Escuela del Pueblo"
+      },
+      "description": {
+        "native_language": "A small school focusing on days and numbers.",
+        "target_language": "Una pequeña escuela que se enfoca en los días y los números."
+      },
+      "type": "building",
+      "language_topics": [
+        "introductions",
+        "numbers"
+      ],
+      "vocabulary_domain": {
+        "native_language": "School basics",
+        "target_language": "Básicos de la escuela"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and studious",
+        "target_language": "Tranquilo y estudioso"
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_6_village_school",
+      "region_id": "region_2_seeker_s_village",
+      "connections": [
+        "loc_4_market_square",
+        "loc_5_town_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Family Fields",
+        "target_language": "Los Campos de la Familia"
+      },
+      "description": {
+        "native_language": "Fields where family trees grow language skills.",
+        "target_language": "Campos donde los árboles genealógicos cultivan habilidades lingüísticas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "family"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Family relations",
+        "target_language": "Relaciones familiares"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Nurturing and warm",
+        "target_language": "Nutritivo y cálido"
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 2
+      },
+      "id": "loc_7_family_fields",
+      "region_id": "region_3_cultural_town",
+      "connections": [
+        "loc_8_culinary_courtyard",
+        "loc_9_weather_way",
+        "loc_10_routine_ridge"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Culinary Courtyard",
+        "target_language": "El Patio Culinario"
+      },
+      "description": {
+        "native_language": "A courtyard devoted to the language of food.",
+        "target_language": "Un patio dedicado al lenguaje de la comida."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Food vocabulary",
+        "target_language": "Vocabulario de comida"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Appetizing and lively",
+        "target_language": "Apetitoso y animado"
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 2
+      },
+      "id": "loc_8_culinary_courtyard",
+      "region_id": "region_3_cultural_town",
+      "connections": [
+        "loc_7_family_fields",
+        "loc_9_weather_way"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Weather Way",
+        "target_language": "El Camino del Clima"
+      },
+      "description": {
+        "native_language": "A scenic route where one discusses weather patterns.",
+        "target_language": "Una ruta pintoresca donde se discuten los patrones climáticos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Weather discussion",
+        "target_language": "Discusión del clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Breezy and enlightening",
+        "target_language": "Ventoso e iluminador"
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 2
+      },
+      "id": "loc_9_weather_way",
+      "region_id": "region_3_cultural_town",
+      "connections": [
+        "loc_7_family_fields",
+        "loc_8_culinary_courtyard"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Routine Ridge",
+        "target_language": "La Cresta de la Rutina"
+      },
+      "description": {
+        "native_language": "A ridge that narrates the daily lives of inhabitants.",
+        "target_language": "Una cresta que narra la vida diaria de los habitantes."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Daily routines",
+        "target_language": "Rutinas diarias"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Structured and habitual",
+        "target_language": "Estructurado y habitual"
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 3
+      },
+      "id": "loc_10_routine_ridge",
+      "region_id": "region_4_wisdom_heights",
+      "connections": [
+        "loc_12_story_summit",
+        "loc_13_travel_terrace",
+        "loc_14_work_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Hobby Harbor",
+        "target_language": "El Refugio de Aficiones"
+      },
+      "description": {
+        "native_language": "A tranquil harbor where people discuss their pastimes.",
+        "target_language": "Un puerto tranquilo donde las personas discuten sus pasatiempos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "hobbies"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Hobbies and interests",
+        "target_language": "Aficiones e intereses"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Relaxing and engaging",
+        "target_language": "Relajante y atrayente"
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 3
+      },
+      "id": "loc_11_hobby_harbor",
+      "region_id": "region_4_wisdom_heights",
+      "connections": [
+        "loc_11_hobby_harbor",
+        "loc_13_travel_terrace"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Story Summit",
+        "target_language": "La Cima de Cuentos"
+      },
+      "description": {
+        "native_language": "A peak where past events come to life through tales.",
+        "target_language": "Un pico donde los eventos pasados cobran vida a través de relatos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Telling past events",
+        "target_language": "Narración de eventos pasados"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Reflective and storied",
+        "target_language": "Reflexivo y narrativo"
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 3
+      },
+      "id": "loc_12_story_summit",
+      "region_id": "region_4_wisdom_heights",
+      "connections": [
+        "loc_11_hobby_harbor",
+        "loc_12_story_summit"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Travel Terrace",
+        "target_language": "La Terraza de Viajes"
+      },
+      "description": {
+        "native_language": "A terrace where travelers plan their adventures.",
+        "target_language": "Una terraza donde los viajeros planean sus aventuras."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "travel"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Travel plans",
+        "target_language": "Planes de viaje"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Adventurous and promising",
+        "target_language": "Aventurero y prometedor"
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 4
+      },
+      "id": "loc_13_travel_terrace",
+      "region_id": "region_5_traveler_s_rest",
+      "connections": [
+        "loc_15_health_haven"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Work Plaza",
+        "target_language": "La Plaza del Trabajo"
+      },
+      "description": {
+        "native_language": "A bustling plaza where work and tasks are discussed.",
+        "target_language": "Una plaza bulliciosa donde se discuten el trabajo y las tareas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "work"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Work and tasks",
+        "target_language": "Trabajo y tareas"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Energetic and industrious",
+        "target_language": "Energético e industrioso"
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 4
+      },
+      "id": "loc_14_work_plaza",
+      "region_id": "region_5_traveler_s_rest",
+      "connections": [
+        "loc_14_work_plaza"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Health Haven",
+        "target_language": "El Refugio de Salud"
+      },
+      "description": {
+        "native_language": "A quiet haven dedicated to health and well-being.",
+        "target_language": "Un refugio tranquilo dedicado a la salud y el bienestar."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "health"
+      ],
+      "vocabulary_domain": {
+        "native_language": "Health and wellness",
+        "target_language": "Salud y bienestar"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Healing and serene",
+        "target_language": "Curativo y sereno"
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 4
+      },
+      "id": "loc_15_health_haven",
+      "region_id": "region_5_traveler_s_rest",
+      "connections": [
+        "loc_14_work_plaza",
+        "loc_15_health_haven"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_word_spring",
+      "to_location": "loc_2_path_of_numbers",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_word_spring",
+      "to_location": "loc_3_greet_s_crossroads",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_path_of_numbers",
+      "to_location": "loc_3_greet_s_crossroads",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_market_square",
+      "to_location": "loc_5_town_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_market_square",
+      "to_location": "loc_6_village_school",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_town_inn",
+      "to_location": "loc_6_village_school",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_town_inn",
+      "to_location": "loc_7_family_fields",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_family_fields",
+      "to_location": "loc_8_culinary_courtyard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_family_fields",
+      "to_location": "loc_9_weather_way",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_family_fields",
+      "to_location": "loc_10_routine_ridge",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_culinary_courtyard",
+      "to_location": "loc_9_weather_way",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_routine_ridge",
+      "to_location": "loc_12_story_summit",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_routine_ridge",
+      "to_location": "loc_13_travel_terrace",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_routine_ridge",
+      "to_location": "loc_14_work_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_hobby_harbor",
+      "to_location": "loc_11_hobby_harbor",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_hobby_harbor",
+      "to_location": "loc_13_travel_terrace",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_story_summit",
+      "to_location": "loc_11_hobby_harbor",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_story_summit",
+      "to_location": "loc_12_story_summit",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_travel_terrace",
+      "to_location": "loc_15_health_haven",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_work_plaza",
+      "to_location": "loc_14_work_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_15_health_haven",
+      "to_location": "loc_14_work_plaza",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_15_health_haven",
+      "to_location": "loc_15_health_haven",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_word_spring"
+}

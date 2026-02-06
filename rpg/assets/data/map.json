@@ -1,96 +1,94 @@
 {
   "map_metadata": {
     "name": {
-      "native_language": "Mystical Valle World Map",
-      "target_language": "Mapa del Mundo de Valle Místico"
+      "native_language": "El Pueblo de las Nubes",
+      "target_language": "The Village of Clouds"
     },
     "description": {
-      "native_language": "A magical yet grounded place where learning occurs.",
-      "target_language": "Un lugar mágico pero realista donde ocurre el aprendizaje."
+      "native_language": "Una aldea acogedora y moderna con magia y tradición.",
+      "target_language": "A cozy and modern village with magic and tradition."
     },
-    "scale": "region"
+    "scale": "town"
   },
   "regions": [
     {
       "name": {
-        "native_language": "Village of Beginnings",
-        "target_language": "Aldea de los Comienzos"
+        "native_language": "Plaza del Encuentro",
+        "target_language": "Meeting Square"
       },
       "description": {
-        "native_language": "A quaint village surrounded by lush forests.",
-        "target_language": "Una aldea pintoresca rodeada de frondosos bosques."
+        "native_language": "La plaza central llena de vida y amistades.",
+        "target_language": "The central square full of life and friendships."
       },
       "unlocked_at_level": "A0",
-      "id": "region_1_village_of_beginnings"
+      "id": "region_1_plaza_del_encuentro"
     },
     {
       "name": {
-        "native_language": "Humble Town",
-        "target_language": "Ciudad Humilde"
+        "native_language": "Mercado Colorido",
+        "target_language": "Colorful Market"
       },
       "description": {
-        "native_language": "A bustling town known for its market and friendly people.",
-        "target_language": "Una ciudad bulliciosa conocida por su mercado y gente amigable."
+        "native_language": "Donde se encuentran los sabores y colores de todo el mundo.",
+        "target_language": "Where flavors and colors from around the world meet."
       },
       "unlocked_at_level": "A0+",
-      "id": "region_2_humble_town"
+      "id": "region_2_mercado_colorido"
     },
     {
       "name": {
-        "native_language": "Scholar's Retreat",
-        "target_language": "Retiro del Erudito"
+        "native_language": "Biblioteca Iluminada",
+        "target_language": "Enlightened Library"
       },
       "description": {
-        "native_language": "A peaceful area where knowledge seekers gather.",
-        "target_language": "Una zona tranquila donde se reúnen los buscadores de conocimiento."
+        "native_language": "El lugar de aprendizaje y sabiduría.",
+        "target_language": "The place of learning and wisdom."
       },
       "unlocked_at_level": "A1",
-      "id": "region_3_scholar_s_retreat"
+      "id": "region_3_biblioteca_iluminada"
     },
     {
       "name": {
-        "native_language": "Seeker's Crossroads",
-        "target_language": "Cruce del Explorador"
+        "native_language": "Barrio de los Artistas",
+        "target_language": "Artists' District"
       },
       "description": {
-        "native_language": "Where travelers share tales of their journeys.",
-        "target_language": "Donde los viajeros comparten historias de sus viajes."
+        "native_language": "Un vecindario vibrante lleno de creatividad.",
+        "target_language": "A vibrant neighborhood full of creativity."
       },
       "unlocked_at_level": "A1+",
-      "id": "region_4_seeker_s_crossroads"
+      "id": "region_4_barrio_de_los_artistas"
     },
     {
       "name": {
-        "native_language": "Adventurer's Haven",
-        "target_language": "Refugio del Aventurero"
+        "native_language": "Paraje de Aventuras",
+        "target_language": "Adventure Grounds"
       },
       "description": {
-        "native_language": "The starting point for grand adventures.",
-        "target_language": "El punto de partida para grandes aventuras."
+        "native_language": "Terreno para explorar y desafiarse a uno mismo.",
+        "target_language": "Grounds to explore and challenge oneself."
       },
       "unlocked_at_level": "A2",
-      "id": "region_5_adventurer_s_haven"
+      "id": "region_5_paraje_de_aventuras"
     }
   ],
   "locations": [
     {
       "name": {
-        "native_language": "Town Square",
-        "target_language": "Plaza del Pueblo"
+        "native_language": "Fuente de Bienvenida",
+        "target_language": "Welcome Fountain"
       },
       "description": {
-        "native_language": "The heart of the village.",
-        "target_language": "El corazón del pueblo."
+        "native_language": "El lugar donde todos se encuentran por primera vez.",
+        "target_language": "The place where everyone meets for the first time."
       },
       "type": "outdoor",
       "language_topics": [
-        "greetings",
-        "colors",
-        "numbers 1-10"
+        "greetings"
       ],
       "vocabulary_domain": {
-        "native_language": "basic interactions",
-        "target_language": "interacciones básicas"
+        "native_language": "saludos",
+        "target_language": "greetings"
       },
       "minimum_language_level": "A0",
       "unlock_requirements": {
@@ -99,39 +97,38 @@
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Friendly and lively.",
-        "target_language": "Amistoso y animado."
+        "native_language": "Vibrante y lleno de risas.",
+        "target_language": "Vibrant and full of laughter."
       },
       "coordinates": {
         "x": 0,
         "y": 0
       },
-      "id": "loc_1_town_square",
-      "region_id": "region_1_village_of_beginnings",
+      "id": "loc_1_fuente_de_bienvenida",
+      "region_id": "region_1_plaza_del_encuentro",
       "connections": [
-        "loc_2_green_grove",
-        "loc_3_rosie_s_tavern"
+        "loc_2_calle_principal",
+        "loc_3_parque_de_la_amistad"
       ],
       "npcs": [],
       "available_items": []
     },
     {
       "name": {
-        "native_language": "Green Grove",
-        "target_language": "Arboleda Verde"
+        "native_language": "Calle Principal",
+        "target_language": "Main Street"
       },
       "description": {
-        "native_language": "A small park with vibrant flora.",
-        "target_language": "Un pequeño parque con flora vibrante."
+        "native_language": "La arteria principal del pueblo.",
+        "target_language": "The main artery of the town."
       },
       "type": "outdoor",
       "language_topics": [
-        "greetings",
-        "colors"
+        "directions"
       ],
       "vocabulary_domain": {
-        "native_language": "nature",
-        "target_language": "naturaleza"
+        "native_language": "direcciones",
+        "target_language": "directions"
       },
       "minimum_language_level": "A0",
       "unlock_requirements": {
@@ -140,78 +137,78 @@
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Serene and lush.",
-        "target_language": "Sereno y exuberante."
-      },
-      "coordinates": {
-        "x": 0,
-        "y": 1
-      },
-      "id": "loc_2_green_grove",
-      "region_id": "region_1_village_of_beginnings",
-      "connections": [
-        "loc_1_town_square"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Rosie's Tavern",
-        "target_language": "Taberna de Rosie"
-      },
-      "description": {
-        "native_language": "A welcoming inn at the edge of the village.",
-        "target_language": "Una posada acogedora al borde de la aldea."
-      },
-      "type": "building",
-      "language_topics": [
-        "greetings",
-        "yes/no"
-      ],
-      "vocabulary_domain": {
-        "native_language": "basic hospitality",
-        "target_language": "hospitalidad básica"
-      },
-      "minimum_language_level": "A0",
-      "unlock_requirements": {
-        "language_level": "A0",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Warm and inviting.",
-        "target_language": "Cálido y acogedor."
+        "native_language": "Bulliciosa pero acogedora.",
+        "target_language": "Bustling yet cozy."
       },
       "coordinates": {
         "x": 1,
         "y": 0
       },
-      "id": "loc_3_rosie_s_tavern",
-      "region_id": "region_1_village_of_beginnings",
+      "id": "loc_2_calle_principal",
+      "region_id": "region_1_plaza_del_encuentro",
       "connections": [
-        "loc_1_town_square"
+        "loc_1_fuente_de_bienvenida",
+        "loc_4_puesto_de_fruta"
       ],
       "npcs": [],
       "available_items": []
     },
     {
       "name": {
-        "native_language": "Marketplace",
-        "target_language": "Mercado"
+        "native_language": "Parque de la Amistad",
+        "target_language": "Friendship Park"
       },
       "description": {
-        "native_language": "A colorful market full of vibrant stalls.",
-        "target_language": "Un mercado colorido lleno de puestos vibrantes."
+        "native_language": "Un lugar para relajarse y jugar.",
+        "target_language": "A place to relax and play."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "family",
+        "friends"
+      ],
+      "vocabulary_domain": {
+        "native_language": "familia",
+        "target_language": "family"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Sereno y lleno de naturaleza.",
+        "target_language": "Serene and full of nature."
+      },
+      "coordinates": {
+        "x": -1,
+        "y": 0
+      },
+      "id": "loc_3_parque_de_la_amistad",
+      "region_id": "region_1_plaza_del_encuentro",
+      "connections": [
+        "loc_1_fuente_de_bienvenida"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Puesto de Fruta",
+        "target_language": "Fruit Stand"
+      },
+      "description": {
+        "native_language": "Una explosión de colores con saludables frutas.",
+        "target_language": "An explosion of colors with healthy fruits."
       },
       "type": "shop",
       "language_topics": [
-        "shopping basics",
-        "numbers 1-100"
+        "shopping"
       ],
       "vocabulary_domain": {
-        "native_language": "commercial transactions",
-        "target_language": "transacciones comerciales"
+        "native_language": "frutas",
+        "target_language": "fruits"
       },
       "minimum_language_level": "A0+",
       "unlock_requirements": {
@@ -220,39 +217,38 @@
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Bustling and lively.",
-        "target_language": "Bullicioso y animado."
+        "native_language": "Dulce y fragante.",
+        "target_language": "Sweet and fragrant."
       },
       "coordinates": {
         "x": 2,
         "y": 0
       },
-      "id": "loc_4_marketplace",
-      "region_id": "region_2_humble_town",
+      "id": "loc_4_puesto_de_fruta",
+      "region_id": "region_2_mercado_colorido",
       "connections": [
-        "loc_5_sunrise_caf",
-        "loc_6_quiet_lane_library"
+        "loc_2_calle_principal",
+        "loc_5_panader_a_aromatica"
       ],
       "npcs": [],
       "available_items": []
     },
     {
       "name": {
-        "native_language": "Sunrise Café",
-        "target_language": "Café Amanecer"
+        "native_language": "Panadería Aromatica",
+        "target_language": "Aromatic Bakery"
       },
       "description": {
-        "native_language": "A popular spot for locals to gather in the morning.",
-        "target_language": "Un lugar popular para que los locales se reúnan por la mañana."
+        "native_language": "Hogar del mejor pan fresco.",
+        "target_language": "Home of the best fresh bread."
       },
-      "type": "building",
+      "type": "shop",
       "language_topics": [
-        "basic objects",
-        "introductions"
+        "food"
       ],
       "vocabulary_domain": {
-        "native_language": "social interactions",
-        "target_language": "interacciones sociales"
+        "native_language": "alimentos",
+        "target_language": "foods"
       },
       "minimum_language_level": "A0+",
       "unlock_requirements": {
@@ -261,280 +257,196 @@
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Cozy and warm.",
-        "target_language": "Acogedor y cálido."
-      },
-      "coordinates": {
-        "x": 2,
-        "y": 1
-      },
-      "id": "loc_5_sunrise_caf",
-      "region_id": "region_2_humble_town",
-      "connections": [
-        "loc_4_marketplace"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Quiet Lane Library",
-        "target_language": "Biblioteca Calle Silenciosa"
-      },
-      "description": {
-        "native_language": "A quiet place filled with books and knowledge.",
-        "target_language": "Un lugar tranquilo lleno de libros y conocimiento."
-      },
-      "type": "building",
-      "language_topics": [
-        "days/months",
-        "basic objects"
-      ],
-      "vocabulary_domain": {
-        "native_language": "education",
-        "target_language": "educación"
-      },
-      "minimum_language_level": "A0+",
-      "unlock_requirements": {
-        "language_level": "A0+",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Peaceful and studious.",
-        "target_language": "Pacífico y estudioso."
+        "native_language": "Cálido y acogedor.",
+        "target_language": "Warm and cozy."
       },
       "coordinates": {
         "x": 3,
         "y": 0
       },
-      "id": "loc_6_quiet_lane_library",
-      "region_id": "region_2_humble_town",
+      "id": "loc_5_panader_a_aromatica",
+      "region_id": "region_2_mercado_colorido",
       "connections": [
-        "loc_4_marketplace"
+        "loc_4_puesto_de_fruta",
+        "loc_6_caf_de_los_susurros"
       ],
       "npcs": [],
       "available_items": []
     },
     {
       "name": {
-        "native_language": "Family Courtyard",
-        "target_language": "Patio Familiar"
+        "native_language": "Café de los Susurros",
+        "target_language": "Whispers Café"
       },
       "description": {
-        "native_language": "A gathering place for families to enjoy.",
-        "target_language": "Un lugar de reunión para que las familias disfruten."
-      },
-      "type": "outdoor",
-      "language_topics": [
-        "family",
-        "food"
-      ],
-      "vocabulary_domain": {
-        "native_language": "family life",
-        "target_language": "vida familiar"
-      },
-      "minimum_language_level": "A1",
-      "unlock_requirements": {
-        "language_level": "A1",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Joyful and warm.",
-        "target_language": "Alegre y cálido."
-      },
-      "coordinates": {
-        "x": 4,
-        "y": 0
-      },
-      "id": "loc_7_family_courtyard",
-      "region_id": "region_3_scholar_s_retreat",
-      "connections": [
-        "loc_8_riverbank_park",
-        "loc_9_scholar_s_inn"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Riverbank Park",
-        "target_language": "Parque del Río"
-      },
-      "description": {
-        "native_language": "A scenic area by the river.",
-        "target_language": "Un área pintoresca junto al río."
-      },
-      "type": "outdoor",
-      "language_topics": [
-        "weather",
-        "food"
-      ],
-      "vocabulary_domain": {
-        "native_language": "nature and dining",
-        "target_language": "naturaleza y gastronomía"
-      },
-      "minimum_language_level": "A1",
-      "unlock_requirements": {
-        "language_level": "A1",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Calm and scenic.",
-        "target_language": "Tranquilo y pintoresco."
-      },
-      "coordinates": {
-        "x": 4,
-        "y": 1
-      },
-      "id": "loc_8_riverbank_park",
-      "region_id": "region_3_scholar_s_retreat",
-      "connections": [
-        "loc_7_family_courtyard"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Scholar's Inn",
-        "target_language": "Posada del Erudito"
-      },
-      "description": {
-        "native_language": "Where travelers rest and share stories.",
-        "target_language": "Donde los viajeros descansan y comparten historias."
-      },
-      "type": "building",
-      "language_topics": [
-        "basic conversations",
-        "articles"
-      ],
-      "vocabulary_domain": {
-        "native_language": "hospitality and storytelling",
-        "target_language": "hospitalidad y narración"
-      },
-      "minimum_language_level": "A1",
-      "unlock_requirements": {
-        "language_level": "A1",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Welcoming and enlightening.",
-        "target_language": "Acogedor y esclarecedor."
-      },
-      "coordinates": {
-        "x": 5,
-        "y": 0
-      },
-      "id": "loc_9_scholar_s_inn",
-      "region_id": "region_3_scholar_s_retreat",
-      "connections": [
-        "loc_7_family_courtyard"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Traveler's Hub",
-        "target_language": "Centro de Viajeros"
-      },
-      "description": {
-        "native_language": "A bustling crossroad filled with adventurers.",
-        "target_language": "Un bullicioso cruce lleno de aventureros."
-      },
-      "type": "outdoor",
-      "language_topics": [
-        "directions",
-        "hobbies"
-      ],
-      "vocabulary_domain": {
-        "native_language": "travel and leisure",
-        "target_language": "viaje y ocio"
-      },
-      "minimum_language_level": "A1+",
-      "unlock_requirements": {
-        "language_level": "A1+",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Energetic and vibrant.",
-        "target_language": "Energético y vibrante."
-      },
-      "coordinates": {
-        "x": 6,
-        "y": 0
-      },
-      "id": "loc_10_traveler_s_hub",
-      "region_id": "region_4_seeker_s_crossroads",
-      "connections": [
-        "loc_10_traveler_s_hub",
-        "loc_12_craftsman_s_alley"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Silver Lake",
-        "target_language": "Lago de Plata"
-      },
-      "description": {
-        "native_language": "A tranquil lake known for its reflective waters.",
-        "target_language": "Un lago tranquilo famoso por sus aguas reflectantes."
-      },
-      "type": "outdoor",
-      "language_topics": [
-        "descriptions",
-        "past events"
-      ],
-      "vocabulary_domain": {
-        "native_language": "natural beauty",
-        "target_language": "belleza natural"
-      },
-      "minimum_language_level": "A1+",
-      "unlock_requirements": {
-        "language_level": "A1+",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Serene and reflective.",
-        "target_language": "Sereno y reflexivo."
-      },
-      "coordinates": {
-        "x": 6,
-        "y": 1
-      },
-      "id": "loc_11_silver_lake",
-      "region_id": "region_4_seeker_s_crossroads",
-      "connections": [
-        "loc_11_silver_lake"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Craftsman's Alley",
-        "target_language": "Callejón del Artesano"
-      },
-      "description": {
-        "native_language": "An alley filled with skilled artisans.",
-        "target_language": "Un callejón lleno de artesanos habilidosos."
+        "native_language": "Un sitio tranquilo para disfrutar un café.",
+        "target_language": "A quiet place to enjoy coffee."
       },
       "type": "shop",
       "language_topics": [
-        "shopping basics",
-        "hobbies"
+        "food",
+        "drinks"
       ],
       "vocabulary_domain": {
-        "native_language": "craftsmanship",
-        "target_language": "artesanía"
+        "native_language": "bebidas",
+        "target_language": "drinks"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Relajante con el sonido de cuchicheos.",
+        "target_language": "Relaxing with the sound of whispers."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 1
+      },
+      "id": "loc_6_caf_de_los_susurros",
+      "region_id": "region_2_mercado_colorido",
+      "connections": [
+        "loc_5_panader_a_aromatica"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Escuela de Magia",
+        "target_language": "School of Magic"
+      },
+      "description": {
+        "native_language": "Para aprender todo sobre el mundo mágico.",
+        "target_language": "To learn everything about the magical world."
+      },
+      "type": "building",
+      "language_topics": [
+        "education"
+      ],
+      "vocabulary_domain": {
+        "native_language": "educación",
+        "target_language": "education"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Enigmática y sorprendente.",
+        "target_language": "Enigmatic and wondrous."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 1
+      },
+      "id": "loc_7_escuela_de_magia",
+      "region_id": "region_3_biblioteca_iluminada",
+      "connections": [
+        "loc_8_casa_del_historiador"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Casa del Historiador",
+        "target_language": "Historian's House"
+      },
+      "description": {
+        "native_language": "Repleta de libros y artefactos antiguos.",
+        "target_language": "Filled with books and ancient artifacts."
+      },
+      "type": "home",
+      "language_topics": [
+        "history"
+      ],
+      "vocabulary_domain": {
+        "native_language": "historia",
+        "target_language": "history"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Intelectual y misteriosa.",
+        "target_language": "Intellectual and mysterious."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 1
+      },
+      "id": "loc_8_casa_del_historiador",
+      "region_id": "region_3_biblioteca_iluminada",
+      "connections": [
+        "loc_7_escuela_de_magia",
+        "loc_9_centro_de_investigaci_n"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Centro de Investigación",
+        "target_language": "Research Center"
+      },
+      "description": {
+        "native_language": "Donde las mentes curiosas exploran.",
+        "target_language": "Where curious minds explore."
+      },
+      "type": "building",
+      "language_topics": [
+        "science"
+      ],
+      "vocabulary_domain": {
+        "native_language": "ciencia",
+        "target_language": "science"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Moderna e inspiradora.",
+        "target_language": "Modern and inspiring."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 1
+      },
+      "id": "loc_9_centro_de_investigaci_n",
+      "region_id": "region_3_biblioteca_iluminada",
+      "connections": [
+        "loc_8_casa_del_historiador"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Teatro de Sombras",
+        "target_language": "Shadow Theater"
+      },
+      "description": {
+        "native_language": "Obras de arte cobran vida aquí.",
+        "target_language": "Artworks come to life here."
+      },
+      "type": "building",
+      "language_topics": [
+        "arts"
+      ],
+      "vocabulary_domain": {
+        "native_language": "arte",
+        "target_language": "art"
       },
       "minimum_language_level": "A1+",
       "unlock_requirements": {
@@ -543,118 +455,117 @@
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Creative and inspiring.",
-        "target_language": "Creativo e inspirador."
+        "native_language": "Dramática y emocionante.",
+        "target_language": "Dramatic and thrilling."
       },
       "coordinates": {
-        "x": 7,
-        "y": 0
+        "x": 4,
+        "y": 1
       },
-      "id": "loc_12_craftsman_s_alley",
-      "region_id": "region_4_seeker_s_crossroads",
+      "id": "loc_10_teatro_de_sombras",
+      "region_id": "region_4_barrio_de_los_artistas",
       "connections": [
-        "loc_10_traveler_s_hub"
+        "loc_10_teatro_de_sombras",
+        "loc_11_estudio_de_m_sica"
       ],
       "npcs": [],
       "available_items": []
     },
     {
       "name": {
-        "native_language": "Hero's Trail",
-        "target_language": "Senda del Héroe"
+        "native_language": "Estudio de Música",
+        "target_language": "Music Studio"
       },
       "description": {
-        "native_language": "A challenging path leading to new horizons.",
-        "target_language": "Un camino desafiante que conduce a nuevos horizontes."
-      },
-      "type": "outdoor",
-      "language_topics": [
-        "travel",
-        "plans"
-      ],
-      "vocabulary_domain": {
-        "native_language": "exploration",
-        "target_language": "exploración"
-      },
-      "minimum_language_level": "A2",
-      "unlock_requirements": {
-        "language_level": "A2",
-        "quest_prerequisites": [],
-        "story_flags": []
-      },
-      "atmosphere": {
-        "native_language": "Adventurous and daring.",
-        "target_language": "Aventurero y audaz."
-      },
-      "coordinates": {
-        "x": 8,
-        "y": 0
-      },
-      "id": "loc_13_hero_s_trail",
-      "region_id": "region_5_adventurer_s_haven",
-      "connections": [
-        "loc_14_guardian_watchtower"
-      ],
-      "npcs": [],
-      "available_items": []
-    },
-    {
-      "name": {
-        "native_language": "Guardian Watchtower",
-        "target_language": "Torre de Vigilancia del Guardián"
-      },
-      "description": {
-        "native_language": "A lookout tower with breathtaking views.",
-        "target_language": "Una torre de vigilancia con vistas impresionantes."
+        "native_language": "La música fluye a toda hora.",
+        "target_language": "Music flows at all times."
       },
       "type": "building",
       "language_topics": [
-        "work",
-        "opinions"
+        "music"
       ],
       "vocabulary_domain": {
-        "native_language": "security and observation",
-        "target_language": "seguridad y observación"
+        "native_language": "música",
+        "target_language": "music"
       },
-      "minimum_language_level": "A2",
+      "minimum_language_level": "A1+",
       "unlock_requirements": {
-        "language_level": "A2",
+        "language_level": "A1+",
         "quest_prerequisites": [],
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Protective and vigilant.",
-        "target_language": "Protector y vigilante."
+        "native_language": "Armoniosa y rítmica.",
+        "target_language": "Harmonious and rhythmic."
       },
       "coordinates": {
-        "x": 8,
+        "x": 5,
         "y": 1
       },
-      "id": "loc_14_guardian_watchtower",
-      "region_id": "region_5_adventurer_s_haven",
+      "id": "loc_11_estudio_de_m_sica",
+      "region_id": "region_4_barrio_de_los_artistas",
       "connections": [
-        "loc_13_hero_s_trail"
+        "loc_9_centro_de_investigaci_n",
+        "loc_12_galer_a_celestial"
       ],
       "npcs": [],
       "available_items": []
     },
     {
       "name": {
-        "native_language": "Healing Springs",
-        "target_language": "Manantiales Curativos"
+        "native_language": "Galería Celestial",
+        "target_language": "Celestial Gallery"
       },
       "description": {
-        "native_language": "Mystical springs with rejuvenating waters.",
-        "target_language": "Manantiales místicos con aguas rejuvenecedoras."
+        "native_language": "Exhibiciones de arte de otro mundo.",
+        "target_language": "Exhibitions of otherworldly art."
+      },
+      "type": "building",
+      "language_topics": [
+        "visual arts"
+      ],
+      "vocabulary_domain": {
+        "native_language": "artes visuales",
+        "target_language": "visual arts"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Ethereal and majestic.",
+        "target_language": "Ethereal and majestic."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 2
+      },
+      "id": "loc_12_galer_a_celestial",
+      "region_id": "region_4_barrio_de_los_artistas",
+      "connections": [
+        "loc_11_estudio_de_m_sica"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Bosque de los Secretos",
+        "target_language": "Forest of Secrets"
+      },
+      "description": {
+        "native_language": "Descubre sus antiguos secretos.",
+        "target_language": "Discover its ancient secrets."
       },
       "type": "outdoor",
       "language_topics": [
-        "health",
-        "opinions"
+        "environment"
       ],
       "vocabulary_domain": {
-        "native_language": "wellness",
-        "target_language": "bienestar"
+        "native_language": "medio ambiente",
+        "target_language": "environment"
       },
       "minimum_language_level": "A2",
       "unlock_requirements": {
@@ -663,17 +574,96 @@
         "story_flags": []
       },
       "atmosphere": {
-        "native_language": "Calming and soothing.",
-        "target_language": "Calmante y reconfortante."
+        "native_language": "Misterioso y antiguo.",
+        "target_language": "Mysterious and ancient."
       },
       "coordinates": {
-        "x": 9,
-        "y": 0
+        "x": -1,
+        "y": 1
       },
-      "id": "loc_15_healing_springs",
-      "region_id": "region_5_adventurer_s_haven",
+      "id": "loc_13_bosque_de_los_secretos",
+      "region_id": "region_5_paraje_de_aventuras",
       "connections": [
-        "loc_14_guardian_watchtower"
+        "loc_13_bosque_de_los_secretos",
+        "loc_14_ruinas_escondidas"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Ruinas Escondidas",
+        "target_language": "Hidden Ruins"
+      },
+      "description": {
+        "native_language": "El viento susurra historias.",
+        "target_language": "The wind whispers stories."
+      },
+      "type": "dungeon",
+      "language_topics": [
+        "history"
+      ],
+      "vocabulary_domain": {
+        "native_language": "historia antigua",
+        "target_language": "ancient history"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Tranquilo y melancólico.",
+        "target_language": "Tranquil and melancholic."
+      },
+      "coordinates": {
+        "x": -2,
+        "y": 1
+      },
+      "id": "loc_14_ruinas_escondidas",
+      "region_id": "region_5_paraje_de_aventuras",
+      "connections": [
+        "loc_12_galer_a_celestial"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Claror del Amanecer",
+        "target_language": "Dawn's Glade"
+      },
+      "description": {
+        "native_language": "La luz del amanecer ofrece esperanza.",
+        "target_language": "The dawn light offers hope."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "nature"
+      ],
+      "vocabulary_domain": {
+        "native_language": "naturaleza",
+        "target_language": "nature"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Renovador y claro.",
+        "target_language": "Refreshing and clear."
+      },
+      "coordinates": {
+        "x": -1,
+        "y": 2
+      },
+      "id": "loc_15_claror_del_amanecer",
+      "region_id": "region_5_paraje_de_aventuras",
+      "connections": [
+        "loc_13_bosque_de_los_secretos"
       ],
       "npcs": [],
       "available_items": []
@@ -681,60 +671,80 @@
   ],
   "connections": [
     {
-      "from_location": "loc_1_town_square",
-      "to_location": "loc_2_green_grove",
+      "from_location": "loc_1_fuente_de_bienvenida",
+      "to_location": "loc_2_calle_principal",
       "bidirectional": true
     },
     {
-      "from_location": "loc_1_town_square",
-      "to_location": "loc_3_rosie_s_tavern",
+      "from_location": "loc_1_fuente_de_bienvenida",
+      "to_location": "loc_3_parque_de_la_amistad",
       "bidirectional": true
     },
     {
-      "from_location": "loc_4_marketplace",
-      "to_location": "loc_5_sunrise_caf",
+      "from_location": "loc_2_calle_principal",
+      "to_location": "loc_4_puesto_de_fruta",
       "bidirectional": true
     },
     {
-      "from_location": "loc_4_marketplace",
-      "to_location": "loc_6_quiet_lane_library",
+      "from_location": "loc_4_puesto_de_fruta",
+      "to_location": "loc_5_panader_a_aromatica",
       "bidirectional": true
     },
     {
-      "from_location": "loc_7_family_courtyard",
-      "to_location": "loc_8_riverbank_park",
+      "from_location": "loc_5_panader_a_aromatica",
+      "to_location": "loc_6_caf_de_los_susurros",
       "bidirectional": true
     },
     {
-      "from_location": "loc_7_family_courtyard",
-      "to_location": "loc_9_scholar_s_inn",
+      "from_location": "loc_7_escuela_de_magia",
+      "to_location": "loc_8_casa_del_historiador",
       "bidirectional": true
     },
     {
-      "from_location": "loc_10_traveler_s_hub",
-      "to_location": "loc_10_traveler_s_hub",
+      "from_location": "loc_8_casa_del_historiador",
+      "to_location": "loc_9_centro_de_investigaci_n",
       "bidirectional": true
     },
     {
-      "from_location": "loc_10_traveler_s_hub",
-      "to_location": "loc_12_craftsman_s_alley",
+      "from_location": "loc_10_teatro_de_sombras",
+      "to_location": "loc_10_teatro_de_sombras",
       "bidirectional": true
     },
     {
-      "from_location": "loc_11_silver_lake",
-      "to_location": "loc_11_silver_lake",
+      "from_location": "loc_10_teatro_de_sombras",
+      "to_location": "loc_11_estudio_de_m_sica",
       "bidirectional": true
     },
     {
-      "from_location": "loc_13_hero_s_trail",
-      "to_location": "loc_14_guardian_watchtower",
+      "from_location": "loc_11_estudio_de_m_sica",
+      "to_location": "loc_9_centro_de_investigaci_n",
       "bidirectional": true
     },
     {
-      "from_location": "loc_15_healing_springs",
-      "to_location": "loc_14_guardian_watchtower",
+      "from_location": "loc_11_estudio_de_m_sica",
+      "to_location": "loc_12_galer_a_celestial",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_bosque_de_los_secretos",
+      "to_location": "loc_13_bosque_de_los_secretos",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_bosque_de_los_secretos",
+      "to_location": "loc_14_ruinas_escondidas",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_ruinas_escondidas",
+      "to_location": "loc_12_galer_a_celestial",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_15_claror_del_amanecer",
+      "to_location": "loc_13_bosque_de_los_secretos",
       "bidirectional": true
     }
   ],
-  "starting_location": "loc_1_town_square"
+  "starting_location": "loc_1_fuente_de_bienvenida"
 }

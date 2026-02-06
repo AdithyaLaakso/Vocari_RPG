@@ -1,0 +1,493 @@
+{
+  "items": [
+    {
+      "name": {
+        "native_language": "Apple",
+        "target_language": "Manzana"
+      },
+      "description": {
+        "native_language": "A fresh apple.",
+        "target_language": "Una manzana fresca."
+      },
+      "category": "consumable",
+      "location_id": "loc_1_town_square",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "apple",
+        "target_language": "manzana"
+      },
+      "usage_hint": {
+        "native_language": "Eat it to regain energy.",
+        "target_language": "Cómetela para recuperar energía."
+      },
+      "id": "item_1_apple"
+    },
+    {
+      "name": {
+        "native_language": "Stale Bread",
+        "target_language": "Pan Duro"
+      },
+      "description": {
+        "native_language": "A loaf of stale bread.",
+        "target_language": "Un pan duro."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_colorful_market",
+      "acquisition_type": "purchase",
+      "language_level": "A0",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 1,
+      "vocabulary_word": {
+        "native_language": "bread",
+        "target_language": "pan"
+      },
+      "usage_hint": {
+        "native_language": "Good for a simple meal.",
+        "target_language": "Bueno para una comida sencilla."
+      },
+      "id": "item_2_stale_bread"
+    },
+    {
+      "name": {
+        "native_language": "Water Bottle",
+        "target_language": "Botella de Agua"
+      },
+      "description": {
+        "native_language": "A small bottle of clear water.",
+        "target_language": "Una botella pequeña de agua clara."
+      },
+      "category": "consumable",
+      "location_id": "loc_3_the_cozy_inn",
+      "acquisition_type": "purchase",
+      "language_level": "A0",
+      "quantity_available": 10,
+      "respawns": true,
+      "price": 1,
+      "vocabulary_word": {
+        "native_language": "water",
+        "target_language": "agua"
+      },
+      "usage_hint": {
+        "native_language": "Drink it to quench thirst.",
+        "target_language": "Bébela para saciar la sed."
+      },
+      "id": "item_3_water_bottle"
+    },
+    {
+      "name": {
+        "native_language": "Red Rose",
+        "target_language": "Rosa Roja"
+      },
+      "description": {
+        "native_language": "A beautiful red rose.",
+        "target_language": "Una hermosa rosa roja."
+      },
+      "category": "gift",
+      "location_id": "loc_1_town_square",
+      "acquisition_type": "gather",
+      "language_level": "A0",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "rose",
+        "target_language": "rosa"
+      },
+      "usage_hint": {
+        "native_language": "Give it as a gift.",
+        "target_language": "Dásela como regalo."
+      },
+      "id": "item_4_red_rose"
+    },
+    {
+      "name": {
+        "native_language": "Ripe Banana",
+        "target_language": "Banana Madura"
+      },
+      "description": {
+        "native_language": "A ripe banana to eat.",
+        "target_language": "Una banana madura para comer."
+      },
+      "category": "consumable",
+      "location_id": "loc_2_colorful_market",
+      "acquisition_type": "purchase",
+      "language_level": "A0",
+      "quantity_available": 8,
+      "respawns": true,
+      "price": 1,
+      "vocabulary_word": {
+        "native_language": "banana",
+        "target_language": "banana"
+      },
+      "usage_hint": {
+        "native_language": "Great for a snack.",
+        "target_language": "Ideal para un tentempié."
+      },
+      "id": "item_5_ripe_banana"
+    },
+    {
+      "name": {
+        "native_language": "Wooden Toy",
+        "target_language": "Juguete de Madera"
+      },
+      "description": {
+        "native_language": "A simple wooden toy.",
+        "target_language": "Un juguete simple de madera."
+      },
+      "category": "gift",
+      "location_id": "loc_4_learning_grounds",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "toy",
+        "target_language": "juguete"
+      },
+      "usage_hint": {
+        "native_language": "Give to a child.",
+        "target_language": "Dáselo a un niño."
+      },
+      "id": "item_6_wooden_toy"
+    },
+    {
+      "name": {
+        "native_language": "Herbal Leaf",
+        "target_language": "Hoja de Hierba"
+      },
+      "description": {
+        "native_language": "An aromatic herbal leaf.",
+        "target_language": "Una hoja de hierba aromática."
+      },
+      "category": "material",
+      "location_id": "loc_5_herbal_grove",
+      "acquisition_type": "gather",
+      "language_level": "A0+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "herb",
+        "target_language": "hierba"
+      },
+      "usage_hint": {
+        "native_language": "Use in potions.",
+        "target_language": "Úsala en pociones."
+      },
+      "id": "item_7_herbal_leaf"
+    },
+    {
+      "name": {
+        "native_language": "Woolen Scarf",
+        "target_language": "Bufanda de Lana"
+      },
+      "description": {
+        "native_language": "A warm woolen scarf.",
+        "target_language": "Una bufanda de lana cálida."
+      },
+      "category": "gift",
+      "location_id": "loc_4_learning_grounds",
+      "acquisition_type": "find",
+      "language_level": "A0+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "scarf",
+        "target_language": "bufanda"
+      },
+      "usage_hint": {
+        "native_language": "Wear on cold days.",
+        "target_language": "Llévala en días fríos."
+      },
+      "id": "item_8_woolen_scarf"
+    },
+    {
+      "name": {
+        "native_language": "Family Portrait",
+        "target_language": "Retrato Familiar"
+      },
+      "description": {
+        "native_language": "A cherished family portrait.",
+        "target_language": "Un retrato familiar apreciado."
+      },
+      "category": "document",
+      "location_id": "loc_6_family_courtyard",
+      "acquisition_type": "receive",
+      "language_level": "A1",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "portrait",
+        "target_language": "retrato"
+      },
+      "usage_hint": {
+        "native_language": "Display at home.",
+        "target_language": "Exhíbelo en casa."
+      },
+      "id": "item_9_family_portrait"
+    },
+    {
+      "name": {
+        "native_language": "Spiced Cookie",
+        "target_language": "Galleta Especiada"
+      },
+      "description": {
+        "native_language": "A flavorful spiced cookie.",
+        "target_language": "Una galleta especiada sabrosa."
+      },
+      "category": "consumable",
+      "location_id": "loc_7_the_spiced_kitchen",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 12,
+      "respawns": true,
+      "price": 2,
+      "vocabulary_word": {
+        "native_language": "cookie",
+        "target_language": "galleta"
+      },
+      "usage_hint": {
+        "native_language": "Delicious with tea.",
+        "target_language": "Deliciosa con té."
+      },
+      "id": "item_10_spiced_cookie"
+    },
+    {
+      "name": {
+        "native_language": "Rain Jacket",
+        "target_language": "Chaqueta de Lluvia"
+      },
+      "description": {
+        "native_language": "A jacket to keep dry in rain.",
+        "target_language": "Una chaqueta para mantenerse seco en la lluvia."
+      },
+      "category": "tool",
+      "location_id": "loc_8_weather_wishing_well",
+      "acquisition_type": "purchase",
+      "language_level": "A1",
+      "quantity_available": 5,
+      "respawns": true,
+      "price": 15,
+      "vocabulary_word": {
+        "native_language": "jacket",
+        "target_language": "chaqueta"
+      },
+      "usage_hint": {
+        "native_language": "Wear during rain.",
+        "target_language": "Úsala durante la lluvia."
+      },
+      "id": "item_11_rain_jacket"
+    },
+    {
+      "name": {
+        "native_language": "Ancient Scroll",
+        "target_language": "Pergamino Antiguo"
+      },
+      "description": {
+        "native_language": "An ancient scroll with lore.",
+        "target_language": "Un pergamino antiguo con conocimiento."
+      },
+      "category": "document",
+      "location_id": "loc_9_library_of_lore",
+      "acquisition_type": "find",
+      "language_level": "A1+",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "scroll",
+        "target_language": "pergamino"
+      },
+      "usage_hint": {
+        "native_language": "Read for stories.",
+        "target_language": "Léelo para historias."
+      },
+      "id": "item_12_ancient_scroll"
+    },
+    {
+      "name": {
+        "native_language": "Memory Stone",
+        "target_language": "Piedra de Memoria"
+      },
+      "description": {
+        "native_language": "A stone remembering past events.",
+        "target_language": "Una piedra que recuerda eventos pasados."
+      },
+      "category": "material",
+      "location_id": "loc_10_meadow_of_memories",
+      "acquisition_type": "gather",
+      "language_level": "A1+",
+      "quantity_available": -1,
+      "respawns": true,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "stone",
+        "target_language": "piedra"
+      },
+      "usage_hint": {
+        "native_language": "Use in crafting.",
+        "target_language": "Úsala en artesanía."
+      },
+      "id": "item_13_memory_stone"
+    },
+    {
+      "name": {
+        "native_language": "Crafting Kit",
+        "target_language": "Kit de Artesanía"
+      },
+      "description": {
+        "native_language": "Basic tools for crafting.",
+        "target_language": "Herramientas básicas para artesanía."
+      },
+      "category": "tool",
+      "location_id": "loc_11_workshop_of_wonders",
+      "acquisition_type": "purchase",
+      "language_level": "A1+",
+      "quantity_available": 3,
+      "respawns": true,
+      "price": 25,
+      "vocabulary_word": {
+        "native_language": "kit",
+        "target_language": "kit"
+      },
+      "usage_hint": {
+        "native_language": "Start crafting projects.",
+        "target_language": "Inicia proyectos de artesanía."
+      },
+      "id": "item_14_crafting_kit"
+    },
+    {
+      "name": {
+        "native_language": "Train Ticket",
+        "target_language": "Boleto de Tren"
+      },
+      "description": {
+        "native_language": "A ticket for train travel.",
+        "target_language": "Un boleto para viajar en tren."
+      },
+      "category": "valuable",
+      "location_id": "loc_12_traveler_s_terminal",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 50,
+      "respawns": true,
+      "price": 30,
+      "vocabulary_word": {
+        "native_language": "ticket",
+        "target_language": "boleto"
+      },
+      "usage_hint": {
+        "native_language": "Use to board the train.",
+        "target_language": "Úsalo para abordar el tren."
+      },
+      "id": "item_15_train_ticket"
+    },
+    {
+      "name": {
+        "native_language": "Healing Potion",
+        "target_language": "Poción de Sanación"
+      },
+      "description": {
+        "native_language": "A potion to heal wounds.",
+        "target_language": "Una poción para sanar heridas."
+      },
+      "category": "consumable",
+      "location_id": "loc_13_healer_s_haven",
+      "acquisition_type": "purchase",
+      "language_level": "A2",
+      "quantity_available": 20,
+      "respawns": true,
+      "price": 10,
+      "vocabulary_word": {
+        "native_language": "potion",
+        "target_language": "poción"
+      },
+      "usage_hint": {
+        "native_language": "Drink to restore health.",
+        "target_language": "Bébela para restaurar la salud."
+      },
+      "id": "item_16_healing_potion"
+    },
+    {
+      "name": {
+        "native_language": "Debate Notes",
+        "target_language": "Notas de Debate"
+      },
+      "description": {
+        "native_language": "Notes from a recent debate.",
+        "target_language": "Notas de un debate reciente."
+      },
+      "category": "document",
+      "location_id": "loc_14_idea_exchange_hall",
+      "acquisition_type": "find",
+      "language_level": "A2",
+      "quantity_available": 1,
+      "respawns": false,
+      "price": 0,
+      "vocabulary_word": {
+        "native_language": "notes",
+        "target_language": "notas"
+      },
+      "usage_hint": {
+        "native_language": "Study for insights.",
+        "target_language": "Estúdialas para obtener ideas."
+      },
+      "id": "item_17_debate_notes"
+    }
+  ],
+  "_items_by_location": {
+    "loc_1_town_square": [
+      "item_1_apple",
+      "item_4_red_rose"
+    ],
+    "loc_2_colorful_market": [
+      "item_2_stale_bread",
+      "item_5_ripe_banana"
+    ],
+    "loc_3_the_cozy_inn": [
+      "item_3_water_bottle"
+    ],
+    "loc_4_learning_grounds": [
+      "item_6_wooden_toy",
+      "item_8_woolen_scarf"
+    ],
+    "loc_5_herbal_grove": [
+      "item_7_herbal_leaf"
+    ],
+    "loc_6_family_courtyard": [
+      "item_9_family_portrait"
+    ],
+    "loc_7_the_spiced_kitchen": [
+      "item_10_spiced_cookie"
+    ],
+    "loc_8_weather_wishing_well": [
+      "item_11_rain_jacket"
+    ],
+    "loc_9_library_of_lore": [
+      "item_12_ancient_scroll"
+    ],
+    "loc_10_meadow_of_memories": [
+      "item_13_memory_stone"
+    ],
+    "loc_11_workshop_of_wonders": [
+      "item_14_crafting_kit"
+    ],
+    "loc_12_traveler_s_terminal": [
+      "item_15_train_ticket"
+    ],
+    "loc_13_healer_s_haven": [
+      "item_16_healing_potion"
+    ],
+    "loc_14_idea_exchange_hall": [
+      "item_17_debate_notes"
+    ]
+  }
+}

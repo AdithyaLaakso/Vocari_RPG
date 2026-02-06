@@ -1,0 +1,104 @@
+{
+  "world_name": {
+    "native_language": "Saronia Village",
+    "target_language": "Villa Saronia"
+  },
+  "world_description": {
+    "native_language": "A quaint village where cultures and languages blend, surrounded by enchanting landscapes.",
+    "target_language": "Una pintoresca aldea donde las culturas y lenguas se mezclan, rodeada de paisajes encantadores."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "Saronia Village has long been a meeting place for travelers due to its strategic location.",
+      "target_language": "Villa Saronia ha sido durante mucho tiempo un punto de encuentro para viajeros debido a su ubicación estratégica."
+    },
+    "player_origin": {
+      "native_language": "You arrive at Saronia Village from across the sea, seeking adventure and knowledge.",
+      "target_language": "Llegas a Villa Saronia desde el otro lado del mar, buscando aventura y conocimiento."
+    },
+    "motivation": {
+      "native_language": "To become part of the community, you must learn the local language and traditions.",
+      "target_language": "Para integrarte en la comunidad, debes aprender el idioma y las tradiciones locales."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "A timeless era with both ancient and mystical elements.",
+      "target_language": "Una era atemporal con elementos tanto antiguos como místicos."
+    },
+    "atmosphere": {
+      "native_language": "Welcoming and vibrant, filled with the sounds of nature and lively conversations.",
+      "target_language": "Acogedora y vibrante, llena de los sonidos de la naturaleza y conversaciones animadas."
+    },
+    "culture": {
+      "native_language": "A blend of traditional customs and light magical practices, highly valuing community and learning.",
+      "target_language": "Una mezcla de costumbres tradicionales y prácticas mágicas ligeras, altamente valoran la comunidad y el aprendizaje."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Wisdom Stones",
+        "target_language": "Piedras de Sabiduría"
+      },
+      "description": {
+        "native_language": "These stones help those who seek knowledge by whispering hints and guidance.",
+        "target_language": "Estas piedras ayudan a quienes buscan conocimiento susurrando pistas y orientación."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "The Scholars' Guild",
+        "target_language": "El Gremio de los Eruditos"
+      },
+      "description": {
+        "native_language": "A group of learned individuals dedicated to preserving and sharing knowledge.",
+        "target_language": "Un grupo de individuos eruditos dedicados a preservar y compartir el conocimiento."
+      },
+      "role_in_world": {
+        "native_language": "They act as mentors to those wishing to learn the language and local customs.",
+        "target_language": "Actúan como mentores para quienes deseen aprender el idioma y las costumbres locales."
+      }
+    },
+    {
+      "name": {
+        "native_language": "The Traders Union",
+        "target_language": "La Unión de Comerciantes"
+      },
+      "description": {
+        "native_language": "A collective of merchants who facilitate trade and cultural exchange.",
+        "target_language": "Un colectivo de comerciantes que facilitan el comercio y el intercambio cultural."
+      },
+      "role_in_world": {
+        "native_language": "They connect the village with distant lands, bringing new goods and stories.",
+        "target_language": "Conectan la aldea con tierras lejanas, trayendo nuevos bienes e historias."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Discovery",
+      "target_language": "Descubrimiento"
+    },
+    {
+      "native_language": "Community",
+      "target_language": "Comunidad"
+    },
+    {
+      "native_language": "Learning",
+      "target_language": "Aprendizaje"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "To participate in village life and uncover its secrets, language is essential.",
+      "target_language": "Para participar en la vida del pueblo y descubrir sus secretos, el idioma es esencial."
+    },
+    "how_language_fits": {
+      "native_language": "Various quests and interactions with villagers require understanding and speaking the local tongue.",
+      "target_language": "Varias misiones e interacciones con los aldeanos requieren entender y hablar la lengua local."
+    }
+  }
+}

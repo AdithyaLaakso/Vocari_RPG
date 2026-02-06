@@ -96,14 +96,6 @@ class InfoCardService {
       icon: '🔢',
     ),
     InfoCard(
-      id: 'reminder_practice',
-      type: InfoCardType.reminder,
-      title: 'Practice Reminder',
-      content:
-          'Try to respond in Spanish when you can! Even simple phrases help build your confidence.',
-      icon: '📝',
-    ),
-    InfoCard(
       id: 'tip_questions',
       type: InfoCardType.tip,
       title: 'Question Words',
@@ -171,18 +163,6 @@ class InfoCardService {
             m.content.toLowerCase().contains('count') ||
             m.content.toLowerCase().contains('number'));
         return hasNumberContent;
-
-      case 'reminder_practice':
-        // Show after 6 messages if user hasn't used Spanish
-        if (_messageCount < 6) return false;
-        final userMessages =
-            messages.where((m) => m.role == 'user').map((m) => m.content);
-        final usedSpanish = userMessages.any((content) =>
-            content.contains('hola') ||
-            content.contains('gracias') ||
-            content.contains('sí') ||
-            content.contains('por favor'));
-        return !usedSpanish;
 
       case 'tip_questions':
         // Show if user asks a question in English that could be in Spanish

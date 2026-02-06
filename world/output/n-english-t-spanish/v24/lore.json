@@ -1,0 +1,90 @@
+{
+  "world_name": {
+    "native_language": "El Pueblo de las Nubes",
+    "target_language": "The Village of Clouds"
+  },
+  "world_description": {
+    "native_language": "Un pequeño pueblo encantador situado en las nubes bajas de un valle místico, lleno de personas cálidas y abundante cultura.",
+    "target_language": "A charming little village nestled in the low-lying clouds of a mystical valley, teeming with warm people and abundant culture."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "En un rincón oculto del mundo, El Pueblo de las Nubes es un lugar donde la magia y la naturaleza se entrelazan. Aquí, los aldeanos viven en armonía, preservando el equilibrio del mundo a través de pequeñas prácticas mágicas cotidianas.",
+      "target_language": "In a hidden corner of the world, The Village of Clouds is where magic and nature intertwine. Here, villagers live in harmony, preserving the world's balance through small, everyday magical practices."
+    },
+    "player_origin": {
+      "native_language": "El jugador es un viajero que, por accidente, termina en El Pueblo de las Nubes al cruzar un arco iris místico durante una tormenta.",
+      "target_language": "The player is a traveler who, by accident, ends up in The Village of Clouds by crossing a mystical rainbow during a storm."
+    },
+    "motivation": {
+      "native_language": "El deseo de aprender la lengua local es impulsado por la necesidad de integrarse en la comunidad y desvelar los secretos mágicos que se esconden en el pueblo.",
+      "target_language": "The desire to learn the local language is driven by the need to integrate into the community and uncover the magical secrets hidden in the village."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "Una era donde lo moderno y lo antiguo conviven, con tecnología básica y una fuerte conexión con la naturaleza.",
+      "target_language": "An era where modern and ancient coexist, with basic technology and a strong connection to nature."
+    },
+    "atmosphere": {
+      "native_language": "El ambiente es acogedor y tranquilo, con cielos nublados y el aroma de hierbas mágicas flotando en el aire.",
+      "target_language": "The atmosphere is warm and peaceful, with cloudy skies and the scent of magical herbs wafting through the air."
+    },
+    "culture": {
+      "native_language": "La cultura del pueblo celebra la diversidad, la naturaleza y el aprendizaje mutuo. Hay festivales frecuentes que honran las estaciones y la sabiduría del pasado.",
+      "target_language": "The village culture celebrates diversity, nature, and shared learning. There are frequent festivals honoring the seasons and the wisdom of the past."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Las Brumas Fantásticas",
+        "target_language": "The Mystic Mists"
+      },
+      "description": {
+        "native_language": "Estas nieblas tienen propiedades mágicas que realizan pequeñas curaciones y proporcionan claridad mental a quienes las respiran.",
+        "target_language": "These mists have magical properties that perform minor healings and provide mental clarity to those who breathe them."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "Los Guardianes de las Nubes",
+        "target_language": "The Guardians of the Clouds"
+      },
+      "description": {
+        "native_language": "Un grupo de aldeanos responsables de mantener el equilibrio mágico y proteger al pueblo de fuerzas externas.",
+        "target_language": "A group of villagers responsible for maintaining the magical balance and protecting the village from outside forces."
+      },
+      "role_in_world": {
+        "native_language": "Actúan como protectores y mentores, ayudando a los viajeros a entender y respetar la cultura del pueblo.",
+        "target_language": "They act as protectors and mentors, helping travelers understand and respect the village's culture."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Integración cultural y lingüística",
+      "target_language": "Cultural and linguistic integration"
+    },
+    {
+      "native_language": "Equilibrio entre magia y naturaleza",
+      "target_language": "Balance between magic and nature"
+    },
+    {
+      "native_language": "Descubrimiento personal a través de la comunidad",
+      "target_language": "Personal discovery through community"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "Aprender español permite al jugador comunicarse con los aldeanos y participar en las actividades diarias del pueblo.",
+      "target_language": "Learning Spanish allows the player to communicate with villagers and participate in the village's daily activities."
+    },
+    "how_language_fits": {
+      "native_language": "El español se enseña a través de misiones que involucran interacciones con personajes y desafíos que requieren resolver tareas cotidianas usando el idioma.",
+      "target_language": "Spanish is taught through quests involving interactions with characters and challenges that require resolving daily tasks using the language."
+    }
+  }
+}

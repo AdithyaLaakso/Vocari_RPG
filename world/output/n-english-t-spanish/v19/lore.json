@@ -1,0 +1,90 @@
+{
+  "world_name": {
+    "native_language": "The Enchanted Village of Estrella",
+    "target_language": "La Aldea Encantada de Estrella"
+  },
+  "world_description": {
+    "native_language": "A quaint village nestled in the lush valley of Sierra Verde, where fantasy meets reality.",
+    "target_language": "Una pintoresca aldea enclavada en el exuberante valle de Sierra Verde, donde la fantasía se encuentra con la realidad."
+  },
+  "backstory": {
+    "summary": {
+      "native_language": "In Estrella, everyday life is a blend of the mundane and the magical. Its residents are bilingual, speaking both English and Spanish, due to the village's longstanding history as an international trading post.",
+      "target_language": "En Estrella, la vida cotidiana es una mezcla de lo mundano y lo mágico. Sus residentes son bilingües, hablan tanto inglés como español, debido a su larga historia como un puesto de comercio internacional."
+    },
+    "player_origin": {
+      "native_language": "The player arrives as a curious traveler, seeking knowledge and new experiences.",
+      "target_language": "El jugador llega como un viajero curioso, en busca de conocimiento y nuevas experiencias."
+    },
+    "motivation": {
+      "native_language": "Driven by a desire to unlock the village's mysteries and fit in with the locals, the player embarks on a journey of language learning and cultural integration.",
+      "target_language": "Impulsado por el deseo de desentrañar los misterios de la aldea y encajar con los locales, el jugador se embarca en un viaje de aprendizaje del idioma y de integración cultural."
+    }
+  },
+  "setting": {
+    "era": {
+      "native_language": "A blend of medieval charm and contemporary surprises.",
+      "target_language": "Una mezcla de encanto medieval y sorpresas contemporáneas."
+    },
+    "atmosphere": {
+      "native_language": "The village buzzes with the energy of lively markets, warm community gatherings, and the soft glow of magic.",
+      "target_language": "La aldea vibra con la energía de los mercados animados, las cálidas reuniones comunitarias y el suave resplandor de la magia."
+    },
+    "culture": {
+      "native_language": "Estrella boasts a rich tapestry of traditions, with festivals celebrating the harvest, song, and starlight.",
+      "target_language": "Estrella presume de un rico tapiz de tradiciones, con festivales que celebran la cosecha, el canto y la luz de las estrellas."
+    }
+  },
+  "magical_elements": [
+    {
+      "name": {
+        "native_language": "Luminous Lanterns",
+        "target_language": "Linternas Luminosas"
+      },
+      "description": {
+        "native_language": "Magical lanterns that brighten when spoken to in Spanish, lighting paths and revealing hidden messages.",
+        "target_language": "Linternas mágicas que se iluminan al hablarles en español, iluminando caminos y revelando mensajes ocultos."
+      }
+    }
+  ],
+  "factions": [
+    {
+      "name": {
+        "native_language": "The Guild of Linguists",
+        "target_language": "El Gremio de Lingüistas"
+      },
+      "description": {
+        "native_language": "A group dedicated to the teaching and preservation of language and culture.",
+        "target_language": "Un grupo dedicado a la enseñanza y preservación del idioma y la cultura."
+      },
+      "role_in_world": {
+        "native_language": "They guide newcomers, like the player, in their linguistic journey and foster cultural exchanges.",
+        "target_language": "Guían a los recién llegados, como el jugador, en su viaje lingüístico y fomentan los intercambios culturales."
+      }
+    }
+  ],
+  "key_themes": [
+    {
+      "native_language": "Community",
+      "target_language": "Comunidad"
+    },
+    {
+      "native_language": "Discovery",
+      "target_language": "Descubrimiento"
+    },
+    {
+      "native_language": "Growth",
+      "target_language": "Crecimiento"
+    }
+  ],
+  "language_integration": {
+    "why_player_learns": {
+      "native_language": "To communicate effectively and take part in the daily life of Estrella, learning Spanish is essential.",
+      "target_language": "Para comunicarse eficazmente y participar en la vida diaria de Estrella, aprender español es esencial."
+    },
+    "how_language_fits": {
+      "native_language": "Spanish phrases and vocabulary are woven into quests, puzzles, and interactions with villagers.",
+      "target_language": "Las frases y el vocabulario en español se entrelazan en misiones, acertijos e interacciones con los aldeanos."
+    }
+  }
+}

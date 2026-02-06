@@ -1,0 +1,2132 @@
+{
+  "skills": [
+    {
+      "id": "vocab_greetings_basic",
+      "name": {
+        "native_language": "Basic Greetings",
+        "target_language": "Saludos Básicos"
+      },
+      "description": {
+        "native_language": "Learn basic greetings such as 'hello' and 'goodbye'.",
+        "target_language": "Aprende saludos básicos como 'hola' y 'adiós'."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces the word 'hola' in a greeting context",
+        "User produces the word 'adiós' in a farewell context"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Hello! How are you?",
+          "target_language": "¡Hola! ¿Cómo estás?"
+        },
+        {
+          "native_language": "Goodbye, see you later!",
+          "target_language": "¡Adiós, hasta luego!"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Hello, goodbye!",
+          "target_language": "Hola, adiós!"
+        },
+        {
+          "native_language": "See you later! Hello!",
+          "target_language": "¡Hasta luego! ¡Hola!"
+        }
+      ]
+    },
+    {
+      "id": "vocab_numbers_1_10",
+      "name": {
+        "native_language": "Numbers 1-10",
+        "target_language": "Números 1-10"
+      },
+      "description": {
+        "native_language": "Learn how to count from 1 to 10.",
+        "target_language": "Aprende a contar del 1 al 10."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces the number 'uno' in a counting context",
+        "User produces the number 'diez' in a counting context"
+      ],
+      "example_correct": [
+        {
+          "native_language": "One, two, three.",
+          "target_language": "Uno, dos, tres."
+        },
+        {
+          "native_language": "Nine and ten",
+          "target_language": "Nueve y diez"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "One two five",
+          "target_language": "Uno dos cinco"
+        },
+        {
+          "native_language": "Eight, six.",
+          "target_language": "Ocho, seis."
+        }
+      ]
+    },
+    {
+      "id": "vocab_colors_basic",
+      "name": {
+        "native_language": "Basic Colors",
+        "target_language": "Colores Básicos"
+      },
+      "description": {
+        "native_language": "Learn basic colors like red and blue.",
+        "target_language": "Aprende colores básicos como rojo y azul."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces the word 'rojo' as a color",
+        "User produces the word 'azul' as a color"
+      ],
+      "example_correct": [
+        {
+          "native_language": "The sky is blue.",
+          "target_language": "El cielo es azul."
+        },
+        {
+          "native_language": "I have a red car.",
+          "target_language": "Tengo un coche rojo."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "The car is apple.",
+          "target_language": "El coche es manzana."
+        },
+        {
+          "native_language": "The sky is shoe.",
+          "target_language": "El cielo es zapato."
+        }
+      ]
+    },
+    {
+      "id": "vocab_yes_no",
+      "name": {
+        "native_language": "Yes/No",
+        "target_language": "Sí/No"
+      },
+      "description": {
+        "native_language": "Learn to confirm and deny using yes and no.",
+        "target_language": "Aprende a confirmar y negar usando sí y no."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces the word 'sí' in an affirmative context",
+        "User produces the word 'no' in a negative context"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Yes, I like it.",
+          "target_language": "Sí, me gusta."
+        },
+        {
+          "native_language": "No, I don't understand.",
+          "target_language": "No, no entiendo."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Yes, no understand.",
+          "target_language": "Sí, no entender."
+        },
+        {
+          "native_language": "No, yes I like.",
+          "target_language": "No, sí me gusta."
+        }
+      ]
+    },
+    {
+      "id": "vocab_introductions",
+      "name": {
+        "native_language": "Simple Introductions",
+        "target_language": "Introducciones Simples"
+      },
+      "description": {
+        "native_language": "Learn to introduce yourself and ask someone's name.",
+        "target_language": "Aprende a presentarte y preguntar el nombre de alguien."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_greetings_basic"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Me llamo' followed by a name",
+        "User asks '¿Cómo te llamas?' correctly"
+      ],
+      "example_correct": [
+        {
+          "native_language": "My name is Ana.",
+          "target_language": "Me llamo Ana."
+        },
+        {
+          "native_language": "What's your name?",
+          "target_language": "¿Cómo te llamas?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Name I Ana.",
+          "target_language": "Llamo me Ana."
+        },
+        {
+          "native_language": "What are you called?",
+          "target_language": "¿Qué te llamas?"
+        }
+      ]
+    },
+    {
+      "id": "vocab_days_months",
+      "name": {
+        "native_language": "Days and Months",
+        "target_language": "Días y Meses"
+      },
+      "description": {
+        "native_language": "Learn the days of the week and months of the year.",
+        "target_language": "Aprende los días de la semana y los meses del año."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces the word 'lunes' referring to Monday",
+        "User arranges 'enero, febrero, marzo' in sequence"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Today is Monday.",
+          "target_language": "Hoy es lunes."
+        },
+        {
+          "native_language": "January, February, March.",
+          "target_language": "Enero, febrero, marzo."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Today is lamp.",
+          "target_language": "Hoy es lámpara."
+        },
+        {
+          "native_language": "April, January.",
+          "target_language": "Abril, enero."
+        }
+      ]
+    },
+    {
+      "id": "vocab_basic_objects",
+      "name": {
+        "native_language": "Basic Objects",
+        "target_language": "Objetos Básicos"
+      },
+      "description": {
+        "native_language": "Identify and name basic objects like 'book' and 'chair'.",
+        "target_language": "Identifica y nombra objetos básicos como 'libro' y 'silla'."
+      },
+      "category": "vocabulary",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces the word 'libro' referring to a book",
+        "User produces the word 'silla' referring to a chair"
+      ],
+      "example_correct": [
+        {
+          "native_language": "This is a book.",
+          "target_language": "Esto es un libro."
+        },
+        {
+          "native_language": "The chair is blue.",
+          "target_language": "La silla es azul."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "This is a dog.",
+          "target_language": "Esto es un perro."
+        },
+        {
+          "native_language": "The book is red.",
+          "target_language": "La silla es roja."
+        }
+      ]
+    },
+    {
+      "id": "vocab_family_members",
+      "name": {
+        "native_language": "Family Members",
+        "target_language": "Miembros de la Familia"
+      },
+      "description": {
+        "native_language": "Describe and name family members.",
+        "target_language": "Describe y nombra miembros de la familia."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User correctly uses 'madre' or 'padre' in a family context",
+        "User identifies 'hermano' and 'hermana' when describing siblings"
+      ],
+      "example_correct": [
+        {
+          "native_language": "My brother is tall.",
+          "target_language": "Mi hermano es alto."
+        },
+        {
+          "native_language": "She is my sister.",
+          "target_language": "Ella es mi hermana."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "My brother is chair.",
+          "target_language": "Mi hermano es silla."
+        },
+        {
+          "native_language": "He is my bread.",
+          "target_language": "Él es mi pan."
+        }
+      ]
+    },
+    {
+      "id": "vocab_food",
+      "name": {
+        "native_language": "Food Vocabulary",
+        "target_language": "Vocabulario de Comida"
+      },
+      "description": {
+        "native_language": "Learn names of common foods and drinks.",
+        "target_language": "Aprende nombres de alimentos y bebidas comunes."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User produces 'manzana' for apple in an eating context",
+        "User correctly mentions 'agua' in a sentence about drinking"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I eat an apple.",
+          "target_language": "Yo como una manzana."
+        },
+        {
+          "native_language": "Water is very important.",
+          "target_language": "El agua es muy importante."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "I eat a red.",
+          "target_language": "Yo como un rojo."
+        },
+        {
+          "native_language": "The water is dog.",
+          "target_language": "El agua es perro."
+        }
+      ]
+    },
+    {
+      "id": "vocab_weather",
+      "name": {
+        "native_language": "Weather Vocabulary",
+        "target_language": "Vocabulario del Tiempo"
+      },
+      "description": {
+        "native_language": "Identify and describe weather conditions.",
+        "target_language": "Identifica y describe las condiciones del tiempo."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'hace sol' to describe a sunny day",
+        "User says 'está nublado' for a cloudy day"
+      ],
+      "example_correct": [
+        {
+          "native_language": "It's sunny today.",
+          "target_language": "Hoy hace sol."
+        },
+        {
+          "native_language": "It's cloudy in the morning.",
+          "target_language": "Está nublado en la mañana."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "The weather is cat.",
+          "target_language": "El tiempo es gato."
+        },
+        {
+          "native_language": "It's cold today.",
+          "target_language": "Hace piedra hoy."
+        }
+      ]
+    },
+    {
+      "id": "vocab_directions",
+      "name": {
+        "native_language": "Directions Vocabulary",
+        "target_language": "Vocabulario de Direcciones"
+      },
+      "description": {
+        "native_language": "Learn words for giving and understanding directions.",
+        "target_language": "Aprende palabras para dar y entender direcciones."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_basic_objects"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User correctly uses 'izquierda' in a directional context",
+        "User correctly uses 'derecha' in a directional context"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Turn right at the corner.",
+          "target_language": "Gira a la derecha en la esquina."
+        },
+        {
+          "native_language": "The bank is on the left.",
+          "target_language": "El banco está a la izquierda."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Turn dog.",
+          "target_language": "Gira perro."
+        },
+        {
+          "native_language": "The house is left.",
+          "target_language": "La casa está pollo."
+        }
+      ]
+    },
+    {
+      "id": "vocab_shopping_basics",
+      "name": {
+        "native_language": "Shopping Basics",
+        "target_language": "Básicos de Compras"
+      },
+      "description": {
+        "native_language": "Learn basic shopping vocabulary.",
+        "target_language": "Aprende vocabulario básico de compras."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_numbers_1_10"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses the word 'precio' when discussing cost",
+        "User mentions 'comprar' in a sentence about shopping"
+      ],
+      "example_correct": [
+        {
+          "native_language": "What is the price of this bag?",
+          "target_language": "¿Cuál es el precio de esta bolsa?"
+        },
+        {
+          "native_language": "I want to buy a shirt.",
+          "target_language": "Quiero comprar una camisa."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Buy the sky.",
+          "target_language": "Comprar el cielo."
+        },
+        {
+          "native_language": "The price is rain.",
+          "target_language": "El precio es lluvia."
+        }
+      ]
+    },
+    {
+      "id": "vocab_daily_routines",
+      "name": {
+        "native_language": "Daily Routines",
+        "target_language": "Rutinas Diarias"
+      },
+      "description": {
+        "native_language": "Discuss common daily activities.",
+        "target_language": "Habla sobre actividades diarias comunes."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_basic_objects"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'despertarse' correctly to mean waking up",
+        "User uses 'trabajar' in the context of daily work"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I wake up at seven.",
+          "target_language": "Me despierto a las siete."
+        },
+        {
+          "native_language": "She works from home.",
+          "target_language": "Ella trabaja desde casa."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "I live wake up.",
+          "target_language": "Yo vivo despertarse."
+        },
+        {
+          "native_language": "They work eat.",
+          "target_language": "Ellos trabajan comer."
+        }
+      ]
+    },
+    {
+      "id": "vocab_hobbies",
+      "name": {
+        "native_language": "Hobbies Vocabulary",
+        "target_language": "Vocabulario de Pasatiempos"
+      },
+      "description": {
+        "native_language": "Talk about leisure activities and hobbies.",
+        "target_language": "Habla sobre actividades de ocio y pasatiempos."
+      },
+      "category": "vocabulary",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_family_members"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'leer' when discussing reading as a hobby",
+        "User correctly uses 'jugar' to talk about playing sports"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I like to read books.",
+          "target_language": "Me gusta leer libros."
+        },
+        {
+          "native_language": "He plays soccer after school.",
+          "target_language": "Él juega al fútbol después de la escuela."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "She reads apple.",
+          "target_language": "Ella lee manzana."
+        },
+        {
+          "native_language": "He plays cloud.",
+          "target_language": "Él juega nube."
+        }
+      ]
+    },
+    {
+      "id": "vocab_travel",
+      "name": {
+        "native_language": "Travel Vocabulary",
+        "target_language": "Vocabulario de Viajes"
+      },
+      "description": {
+        "native_language": "Learn common travel expressions and words.",
+        "target_language": "Aprende expresiones y palabras comunes relacionadas con los viajes."
+      },
+      "category": "vocabulary",
+      "difficulty": "A2",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_directions"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'viajar' correctly to discuss traveling",
+        "User mentions 'avión' in a sentence about modes of transport"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I love to travel to new countries.",
+          "target_language": "Me encanta viajar a nuevos países."
+        },
+        {
+          "native_language": "We go by plane.",
+          "target_language": "Vamos en avión."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Travel cat house.",
+          "target_language": "Viajar gato casa."
+        },
+        {
+          "native_language": "Plane is banana.",
+          "target_language": "Avión es plátano."
+        }
+      ]
+    },
+    {
+      "id": "vocab_health",
+      "name": {
+        "native_language": "Health and Wellness",
+        "target_language": "Salud y Bienestar"
+      },
+      "description": {
+        "native_language": "Discuss health issues and wellness tips.",
+        "target_language": "Habla sobre problemas de salud y consejos de bienestar."
+      },
+      "category": "vocabulary",
+      "difficulty": "A2",
+      "max_level": 100,
+      "prerequisites": [
+        "vocab_food"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User correctly uses 'salud' in the context of health",
+        "User mentions 'medicamento' when discussing medicine"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Health is important.",
+          "target_language": "La salud es importante."
+        },
+        {
+          "native_language": "Take this medicine twice a day.",
+          "target_language": "Toma este medicamento dos veces al día."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Health is cake.",
+          "target_language": "La salud es pastel."
+        },
+        {
+          "native_language": "Medicine is a chair.",
+          "target_language": "Medicamento es una silla."
+        }
+      ]
+    },
+    {
+      "id": "grammar_greetings",
+      "name": {
+        "native_language": "Basic Greetings",
+        "target_language": "Saludos Básicos"
+      },
+      "description": {
+        "native_language": "Covers basic greetings like 'Hola' and 'Adiós'.",
+        "target_language": "Cubre saludos básicos como 'Hola' y 'Adiós'."
+      },
+      "category": "grammar",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 0.5,
+      "evaluation_criteria": [
+        "User produces sentences starting with 'Hola' or 'Adiós'",
+        "Sentence is a greeting or farewell"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Hello, how are you?",
+          "target_language": "Hola, ¿cómo estás?"
+        },
+        {
+          "native_language": "Goodbye!",
+          "target_language": "¡Adiós!"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Hola está cómo?",
+          "target_language": "Hola está cómo?"
+        },
+        {
+          "native_language": "How are you today Adiós.",
+          "target_language": "¿Cómo estás hoy Adiós?"
+        }
+      ]
+    },
+    {
+      "id": "grammar_affirm_negation",
+      "name": {
+        "native_language": "Simple Affirmations and Negations",
+        "target_language": "Afirmaciones y Negaciones Simples"
+      },
+      "description": {
+        "native_language": "Teaches affirmations like 'Sí' and negations like 'No'.",
+        "target_language": "Enseña afirmaciones como 'Sí' y negaciones como 'No'."
+      },
+      "category": "grammar",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_greetings"
+      ],
+      "weight": 0.5,
+      "evaluation_criteria": [
+        "User produces 'Sí' as a positive response",
+        "User produces 'No' as a negative response"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Yes, I understand.",
+          "target_language": "Sí, entiendo."
+        },
+        {
+          "native_language": "No, I don't want it.",
+          "target_language": "No, no lo quiero."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Yes not understanding.",
+          "target_language": "Sí no entendiendo."
+        },
+        {
+          "native_language": "No sí quiero.",
+          "target_language": "No sí quiero."
+        }
+      ]
+    },
+    {
+      "id": "grammar_numbers_colors",
+      "name": {
+        "native_language": "Numbers and Colors",
+        "target_language": "Números y Colores"
+      },
+      "description": {
+        "native_language": "Understanding and usage of basic numbers and colors.",
+        "target_language": "Comprensión y uso de números y colores básicos."
+      },
+      "category": "grammar",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 0.5,
+      "evaluation_criteria": [
+        "User produces words like 'uno,' 'dos', 'rojo', 'azul' in context",
+        "User uses numbers in a simple sentence"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I have two apples.",
+          "target_language": "Tengo dos manzanas."
+        },
+        {
+          "native_language": "The sky is blue.",
+          "target_language": "El cielo es azul."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "I have blu apple.",
+          "target_language": "Tengo azul manzana."
+        },
+        {
+          "native_language": "The three is green.",
+          "target_language": "El tres es verde."
+        }
+      ]
+    },
+    {
+      "id": "grammar_articles",
+      "name": {
+        "native_language": "Definite and Indefinite Articles",
+        "target_language": "Artículos Definidos e Indefinidos"
+      },
+      "description": {
+        "native_language": "Usage of 'el', 'la', and 'un', 'una'.",
+        "target_language": "Uso de 'el', 'la' y 'un', 'una'."
+      },
+      "category": "grammar",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_numbers_colors"
+      ],
+      "weight": 0.6,
+      "evaluation_criteria": [
+        "Sentence contains 'el' or 'la' preceding a noun",
+        "Sentence contains 'un' or 'una' preceding a noun"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I see a house.",
+          "target_language": "Veo una casa."
+        },
+        {
+          "native_language": "The cat meows.",
+          "target_language": "El gato maúlla."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Una the house.",
+          "target_language": "Una the casa."
+        },
+        {
+          "native_language": "Gato el runs.",
+          "target_language": "Gato el corre."
+        }
+      ]
+    },
+    {
+      "id": "grammar_present_tense_regular",
+      "name": {
+        "native_language": "Present Tense Regular Verbs",
+        "target_language": "Verbos Regulares en Presente"
+      },
+      "description": {
+        "native_language": "Conjugating regular -ar, -er, -ir verbs in present tense.",
+        "target_language": "Conjugación de verbos regulares -ar, -er, -ir en presente."
+      },
+      "category": "grammar",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_articles"
+      ],
+      "weight": 0.8,
+      "evaluation_criteria": [
+        "Sentence contains a present tense verb form like 'hablo', 'como', 'vivo'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I speak Spanish.",
+          "target_language": "Hablo español."
+        },
+        {
+          "native_language": "She eats bread.",
+          "target_language": "Ella come pan."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "I hablar Spanish.",
+          "target_language": "Yo hablar español."
+        },
+        {
+          "native_language": "She comer bread.",
+          "target_language": "Ella comer pan."
+        }
+      ]
+    },
+    {
+      "id": "grammar_simple_questions",
+      "name": {
+        "native_language": "Simple Questions with Intonation",
+        "target_language": "Preguntas Simples con Entonación"
+      },
+      "description": {
+        "native_language": "Form basic questions using voice intonation.",
+        "target_language": "Formar preguntas básicas usando la entonación."
+      },
+      "category": "grammar",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_present_tense_regular"
+      ],
+      "weight": 0.6,
+      "evaluation_criteria": [
+        "Sentence starts with a verb and has a question mark",
+        "Correct word order for questions"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Do you want water?",
+          "target_language": "¿Quieres agua?"
+        },
+        {
+          "native_language": "Is she a student?",
+          "target_language": "¿Es ella estudiante?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Water you want?",
+          "target_language": "¿Agua quieres?"
+        },
+        {
+          "native_language": "Student is she?",
+          "target_language": "¿Estudiante es ella?"
+        }
+      ]
+    },
+    {
+      "id": "grammar_present_ar_verbs",
+      "name": {
+        "native_language": "Present Tense -AR Verbs",
+        "target_language": "Verbos -AR en Presente"
+      },
+      "description": {
+        "native_language": "Use of -ar verbs like 'hablar', 'estudiar' in present tense.",
+        "target_language": "Uso de verbos -ar como 'hablar', 'estudiar' en presente."
+      },
+      "category": "grammar",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_present_tense_regular"
+      ],
+      "weight": 0.7,
+      "evaluation_criteria": [
+        "Sentence contains an -ar verb in the first person present tense like 'yo hablo'",
+        "Sentence contains an -ar verb in the third person present tense like 'él habla'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I walk every day.",
+          "target_language": "Camino todos los días."
+        },
+        {
+          "native_language": "She talks a lot.",
+          "target_language": "Ella habla mucho."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "I caminar every day.",
+          "target_language": "Yo caminar todos los días."
+        },
+        {
+          "native_language": "She hablar mucho.",
+          "target_language": "Ella hablar mucho."
+        }
+      ]
+    },
+    {
+      "id": "grammar_negative_form",
+      "name": {
+        "native_language": "Negation with 'No + Verb'",
+        "target_language": "Negación con 'No + Verbo'"
+      },
+      "description": {
+        "native_language": "Using 'no' to make negative statements.",
+        "target_language": "Uso de 'no' para hacer declaraciones negativas."
+      },
+      "category": "grammar",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_present_ar_verbs"
+      ],
+      "weight": 0.5,
+      "evaluation_criteria": [
+        "User produces 'no' followed by a conjugated verb to form a negative statement"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I don't work on Sundays.",
+          "target_language": "No trabajo los domingos."
+        },
+        {
+          "native_language": "She doesn't eat meat.",
+          "target_language": "Ella no come carne."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "No trabajas I on Sundays.",
+          "target_language": "No trabajas yo los domingos."
+        },
+        {
+          "native_language": "She no meat eat.",
+          "target_language": "Ella no carne come."
+        }
+      ]
+    },
+    {
+      "id": "grammar_question_words",
+      "name": {
+        "native_language": "Question Words",
+        "target_language": "Palabras Interrogativas"
+      },
+      "description": {
+        "native_language": "Use question words like '¿Quién?', '¿Qué?', and '¿Dónde?'.",
+        "target_language": "Uso de palabras interrogativas como '¿Quién?', '¿Qué?' y '¿Dónde?'."
+      },
+      "category": "grammar",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_simple_questions"
+      ],
+      "weight": 0.6,
+      "evaluation_criteria": [
+        "Sentence contains a question word followed by a verb and subject",
+        "Correct placement of question mark with a question word"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Who is that?",
+          "target_language": "¿Quién es ese?"
+        },
+        {
+          "native_language": "Where do you live?",
+          "target_language": "¿Dónde vives?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Is who that?",
+          "target_language": "¿Es quién ese?"
+        },
+        {
+          "native_language": "Live do you where?",
+          "target_language": "¿Vives dónde tú?"
+        }
+      ]
+    },
+    {
+      "id": "grammar_irregular_present",
+      "name": {
+        "native_language": "Irregular Present Tense Verbs",
+        "target_language": "Verbos Irregulares en Presente"
+      },
+      "description": {
+        "native_language": "Using irregular verbs like 'ser', 'estar', and 'ir' in present tense.",
+        "target_language": "Uso de verbos irregulares como 'ser', 'estar' y 'ir' en presente."
+      },
+      "category": "grammar",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_present_tense_regular"
+      ],
+      "weight": 0.9,
+      "evaluation_criteria": [
+        "Sentence contains an irregular verb conjugated in present tense like 'soy', 'estoy', 'voy'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I am a student.",
+          "target_language": "Soy un estudiante."
+        },
+        {
+          "native_language": "We are happy.",
+          "target_language": "Estamos felices."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Yo be un estudiante.",
+          "target_language": "Yo be un estudiante."
+        },
+        {
+          "native_language": "Nosotros estar felices.",
+          "target_language": "Nosotros estar felices."
+        }
+      ]
+    },
+    {
+      "id": "grammar_conjunctions",
+      "name": {
+        "native_language": "Simple Conjunctions",
+        "target_language": "Conjunciones Simples"
+      },
+      "description": {
+        "native_language": "Using basic conjunctions like 'y', 'pero', 'o'.",
+        "target_language": "Uso de conjunciones básicas como 'y', 'pero', 'o'."
+      },
+      "category": "grammar",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_negative_form"
+      ],
+      "weight": 0.5,
+      "evaluation_criteria": [
+        "User connects two clauses using a conjunction like 'y', 'pero'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I like apples and oranges.",
+          "target_language": "Me gustan las manzanas y las naranjas."
+        },
+        {
+          "native_language": "He is tired but happy.",
+          "target_language": "Él está cansado pero feliz."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Me like manzanas oranges.",
+          "target_language": "Me like manzanas oranges."
+        },
+        {
+          "native_language": "Él est cansado pero feliz.",
+          "target_language": "Él est cansado pero feliz."
+        }
+      ]
+    },
+    {
+      "id": "grammar_past_regular_verbs",
+      "name": {
+        "native_language": "Past Tense Regular Verbs",
+        "target_language": "Verbos Regulares en Pretérito"
+      },
+      "description": {
+        "native_language": "Using the past tense with regular verbs.",
+        "target_language": "Uso del pretérito con verbos regulares."
+      },
+      "category": "grammar",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_present_ar_verbs"
+      ],
+      "weight": 0.8,
+      "evaluation_criteria": [
+        "Sentence contains a regular verb in the past tense like 'hablé', 'comí', 'viví'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I talked yesterday.",
+          "target_language": "Hablé ayer."
+        },
+        {
+          "native_language": "They lived in Spain.",
+          "target_language": "Vivieron en España."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Yo hablar ayer.",
+          "target_language": "Yo hablar ayer."
+        },
+        {
+          "native_language": "Ellos vivir en España.",
+          "target_language": "Ellos vivir en España."
+        }
+      ]
+    },
+    {
+      "id": "grammar_future_ir_a",
+      "name": {
+        "native_language": "Simple Future Tense with 'Ir a + Infinitive'",
+        "target_language": "Futuro Simple con 'Ir a + Infinitivo'"
+      },
+      "description": {
+        "native_language": "Expressing plans using 'ir a + infinitive'.",
+        "target_language": "Expresar planes usando 'ir a + infinitivo'."
+      },
+      "category": "grammar",
+      "difficulty": "A2",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_irregular_present"
+      ],
+      "weight": 0.7,
+      "evaluation_criteria": [
+        "Sentence contains 'voy a', 'vas a' or similar followed by an infinitive verb"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I am going to travel tomorrow.",
+          "target_language": "Voy a viajar mañana."
+        },
+        {
+          "native_language": "She is going to study.",
+          "target_language": "Ella va a estudiar."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Voy estudiar mañana.",
+          "target_language": "Voy estudiar mañana."
+        },
+        {
+          "native_language": "She going to study.",
+          "target_language": "She going to study."
+        }
+      ]
+    },
+    {
+      "id": "grammar_reflexive_verbs",
+      "name": {
+        "native_language": "Introduction to Reflexive Verbs",
+        "target_language": "Introducción a Verbos Reflexivos"
+      },
+      "description": {
+        "native_language": "Using basic reflexive verbs like 'levantarse', 'bañarse'.",
+        "target_language": "Uso de verbos reflexivos básicos como 'levantarse', 'bañarse'."
+      },
+      "category": "grammar",
+      "difficulty": "A2",
+      "max_level": 100,
+      "prerequisites": [
+        "grammar_irregular_present"
+      ],
+      "weight": 0.8,
+      "evaluation_criteria": [
+        "Sentence contains a reflexive verb form in the present tense like 'me levanto', 'te bañas'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "I get up at seven.",
+          "target_language": "Me levanto a las siete."
+        },
+        {
+          "native_language": "You bathe every day.",
+          "target_language": "Te bañas todos los días."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Yo levanto me a las siete.",
+          "target_language": "Yo levanto me a las siete."
+        },
+        {
+          "native_language": "Bath you every day.",
+          "target_language": "Bath you every day."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_greetings_basic",
+      "name": {
+        "native_language": "Basic Greetings",
+        "target_language": "Saludos Básicos"
+      },
+      "description": {
+        "native_language": "Learn how to greet people in informal and formal settings.",
+        "target_language": "Aprende a saludar a la gente en contextos informales y formales."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Hola' followed by a name for informal greeting",
+        "User uses 'Buenos días'/'Buenas tardes'/'Buenas noches' for appropriate time of day",
+        "User uses '¿Cómo estás?' in informal context",
+        "User uses '¿Cómo está usted?' in formal context"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Hola, Marta.",
+          "target_language": "Hola, Marta."
+        },
+        {
+          "native_language": "Buenos días, señor Pérez.",
+          "target_language": "Buenos días, señor Pérez."
+        },
+        {
+          "native_language": "¿Cómo estás?",
+          "target_language": "¿Cómo estás?"
+        },
+        {
+          "native_language": "¿Cómo está usted, señora García?",
+          "target_language": "¿Cómo está usted, señora García?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Hola, señorita, ¿cómo está tú?",
+          "target_language": "Hola, señorita, ¿cómo está tú?"
+        },
+        {
+          "native_language": "Buenas tardes, Marta.",
+          "target_language": "Buenas tardes, Marta."
+        },
+        {
+          "native_language": "¿Cómo estás usted?",
+          "target_language": "¿Cómo estás usted?"
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_leave_taking_basic",
+      "name": {
+        "native_language": "Basic Leave-Taking",
+        "target_language": "Despedidas Básicas"
+      },
+      "description": {
+        "native_language": "Learn basic phrases for saying goodbye.",
+        "target_language": "Aprende frases básicas para decir adiós."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Adiós' in a correct context",
+        "User uses 'Hasta luego' appropriately",
+        "User uses 'Nos vemos' correctly"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Adiós, Juan.",
+          "target_language": "Adiós, Juan."
+        },
+        {
+          "native_language": "Hasta luego, amiga.",
+          "target_language": "Hasta luego, amiga."
+        },
+        {
+          "native_language": "Nos vemos mañana.",
+          "target_language": "Nos vemos mañana."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Hasta mañana, adiós.",
+          "target_language": "Hasta mañana, adiós."
+        },
+        {
+          "native_language": "Adiós, hola.",
+          "target_language": "Adiós, hola."
+        },
+        {
+          "native_language": "Nos vemos, buenos días.",
+          "target_language": "Nos vemos, buenos días."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_thanking_basic",
+      "name": {
+        "native_language": "Basic Thanking",
+        "target_language": "Agradecimiento Básico"
+      },
+      "description": {
+        "native_language": "Learn to thank someone in basic situations.",
+        "target_language": "Aprende a agradecer a alguien en situaciones básicas."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Gracias' in an appropriate context",
+        "User uses 'De nada' correctly in response"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Gracias por la ayuda.",
+          "target_language": "Gracias por la ayuda."
+        },
+        {
+          "native_language": "De nada, fue un placer.",
+          "target_language": "De nada, fue un placer."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Gracias, hola.",
+          "target_language": "Gracias, hola."
+        },
+        {
+          "native_language": "Mucho gracias.",
+          "target_language": "Mucho gracias."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_yes_no_responses",
+      "name": {
+        "native_language": "Yes/No Responses",
+        "target_language": "Respuestas de Sí/No"
+      },
+      "description": {
+        "native_language": "Learn to respond to questions with basic yes or no answers.",
+        "target_language": "Aprende a responder preguntas con respuestas básicas de sí o no."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Sí' as a positive response",
+        "User uses 'No' as a negative response"
+      ],
+      "example_correct": [
+        {
+          "native_language": "¿Te gusta la música? Sí.",
+          "target_language": "¿Te gusta la música? Sí."
+        },
+        {
+          "native_language": "¿Eres estudiante? No.",
+          "target_language": "¿Eres estudiante? No."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Sí, no me gusta.",
+          "target_language": "Sí, no me gusta."
+        },
+        {
+          "native_language": "¿Hablas inglés? Sí, no.",
+          "target_language": "¿Hablas inglés? Sí, no."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_introductions",
+      "name": {
+        "native_language": "Basic Introductions",
+        "target_language": "Presentaciones Básicas"
+      },
+      "description": {
+        "native_language": "Learn how to introduce yourself and others.",
+        "target_language": "Aprende a presentarte a ti mismo y a otros."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_greetings_basic"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Me llamo [Name]' to introduce themselves",
+        "User uses 'Te presento a [Name]' to introduce someone else"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Me llamo Carlos.",
+          "target_language": "Me llamo Carlos."
+        },
+        {
+          "native_language": "Te presento a María.",
+          "target_language": "Te presento a María."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Me llama Pedro.",
+          "target_language": "Me llama Pedro."
+        },
+        {
+          "native_language": "Te presenta a Laura.",
+          "target_language": "Te presenta a Laura."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_formal_vs_informal",
+      "name": {
+        "native_language": "Formal vs Informal Address",
+        "target_language": "Dirección Formal e Informal"
+      },
+      "description": {
+        "native_language": "Learn the difference between formal and informal address.",
+        "target_language": "Aprende la diferencia entre la dirección formal e informal."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_greetings_basic"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'tú' correctly in informal conversation",
+        "User uses 'usted' correctly in formal conversation"
+      ],
+      "example_correct": [
+        {
+          "native_language": "¿Cómo estás tú, amigo?",
+          "target_language": "¿Cómo estás tú, amigo?"
+        },
+        {
+          "native_language": "¿Cómo está usted, señor?",
+          "target_language": "¿Cómo está usted, señor?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "¿Cómo está tú, Ana?",
+          "target_language": "¿Cómo está tú, Ana?"
+        },
+        {
+          "native_language": "¿Cómo estás usted, doctor?",
+          "target_language": "¿Cómo estás usted, doctor?"
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_asking_questions_basic",
+      "name": {
+        "native_language": "Basic Question Asking",
+        "target_language": "Preguntar Básico"
+      },
+      "description": {
+        "native_language": "Learn to ask basic questions.",
+        "target_language": "Aprende a hacer preguntas básicas."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_greetings_basic"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses question words appropriately in questions",
+        "User uses intonation or question mark correctly"
+      ],
+      "example_correct": [
+        {
+          "native_language": "¿Dónde vives?",
+          "target_language": "¿Dónde vives?"
+        },
+        {
+          "native_language": "¿Qué hora es?",
+          "target_language": "¿Qué hora es?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Tú dónde vives.",
+          "target_language": "Tú dónde vives."
+        },
+        {
+          "native_language": "Qué hora es",
+          "target_language": "Qué hora es"
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_polite_requests",
+      "name": {
+        "native_language": "Making Polite Requests",
+        "target_language": "Hacer Solicitudes Corteses"
+      },
+      "description": {
+        "native_language": "Learn to make polite requests using appropriate phrases.",
+        "target_language": "Aprende a hacer solicitudes corteses usando frases apropiadas."
+      },
+      "category": "pragmatic",
+      "difficulty": "A0+",
+      "max_level": 100,
+      "prerequisites": [],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'por favor' in requests",
+        "User formulates request using '¿Podrías...?'"
+      ],
+      "example_correct": [
+        {
+          "native_language": "¿Podrías pasarme el agua, por favor?",
+          "target_language": "¿Podrías pasarme el agua, por favor?"
+        },
+        {
+          "native_language": "¿Me puedes ayudar, por favor?",
+          "target_language": "¿Me puedes ayudar, por favor?"
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Pásame el agua, por favor.",
+          "target_language": "Pásame el agua, por favor."
+        },
+        {
+          "native_language": "Hazlo por favor.",
+          "target_language": "Hazlo por favor."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_expressing_opinions",
+      "name": {
+        "native_language": "Expressing Opinions",
+        "target_language": "Expresar Opiniones"
+      },
+      "description": {
+        "native_language": "Learn how to express simple opinions.",
+        "target_language": "Aprende a expresar opiniones simples."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_formal_vs_informal"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Creo que...' to express an opinion",
+        "User uses 'Pienso que...' appropriately"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Creo que es interesante.",
+          "target_language": "Creo que es interesante."
+        },
+        {
+          "native_language": "Pienso que es divertido.",
+          "target_language": "Pienso que es divertido."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Creo está bien eso.",
+          "target_language": "Creo está bien eso."
+        },
+        {
+          "native_language": "Pienso que está aburrido.",
+          "target_language": "Pienso que está aburrido."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_making_apologies",
+      "name": {
+        "native_language": "Making Apologies",
+        "target_language": "Hacer Disculpas"
+      },
+      "description": {
+        "native_language": "Learn how to apologize politely.",
+        "target_language": "Aprende a disculparte de manera cortés."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_thanking_basic"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Lo siento' in a context of apology",
+        "User uses 'Perdón' when apologizing"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Lo siento, no puede venir.",
+          "target_language": "Lo siento, no puede venir."
+        },
+        {
+          "native_language": "Perdón por llegar tarde.",
+          "target_language": "Perdón por llegar tarde."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Lo siento, gracias.",
+          "target_language": "Lo siento, gracias."
+        },
+        {
+          "native_language": "Perdon, me gusta eso.",
+          "target_language": "Perdon, me gusta eso."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_expressing_needs",
+      "name": {
+        "native_language": "Expressing Needs",
+        "target_language": "Expresar Necesidades"
+      },
+      "description": {
+        "native_language": "Learn how to express basic needs to others.",
+        "target_language": "Aprende a expresar necesidades básicas a otros."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_asking_questions_basic"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Necesito...' to express a need",
+        "User uses 'Quiero...' when expressing wishes or needs"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Necesito agua.",
+          "target_language": "Necesito agua."
+        },
+        {
+          "native_language": "Quiero descansar.",
+          "target_language": "Quiero descansar."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Necesito de eso.",
+          "target_language": "Necesito de eso."
+        },
+        {
+          "native_language": "Quiero al baño.",
+          "target_language": "Quiero al baño."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_giving_instructions",
+      "name": {
+        "native_language": "Giving Simple Instructions",
+        "target_language": "Dar Instrucciones Simples"
+      },
+      "description": {
+        "native_language": "Learn to give simple instructions to others.",
+        "target_language": "Aprende a dar instrucciones simples a otros."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_expressing_needs"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses imperative form correctly",
+        "Instruction starts with verb"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Apaga la luz.",
+          "target_language": "Apaga la luz."
+        },
+        {
+          "native_language": "Cierra la puerta, por favor.",
+          "target_language": "Cierra la puerta, por favor."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Usted apaga la luz.",
+          "target_language": "Usted apaga la luz."
+        },
+        {
+          "native_language": "Cerrando la puerta, por favor.",
+          "target_language": "Cerrando la puerta, por favor."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_expressing_preferences",
+      "name": {
+        "native_language": "Expressing Preferences",
+        "target_language": "Expresar Preferencias"
+      },
+      "description": {
+        "native_language": "Learn to express preferences in various contexts.",
+        "target_language": "Aprende a expresar preferencias en varios contextos."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_expressing_opinions"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Prefiero...' to express a preference",
+        "User uses 'Me gusta más...' when stating preference"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Prefiero la música clásica.",
+          "target_language": "Prefiero la música clásica."
+        },
+        {
+          "native_language": "Me gusta más el chocolate.",
+          "target_language": "Me gusta más el chocolate."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Preferí correr.",
+          "target_language": "Preferí correr."
+        },
+        {
+          "native_language": "Me gusta mucho el de chocolate.",
+          "target_language": "Me gusta mucho el de chocolate."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_describing_plans",
+      "name": {
+        "native_language": "Describing Simple Plans",
+        "target_language": "Describir Planes Simples"
+      },
+      "description": {
+        "native_language": "Learn to describe simple future plans or intentions.",
+        "target_language": "Aprende a describir planes o intenciones futuras simples."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_giving_instructions"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Voy a...' correctly for future plans",
+        "User mentions time or place related to the plan"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Voy a estudiar mañana.",
+          "target_language": "Voy a estudiar mañana."
+        },
+        {
+          "native_language": "Voy al cine esta tarde.",
+          "target_language": "Voy al cine esta tarde."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Voy estudiar mañana.",
+          "target_language": "Voy estudiar mañana."
+        },
+        {
+          "native_language": "Voy a en la tarde.",
+          "target_language": "Voy a en la tarde."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_expressing_excuses",
+      "name": {
+        "native_language": "Making Excuses",
+        "target_language": "Dar Excusas"
+      },
+      "description": {
+        "native_language": "Learn to provide reasonable excuses using simple language.",
+        "target_language": "Aprende a dar excusas razonables con lenguaje simple."
+      },
+      "category": "pragmatic",
+      "difficulty": "A1+",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_making_apologies"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'No puedo...' appropriately for excuses",
+        "User uses 'Es que...' to explain why they can't do something"
+      ],
+      "example_correct": [
+        {
+          "native_language": "No puedo ir porque estoy enfermo.",
+          "target_language": "No puedo ir porque estoy enfermo."
+        },
+        {
+          "native_language": "Es que tengo trabajo mañana.",
+          "target_language": "Es que tengo trabajo mañana."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "No puede ir.",
+          "target_language": "No puede ir."
+        },
+        {
+          "native_language": "Es tengo trabajo.",
+          "target_language": "Es tengo trabajo."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_make_suggestions",
+      "name": {
+        "native_language": "Making Suggestions",
+        "target_language": "Hacer Sugerencias"
+      },
+      "description": {
+        "native_language": "Learn to make suggestions using simple phrases.",
+        "target_language": "Aprende a hacer sugerencias usando frases simples."
+      },
+      "category": "pragmatic",
+      "difficulty": "A2",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_expressing_needs",
+        "pragmatic_describing_plans"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses 'Deberías...' to suggest actions",
+        "User uses 'Podrías...' to offer suggestions"
+      ],
+      "example_correct": [
+        {
+          "native_language": "Deberías descansar un poco.",
+          "target_language": "Deberías descansar un poco."
+        },
+        {
+          "native_language": "Podrías intentar de nuevo.",
+          "target_language": "Podrías intentar de nuevo."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Debeías hacerlo.",
+          "target_language": "Debeías hacerlo."
+        },
+        {
+          "native_language": "Podía intentar esto.",
+          "target_language": "Podía intentar esto."
+        }
+      ]
+    },
+    {
+      "id": "pragmatic_negotiating_basic",
+      "name": {
+        "native_language": "Basic Negotiation",
+        "target_language": "Negociación Básica"
+      },
+      "description": {
+        "native_language": "Learn the basics of negotiating in simple contexts, like buying something.",
+        "target_language": "Aprende lo básico de la negociación en contextos simples, como comprar algo."
+      },
+      "category": "pragmatic",
+      "difficulty": "A2",
+      "max_level": 100,
+      "prerequisites": [
+        "pragmatic_make_suggestions",
+        "pragmatic_expressing_opinions"
+      ],
+      "weight": 1.0,
+      "evaluation_criteria": [
+        "User uses '¿Puede ser menos?' in negotiations",
+        "User uses 'Me gustaría...' to start negotiations"
+      ],
+      "example_correct": [
+        {
+          "native_language": "¿Puede ser menos? No tengo más dinero.",
+          "target_language": "¿Puede ser menos? No tengo más dinero."
+        },
+        {
+          "native_language": "Me gustaría pagar menos por esto.",
+          "target_language": "Me gustaría pagar menos por esto."
+        }
+      ],
+      "example_incorrect": [
+        {
+          "native_language": "Puede ser menos.",
+          "target_language": "Puede ser menos."
+        },
+        {
+          "native_language": "Gusta pagar menos.",
+          "target_language": "Gusta pagar menos."
+        }
+      ]
+    }
+  ],
+  "_skill_ids": [
+    "vocab_greetings_basic",
+    "vocab_numbers_1_10",
+    "vocab_colors_basic",
+    "vocab_yes_no",
+    "vocab_introductions",
+    "vocab_days_months",
+    "vocab_basic_objects",
+    "vocab_family_members",
+    "vocab_food",
+    "vocab_weather",
+    "vocab_directions",
+    "vocab_shopping_basics",
+    "vocab_daily_routines",
+    "vocab_hobbies",
+    "vocab_travel",
+    "vocab_health",
+    "grammar_greetings",
+    "grammar_affirm_negation",
+    "grammar_numbers_colors",
+    "grammar_articles",
+    "grammar_present_tense_regular",
+    "grammar_simple_questions",
+    "grammar_present_ar_verbs",
+    "grammar_negative_form",
+    "grammar_question_words",
+    "grammar_irregular_present",
+    "grammar_conjunctions",
+    "grammar_past_regular_verbs",
+    "grammar_future_ir_a",
+    "grammar_reflexive_verbs",
+    "pragmatic_greetings_basic",
+    "pragmatic_leave_taking_basic",
+    "pragmatic_thanking_basic",
+    "pragmatic_yes_no_responses",
+    "pragmatic_introductions",
+    "pragmatic_formal_vs_informal",
+    "pragmatic_asking_questions_basic",
+    "pragmatic_polite_requests",
+    "pragmatic_expressing_opinions",
+    "pragmatic_making_apologies",
+    "pragmatic_expressing_needs",
+    "pragmatic_giving_instructions",
+    "pragmatic_expressing_preferences",
+    "pragmatic_describing_plans",
+    "pragmatic_expressing_excuses",
+    "pragmatic_make_suggestions",
+    "pragmatic_negotiating_basic"
+  ],
+  "_skills_by_level": {
+    "A0": [
+      "vocab_greetings_basic",
+      "vocab_numbers_1_10",
+      "vocab_colors_basic",
+      "vocab_yes_no",
+      "grammar_greetings",
+      "grammar_affirm_negation",
+      "grammar_numbers_colors",
+      "pragmatic_greetings_basic",
+      "pragmatic_leave_taking_basic",
+      "pragmatic_thanking_basic",
+      "pragmatic_yes_no_responses"
+    ],
+    "A0+": [
+      "vocab_introductions",
+      "vocab_days_months",
+      "vocab_basic_objects",
+      "grammar_articles",
+      "grammar_present_tense_regular",
+      "grammar_simple_questions",
+      "pragmatic_introductions",
+      "pragmatic_formal_vs_informal",
+      "pragmatic_asking_questions_basic",
+      "pragmatic_polite_requests"
+    ],
+    "A1": [
+      "vocab_family_members",
+      "vocab_food",
+      "vocab_weather",
+      "grammar_present_ar_verbs",
+      "grammar_negative_form",
+      "grammar_question_words",
+      "pragmatic_expressing_opinions",
+      "pragmatic_making_apologies",
+      "pragmatic_expressing_needs",
+      "pragmatic_giving_instructions"
+    ],
+    "A1+": [
+      "vocab_directions",
+      "vocab_shopping_basics",
+      "vocab_daily_routines",
+      "vocab_hobbies",
+      "grammar_irregular_present",
+      "grammar_conjunctions",
+      "grammar_past_regular_verbs",
+      "pragmatic_expressing_preferences",
+      "pragmatic_describing_plans",
+      "pragmatic_expressing_excuses"
+    ],
+    "A2": [
+      "vocab_travel",
+      "vocab_health",
+      "grammar_future_ir_a",
+      "grammar_reflexive_verbs",
+      "pragmatic_make_suggestions",
+      "pragmatic_negotiating_basic"
+    ]
+  },
+  "_skills_by_category": {
+    "vocabulary": [
+      "vocab_greetings_basic",
+      "vocab_numbers_1_10",
+      "vocab_colors_basic",
+      "vocab_yes_no",
+      "vocab_introductions",
+      "vocab_days_months",
+      "vocab_basic_objects",
+      "vocab_family_members",
+      "vocab_food",
+      "vocab_weather",
+      "vocab_directions",
+      "vocab_shopping_basics",
+      "vocab_daily_routines",
+      "vocab_hobbies",
+      "vocab_travel",
+      "vocab_health"
+    ],
+    "grammar": [
+      "grammar_greetings",
+      "grammar_affirm_negation",
+      "grammar_numbers_colors",
+      "grammar_articles",
+      "grammar_present_tense_regular",
+      "grammar_simple_questions",
+      "grammar_present_ar_verbs",
+      "grammar_negative_form",
+      "grammar_question_words",
+      "grammar_irregular_present",
+      "grammar_conjunctions",
+      "grammar_past_regular_verbs",
+      "grammar_future_ir_a",
+      "grammar_reflexive_verbs"
+    ],
+    "pragmatic": [
+      "pragmatic_greetings_basic",
+      "pragmatic_leave_taking_basic",
+      "pragmatic_thanking_basic",
+      "pragmatic_yes_no_responses",
+      "pragmatic_introductions",
+      "pragmatic_formal_vs_informal",
+      "pragmatic_asking_questions_basic",
+      "pragmatic_polite_requests",
+      "pragmatic_expressing_opinions",
+      "pragmatic_making_apologies",
+      "pragmatic_expressing_needs",
+      "pragmatic_giving_instructions",
+      "pragmatic_expressing_preferences",
+      "pragmatic_describing_plans",
+      "pragmatic_expressing_excuses",
+      "pragmatic_make_suggestions",
+      "pragmatic_negotiating_basic"
+    ]
+  },
+  "_meta": {
+    "target_language": "Spanish",
+    "native_language": "English",
+    "total_skills": 47
+  }
+}

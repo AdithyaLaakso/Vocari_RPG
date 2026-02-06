@@ -1,0 +1,779 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "The Enchanted Village of Estrella",
+      "target_language": "La Aldea Encantada de Estrella"
+    },
+    "description": {
+      "native_language": "A blend of medieval charm and contemporary surprises.",
+      "target_language": "Una mezcla de encanto medieval y sorpresas contemporáneas."
+    },
+    "scale": "village"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "The Outer Fields",
+        "target_language": "Los Campos Exteriores"
+      },
+      "description": {
+        "native_language": "Vast fields surrounding the village edge, a place for beginners to explore and learn basic words.",
+        "target_language": "Campos vastos que rodean el borde de la aldea, un lugar para que los principiantes exploren y aprendan palabras básicas."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_the_outer_fields"
+    },
+    {
+      "name": {
+        "native_language": "Central Village",
+        "target_language": "Aldea Central"
+      },
+      "description": {
+        "native_language": "The bustling heart of Estrella, filled with shops and lively interactions.",
+        "target_language": "El bullicioso corazón de Estrella, lleno de tiendas e interacciones animadas."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_central_village"
+    },
+    {
+      "name": {
+        "native_language": "The Scholar's Quarter",
+        "target_language": "El Barrio del Escolar"
+      },
+      "description": {
+        "native_language": "A serene area devoted to learning and discovery, home to libraries and schools.",
+        "target_language": "Una zona serena dedicada al aprendizaje y el descubrimiento, hogar de bibliotecas y escuelas."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_the_scholar_s_quarter"
+    },
+    {
+      "name": {
+        "native_language": "The Artisan's Alley",
+        "target_language": "El Callejón del Artesano"
+      },
+      "description": {
+        "native_language": "A bustling area known for crafts and art, filled with workshops and skilled artisans.",
+        "target_language": "Una zona bulliciosa conocida por las artesanías y el arte, llena de talleres y artesanos habilidosos."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_the_artisan_s_alley"
+    },
+    {
+      "name": {
+        "native_language": "Mystic Glade",
+        "target_language": "Claro Místico"
+      },
+      "description": {
+        "native_language": "A tranquil glade known for its mysterious aura and ancient stories.",
+        "target_language": "Un claro tranquilo conocido por su aura misteriosa e historias antiguas."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_mystic_glade"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Greeting Meadow",
+        "target_language": "Pradera de los Saludos"
+      },
+      "description": {
+        "native_language": "A peaceful meadow where villagers first meet.",
+        "target_language": "Una pradera pacífica donde los aldeanos se encuentran por primera vez."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings"
+      ],
+      "vocabulary_domain": {
+        "native_language": "greetings",
+        "target_language": "saludos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and welcoming.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 0,
+        "y": 0
+      },
+      "id": "loc_1_greeting_meadow",
+      "region_id": "region_1_the_outer_fields",
+      "connections": [
+        "loc_2_number_creek"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Number Creek",
+        "target_language": "Arroyo de los Números"
+      },
+      "description": {
+        "native_language": "A curious creek where the water murmurs numbers.",
+        "target_language": "Un arroyo curioso donde el agua murmura números."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "numbers 1-10"
+      ],
+      "vocabulary_domain": {
+        "native_language": "numbers",
+        "target_language": "números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Enchanting and rhythmic.",
+        "target_language": "Encantador y rítmico."
+      },
+      "coordinates": {
+        "x": 1,
+        "y": 0
+      },
+      "id": "loc_2_number_creek",
+      "region_id": "region_1_the_outer_fields",
+      "connections": [
+        "loc_1_greeting_meadow",
+        "loc_4_town_square"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Grove",
+        "target_language": "Bosque Colorido"
+      },
+      "description": {
+        "native_language": "A grove filled with vibrant colors and hues.",
+        "target_language": "Un bosque lleno de colores vibrantes y tonos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "colors"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors",
+        "target_language": "colores"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bright and lively.",
+        "target_language": "Brillante y animado."
+      },
+      "coordinates": {
+        "x": 2,
+        "y": 0
+      },
+      "id": "loc_3_colorful_grove",
+      "region_id": "region_1_the_outer_fields",
+      "connections": [
+        "loc_2_number_creek",
+        "loc_5_market_lane"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Town Square",
+        "target_language": "Plaza del Pueblo"
+      },
+      "description": {
+        "native_language": "The central hub where villagers gather.",
+        "target_language": "El centro donde los aldeanos se reúnen."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "introductions",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic interactions",
+        "target_language": "interacciones básicas"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and bustling.",
+        "target_language": "Animado y bullicioso."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 0
+      },
+      "id": "loc_4_town_square",
+      "region_id": "region_2_central_village",
+      "connections": [
+        "loc_3_colorful_grove",
+        "loc_6_estrella_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Market Lane",
+        "target_language": "Calle del Mercado"
+      },
+      "description": {
+        "native_language": "A vibrant lane lined with colorful market stalls.",
+        "target_language": "Una calle vibrante llena de coloridos puestos de mercado."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping"
+      ],
+      "vocabulary_domain": {
+        "native_language": "shopping basics",
+        "target_language": "compras básicas"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and aromatic.",
+        "target_language": "Bullicioso y aromático."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 1
+      },
+      "id": "loc_5_market_lane",
+      "region_id": "region_2_central_village",
+      "connections": [
+        "loc_4_town_square",
+        "loc_7_estrella_library"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Estrella Inn",
+        "target_language": "Posada Estrella"
+      },
+      "description": {
+        "native_language": "A cozy inn known for its warm hospitality.",
+        "target_language": "Una posada acogedora conocida por su cálida hospitalidad."
+      },
+      "type": "inn",
+      "language_topics": [
+        "food",
+        "greetings"
+      ],
+      "vocabulary_domain": {
+        "native_language": "lodging and meals",
+        "target_language": "alojamiento y comidas"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido e invitante."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 2
+      },
+      "id": "loc_6_estrella_inn",
+      "region_id": "region_2_central_village",
+      "connections": [
+        "loc_5_market_lane",
+        "loc_8_weather_hill"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Estrella Library",
+        "target_language": "Biblioteca Estrella"
+      },
+      "description": {
+        "native_language": "A vast library filled with ancient tomes and scrolls.",
+        "target_language": "Una vasta biblioteca llena de tomos antiguos y pergaminos."
+      },
+      "type": "building",
+      "language_topics": [
+        "directions",
+        "study"
+      ],
+      "vocabulary_domain": {
+        "native_language": "learning",
+        "target_language": "aprendizaje"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Quiet and scholarly.",
+        "target_language": "Tranquilo y académico."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 2
+      },
+      "id": "loc_7_estrella_library",
+      "region_id": "region_3_the_scholar_s_quarter",
+      "connections": [
+        "loc_6_estrella_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Weather Hill",
+        "target_language": "Colina del Clima"
+      },
+      "description": {
+        "native_language": "A hill offering views of the village and various weather patterns.",
+        "target_language": "Una colina que ofrece vistas de la aldea y diversos patrones climáticos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature and weather",
+        "target_language": "naturaleza y clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Breezy and refreshing.",
+        "target_language": "Ventoso y refrescante."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 2
+      },
+      "id": "loc_8_weather_hill",
+      "region_id": "region_3_the_scholar_s_quarter",
+      "connections": [
+        "loc_9_craftsman_s_nook"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Craftsman's Nook",
+        "target_language": "Rincón del Artesano"
+      },
+      "description": {
+        "native_language": "A nook where crafts are made and lessons shared.",
+        "target_language": "Un rincón donde se hacen artesanías y se comparten lecciones."
+      },
+      "type": "building",
+      "language_topics": [
+        "hobbies",
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "crafts",
+        "target_language": "artesanías"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Creative and industrious.",
+        "target_language": "Creativo e industrioso."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 3
+      },
+      "id": "loc_9_craftsman_s_nook",
+      "region_id": "region_3_the_scholar_s_quarter",
+      "connections": [
+        "loc_8_weather_hill",
+        "loc_10_artisan_s_workshop"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Artisan's Workshop",
+        "target_language": "Taller del Artesano"
+      },
+      "description": {
+        "native_language": "A workshop where artisans create and teach.",
+        "target_language": "Un taller donde los artesanos crean y enseñan."
+      },
+      "type": "building",
+      "language_topics": [
+        "past events",
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "workshop",
+        "target_language": "taller"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling and instructive.",
+        "target_language": "Bullicioso e instructivo."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 3
+      },
+      "id": "loc_10_artisan_s_workshop",
+      "region_id": "region_4_the_artisan_s_alley",
+      "connections": [
+        "loc_9_craftsman_s_nook",
+        "loc_11_marketplace"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Marketplace",
+        "target_language": "El Mercado"
+      },
+      "description": {
+        "native_language": "A lively marketplace buzzing with trade.",
+        "target_language": "Un mercado animado lleno de comercio."
+      },
+      "type": "shop",
+      "language_topics": [
+        "shopping",
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "commerce",
+        "target_language": "comercio"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Vibrant and diverse.",
+        "target_language": "Vibrante y diverso."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 3
+      },
+      "id": "loc_11_marketplace",
+      "region_id": "region_4_the_artisan_s_alley",
+      "connections": [
+        "loc_10_artisan_s_workshop",
+        "loc_12_spice_stall"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Spice Stall",
+        "target_language": "Puesto de Especias"
+      },
+      "description": {
+        "native_language": "A stall filled with exotic spices and scents.",
+        "target_language": "Un puesto lleno de especias exóticas y aromas."
+      },
+      "type": "shop",
+      "language_topics": [
+        "food",
+        "descriptions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "culinary arts",
+        "target_language": "arte culinario"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Aromatic and inviting.",
+        "target_language": "Aromático e invitante."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 2
+      },
+      "id": "loc_12_spice_stall",
+      "region_id": "region_4_the_artisan_s_alley",
+      "connections": [
+        "loc_11_marketplace"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Rest",
+        "target_language": "Descanso del Viajero"
+      },
+      "description": {
+        "native_language": "A serene spot where travelers share tales.",
+        "target_language": "Un lugar sereno donde los viajeros comparten historias."
+      },
+      "type": "home",
+      "language_topics": [
+        "travel",
+        "plans"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travels",
+        "target_language": "viajes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and storytelling.",
+        "target_language": "Calmado y narrativo."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 2
+      },
+      "id": "loc_13_traveler_s_rest",
+      "region_id": "region_5_mystic_glade",
+      "connections": [
+        "loc_13_traveler_s_rest"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Healer's Cottage",
+        "target_language": "Casa del Sanador"
+      },
+      "description": {
+        "native_language": "A cottage known for its remedies and peaceful garden.",
+        "target_language": "Una cabaña conocida por sus remedios y jardín pacífico."
+      },
+      "type": "building",
+      "language_topics": [
+        "health",
+        "plans"
+      ],
+      "vocabulary_domain": {
+        "native_language": "well-being",
+        "target_language": "bienestar"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Soothing and restorative.",
+        "target_language": "Reconfortante y restaurador."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 2
+      },
+      "id": "loc_14_healer_s_cottage",
+      "region_id": "region_5_mystic_glade",
+      "connections": [
+        "loc_12_spice_stall",
+        "loc_14_healer_s_cottage"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Starry Glade",
+        "target_language": "Claro Estrellado"
+      },
+      "description": {
+        "native_language": "A glade under the open sky, perfect for stargazing.",
+        "target_language": "Un claro bajo el cielo abierto, perfecto para observar las estrellas."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "opinions",
+        "experiences"
+      ],
+      "vocabulary_domain": {
+        "native_language": "observations",
+        "target_language": "observaciones"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Mystical and expansive.",
+        "target_language": "Místico y expansivo."
+      },
+      "coordinates": {
+        "x": 10,
+        "y": 2
+      },
+      "id": "loc_15_starry_glade",
+      "region_id": "region_5_mystic_glade",
+      "connections": [
+        "loc_13_traveler_s_rest"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_greeting_meadow",
+      "to_location": "loc_2_number_creek",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_number_creek",
+      "to_location": "loc_4_town_square",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_colorful_grove",
+      "to_location": "loc_2_number_creek",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_colorful_grove",
+      "to_location": "loc_5_market_lane",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_town_square",
+      "to_location": "loc_3_colorful_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_town_square",
+      "to_location": "loc_6_estrella_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_market_lane",
+      "to_location": "loc_4_town_square",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_market_lane",
+      "to_location": "loc_7_estrella_library",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_estrella_inn",
+      "to_location": "loc_5_market_lane",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_estrella_inn",
+      "to_location": "loc_8_weather_hill",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_estrella_library",
+      "to_location": "loc_6_estrella_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_weather_hill",
+      "to_location": "loc_9_craftsman_s_nook",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_craftsman_s_nook",
+      "to_location": "loc_10_artisan_s_workshop",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_artisan_s_workshop",
+      "to_location": "loc_11_marketplace",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_marketplace",
+      "to_location": "loc_12_spice_stall",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_traveler_s_rest",
+      "to_location": "loc_13_traveler_s_rest",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_healer_s_cottage",
+      "to_location": "loc_12_spice_stall",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_healer_s_cottage",
+      "to_location": "loc_14_healer_s_cottage",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_15_starry_glade",
+      "to_location": "loc_13_traveler_s_rest",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_greeting_meadow"
+}

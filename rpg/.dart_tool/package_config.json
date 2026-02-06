@@ -219,9 +219,9 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/meta-1.16.0",
+      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/meta-1.17.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.5"
     },
     {
       "name": "nested",
@@ -381,7 +381,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/test_api-0.7.6",
+      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/test_api-0.7.7",
       "packageUri": "lib/",
       "languageVersion": "3.5"
     },
@@ -429,8 +429,8 @@
     }
   ],
   "generator": "pub",
-  "generatorVersion": "3.9.2",
+  "generatorVersion": "3.10.7",
   "flutterRoot": "file:///home/Adithya/fvm/versions/stable",
-  "flutterVersion": "3.35.7",
+  "flutterVersion": "3.38.7",
   "pubCache": "file:///home/Adithya/.pub-cache"
 }

@@ -1,16 +1,12 @@
 {
-  "directory_hash": "3880527244e5d46fc826e3406ca3a036",
-  "num_documents": 2,
-  "num_chunks": 1134,
+  "directory_hash": "a3a7a41775663bb208ee7c8e46e0c0b3",
+  "num_documents": 1,
+  "num_chunks": 304,
   "embedding_model": "text-embedding-3-small",
   "documents": [
     {
-      "name": "Spanish I_ Beginning Spanish Language and Culture.pdf",
-      "path": "documents/Spanish I_ Beginning Spanish Language and Culture.pdf"
-    },
-    {
-      "name": "Full.pdf",
-      "path": "documents/Full.pdf"
+      "name": "Hola a Todos_ Elementary Spanish I.pdf",
+      "path": "documents/Hola a Todos_ Elementary Spanish I.pdf"
     }
   ]
 }

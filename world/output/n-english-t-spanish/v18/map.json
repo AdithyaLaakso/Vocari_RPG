@@ -1,0 +1,736 @@
+{
+  "map_metadata": {
+    "name": {
+      "native_language": "Saronia Village",
+      "target_language": "Villa Saronia"
+    },
+    "description": {
+      "native_language": "A quaint village filled with vibrant life and language learning adventures.",
+      "target_language": "Una aldea pintoresca llena de vida vibrante y aventuras de aprendizaje de idiomas."
+    },
+    "scale": "village"
+  },
+  "regions": [
+    {
+      "name": {
+        "native_language": "Beginners' Haven",
+        "target_language": "Refugio de Principiantes"
+      },
+      "description": {
+        "native_language": "The starting area for new learners to grasp the basics.",
+        "target_language": "La zona de inicio para que los nuevos alumnos comprendan lo básico."
+      },
+      "unlocked_at_level": "A0",
+      "id": "region_1_beginners_haven"
+    },
+    {
+      "name": {
+        "native_language": "Novice Nook",
+        "target_language": "Esquina de Novatos"
+      },
+      "description": {
+        "native_language": "A vibrant area with more complex phrases and interactions.",
+        "target_language": "Una zona vibrante con frases e interacciones más complejas."
+      },
+      "unlocked_at_level": "A0+",
+      "id": "region_2_novice_nook"
+    },
+    {
+      "name": {
+        "native_language": "Intermediate Hollow",
+        "target_language": "Hondonada Intermedia"
+      },
+      "description": {
+        "native_language": "A diverse area for developing sentence structures.",
+        "target_language": "Una zona diversa para desarrollar estructuras de oraciones."
+      },
+      "unlocked_at_level": "A1",
+      "id": "region_3_intermediate_hollow"
+    },
+    {
+      "name": {
+        "native_language": "Advanced Promenade",
+        "target_language": "Paseo Avanzado"
+      },
+      "description": {
+        "native_language": "Explore detailed topics and activities.",
+        "target_language": "Explora temas y actividades detalladas."
+      },
+      "unlocked_at_level": "A1+",
+      "id": "region_4_advanced_promenade"
+    },
+    {
+      "name": {
+        "native_language": "Pre-Intermediate Plaza",
+        "target_language": "Plaza Pre-Intermedia"
+      },
+      "description": {
+        "native_language": "A bustling zone with advanced interactions.",
+        "target_language": "Una zona bulliciosa con interacciones avanzadas."
+      },
+      "unlocked_at_level": "A2",
+      "id": "region_5_pre_intermediate_plaza"
+    }
+  ],
+  "locations": [
+    {
+      "name": {
+        "native_language": "Town Square",
+        "target_language": "Plaza del Pueblo"
+      },
+      "description": {
+        "native_language": "The heart of the village, perfect for greetings.",
+        "target_language": "El corazón del pueblo, perfecto para saludos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "greetings"
+      ],
+      "vocabulary_domain": {
+        "native_language": "greetings",
+        "target_language": "saludos"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Lively and welcoming.",
+        "target_language": "Animada y acogedora."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 5
+      },
+      "id": "loc_1_town_square",
+      "region_id": "region_1_beginners_haven",
+      "connections": [
+        "loc_2_colorful_market",
+        "loc_3_the_cozy_inn"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Colorful Market",
+        "target_language": "Mercado Colorido"
+      },
+      "description": {
+        "native_language": "Learn numbers and colors as you shop.",
+        "target_language": "Aprende números y colores mientras compras."
+      },
+      "type": "shop",
+      "language_topics": [
+        "numbers",
+        "shopping"
+      ],
+      "vocabulary_domain": {
+        "native_language": "colors and numbers",
+        "target_language": "colores y números"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Bustling with activity.",
+        "target_language": "Llena de actividad."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 5
+      },
+      "id": "loc_2_colorful_market",
+      "region_id": "region_1_beginners_haven",
+      "connections": [
+        "loc_1_town_square",
+        "loc_4_learning_grounds"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "The Cozy Inn",
+        "target_language": "La Posada Acogedora"
+      },
+      "description": {
+        "native_language": "A place to relax and learn simple phrases.",
+        "target_language": "Un lugar para relajarse y aprender frases simples."
+      },
+      "type": "building",
+      "language_topics": [
+        "basic phrases"
+      ],
+      "vocabulary_domain": {
+        "native_language": "hospitality",
+        "target_language": "hospitalidad"
+      },
+      "minimum_language_level": "A0",
+      "unlock_requirements": {
+        "language_level": "A0",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm and inviting.",
+        "target_language": "Cálido y acogedor."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 6
+      },
+      "id": "loc_3_the_cozy_inn",
+      "region_id": "region_1_beginners_haven",
+      "connections": [
+        "loc_1_town_square",
+        "loc_5_herbal_grove"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Learning Grounds",
+        "target_language": "Campos de Aprendizaje"
+      },
+      "description": {
+        "native_language": "Practice introductions and simple commands.",
+        "target_language": "Practica presentaciones y comandos simples."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "introductions",
+        "commands"
+      ],
+      "vocabulary_domain": {
+        "native_language": "basic interaction",
+        "target_language": "interacción básica"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Filled with eager learners.",
+        "target_language": "Lleno de aprendices ansiosos."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 5
+      },
+      "id": "loc_4_learning_grounds",
+      "region_id": "region_2_novice_nook",
+      "connections": [
+        "loc_2_colorful_market",
+        "loc_6_family_courtyard"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Herbal Grove",
+        "target_language": "Arboleda de Hierbas"
+      },
+      "description": {
+        "native_language": "Discover the names of plants and basic objects.",
+        "target_language": "Descubre los nombres de plantas y objetos básicos."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "nature",
+        "basic objects"
+      ],
+      "vocabulary_domain": {
+        "native_language": "nature",
+        "target_language": "naturaleza"
+      },
+      "minimum_language_level": "A0+",
+      "unlock_requirements": {
+        "language_level": "A0+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Serene and fragrant.",
+        "target_language": "Sereno y fragante."
+      },
+      "coordinates": {
+        "x": 3,
+        "y": 7
+      },
+      "id": "loc_5_herbal_grove",
+      "region_id": "region_2_novice_nook",
+      "connections": [
+        "loc_3_the_cozy_inn",
+        "loc_7_the_spiced_kitchen"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Family Courtyard",
+        "target_language": "Patio Familiar"
+      },
+      "description": {
+        "native_language": "Engage in basic conversations about family.",
+        "target_language": "Participa en conversaciones básicas sobre la familia."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "family"
+      ],
+      "vocabulary_domain": {
+        "native_language": "family",
+        "target_language": "familia"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Full of chatter and laughter.",
+        "target_language": "Llena de charlas y risas."
+      },
+      "coordinates": {
+        "x": 8,
+        "y": 6
+      },
+      "id": "loc_6_family_courtyard",
+      "region_id": "region_3_intermediate_hollow",
+      "connections": [
+        "loc_4_learning_grounds",
+        "loc_11_workshop_of_wonders"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "The Spiced Kitchen",
+        "target_language": "La Cocina Especiada"
+      },
+      "description": {
+        "native_language": "Learn and cook with various food vocabularies.",
+        "target_language": "Aprende y cocina con diversos vocabularios alimenticios."
+      },
+      "type": "building",
+      "language_topics": [
+        "food"
+      ],
+      "vocabulary_domain": {
+        "native_language": "food",
+        "target_language": "comida"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Warm with a hint of spices.",
+        "target_language": "Cálida con un toque de especias."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 8
+      },
+      "id": "loc_7_the_spiced_kitchen",
+      "region_id": "region_3_intermediate_hollow",
+      "connections": [
+        "loc_5_herbal_grove",
+        "loc_10_meadow_of_memories"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Weather Wishing Well",
+        "target_language": "Pozo de Deseos del Clima"
+      },
+      "description": {
+        "native_language": "Discuss all things weather-related.",
+        "target_language": "Discute todo lo relacionado con el clima."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "weather"
+      ],
+      "vocabulary_domain": {
+        "native_language": "weather",
+        "target_language": "clima"
+      },
+      "minimum_language_level": "A1",
+      "unlock_requirements": {
+        "language_level": "A1",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Ever-changing skies.",
+        "target_language": "Cielos cambiantes."
+      },
+      "coordinates": {
+        "x": 4,
+        "y": 9
+      },
+      "id": "loc_8_weather_wishing_well",
+      "region_id": "region_3_intermediate_hollow",
+      "connections": [
+        "loc_6_family_courtyard",
+        "loc_9_library_of_lore"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Library of Lore",
+        "target_language": "Biblioteca de Conocimientos"
+      },
+      "description": {
+        "native_language": "Expand vocabulary through storytelling.",
+        "target_language": "Expande el vocabulario a través de cuentos."
+      },
+      "type": "building",
+      "language_topics": [
+        "descriptions",
+        "stories"
+      ],
+      "vocabulary_domain": {
+        "native_language": "literature",
+        "target_language": "literatura"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Echoes of whispered tales.",
+        "target_language": "Ecos de cuentos susurrados."
+      },
+      "coordinates": {
+        "x": 9,
+        "y": 7
+      },
+      "id": "loc_9_library_of_lore",
+      "region_id": "region_4_advanced_promenade",
+      "connections": [
+        "loc_7_the_spiced_kitchen",
+        "loc_12_traveler_s_terminal"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Meadow of Memories",
+        "target_language": "Prado de Recuerdos"
+      },
+      "description": {
+        "native_language": "Reflect on past events and recount experiences.",
+        "target_language": "Reflexiona sobre eventos pasados y cuenta experiencias."
+      },
+      "type": "outdoor",
+      "language_topics": [
+        "past events"
+      ],
+      "vocabulary_domain": {
+        "native_language": "memories",
+        "target_language": "recuerdos"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Peaceful and nostalgic.",
+        "target_language": "Pacífico y nostálgico."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 10
+      },
+      "id": "loc_10_meadow_of_memories",
+      "region_id": "region_4_advanced_promenade",
+      "connections": [
+        "loc_8_weather_wishing_well",
+        "loc_13_healer_s_haven"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Workshop of Wonders",
+        "target_language": "Taller de Maravillas"
+      },
+      "description": {
+        "native_language": "Explore daily routines through hands-on activities.",
+        "target_language": "Explora las rutinas diarias a través de actividades prácticas."
+      },
+      "type": "building",
+      "language_topics": [
+        "daily routines"
+      ],
+      "vocabulary_domain": {
+        "native_language": "routines",
+        "target_language": "rutinas"
+      },
+      "minimum_language_level": "A1+",
+      "unlock_requirements": {
+        "language_level": "A1+",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Busy with tinkering and learning.",
+        "target_language": "Ocupado con inventos y aprendizaje."
+      },
+      "coordinates": {
+        "x": 5,
+        "y": 11
+      },
+      "id": "loc_11_workshop_of_wonders",
+      "region_id": "region_4_advanced_promenade",
+      "connections": [
+        "loc_9_library_of_lore",
+        "loc_14_idea_exchange_hall"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Traveler's Terminal",
+        "target_language": "Terminal del Viajero"
+      },
+      "description": {
+        "native_language": "Plan trips and learn travel-related vocabulary.",
+        "target_language": "Planifica viajes y aprende vocabulario relacionado con los viajes."
+      },
+      "type": "building",
+      "language_topics": [
+        "travel"
+      ],
+      "vocabulary_domain": {
+        "native_language": "travel",
+        "target_language": "viajes"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Buzzing with excitement and wanderlust.",
+        "target_language": "Zumbido de emoción y ansias de viajar."
+      },
+      "coordinates": {
+        "x": 10,
+        "y": 8
+      },
+      "id": "loc_12_traveler_s_terminal",
+      "region_id": "region_5_pre_intermediate_plaza",
+      "connections": [
+        "loc_10_meadow_of_memories"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Healer's Haven",
+        "target_language": "Refugio del Sanador"
+      },
+      "description": {
+        "native_language": "Discuss health and well-being with local healers.",
+        "target_language": "Discute sobre salud y bienestar con sanadores locales."
+      },
+      "type": "building",
+      "language_topics": [
+        "health"
+      ],
+      "vocabulary_domain": {
+        "native_language": "health",
+        "target_language": "salud"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Calm and soothing.",
+        "target_language": "Calmado y tranquilizante."
+      },
+      "coordinates": {
+        "x": 7,
+        "y": 12
+      },
+      "id": "loc_13_healer_s_haven",
+      "region_id": "region_5_pre_intermediate_plaza",
+      "connections": [
+        "loc_11_workshop_of_wonders"
+      ],
+      "npcs": [],
+      "available_items": []
+    },
+    {
+      "name": {
+        "native_language": "Idea Exchange Hall",
+        "target_language": "Salón de Intercambio de Ideas"
+      },
+      "description": {
+        "native_language": "Share opinions and engage in thought-provoking discussions.",
+        "target_language": "Comparte opiniones y participa en discusiones estimulantes."
+      },
+      "type": "building",
+      "language_topics": [
+        "opinions"
+      ],
+      "vocabulary_domain": {
+        "native_language": "opinions",
+        "target_language": "opiniones"
+      },
+      "minimum_language_level": "A2",
+      "unlock_requirements": {
+        "language_level": "A2",
+        "quest_prerequisites": [],
+        "story_flags": []
+      },
+      "atmosphere": {
+        "native_language": "Brimming with debates.",
+        "target_language": "Llena de debates."
+      },
+      "coordinates": {
+        "x": 6,
+        "y": 13
+      },
+      "id": "loc_14_idea_exchange_hall",
+      "region_id": "region_5_pre_intermediate_plaza",
+      "connections": [
+        "loc_12_traveler_s_terminal"
+      ],
+      "npcs": [],
+      "available_items": []
+    }
+  ],
+  "connections": [
+    {
+      "from_location": "loc_1_town_square",
+      "to_location": "loc_2_colorful_market",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_1_town_square",
+      "to_location": "loc_3_the_cozy_inn",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_2_colorful_market",
+      "to_location": "loc_4_learning_grounds",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_3_the_cozy_inn",
+      "to_location": "loc_5_herbal_grove",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_4_learning_grounds",
+      "to_location": "loc_6_family_courtyard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_5_herbal_grove",
+      "to_location": "loc_7_the_spiced_kitchen",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_6_family_courtyard",
+      "to_location": "loc_11_workshop_of_wonders",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_7_the_spiced_kitchen",
+      "to_location": "loc_10_meadow_of_memories",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_weather_wishing_well",
+      "to_location": "loc_6_family_courtyard",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_8_weather_wishing_well",
+      "to_location": "loc_9_library_of_lore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_library_of_lore",
+      "to_location": "loc_7_the_spiced_kitchen",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_9_library_of_lore",
+      "to_location": "loc_12_traveler_s_terminal",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_meadow_of_memories",
+      "to_location": "loc_8_weather_wishing_well",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_10_meadow_of_memories",
+      "to_location": "loc_13_healer_s_haven",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_workshop_of_wonders",
+      "to_location": "loc_9_library_of_lore",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_11_workshop_of_wonders",
+      "to_location": "loc_14_idea_exchange_hall",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_12_traveler_s_terminal",
+      "to_location": "loc_10_meadow_of_memories",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_13_healer_s_haven",
+      "to_location": "loc_11_workshop_of_wonders",
+      "bidirectional": true
+    },
+    {
+      "from_location": "loc_14_idea_exchange_hall",
+      "to_location": "loc_12_traveler_s_terminal",
+      "bidirectional": true
+    }
+  ],
+  "starting_location": "loc_1_town_square"
+}

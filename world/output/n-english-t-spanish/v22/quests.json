@@ -1,0 +1,444 @@
+{
+  "quest_lines": [],
+  "quests": [
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "The First Words",
+        "target_language": "Las Primeras Palabras"
+      },
+      "description": {
+        "native_language": "Collect an apple and deliver it to Alejandro.",
+        "target_language": "Recoge una manzana y entrégasela a Alejandro."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "yes",
+          "target_language": "sí"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Gather an apple at Word Spring.",
+            "target_language": "Recoge una manzana en el Manantial de Palabras."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_11_the_first_words_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Return to Alejandro with the apple.",
+            "target_language": "Regresa a Alejandro con la manzana."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_11_the_first_words_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Give the apple to Alejandro.",
+            "target_language": "Dale la manzana a Alejandro."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_11_the_first_words_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Could you bring me an apple from Word Spring?",
+          "target_language": "¿Podrías traerme una manzana del Manantial de Palabras?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for the apple!",
+          "target_language": "¡Gracias por la manzana!"
+        }
+      },
+      "id": "quest_11_the_first_words",
+      "giver_npc_id": "npc_1_alejandro"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Path of Numbers",
+        "target_language": "El Camino de los Números"
+      },
+      "description": {
+        "native_language": "Explore the Path of Numbers and collect a coin for Mateo.",
+        "target_language": "Explora el Camino de los Números y recoge una moneda para Mateo."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "coin",
+          "target_language": "moneda"
+        },
+        {
+          "native_language": "numbers",
+          "target_language": "números"
+        },
+        {
+          "native_language": "explore",
+          "target_language": "explorar"
+        }
+      ],
+      "grammar_points": [
+        "imperative",
+        "present simple"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Find a coin on the Path of Numbers.",
+            "target_language": "Encuentra una moneda en el Camino de los Números."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_coin"
+          },
+          "id": "quest_12_path_of_numbers_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Talk to Mateo to learn more about numbers.",
+            "target_language": "Habla con Mateo para aprender más sobre los números."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_12_path_of_numbers_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Give the coin to Mateo.",
+            "target_language": "Dale la moneda a Mateo."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_coin"
+          },
+          "id": "quest_12_path_of_numbers_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you explore and find me a coin?",
+          "target_language": "¿Puedes explorar y encontrarme una moneda?"
+        },
+        "quest_complete": {
+          "native_language": "Great! This will help me teach numbers.",
+          "target_language": "¡Genial! Esto me ayudará a enseñar los números."
+        }
+      },
+      "id": "quest_12_path_of_numbers",
+      "giver_npc_id": "npc_5_mateo"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "The Missing Apple",
+        "target_language": "La Manzana Perdida"
+      },
+      "description": {
+        "native_language": "Help Alejandro find an apple in the Word Spring.",
+        "target_language": "Ayuda a Alejandro a encontrar una manzana en el Manantial de Palabras."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "apple",
+          "target_language": "manzana"
+        },
+        {
+          "native_language": "water",
+          "target_language": "agua"
+        },
+        {
+          "native_language": "leaf",
+          "target_language": "hoja"
+        }
+      ],
+      "grammar_points": [
+        "nouns",
+        "present tense"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Alejandro about the missing apple.",
+            "target_language": "Habla con Alejandro sobre la manzana perdida."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_1_alejandro"
+          },
+          "id": "quest_21_the_missing_apple_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Go to Word Spring to find the apple.",
+            "target_language": "Ve al Manantial de Palabras para encontrar la manzana."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_1_word_spring"
+          },
+          "id": "quest_21_the_missing_apple_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Collect the apple in the Word Spring.",
+            "target_language": "Recoge la manzana en el Manantial de Palabras."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_the_missing_apple_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Return the apple to Alejandro.",
+            "target_language": "Devuelve la manzana a Alejandro."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_1_apple"
+          },
+          "id": "quest_21_the_missing_apple_task_4"
+        },
+        {
+          "order": 4,
+          "description": {
+            "native_language": "Complete the Vocabulary Match game to learn about fruits.",
+            "target_language": "Completa el juego de Coincidencia de Vocabulario para aprender sobre frutas."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_21_the_missing_apple_task_5"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you help me find an apple in the Word Spring?",
+          "target_language": "¿Puedes ayudarme a encontrar una manzana en el Manantial de Palabras?"
+        },
+        "quest_complete": {
+          "native_language": "Thank you for finding the apple!",
+          "target_language": "¡Gracias por encontrar la manzana!"
+        }
+      },
+      "id": "quest_21_the_missing_apple",
+      "giver_npc_id": "npc_1_alejandro"
+    },
+    {
+      "type": "side",
+      "pattern": "exploration",
+      "name": {
+        "native_language": "Greet the World",
+        "target_language": "Saluda al Mundo"
+      },
+      "description": {
+        "native_language": "Explore Greet's Crossroads and learn basic greetings.",
+        "target_language": "Explora la Encrucijada de los Saludos y aprende saludos básicos."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "hello",
+          "target_language": "hola"
+        },
+        {
+          "native_language": "goodbye",
+          "target_language": "adiós"
+        },
+        {
+          "native_language": "yes",
+          "target_language": "sí"
+        }
+      ],
+      "grammar_points": [
+        "basic greetings",
+        "questions"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Carlos about greeting people.",
+            "target_language": "Habla con Carlos sobre cómo saludar a la gente."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_3_carlos"
+          },
+          "id": "quest_22_greet_the_world_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Explore Greet's Crossroads to learn greetings.",
+            "target_language": "Explora la Encrucijada de los Saludos para aprender saludos."
+          },
+          "completion_type": "at_location",
+          "completion_criteria": {
+            "target_id": "loc_3_greet_s_crossroads"
+          },
+          "id": "quest_22_greet_the_world_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Complete the Greetings Match game to practice.",
+            "target_language": "Completa el juego de Coincidencia de Saludos para practicar."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_22_greet_the_world_task_3"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Let's explore greetings at Greet's Crossroads.",
+          "target_language": "Vamos a explorar los saludos en la Encrucijada de los Saludos."
+        },
+        "quest_complete": {
+          "native_language": "You've learned basic greetings!",
+          "target_language": "¡Has aprendido saludos básicos!"
+        }
+      },
+      "id": "quest_22_greet_the_world",
+      "giver_npc_id": "npc_3_carlos"
+    },
+    {
+      "type": "main",
+      "pattern": "fetch",
+      "name": {
+        "native_language": "Numbered Path",
+        "target_language": "Camino Numerado"
+      },
+      "description": {
+        "native_language": "Help Mateo count coins on the Path of Numbers.",
+        "target_language": "Ayuda a Mateo a contar monedas en el Camino de los Números."
+      },
+      "language_level": "A0",
+      "target_vocabulary": [
+        {
+          "native_language": "coin",
+          "target_language": "moneda"
+        },
+        {
+          "native_language": "one",
+          "target_language": "uno"
+        },
+        {
+          "native_language": "two",
+          "target_language": "dos"
+        }
+      ],
+      "grammar_points": [
+        "numbers",
+        "simple sentences"
+      ],
+      "tasks": [
+        {
+          "order": 0,
+          "description": {
+            "native_language": "Talk to Mateo about finding coins.",
+            "target_language": "Habla con Mateo sobre encontrar monedas."
+          },
+          "completion_type": "talked_to",
+          "completion_criteria": {
+            "target_id": "npc_5_mateo"
+          },
+          "id": "quest_23_numbered_path_task_1"
+        },
+        {
+          "order": 1,
+          "description": {
+            "native_language": "Find a coin on the Path of Numbers.",
+            "target_language": "Encuentra una moneda en el Camino de los Números."
+          },
+          "completion_type": "has_item",
+          "completion_criteria": {
+            "target_id": "item_4_coin"
+          },
+          "id": "quest_23_numbered_path_task_2"
+        },
+        {
+          "order": 2,
+          "description": {
+            "native_language": "Return the coin to Mateo.",
+            "target_language": "Devuelve la moneda a Mateo."
+          },
+          "completion_type": "gave_item",
+          "completion_criteria": {
+            "target_id": "item_4_coin"
+          },
+          "id": "quest_23_numbered_path_task_3"
+        },
+        {
+          "order": 3,
+          "description": {
+            "native_language": "Complete the Counting Game to practice numbers.",
+            "target_language": "Completa el Juego de Contar para practicar números."
+          },
+          "completion_type": "completed_game",
+          "completion_criteria": {},
+          "id": "quest_23_numbered_path_task_4"
+        }
+      ],
+      "dialogue": {
+        "quest_offer": {
+          "native_language": "Can you find some coins on the Path of Numbers?",
+          "target_language": "¿Puedes encontrar algunas monedas en el Camino de los Números?"
+        },
+        "quest_complete": {
+          "native_language": "Thanks for the coins! We can count them now.",
+          "target_language": "¡Gracias por las monedas! Ahora podemos contarlas."
+        }
+      },
+      "id": "quest_23_numbered_path",
+      "giver_npc_id": "npc_5_mateo"
+    }
+  ],
+  "_generation_summary": {
+    "total_attempts": 5,
+    "total_generated": 50,
+    "total_valid": 5,
+    "total_invalid": 45,
+    "target_minimum": 20,
+    "target_met": false
+  }
+}

@@ -740,7 +740,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
       // Call streaming API
       final tools = getToolDefinitions(npc, availableQuests: npcAvailableQuests);
-      debugPrint('Streaming with ${tools.length} tools for ${npc.id}, message count: ${_messageCount[npc.id]}');
+      debugPrint('[TOOL_DEBUG] sendMessageStream NPC=${npc.id} message_count=${_messageCount[npc.id]} tools=${tools.map((t) => t['function']?['name']).toList()} conversation_len=${_conversations[npc.id]!.length}');
 
       await for (final content in _callStreamingAPI(
         npc: npc,
@@ -755,13 +755,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         yield content;
         notifyListeners();
       }
-
-      // After stream completes, add final message to conversation
-      final finalContent = _streamingContent[npc.id] ?? '';
-      _conversations[npc.id]!.add(ChatMessage(
-        role: 'assistant',
-        content: finalContent,
-      ));
 
       _loadingStates[npc.id] = false;
       _streamingContent.remove(npc.id);
@@ -819,7 +812,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
       // Make streaming API call to get NPC's opening
       final tools = getToolDefinitions(npc, availableQuests: npcAvailableQuests);
-      debugPrint('Initiating conversation with ${npc.id}, tools: ${tools.map((t) => t['function']['name']).toList()}');
+      debugPrint('[TOOL_DEBUG] initiateConversationStream NPC=${npc.id} message_count=${_messageCount[npc.id]} tools=${tools.map((t) => t['function']?['name']).toList()}');
 
       await for (final content in _callStreamingAPI(
         npc: npc,
@@ -833,15 +826,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         _streamingContent[npc.id] = (_streamingContent[npc.id] ?? '') + content;
         yield content;
         notifyListeners();
-      }
-
-      // After stream completes, add final message to conversation
-      final finalContent = _streamingContent[npc.id] ?? '';
-      if (finalContent.isNotEmpty) {
-        _conversations[npc.id]!.add(ChatMessage(
-          role: 'assistant',
-          content: finalContent,
-        ));
       }
 
       _loadingStates[npc.id] = false;
@@ -893,6 +877,16 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         'message_count': messageCount,
       };
 
+      // Log message history structure for debugging tool calls
+      debugPrint('[TOOL_DEBUG] Sending ${messages.length} messages to backend:');
+      for (int i = 0; i < messages.length; i++) {
+        final m = messages[i];
+        final hasToolCalls = m.toolCalls != null && m.toolCalls!.isNotEmpty;
+        final toolCallInfo = hasToolCalls ? ' toolCalls=[${m.toolCalls!.map((tc) => tc.name).join(', ')}]' : '';
+        final toolCallIdInfo = m.toolCallId != null ? ' tool_call_id=${m.toolCallId}' : '';
+        debugPrint('[TOOL_DEBUG]   [$i] role=${m.role}$toolCallInfo$toolCallIdInfo content=${m.content?.substring(0, (m.content?.length ?? 0).clamp(0, 50))}...');
+      }
+
       final bodyJson = jsonEncode(bodyMap);
 
       final bodyBytes = utf8.encode(bodyJson);
@@ -930,11 +924,14 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
                 final contentChunk = data['content'] as String;
                 yield contentChunk;
               } else if (type == 'done') {
+                debugPrint('[TOOL_DEBUG] SSE done received for NPC=${npc.id} tool_calls_field=${data['tool_calls']?.runtimeType} tool_calls_value=${data['tool_calls']}');
                 // Handle tool calls if present
                 if (data['tool_calls'] != null) {
                   final toolCalls = (data['tool_calls'] as List)
                       .map((tc) => ToolCall.fromJson(tc))
                       .toList();
+
+                  debugPrint('[TOOL_DEBUG] Parsed ${toolCalls.length} tool calls: ${toolCalls.map((tc) => '${tc.name}(${tc.arguments})').toList()}');
 
                   // Add assistant message with tool calls
                   _conversations[npc.id]!.add(ChatMessage(
@@ -945,12 +942,15 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
                   // Execute tools
                   for (final toolCall in toolCalls) {
+                    debugPrint('[TOOL_DEBUG] Executing tool: ${toolCall.name} id=${toolCall.id} args=${toolCall.arguments}');
                     final result = await _executeToolCall(
                       toolCall: toolCall,
                       npc: npc,
                       player: player,
                       availableQuests: availableQuests,
                     );
+
+                    debugPrint('[TOOL_DEBUG] Tool result for ${toolCall.name}: ${result.result} data=${result.data}');
 
                     // Add tool result
                     _conversations[npc.id]!.add(ChatMessage(
@@ -960,7 +960,19 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
                     ));
 
                     // Notify callback
+                    debugPrint('[TOOL_DEBUG] Calling onToolExecuted callback: ${onToolExecuted != null ? "EXISTS" : "NULL"}');
                     onToolExecuted?.call(toolCall.name, toolCall.arguments, result);
+                  }
+                  debugPrint('[TOOL_DEBUG] All tool calls processed. Conversation now has ${_conversations[npc.id]!.length} messages. Last roles: ${_conversations[npc.id]!.reversed.take(4).map((m) => m.role).toList()}');
+                } else {
+                  debugPrint('[TOOL_DEBUG] No tool calls in done message for NPC=${npc.id}');
+                  // No tool calls - add plain assistant message
+                  final content = _streamingContent[npc.id] ?? '';
+                  if (content.isNotEmpty) {
+                    _conversations[npc.id]!.add(ChatMessage(
+                      role: 'assistant',
+                      content: content,
+                    ));
                   }
                 }
               } else if (type == 'error') {
