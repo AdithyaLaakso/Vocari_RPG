@@ -239,6 +239,7 @@ class StreamChatRequest(BaseModel):
     tools: list[Tool]
     npc_id: str
     message_count: int = 0  # Track conversation turn count for guardrails
+    available_quest_ids: Optional[List[str]] = None  # Valid quest IDs for offer_quest tool
 
 
 async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, None]:
@@ -275,18 +276,26 @@ async def generate_stream(request: StreamChatRequest) -> AsyncGenerator[str, Non
         # Validate and fix message history
         openai_messages = validate_and_fix_messages(openai_messages)
 
-        # Convert tools to OpenAI format
-        openai_tools = [
-            {
+        # Convert tools to OpenAI format, adding enum constraints where needed
+        openai_tools = []
+        for tool in request.tools:
+            tool_def = {
                 "type": tool.type,
                 "function": {
                     "name": tool.function.name,
                     "description": tool.function.description,
-                    "parameters": tool.function.parameters,
+                    "parameters": dict(tool.function.parameters),  # Make a copy
                 }
             }
-            for tool in request.tools
-        ]
+
+            # For offer_quest tool, enforce quest_id enum if available_quest_ids provided
+            if tool.function.name == "offer_quest" and request.available_quest_ids:
+                params = tool_def["function"]["parameters"]
+                if "properties" in params and "quest_id" in params["properties"]:
+                    params["properties"]["quest_id"]["enum"] = request.available_quest_ids
+                    print(f"[TOOL_DEBUG] Added quest_id enum constraint: {request.available_quest_ids}")
+
+            openai_tools.append(tool_def)
 
         # Apply guardrails: Only allow tool calls after initial exchange
         # message_count: 0 = NPC opening, 1 = user first message, 2+ = can use tools

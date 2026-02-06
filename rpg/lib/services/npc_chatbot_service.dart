@@ -870,11 +870,18 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       request.headers.set('Accept', 'text/event-stream');
       request.headers.set('Cache-Control', 'no-cache');
 
+      // Filter quests to only those this NPC can give
+      final npcQuestIds = availableQuests.values
+          .where((quest) => quest.giverNpcId == npc.id)
+          .map((quest) => quest.id)
+          .toList();
+
       final bodyMap = {
         'messages': messages.map((m) => m.toJson()).toList(),
         'tools': tools,
         'npc_id': npc.id,
         'message_count': messageCount,
+        'available_quest_ids': npcQuestIds,
       };
 
       // Log message history structure for debugging tool calls
