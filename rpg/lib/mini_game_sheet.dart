@@ -311,13 +311,13 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
           ],
 
           // Grammar focus
-          if (widget.game.grammarFocus.isNotEmpty) ...[
+          if (widget.game.grammarFocus.isNotEmpty && widget.game.grammarFocus[0].isNotEmpty) ...[
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Colors.blue.withOpacity(0.1),
-                border: Border.all(color: Colors.blue.withOpacity(0.3)),
+                color: Colors.blue.withValues(alpha: 0.1),
+                border: Border.all(color: Colors.blue.withValues(alpha: 0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
