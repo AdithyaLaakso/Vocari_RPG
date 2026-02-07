@@ -201,7 +201,7 @@
     },
     {
       "name": "luavm_widget",
-      "rootUri": "file:///home/Adithya/.pub-cache/git/luavm_widget-5832f0d94c7b65c12f2dafb9aaf59ff365110662/",
+      "rootUri": "file:///home/Adithya/.pub-cache/git/luavm_widget-796606035389891d08881079386cb034ce0f3fcf/",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -297,7 +297,7 @@
     },
     {
       "name": "shared_preferences_android",
-      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.18",
+      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/shared_preferences_android-2.4.20",
       "packageUri": "lib/",
       "languageVersion": "3.9"
     },
@@ -339,7 +339,7 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/source_span-1.10.1",
+      "rootUri": "file:///home/Adithya/.pub-cache/hosted/pub.dev/source_span-1.10.2",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     },

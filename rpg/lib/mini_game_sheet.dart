@@ -27,6 +27,11 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
   }
 
   void _handleGameHalt(int exitCode) {
+    if (exitCode == 0) {
+      debugPrint('[MiniGame] "${widget.game.displayName}" (${widget.game.id}) '
+          'entered error state (exit code 0)');
+    }
+
     setState(() {
       _gameEnded = true;
       _exitCode = exitCode;
@@ -393,16 +398,29 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
   }
 
   Widget _buildGameCanvas() {
-    return Container(
-      margin: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.purple.withOpacity(0.3)),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: LuaCanvas(
-        luaCode: widget.game.luaCode,
-        onHalt: _handleGameHalt,
+    // GestureDetector claims all drag gestures so the
+    // DraggableScrollableSheet cannot intercept them.
+    // LuaCanvas uses a raw Listener internally, which still
+    // receives pointer events before gesture disambiguation.
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onVerticalDragStart: (_) {},
+      onVerticalDragUpdate: (_) {},
+      onVerticalDragEnd: (_) {},
+      onHorizontalDragStart: (_) {},
+      onHorizontalDragUpdate: (_) {},
+      onHorizontalDragEnd: (_) {},
+      child: Container(
+        margin: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(color: Colors.purple.withOpacity(0.3)),
+        ),
+        clipBehavior: Clip.antiAlias,
+        child: LuaCanvas(
+          luaCode: widget.game.luaCode,
+          onHalt: _handleGameHalt,
+        ),
       ),
     );
   }
