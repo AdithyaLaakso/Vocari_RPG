@@ -7,6 +7,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:shared/services/definition_service.dart';
+import 'package:shared/widgets/clickabletext.dart';
 
 import 'game_models.dart';
 import 'npc_interaction.dart';
@@ -664,6 +665,10 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
   }
 
   Widget _buildTextBubble(String text, bool isUser) {
+    final txtStyle = Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Colors.white.withValues(alpha: 0.9),
+                    height: 1.4,
+                  );
     return Row(
       mainAxisAlignment: isUser ? MainAxisAlignment.end : MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -695,13 +700,10 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
                     : _getNPCColor().withValues(alpha: 0.2),
               ),
             ),
-            child: Text(
-              text,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.white.withValues(alpha: 0.9),
-                    height: 1.4,
-                  ),
-            ),
+            child: (isUser) ? ClickableSelectableText(
+              text: text,
+              style: txtStyle,
+            ): Text(text, style: txtStyle),
           ),
         ),
         if (isUser) const SizedBox(width: 8),
