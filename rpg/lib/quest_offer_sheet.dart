@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'game_models.dart';
 import 'providers/game_provider.dart';
 
-class QuestOfferSheet extends StatelessWidget {
+class QuestOfferSheet extends ConsumerWidget {
   final Quest quest;
   final VoidCallback? onAccepted;
   final VoidCallback? onRejected;
@@ -17,68 +17,65 @@ class QuestOfferSheet extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Consumer<GameProvider>(
-      builder: (context, gameProvider, child) {
-        return DraggableScrollableSheet(
-          initialChildSize: 0.75,
-          minChildSize: 0.5,
-          maxChildSize: 0.95,
-          builder: (context, scrollController) {
-            return Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFF1A1A2E),
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(24),
-                ),
-                border: Border.all(
-                  color: _getQuestTypeColor().withOpacity(0.3),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gp = ref.watch(gameProvider);
+    return DraggableScrollableSheet(
+      initialChildSize: 0.75,
+      minChildSize: 0.5,
+      maxChildSize: 0.95,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF1A1A2E),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(24),
+            ),
+            border: Border.all(
+              color: _getQuestTypeColor().withValues(alpha: 0.3),
+            ),
+          ),
+          child: Column(
+            children: [
+              // Handle
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              child: Column(
-                children: [
-                  // Handle
-                  Container(
-                    margin: const EdgeInsets.only(top: 12),
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
+
+              // Quest Header
+              _buildQuestHeader(context),
+
+              const Divider(height: 1),
+
+              // Quest content
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildDescription(context),
+                      const SizedBox(height: 24),
+                      _buildObjectives(context),
+                      const SizedBox(height: 24),
+                      _buildLanguageLearning(context),
+                      const SizedBox(height: 24),
+                      _buildRewards(context, gp),
+                    ],
                   ),
-
-                  // Quest Header
-                  _buildQuestHeader(context),
-
-                  const Divider(height: 1),
-
-                  // Quest content
-                  Expanded(
-                    child: SingleChildScrollView(
-                      controller: scrollController,
-                      padding: const EdgeInsets.all(20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _buildDescription(context),
-                          const SizedBox(height: 24),
-                          _buildObjectives(context),
-                          const SizedBox(height: 24),
-                          _buildLanguageLearning(context),
-                          const SizedBox(height: 24),
-                          _buildRewards(context, gameProvider),
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  // Accept/Reject buttons
-                  _buildActionButtons(context, gameProvider),
-                ],
+                ),
               ),
-            );
-          },
+
+              // Accept/Reject buttons
+              _buildActionButtons(context, gp),
+            ],
+          ),
         );
       },
     );
@@ -95,7 +92,7 @@ class QuestOfferSheet extends StatelessWidget {
             height: 70,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: _getQuestTypeColor().withOpacity(0.2),
+              color: _getQuestTypeColor().withValues(alpha: 0.2),
               border: Border.all(
                 color: _getQuestTypeColor(),
                 width: 2,
@@ -122,7 +119,7 @@ class QuestOfferSheet extends StatelessWidget {
                 Text(
                   'QUEST OFFERED',
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: _getQuestTypeColor().withOpacity(0.7),
+                        color: _getQuestTypeColor().withValues(alpha: 0.7),
                         letterSpacing: 2,
                       ),
                 ).animate().fadeIn(delay: 100.ms),
@@ -143,7 +140,7 @@ class QuestOfferSheet extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: _getQuestTypeColor().withOpacity(0.2),
+                        color: _getQuestTypeColor().withValues(alpha: 0.2),
                       ),
                       child: Text(
                         quest.type.toUpperCase(),
@@ -160,7 +157,7 @@ class QuestOfferSheet extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: Colors.teal.withOpacity(0.2),
+                        color: Colors.teal.withValues(alpha: 0.2),
                       ),
                       child: Text(
                         quest.languageLevel,
@@ -193,9 +190,9 @@ class QuestOfferSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         border: Border.all(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withValues(alpha: 0.1),
         ),
       ),
       child: Column(
@@ -217,7 +214,7 @@ class QuestOfferSheet extends StatelessWidget {
           Text(
             quest.displayDescription,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.white.withOpacity(0.9),
+                  color: Colors.white.withValues(alpha: 0.9),
                   height: 1.5,
                 ),
           ),
@@ -231,9 +228,9 @@ class QuestOfferSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         border: Border.all(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withValues(alpha: 0.1),
         ),
       ),
       child: Column(
@@ -257,7 +254,7 @@ class QuestOfferSheet extends StatelessWidget {
             Text(
               quest.objectives.displaySummary,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                   ),
             ),
             const SizedBox(height: 12),
@@ -285,7 +282,7 @@ class QuestOfferSheet extends StatelessWidget {
                       child: Text(
                         task.displayDescription,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Colors.white.withOpacity(0.8),
+                              color: Colors.white.withValues(alpha: 0.8),
                             ),
                       ),
                     ),
@@ -311,9 +308,9 @@ class QuestOfferSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.teal.withOpacity(0.1),
+        color: Colors.teal.withValues(alpha: 0.1),
         border: Border.all(
-          color: Colors.teal.withOpacity(0.3),
+          color: Colors.teal.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -334,7 +331,7 @@ class QuestOfferSheet extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Colors.teal.withOpacity(0.2),
+                  color: Colors.teal.withValues(alpha: 0.2),
                 ),
                 child: Text(
                   quest.languageLevel,
@@ -364,20 +361,20 @@ class QuestOfferSheet extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  color: Colors.teal.withOpacity(0.15),
+                  color: Colors.teal.withValues(alpha: 0.15),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      vocab.nativeLanguage,
+                      vocab.native,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                           ),
                     ),
                     Text(
-                      vocab.targetLanguage,
+                      vocab.target,
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                             color: Colors.teal,
                             fontStyle: FontStyle.italic,
@@ -416,7 +413,7 @@ class QuestOfferSheet extends StatelessWidget {
                   const Icon(Icons.check_circle_outline, size: 14, color: Colors.teal),
                   const SizedBox(width: 8),
                   Text(
-                    point.nativeLanguage,
+                    point.native,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.white70,
                         ),
@@ -443,7 +440,7 @@ class QuestOfferSheet extends StatelessWidget {
                   const Icon(Icons.chat_bubble_outline, size: 14, color: Colors.teal),
                   const SizedBox(width: 8),
                   Text(
-                    skill.nativeLanguage,
+                    skill.native,
                     style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.white70,
                         ),
@@ -465,9 +462,9 @@ class QuestOfferSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: const Color(0xFFD4AF37).withOpacity(0.1),
+        color: const Color(0xFFD4AF37).withValues(alpha: 0.1),
         border: Border.all(
-          color: const Color(0xFFD4AF37).withOpacity(0.3),
+          color: const Color(0xFFD4AF37).withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -536,7 +533,7 @@ class QuestOfferSheet extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: color.withOpacity(0.2),
+        color: color.withValues(alpha: 0.2),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -562,7 +559,7 @@ class QuestOfferSheet extends StatelessWidget {
         color: const Color(0xFF1A1A2E),
         border: Border(
           top: BorderSide(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withValues(alpha: 0.1),
           ),
         ),
       ),
@@ -581,13 +578,13 @@ class QuestOfferSheet extends StatelessWidget {
                 style: OutlinedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   side: BorderSide(
-                    color: Colors.red.withOpacity(0.5),
+                    color: Colors.red.withValues(alpha: 0.5),
                   ),
                 ),
                 child: Text(
                   'DECLINE',
                   style: TextStyle(
-                    color: Colors.red.withOpacity(0.8),
+                    color: Colors.red.withValues(alpha: 0.8),
                   ),
                 ),
               ),
@@ -605,15 +602,15 @@ class QuestOfferSheet extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: _getQuestTypeColor().withOpacity(0.3),
+                  backgroundColor: _getQuestTypeColor().withValues(alpha: 0.3),
                   padding: const EdgeInsets.symmetric(vertical: 16),
                 ),
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.check, size: 20),
-                    const SizedBox(width: 8),
-                    const Text('ACCEPT QUEST'),
+                    Icon(Icons.check, size: 20),
+                    SizedBox(width: 8),
+                    Text('ACCEPT QUEST'),
                   ],
                 ),
               ),

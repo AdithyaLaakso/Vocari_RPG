@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared/services/keycloak_service.dart';
 import '../game_models.dart';
 import '../providers/game_provider.dart';
 import '../location_card.dart';
@@ -10,16 +10,16 @@ import '../mini_game_sheet.dart';
 import '../quest_notification.dart';
 import '../widgets/narrator_panel.dart';
 import '../widgets/game_map_widget.dart';
-import '../services/bilingual_text_service.dart';
+import 'package:shared/services/language_switch.dart';
 
-class GameScreen extends StatefulWidget {
+class GameScreen extends ConsumerStatefulWidget {
   const GameScreen({super.key});
 
   @override
-  State<GameScreen> createState() => _GameScreenState();
+  ConsumerState<GameScreen> createState() => _GameScreenState();
 }
 
-class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
+class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStateMixin {
   late AnimationController _pulseController;
   int _selectedNavIndex = 0;
   bool _showingLocationItems = false;  // Toggle for "Look Around" feature
@@ -32,10 +32,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       duration: const Duration(seconds: 2),
     )..repeat(reverse: true);
 
-    // Set up quest progress notifications
+    // Load game data and set up quest progress notifications
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final gameProvider = context.read<GameProvider>();
-      gameProvider.onQuestProgress = _handleQuestProgress;
+      final provider = ref.read(gameProvider.notifier);
+      provider.loadGameData();
+      provider.onQuestProgress = _handleQuestProgress;
       debugPrint('Quest progress callback set up!');
     });
   }
@@ -67,36 +68,34 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   @override
   void dispose() {
     _pulseController.dispose();
-    final gameProvider = context.read<GameProvider>();
-    gameProvider.onQuestProgress = null;
+    // Note: ref is not accessible in dispose for ConsumerStatefulWidget,
+    // but the provider instance persists so the callback gets cleaned up
+    // when the provider is disposed. We just clear the notification service.
     QuestNotificationService.instance.clearAll();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(
-      builder: (context, gameProvider, child) {
-        return Scaffold(
-          body: SafeArea(
-            child: Stack(
+    final provider = ref.watch(gameProvider);
+    return Scaffold(
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Column(
               children: [
-                Column(
-                  children: [
-                    _buildTopBar(gameProvider),
-                    Expanded(
-                      child: _buildMainContent(gameProvider),
-                    ),
-                    _buildBottomNav(gameProvider),
-                  ],
+                _buildTopBar(provider),
+                Expanded(
+                  child: _buildMainContent(provider),
                 ),
-                const NarratorPanel(),
+                _buildBottomNav(provider),
               ],
             ),
-          ),
-          floatingActionButton: const AskNarratorButton(),
-        );
-      },
+            const NarratorPanel(),
+          ],
+        ),
+      ),
+      floatingActionButton: const AskNarratorButton(),
     );
   }
 
@@ -107,10 +106,10 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         border: Border(
           bottom: BorderSide(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withValues(alpha: 0.1),
           ),
         ),
       ),
@@ -128,7 +127,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                     shape: BoxShape.circle,
                     gradient: RadialGradient(
                       colors: [
-                        const Color(0xFFD4AF37).withOpacity(0.3),
+                        const Color(0xFFD4AF37).withValues(alpha: 0.3),
                         Colors.transparent,
                       ],
                     ),
@@ -176,7 +175,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.white.withOpacity(0.05),
+                  color: Colors.white.withValues(alpha: 0.05),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -200,7 +199,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: Colors.white.withOpacity(0.05),
+                  color: Colors.white.withValues(alpha: 0.05),
                 ),
                 child: Text(
                   gameProvider.timeOfDay == 'day' ? '☀️'
@@ -261,7 +260,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               Container(
                 height: 10,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(5),
                 ),
               ),
@@ -271,12 +270,12 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                   height: 10,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      colors: [color.withOpacity(0.8), color],
+                      colors: [color.withValues(alpha: 0.8), color],
                     ),
                     borderRadius: BorderRadius.circular(5),
                     boxShadow: [
                       BoxShadow(
-                        color: color.withOpacity(0.5),
+                        color: color.withValues(alpha: 0.5),
                         blurRadius: 4,
                       ),
                     ],
@@ -314,7 +313,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               Container(
                 height: 6,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.1),
+                  color: Colors.white.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(3),
                 ),
               ),
@@ -446,31 +445,23 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     final canAfford = !isPurchase || playerGold >= locationItem.price;
     final playerLevel = gameProvider.player?.languageLevel ?? 'A0';
 
-    // Use bilingual display: default to target language for name (with RNG)
-    // For items, we want to encourage target language exposure
-    // Name: Show target language first with native as hint
-    // Description: Show native language first with target as hint (for comprehension)
-    final bilingualService = BilingualTextService.instance;
-
     // Item name - favor target language (name is simpler, easier to learn)
-    final showTargetName = bilingualService.shouldShowTargetLanguage(playerLevel);
+    final showTargetName = BilingualTextService.shouldShowTargetLanguage(playerLevel);
     final itemName = showTargetName
-        ? item.name.targetLanguage
-        : item.name.nativeLanguage;
+        ? item.name.target
+        : item.name.native;
     final itemNameHint = showTargetName
-        ? item.name.nativeLanguage
-        : item.name.targetLanguage;
+        ? item.name.native
+        : item.name.target;
 
     // Description - favor native language (descriptions are more complex)
-    final showTargetDesc = bilingualService.shouldShowTargetLanguage(playerLevel);
+    final showTargetDesc = BilingualTextService.shouldShowTargetLanguage(playerLevel);
     final itemDesc = showTargetDesc
-        ? item.description.targetLanguage
-        : item.description.nativeLanguage;
+        ? item.description.target
+        : item.description.native;
 
     // Action button text
-    final actionLabel = isPurchase
-        ? BilingualLabel(native: 'Buy (${locationItem.price})', target: 'Comprar (${locationItem.price})')
-        : UILabels.pickUp;
+    final actionLabel = isPurchase ? UILabels.buy : UILabels.pickUp;
 
     return InkWell(
       onTap: canPickup && canAfford
@@ -481,11 +472,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: const Color(0xFF4CAF50).withOpacity(0.08),
+          color: const Color(0xFF4CAF50).withValues(alpha: 0.08),
           border: Border.all(
             color: canPickup && canAfford
-                ? const Color(0xFF4CAF50).withOpacity(0.3)
-                : Colors.white.withOpacity(0.1),
+                ? const Color(0xFF4CAF50).withValues(alpha: 0.3)
+                : Colors.white.withValues(alpha: 0.1),
           ),
         ),
         child: Row(
@@ -496,7 +487,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: const Color(0xFF4CAF50).withOpacity(0.15),
+                color: const Color(0xFF4CAF50).withValues(alpha: 0.15),
               ),
               child: Center(
                 child: Text(
@@ -547,10 +538,10 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                       padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(4),
-                        color: Colors.blue.withOpacity(0.2),
+                        color: Colors.blue.withValues(alpha: 0.2),
                       ),
                       child: Text(
-                        '"${item.vocabularyWord!.targetLanguage}" = "${item.vocabularyWord!.nativeLanguage}"',
+                        '"${item.vocabularyWord!.target}" = "${item.vocabularyWord!.native}"',
                         style: Theme.of(context).textTheme.bodySmall?.copyWith(
                           color: Colors.blue[300],
                           fontStyle: FontStyle.italic,
@@ -570,8 +561,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: canAfford
-                      ? const Color(0xFF4CAF50).withOpacity(0.3)
-                      : Colors.red.withOpacity(0.2),
+                      ? const Color(0xFF4CAF50).withValues(alpha: 0.3)
+                      : Colors.red.withValues(alpha: 0.2),
                 ),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -588,8 +579,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                       actionLabel.secondaryForLevel(playerLevel),
                       style: TextStyle(
                         color: canAfford
-                            ? const Color(0xFF4CAF50).withOpacity(0.6)
-                            : Colors.red.withOpacity(0.4),
+                            ? const Color(0xFF4CAF50).withValues(alpha: 0.6)
+                            : Colors.red.withValues(alpha: 0.4),
                         fontSize: 8,
                       ),
                     ),
@@ -599,7 +590,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             else
               Icon(
                 Icons.check_circle,
-                color: Colors.white.withOpacity(0.3),
+                color: Colors.white.withValues(alpha: 0.3),
                 size: 20,
               ),
           ],
@@ -657,9 +648,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withValues(alpha: 0.05),
           border: Border.all(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withValues(alpha: 0.1),
           ),
         ),
         child: Row(
@@ -670,7 +661,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               height: 50,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: _getNPCColor(npc.type).withOpacity(0.2),
+                color: _getNPCColor(npc.type).withValues(alpha: 0.2),
               ),
               child: Center(
                 child: Icon(
@@ -705,7 +696,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
             Icon(
               Icons.chat_bubble_outline,
-              color: Colors.white.withOpacity(0.5),
+              color: Colors.white.withValues(alpha: 0.5),
             ),
           ],
         ),
@@ -751,7 +742,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
       icon: Text(location.emoji, style: const TextStyle(fontSize: 16)),
       label: Text(location.displayName),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white.withOpacity(0.1),
+        backgroundColor: Colors.white.withValues(alpha: 0.1),
         foregroundColor: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
@@ -783,9 +774,9 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: const Color(0xFF4CAF50).withOpacity(0.15),
+              color: const Color(0xFF4CAF50).withValues(alpha: 0.15),
               border: Border.all(
-                color: const Color(0xFF4CAF50).withOpacity(0.3),
+                color: const Color(0xFF4CAF50).withValues(alpha: 0.3),
               ),
             ),
             child: Row(
@@ -810,7 +801,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                     Text(
                       UILabels.lookAround.secondaryForLevel(playerLevel),
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: const Color(0xFF4CAF50).withOpacity(0.7),
+                        color: const Color(0xFF4CAF50).withValues(alpha: 0.7),
                         fontSize: 10,
                       ),
                     ),
@@ -819,7 +810,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 const SizedBox(width: 8),
                 Icon(
                   _showingLocationItems ? Icons.expand_less : Icons.expand_more,
-                  color: const Color(0xFF4CAF50).withOpacity(0.7),
+                  color: const Color(0xFF4CAF50).withValues(alpha: 0.7),
                   size: 20,
                 ),
               ],
@@ -897,11 +888,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          color: Colors.purple.withOpacity(0.1),
+          color: Colors.purple.withValues(alpha: 0.1),
           border: Border.all(
             color: isCompleted
-                ? Colors.green.withOpacity(0.5)
-                : Colors.purple.withOpacity(0.3),
+                ? Colors.green.withValues(alpha: 0.5)
+                : Colors.purple.withValues(alpha: 0.3),
           ),
         ),
         child: Row(
@@ -912,7 +903,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               height: 50,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.purple.withOpacity(0.2),
+                color: Colors.purple.withValues(alpha: 0.2),
               ),
               child: Center(
                 child: isCompleted
@@ -955,7 +946,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Colors.amber.withOpacity(0.2),
+                color: Colors.amber.withValues(alpha: 0.2),
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -978,7 +969,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             // Play button
             Icon(
               Icons.play_circle_fill,
-              color: Colors.purple.withOpacity(0.7),
+              color: Colors.purple.withValues(alpha: 0.7),
               size: 28,
             ),
           ],
@@ -993,19 +984,34 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.5),
+        color: Colors.black.withValues(alpha: 0.5),
         border: Border(
           top: BorderSide(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withValues(alpha: 0.1),
           ),
         ),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildNavButton(0, Icons.location_on, 'Location', 'Lugar'),
-          _buildNavButton(1, Icons.map, UILabels.map.native, UILabels.map.target),
-          _buildNavButton(2, Icons.history, 'Log', 'Registro'),
+          _buildNavButton(
+            0,
+            Icons.location_on,
+            UILabels.map.primaryForLevel(playerLevel),
+            UILabels.map.secondaryForLevel(playerLevel)
+          ),
+          _buildNavButton(
+            1,
+            Icons.map,
+            UILabels.location.primaryForLevel(playerLevel),
+            UILabels.location.secondaryForLevel(playerLevel)
+          ),
+          _buildNavButton(
+            2,
+            Icons.history,
+            UILabels.log.primaryForLevel(playerLevel),
+            UILabels.log.secondaryForLevel(playerLevel)
+          ),
           _buildActionButton(
             icon: Icons.backpack,
             label: UILabels.inventory.primaryForLevel(playerLevel),
@@ -1026,8 +1032,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
   Widget _buildNavButton(int index, IconData icon, String nativeLabel, [String? targetLabel]) {
     final isSelected = _selectedNavIndex == index;
-    final gameProvider = context.read<GameProvider>();
-    final playerLevel = gameProvider.player?.languageLevel ?? 'A0';
+    final gp = ref.watch(gameProvider);
+    final playerLevel = gp.player?.languageLevel ?? 'A0';
 
     // Get bilingual label if target provided
     String primaryLabel = nativeLabel;
@@ -1053,7 +1059,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: isSelected
-              ? const Color(0xFFD4AF37).withOpacity(0.2)
+              ? const Color(0xFFD4AF37).withValues(alpha: 0.2)
               : Colors.transparent,
         ),
         child: Column(
@@ -1077,7 +1083,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                 secondaryLabel,
                 style: TextStyle(
                   color: isSelected
-                      ? const Color(0xFFD4AF37).withOpacity(0.6)
+                      ? const Color(0xFFD4AF37).withValues(alpha: 0.6)
                       : Colors.white38,
                   fontSize: 8,
                 ),
@@ -1190,27 +1196,24 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 }
 
 // Stub widget for GameLogWidget
-class GameLogWidget extends StatelessWidget {
+class GameLogWidget extends ConsumerWidget {
   const GameLogWidget({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Consumer<GameProvider>(
-      builder: (context, gameProvider, child) {
-        return ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: gameProvider.gameLog.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: Text(
-                gameProvider.gameLog[index],
-                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.white70,
-                ),
-              ),
-            );
-          },
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gp = ref.watch(gameProvider);
+    return ListView.builder(
+      padding: const EdgeInsets.all(16),
+      itemCount: gp.gameLog.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          child: Text(
+            gp.gameLog[index],
+            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+              color: Colors.white70,
+            ),
+          ),
         );
       },
     );
@@ -1218,66 +1221,69 @@ class GameLogWidget extends StatelessWidget {
 }
 
 // Stub widget for InventorySheet
-class InventorySheet extends StatelessWidget {
+class InventorySheet extends ConsumerWidget {
   const InventorySheet({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gp = ref.watch(gameProvider);
     return DraggableScrollableSheet(
       initialChildSize: 0.7,
       minChildSize: 0.5,
       maxChildSize: 0.95,
       builder: (context, scrollController) {
+        final player = gp.player;
+        if (player == null) {
+          return Container(
+            decoration: const BoxDecoration(
+              color: Color(0xFF1A1A2E),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+            ),
+            child: const Center(child: CircularProgressIndicator()),
+          );
+        }
         return Container(
           decoration: const BoxDecoration(
             color: Color(0xFF1A1A2E),
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
-          child: Consumer<GameProvider>(
-            builder: (context, gameProvider, child) {
-              final player = gameProvider.player;
-              if (player == null) {
-                return const Center(child: CircularProgressIndicator());
-              }
-              return Column(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 12),
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: Colors.white30,
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Text(
-                      'Inventory',
-                      style: Theme.of(context).textTheme.headlineSmall,
-                    ),
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      controller: scrollController,
-                      itemCount: player.inventory.length,
-                      itemBuilder: (context, index) {
-                        final itemId = player.inventory[index];
-                        return ListTile(
-                          title: Text(itemId),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.delete),
-                            onPressed: () {
-                              // Remove item
-                            },
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                ],
-              );
-            },
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.white30,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text(
+                  'Inventory',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                  controller: scrollController,
+                  itemCount: player.inventory.length,
+                  itemBuilder: (context, index) {
+                    final itemId = player.inventory[index];
+                    return ListTile(
+                      title: Text(itemId),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.delete),
+                        onPressed: () {
+                          // Remove item
+                        },
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         );
       },
@@ -1286,14 +1292,14 @@ class InventorySheet extends StatelessWidget {
 }
 
 // Quest Log Sheet with detailed progress
-class QuestLogSheet extends StatefulWidget {
+class QuestLogSheet extends ConsumerStatefulWidget {
   const QuestLogSheet({super.key});
 
   @override
-  State<QuestLogSheet> createState() => _QuestLogSheetState();
+  ConsumerState<QuestLogSheet> createState() => _QuestLogSheetState();
 }
 
-class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProviderStateMixin {
+class _QuestLogSheetState extends ConsumerState<QuestLogSheet> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -1319,12 +1325,13 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
           decoration: BoxDecoration(
             color: const Color(0xFF1A1A2E),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-            border: Border.all(color: Colors.amber.withOpacity(0.3)),
+            border: Border.all(color: Colors.amber.withValues(alpha: 0.3)),
           ),
-          child: Consumer<GameProvider>(
-            builder: (context, gameProvider, child) {
-              final activeQuests = gameProvider.activeQuests;
-              final completedQuestIds = gameProvider.player?.completedQuests ?? [];
+          child: Builder(
+            builder: (context) {
+              final gp = ref.watch(gameProvider);
+              final activeQuests = gp.activeQuests;
+              final completedQuestIds = gp.player?.completedQuests ?? [];
 
               return Column(
                 children: [
@@ -1376,7 +1383,7 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                         // Active quests
                         _buildActiveQuestsList(activeQuests, scrollController),
                         // Completed quests
-                        _buildCompletedQuestsList(completedQuestIds, gameProvider, scrollController),
+                        _buildCompletedQuestsList(completedQuestIds, gp, scrollController),
                       ],
                     ),
                   ),
@@ -1395,16 +1402,16 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.explore, size: 64, color: Colors.white.withOpacity(0.2)),
+            Icon(Icons.explore, size: 64, color: Colors.white.withValues(alpha: 0.2)),
             const SizedBox(height: 16),
             Text(
               'No active quests',
-              style: TextStyle(color: Colors.white.withOpacity(0.5)),
+              style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
             ),
             const SizedBox(height: 8),
             Text(
               'Talk to NPCs to discover quests!',
-              style: TextStyle(color: Colors.white.withOpacity(0.3), fontSize: 12),
+              style: TextStyle(color: Colors.white.withValues(alpha: 0.3), fontSize: 12),
             ),
           ],
         ),
@@ -1428,11 +1435,11 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.emoji_events, size: 64, color: Colors.white.withOpacity(0.2)),
+            Icon(Icons.emoji_events, size: 64, color: Colors.white.withValues(alpha: 0.2)),
             const SizedBox(height: 16),
             Text(
               'No completed quests yet',
-              style: TextStyle(color: Colors.white.withOpacity(0.5)),
+              style: TextStyle(color: Colors.white.withValues(alpha: 0.5)),
             ),
           ],
         ),
@@ -1461,9 +1468,9 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         border: Border.all(
-          color: isActive ? typeColor.withOpacity(0.3) : Colors.green.withOpacity(0.3),
+          color: isActive ? typeColor.withValues(alpha: 0.3) : Colors.green.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -1474,7 +1481,7 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-              color: (isActive ? typeColor : Colors.green).withOpacity(0.1),
+              color: (isActive ? typeColor : Colors.green).withValues(alpha: 0.1),
             ),
             child: Row(
               children: [
@@ -1484,7 +1491,7 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                   height: 40,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: (isActive ? typeColor : Colors.green).withOpacity(0.2),
+                    color: (isActive ? typeColor : Colors.green).withValues(alpha: 0.2),
                   ),
                   child: Center(
                     child: Text(
@@ -1510,7 +1517,7 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              color: typeColor.withOpacity(0.2),
+                              color: typeColor.withValues(alpha: 0.2),
                             ),
                             child: Text(
                               quest.type.toUpperCase(),
@@ -1526,7 +1533,7 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                             padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8),
-                              color: Colors.teal.withOpacity(0.2),
+                              color: Colors.teal.withValues(alpha: 0.2),
                             ),
                             child: Text(
                               quest.languageLevel,
@@ -1590,7 +1597,7 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                       Container(
                         height: 8,
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.1),
+                          color: Colors.white.withValues(alpha: 0.1),
                           borderRadius: BorderRadius.circular(4),
                         ),
                       ),
@@ -1600,12 +1607,12 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                           height: 8,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              colors: [typeColor.withOpacity(0.8), typeColor],
+                              colors: [typeColor.withValues(alpha: 0.8), typeColor],
                             ),
                             borderRadius: BorderRadius.circular(4),
                             boxShadow: [
                               BoxShadow(
-                                color: typeColor.withOpacity(0.5),
+                                color: typeColor.withValues(alpha: 0.5),
                                 blurRadius: 4,
                               ),
                             ],
@@ -1626,8 +1633,8 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: Colors.white.withOpacity(0.05),
-                    border: Border.all(color: Colors.white.withOpacity(0.1)),
+                    color: Colors.white.withValues(alpha: 0.05),
+                    border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
                   ),
                   child: Row(
                     children: [
@@ -1740,68 +1747,71 @@ class _QuestLogSheetState extends State<QuestLogSheet> with SingleTickerProvider
 }
 
 // Stub widget for CharacterSheet
-class CharacterSheet extends StatelessWidget {
+class CharacterSheet extends ConsumerWidget {
   const CharacterSheet({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gp = ref.watch(gameProvider);
     return DraggableScrollableSheet(
       initialChildSize: 0.7,
       minChildSize: 0.5,
       maxChildSize: 0.95,
       builder: (context, scrollController) {
+        final player = gp.player;
+        if (player == null) {
+          return Container(
+            decoration: const BoxDecoration(
+              color: Color(0xFF1A1A2E),
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+            ),
+            child: const Center(child: CircularProgressIndicator()),
+          );
+        }
         return Container(
           decoration: const BoxDecoration(
             color: Color(0xFF1A1A2E),
             borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
           ),
-          child: Consumer<GameProvider>(
-            builder: (context, gameProvider, child) {
-              final player = gameProvider.player;
-              if (player == null) {
-                return const Center(child: CircularProgressIndicator());
-              }
-              return SingleChildScrollView(
-                controller: scrollController,
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Center(
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 12),
-                        width: 40,
-                        height: 4,
-                        decoration: BoxDecoration(
-                          color: Colors.white30,
-                          borderRadius: BorderRadius.circular(2),
-                        ),
-                      ),
+          child: SingleChildScrollView(
+            controller: scrollController,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    margin: const EdgeInsets.only(bottom: 12),
+                    width: 40,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Colors.white30,
+                      borderRadius: BorderRadius.circular(2),
                     ),
-                    Center(
-                      child: Text(
-                        player.name,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Center(
-                      child: Text(
-                        'Level ${player.level} ${player.classId}',
-                        style: Theme.of(context).textTheme.bodyMedium,
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    _buildStatRow('Strength', player.stats.strength),
-                    _buildStatRow('Agility', player.stats.agility),
-                    _buildStatRow('Intelligence', player.stats.intelligence),
-                    _buildStatRow('Charisma', player.stats.charisma),
-                    _buildStatRow('Luck', player.stats.luck),
-                    _buildStatRow('Constitution', player.stats.constitution),
-                  ],
+                  ),
                 ),
-              );
-            },
+                Center(
+                  child: Text(
+                    player.name,
+                    style: Theme.of(context).textTheme.headlineSmall,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Center(
+                  child: Text(
+                    'Level ${player.level} ${player.classId}',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                ),
+                const SizedBox(height: 20),
+                _buildStatRow('Strength', player.stats.strength),
+                _buildStatRow('Agility', player.stats.agility),
+                _buildStatRow('Intelligence', player.stats.intelligence),
+                _buildStatRow('Charisma', player.stats.charisma),
+                _buildStatRow('Luck', player.stats.luck),
+                _buildStatRow('Constitution', player.stats.constitution),
+              ],
+            ),
           ),
         );
       },

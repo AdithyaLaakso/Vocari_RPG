@@ -3,7 +3,11 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:shared/services/definition_service.dart';
+
 import 'game_models.dart';
 import 'npc_interaction.dart';
 import 'providers/game_provider.dart';
@@ -14,16 +18,16 @@ import 'quest_offer_sheet.dart';
 import 'npc_interaction_sheet.dart';
 import 'mini_game_sheet.dart';
 
-class NPCDialogueSheet extends StatefulWidget {
+class NPCDialogueSheet extends ConsumerStatefulWidget {
   final NPC npc;
 
   const NPCDialogueSheet({super.key, required this.npc});
 
   @override
-  State<NPCDialogueSheet> createState() => _NPCDialogueSheetState();
+  ConsumerState<NPCDialogueSheet> createState() => _NPCDialogueSheetState();
 }
 
-class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerProviderStateMixin {
+class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with SingleTickerProviderStateMixin {
   NPC get npc => widget.npc;
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
@@ -112,9 +116,9 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
   }
 
   Future<void> _fetchNpcInitiation() async {
-    final gameProvider = context.read<GameProvider>();
-    final player = gameProvider.player;
-    final world = gameProvider.world;
+    final gp = ref.read(gameProvider.notifier);
+    final player = gp.player;
+    final world = gp.world;
 
     if (player == null || world == null) {
       // Fallback to static greeting if no player/world
@@ -137,7 +141,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
             quest.giverNpcId == npc.id &&
             !player.completedQuests.contains(quest.id) &&
             !player.activeQuests.contains(quest.id) &&
-            gameProvider.canOfferQuest(quest.id))
+            gp.canOfferQuest(quest.id))
         .toList();
 
     // Get player's active quests
@@ -150,7 +154,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     // Don't create placeholder bubble - only add bubble when we have content
     int? streamingBubbleIndex;
     String accumulatedContent = '';
-    final uiStreamStart = DateTime.now();
 
     try {
       await for (final chunk in NPCChatbotService.instance.initiateConversationStream(
@@ -163,8 +166,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         if (!mounted) break;
 
         accumulatedContent += chunk;
-        final chunkReceiveTime = DateTime.now();
-        final elapsed = chunkReceiveTime.difference(uiStreamStart);
 
         setState(() {
           // Create bubble on first chunk, update on subsequent chunks
@@ -189,9 +190,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     } catch (e) {
       debugPrint('[UI] Error in initiation stream: $e');
     }
-
-    final streamEndTime = DateTime.now();
-    final totalDuration = streamEndTime.difference(uiStreamStart);
 
     if (mounted) {
       setState(() {
@@ -250,8 +248,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           if (result.success && result.data != null && result.data!['quest_id'] != null) {
             final questId = result.data!['quest_id'] as String;
             debugPrint('Looking up quest: $questId');
-            final gameProvider = context.read<GameProvider>();
-            final quest = gameProvider.getQuest(questId);
+            final gp = ref.read(gameProvider.notifier);
+            final quest = gp.getQuest(questId);
             debugPrint('Found quest: ${quest?.displayName}');
             if (quest != null) {
               // Use a post-frame callback to ensure the UI is ready
@@ -268,8 +266,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           // NPC offers to sell an item to the player
           debugPrint('sell_item tool called with data: ${result.data}');
           if (result.data != null) {
-            final gameProvider = context.read<GameProvider>();
-            final interaction = gameProvider.createSaleOffer(
+            final gp = ref.read(gameProvider.notifier);
+            final interaction = gp.createSaleOffer(
               npcId: result.data!['npc_id'] as String,
               npcName: result.data!['npc_name'] as String,
               itemId: result.data!['item_id'] as String,
@@ -291,8 +289,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           // NPC offers to give an item to the player
           debugPrint('give_item tool called with data: ${result.data}');
           if (result.data != null) {
-            final gameProvider = context.read<GameProvider>();
-            final interaction = gameProvider.createGiftOffer(
+            final gp = ref.read(gameProvider.notifier);
+            final interaction = gp.createGiftOffer(
               npcId: result.data!['npc_id'] as String,
               npcName: result.data!['npc_name'] as String,
               itemId: result.data!['item_id'] as String,
@@ -313,8 +311,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           // NPC requests an item from the player
           debugPrint('request_item tool called with data: ${result.data}');
           if (result.data != null) {
-            final gameProvider = context.read<GameProvider>();
-            final interaction = gameProvider.createItemRequest(
+            final gp = ref.read(gameProvider.notifier);
+            final interaction = gp.createItemRequest(
               npcId: result.data!['npc_id'] as String,
               npcName: result.data!['npc_name'] as String,
               itemId: result.data!['item_id'] as String,
@@ -345,8 +343,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           if (result.success && result.data != null) {
             final questId = result.data!['quest_id'] as String?;
             if (questId != null) {
-              final gameProvider = context.read<GameProvider>();
-              gameProvider.completeQuest(questId);
+              final gp = ref.read(gameProvider.notifier);
+              gp.completeQuest(questId);
               _chatBubbles.add(_QuestCompleteBubble(
                 data: {
                   'quest_name': result.data!['quest_name'] ?? questId,
@@ -362,8 +360,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           if (result.success && result.data != null && result.data!['game_id'] != null) {
             final gameId = result.data!['game_id'] as String;
             debugPrint('Looking up mini-game: $gameId');
-            final gameProvider = context.read<GameProvider>();
-            final game = gameProvider.getGame(gameId);
+            final gp = ref.read(gameProvider.notifier);
+            final game = gp.getGame(gameId);
             debugPrint('Found game: ${game?.displayName}');
             if (game != null) {
               // Add a card to show the game is being offered
@@ -387,8 +385,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       return;
     }
 
-    final gameProvider = context.read<GameProvider>();
-    final player = gameProvider.player;
+    final gp = ref.read(gameProvider.notifier);
+    final player = gp.player;
     if (player == null) return;
 
     setState(() {
@@ -406,11 +404,11 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     _scrollToBottom();
 
     // Process user input for language learning (grammar check + skill progression)
-    await gameProvider.processUserInput(message);
+    await gp.processUserInput(message);
 
     // Get quests this NPC can offer and active quests from this NPC
-    final npcAvailableQuests = gameProvider.getQuestsForNPC(npc.id);
-    final activeQuests = gameProvider.activeQuests;
+    final npcAvailableQuests = gp.getQuestsForNPC(npc.id);
+    final activeQuests = gp.activeQuests;
 
     debugPrint('NPC ${npc.id} available quests: ${npcAvailableQuests.map((q) => q.id).toList()}');
     debugPrint('Active quests: ${activeQuests.map((q) => q.id).toList()}');
@@ -419,21 +417,18 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     // Don't create placeholder bubble - only add bubble when we have content
     int? streamingBubbleIndex;
     String accumulatedContent = '';
-    final uiStreamStart = DateTime.now();
     try {
       await for (final chunk in NPCChatbotService.instance.sendMessageStream(
         npc: npc,
         player: player,
         userMessage: message,
-        availableQuests: gameProvider.world?.quests ?? {},
+        availableQuests: gp.world?.quests ?? {},
         npcAvailableQuests: npcAvailableQuests,
         activeQuests: activeQuests,
       )) {
         if (!mounted) break;
 
         accumulatedContent += chunk;
-        final chunkReceiveTime = DateTime.now();
-        final elapsed = chunkReceiveTime.difference(uiStreamStart);
 
         setState(() {
           // Create bubble on first chunk, update on subsequent chunks
@@ -459,8 +454,6 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       debugPrint('[UI] Streaming error: $e');
     }
 
-    final streamEndTime = DateTime.now();
-    final totalDuration = streamEndTime.difference(uiStreamStart);
     if (mounted) {
       setState(() {
         _isLoading = false;
@@ -496,8 +489,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
   }
 
   void _showQuestOffer(BuildContext context, Quest quest) {
-    final gameProvider = context.read<GameProvider>();
-    gameProvider.offerQuest(quest.id);
+    final gp = ref.read(gameProvider.notifier);
+    gp.offerQuest(quest.id);
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -517,58 +510,54 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(
-      builder: (context, gameProvider, child) {
-        return DraggableScrollableSheet(
-          initialChildSize: 0.85,
-          minChildSize: 0.5,
-          maxChildSize: 0.95,
-          builder: (context, scrollController) {
-            return Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFF1A1A2E),
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(24),
-                ),
-                border: Border.all(
-                  color: _getNPCColor().withOpacity(0.3),
+    return DraggableScrollableSheet(
+      initialChildSize: 0.85,
+      minChildSize: 0.5,
+      maxChildSize: 0.95,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF1A1A2E),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(24),
+            ),
+            border: Border.all(
+              color: _getNPCColor().withValues(alpha: 0.3),
+            ),
+          ),
+          child: Column(
+            children: [
+              // Handle
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              child: Column(
-                children: [
-                  // Handle
-                  Container(
-                    margin: const EdgeInsets.only(top: 12),
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
 
-                  // NPC Header
-                  _buildNPCHeader(context),
+              // NPC Header
+              _buildNPCHeader(context),
 
-                  const Divider(height: 1),
+              const Divider(height: 1),
 
-                  // Chat messages
-                  Expanded(
-                    child: _buildChatArea(),
-                  ),
-
-                  // Learned vocabulary summary (if any)
-                  if (_learnedVocabulary.isNotEmpty)
-                    _buildVocabularySummary(),
-
-                  // Input area or farewell button
-                  _conversationEnded
-                      ? _buildFarewellButton(gameProvider)
-                      : _buildInputArea(),
-                ],
+              // Chat messages
+              Expanded(
+                child: _buildChatArea(),
               ),
-            );
-          },
+
+              // Learned vocabulary summary (if any)
+              if (_learnedVocabulary.isNotEmpty)
+                _buildVocabularySummary(),
+
+              // Input area or farewell button
+              _conversationEnded
+                  ? _buildFarewellButton()
+                  : _buildInputArea(),
+            ],
+          ),
         );
       },
     );
@@ -585,7 +574,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
             height: 56,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: _getNPCColor().withOpacity(0.2),
+              color: _getNPCColor().withValues(alpha: 0.2),
               border: Border.all(
                 color: _getNPCColor(),
                 width: 2,
@@ -628,7 +617,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Colors.green.withOpacity(0.2),
+              color: Colors.green.withValues(alpha: 0.2),
             ),
             child: Text(
               npc.languageLevel,
@@ -682,7 +671,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         if (!isUser) ...[
           CircleAvatar(
             radius: 16,
-            backgroundColor: _getNPCColor().withOpacity(0.2),
+            backgroundColor: _getNPCColor().withValues(alpha: 0.2),
             child: Text(_getNPCEmoji(), style: const TextStyle(fontSize: 14)),
           ),
           const SizedBox(width: 8),
@@ -692,8 +681,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
               color: isUser
-                  ? const Color(0xFFD4AF37).withOpacity(0.2)
-                  : _getNPCColor().withOpacity(0.1),
+                  ? const Color(0xFFD4AF37).withValues(alpha: 0.2)
+                  : _getNPCColor().withValues(alpha: 0.1),
               borderRadius: BorderRadius.only(
                 topLeft: const Radius.circular(16),
                 topRight: const Radius.circular(16),
@@ -702,14 +691,14 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
               ),
               border: Border.all(
                 color: isUser
-                    ? const Color(0xFFD4AF37).withOpacity(0.3)
-                    : _getNPCColor().withOpacity(0.2),
+                    ? const Color(0xFFD4AF37).withValues(alpha: 0.3)
+                    : _getNPCColor().withValues(alpha: 0.2),
               ),
             ),
             child: Text(
               text,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.white.withValues(alpha: 0.9),
                     height: 1.4,
                   ),
             ),
@@ -728,11 +717,11 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           colors: [
-            Colors.purple.withOpacity(0.2),
-            Colors.blue.withOpacity(0.2),
+            Colors.purple.withValues(alpha: 0.2),
+            Colors.blue.withValues(alpha: 0.2),
           ],
         ),
-        border: Border.all(color: Colors.purple.withOpacity(0.3)),
+        border: Border.all(color: Colors.purple.withValues(alpha: 0.3)),
       ),
       child: Column(
         children: [
@@ -804,8 +793,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: Colors.green.withOpacity(0.1),
-        border: Border.all(color: Colors.green.withOpacity(0.3)),
+        color: Colors.green.withValues(alpha: 0.1),
+        border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
       ),
       child: Column(
         children: [
@@ -849,16 +838,16 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           colors: [
-            Colors.amber.withOpacity(0.3),
-            const Color(0xFFD4AF37).withOpacity(0.2),
+            Colors.amber.withValues(alpha: 0.3),
+            const Color(0xFFD4AF37).withValues(alpha: 0.2),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        border: Border.all(color: Colors.amber.withOpacity(0.5), width: 2),
+        border: Border.all(color: Colors.amber.withValues(alpha: 0.5), width: 2),
         boxShadow: [
           BoxShadow(
-            color: Colors.amber.withOpacity(0.2),
+            color: Colors.amber.withValues(alpha: 0.2),
             blurRadius: 12,
             spreadRadius: 2,
           ),
@@ -894,7 +883,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.purple.withOpacity(0.3),
+              color: Colors.purple.withValues(alpha: 0.3),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -917,7 +906,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       .fadeIn(duration: 500.ms)
       .scale(begin: const Offset(0.8, 0.8))
       .then()
-      .shimmer(duration: 1000.ms, color: Colors.amber.withOpacity(0.3));
+      .shimmer(duration: 1000.ms, color: Colors.amber.withValues(alpha: 0.3));
   }
 
   Widget _buildInfoCard(Map<String, dynamic> data) {
@@ -944,19 +933,19 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           colors: [
-            primaryColor.withOpacity(0.15),
-            secondaryColor.withOpacity(0.1),
+            primaryColor.withValues(alpha: 0.15),
+            secondaryColor.withValues(alpha: 0.1),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         border: Border.all(
-          color: primaryColor.withOpacity(0.4),
+          color: primaryColor.withValues(alpha: 0.4),
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: primaryColor.withOpacity(0.1),
+            color: primaryColor.withValues(alpha: 0.1),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -970,7 +959,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: primaryColor.withOpacity(0.2),
+                  color: primaryColor.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
@@ -992,13 +981,13 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: primaryColor.withOpacity(0.15),
+                  color: primaryColor.withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   type.toUpperCase(),
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: primaryColor.withOpacity(0.8),
+                        color: primaryColor.withValues(alpha: 0.8),
                         fontWeight: FontWeight.w600,
                         fontSize: 10,
                       ),
@@ -1010,7 +999,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           Text(
             content,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.white.withOpacity(0.85),
+                  color: Colors.white.withValues(alpha: 0.85),
                   height: 1.5,
                 ),
           ),
@@ -1021,7 +1010,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       .slideX(begin: -0.05, curve: Curves.easeOut);
   }
 
-  Widget _buildWordDefinitionCard(String word, WordDefinition? definition) {
+  Widget _buildWordDefinitionCard(String word, Definition? definition) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8),
       padding: const EdgeInsets.all(16),
@@ -1029,19 +1018,19 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           colors: [
-            const Color(0xFF4A90A4).withOpacity(0.2),
-            Colors.teal.withOpacity(0.15),
+            const Color(0xFF4A90A4).withValues(alpha: 0.2),
+            Colors.teal.withValues(alpha: 0.15),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         border: Border.all(
-          color: const Color(0xFF4A90A4).withOpacity(0.4),
+          color: const Color(0xFF4A90A4).withValues(alpha: 0.4),
           width: 1.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF4A90A4).withOpacity(0.1),
+            color: const Color(0xFF4A90A4).withValues(alpha: 0.1),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -1055,7 +1044,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF4A90A4).withOpacity(0.2),
+                  color: const Color(0xFF4A90A4).withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: const Icon(
@@ -1077,13 +1066,13 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF4A90A4).withOpacity(0.15),
+                  color: const Color(0xFF4A90A4).withValues(alpha: 0.15),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   'NEW WORD',
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: const Color(0xFF4A90A4).withOpacity(0.8),
+                        color: const Color(0xFF4A90A4).withValues(alpha: 0.8),
                         fontWeight: FontWeight.w600,
                         fontSize: 10,
                       ),
@@ -1102,7 +1091,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                         Text(
                           '\u2022 ',
                           style: TextStyle(
-                            color: const Color(0xFF4A90A4).withOpacity(0.8),
+                            color: const Color(0xFF4A90A4).withValues(alpha: 0.8),
                             fontSize: 14,
                           ),
                         ),
@@ -1110,7 +1099,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                           child: Text(
                             def,
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: Colors.white.withOpacity(0.85),
+                                  color: Colors.white.withValues(alpha: 0.85),
                                   height: 1.4,
                                 ),
                           ),
@@ -1127,7 +1116,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                         Text(
                           '\u2022 ',
                           style: TextStyle(
-                            color: const Color(0xFF4A90A4).withOpacity(0.8),
+                            color: const Color(0xFF4A90A4).withValues(alpha: 0.8),
                             fontSize: 14,
                           ),
                         ),
@@ -1135,7 +1124,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                           child: Text(
                             def,
                             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                                  color: Colors.white.withOpacity(0.85),
+                                  color: Colors.white.withValues(alpha: 0.85),
                                   height: 1.4,
                                 ),
                           ),
@@ -1169,16 +1158,16 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         borderRadius: BorderRadius.circular(16),
         gradient: LinearGradient(
           colors: [
-            Colors.purple.withOpacity(0.2),
-            Colors.indigo.withOpacity(0.15),
+            Colors.purple.withValues(alpha: 0.2),
+            Colors.indigo.withValues(alpha: 0.15),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
-        border: Border.all(color: Colors.purple.withOpacity(0.4), width: 1.5),
+        border: Border.all(color: Colors.purple.withValues(alpha: 0.4), width: 1.5),
         boxShadow: [
           BoxShadow(
-            color: Colors.purple.withOpacity(0.15),
+            color: Colors.purple.withValues(alpha: 0.15),
             blurRadius: 12,
             offset: const Offset(0, 4),
           ),
@@ -1192,7 +1181,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Colors.purple.withOpacity(0.2),
+                  color: Colors.purple.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: const Text(
@@ -1228,7 +1217,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  color: Colors.amber.withOpacity(0.2),
+                  color: Colors.amber.withValues(alpha: 0.2),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -1251,7 +1240,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           Text(
             bubble.description,
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.white.withOpacity(0.8),
+                  color: Colors.white.withValues(alpha: 0.8),
                   height: 1.4,
                 ),
           ),
@@ -1286,8 +1275,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
   }
 
   void _launchMiniGame(String gameId) {
-    final gameProvider = context.read<GameProvider>();
-    final game = gameProvider.getGame(gameId);
+    final gp = ref.read(gameProvider.notifier);
+    final game = gp.getGame(gameId);
     if (game != null) {
       showMiniGameSheet(context, game);
     }
@@ -1301,14 +1290,14 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
         children: [
           CircleAvatar(
             radius: 16,
-            backgroundColor: _getNPCColor().withOpacity(0.2),
+            backgroundColor: _getNPCColor().withValues(alpha: 0.2),
             child: Text(_getNPCEmoji(), style: const TextStyle(fontSize: 14)),
           ),
           const SizedBox(width: 8),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
-              color: _getNPCColor().withOpacity(0.1),
+              color: _getNPCColor().withValues(alpha: 0.1),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(16),
                 topRight: Radius.circular(16),
@@ -1348,7 +1337,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
           height: 8,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.white.withOpacity(opacity),
+            color: Colors.white.withValues(alpha: opacity),
           ),
         );
       },
@@ -1361,8 +1350,8 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.purple.withOpacity(0.1),
-        border: Border.all(color: Colors.purple.withOpacity(0.2)),
+        color: Colors.purple.withValues(alpha: 0.1),
+        border: Border.all(color: Colors.purple.withValues(alpha: 0.2)),
       ),
       child: Row(
         children: [
@@ -1383,9 +1372,9 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.3),
+        color: Colors.black.withValues(alpha: 0.3),
         border: Border(
-          top: BorderSide(color: Colors.white.withOpacity(0.1)),
+          top: BorderSide(color: Colors.white.withValues(alpha: 0.1)),
         ),
       ),
       child: SafeArea(
@@ -1398,9 +1387,9 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
                   hintText: 'Type a message...',
-                  hintStyle: TextStyle(color: Colors.white.withOpacity(0.3)),
+                  hintStyle: TextStyle(color: Colors.white.withValues(alpha: 0.3)),
                   filled: true,
-                  fillColor: Colors.white.withOpacity(0.05),
+                  fillColor: Colors.white.withValues(alpha: 0.05),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(24),
                     borderSide: BorderSide.none,
@@ -1442,7 +1431,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
     );
   }
 
-  Widget _buildFarewellButton(GameProvider gameProvider) {
+  Widget _buildFarewellButton() {
     return Container(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -1462,7 +1451,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
             child: ElevatedButton(
               onPressed: () {
                 NPCChatbotService.instance.clearConversation(npc.id);
-                gameProvider.endDialogue();
+                ref.read(gameProvider.notifier).endDialogue();
                 Navigator.pop(context);
               },
               child: const Text('FAREWELL'),
@@ -1553,11 +1542,11 @@ class _InfoCardBubble extends _ChatBubble {
 /// A word definition card for new vocabulary
 class _WordDefinitionBubble extends _ChatBubble {
   final String word;
-  final WordDefinition? definition;
+  final Definition definition;
 
   const _WordDefinitionBubble({
     required this.word,
-    this.definition,
+    required this.definition,
   });
 }
 

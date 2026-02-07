@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import '../language_system.dart';
+import 'package:shared/models/language.dart';
 
 /// Represents a language skill that can be leveled up
 class Skill {
@@ -51,8 +51,8 @@ class Skill {
     );
   }
 
-  String get displayName => name.current;
-  String get displayDescription => description.current;
+  String get displayName => name.target;
+  String get displayDescription => description.native;
 }
 
 /// Collection of all skills

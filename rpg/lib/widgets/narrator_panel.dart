@@ -1,40 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/narrator_service.dart';
 
-class NarratorPanel extends StatelessWidget {
+/// Riverpod provider that exposes the NarratorService singleton as a ChangeNotifier
+final narratorServiceProvider = ChangeNotifierProvider<NarratorService>((ref) {
+  return NarratorService.instance;
+});
+
+class NarratorPanel extends ConsumerWidget {
   const NarratorPanel({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-      value: NarratorService.instance,
-      child: Consumer<NarratorService>(
-        builder: (context, narrator, child) {
-          final activeMessages = narrator.activeMessages;
-
-          if (activeMessages.isEmpty) {
-            return const SizedBox.shrink();
-          }
-
-          return Positioned(
-            top: 100,
-            right: 16,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: activeMessages.take(3).map((message) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 8),
-                  child: NarratorMessageCard(
-                    message: message,
-                    onDismiss: () => narrator.dismissMessage(message.id),
-                  ),
-                );
-              }).toList(),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final narrator = ref.watch(narratorServiceProvider);
+    final activeMessages = narrator.activeMessages;
+    return Positioned(
+      top: 100,
+      right: 16,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: activeMessages.take(3).map((message) {
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: NarratorMessageCard(
+              message: message,
+              onDismiss: () => narrator.dismissMessage(message.id),
             ),
           );
-        },
+        }).toList(),
       ),
     );
   }
@@ -64,7 +58,7 @@ class NarratorMessageCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.3),
+            color: Colors.black.withValues(alpha: 0.3),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -121,7 +115,7 @@ class NarratorMessageCard extends StatelessWidget {
                       Text(
                         'Tap to dismiss',
                         style: TextStyle(
-                          color: Colors.white.withOpacity(0.4),
+                          color: Colors.white.withValues(alpha: 0.4),
                           fontSize: 10,
                           fontStyle: FontStyle.italic,
                         ),
@@ -155,30 +149,30 @@ class NarratorMessageCard extends StatelessWidget {
   Color _getBorderColor() {
     switch (message.type) {
       case NarratorMessageType.vocabularyHint:
-        return Colors.blue.withOpacity(0.4);
+        return Colors.blue.withValues(alpha: 0.4);
       case NarratorMessageType.grammarTip:
-        return Colors.purple.withOpacity(0.4);
+        return Colors.purple.withValues(alpha: 0.4);
       case NarratorMessageType.contextualHelp:
-        return Colors.teal.withOpacity(0.4);
+        return Colors.teal.withValues(alpha: 0.4);
       case NarratorMessageType.encouragement:
-        return Colors.amber.withOpacity(0.4);
+        return Colors.amber.withValues(alpha: 0.4);
       case NarratorMessageType.questGuidance:
-        return Colors.pink.withOpacity(0.4);
+        return Colors.pink.withValues(alpha: 0.4);
     }
   }
 
   Color _getIconBackground() {
     switch (message.type) {
       case NarratorMessageType.vocabularyHint:
-        return Colors.blue.withOpacity(0.3);
+        return Colors.blue.withValues(alpha: 0.3);
       case NarratorMessageType.grammarTip:
-        return Colors.purple.withOpacity(0.3);
+        return Colors.purple.withValues(alpha: 0.3);
       case NarratorMessageType.contextualHelp:
-        return Colors.teal.withOpacity(0.3);
+        return Colors.teal.withValues(alpha: 0.3);
       case NarratorMessageType.encouragement:
-        return Colors.amber.withOpacity(0.3);
+        return Colors.amber.withValues(alpha: 0.3);
       case NarratorMessageType.questGuidance:
-        return Colors.pink.withOpacity(0.3);
+        return Colors.pink.withValues(alpha: 0.3);
     }
   }
 
@@ -281,7 +275,7 @@ class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
           decoration: BoxDecoration(
             color: const Color(0xFF1A1A2E),
             borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
-            border: Border.all(color: Colors.teal.withOpacity(0.3)),
+            border: Border.all(color: Colors.teal.withValues(alpha: 0.3)),
           ),
           child: Column(
             children: [
@@ -306,7 +300,7 @@ class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
                       height: 40,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.teal.withOpacity(0.2),
+                        color: Colors.teal.withValues(alpha: 0.2),
                       ),
                       child: const Center(
                         child: Text('\u{1F4A1}', style: TextStyle(fontSize: 20)),
@@ -363,7 +357,7 @@ class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.white.withOpacity(0.05),
+                        color: Colors.white.withValues(alpha: 0.05),
                       ),
                       child: Text(
                         _response!,
@@ -390,7 +384,7 @@ class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
                           hintText: 'Ask a question...',
                           hintStyle: const TextStyle(color: Colors.white38),
                           filled: true,
-                          fillColor: Colors.white.withOpacity(0.05),
+                          fillColor: Colors.white.withValues(alpha: 0.05),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12),
                             borderSide: BorderSide.none,
@@ -424,7 +418,7 @@ class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
     return ActionChip(
       label: Text(label, style: const TextStyle(fontSize: 12)),
       avatar: Icon(icon, size: 16),
-      backgroundColor: Colors.white.withOpacity(0.05),
+      backgroundColor: Colors.white.withValues(alpha: 0.05),
       onPressed: () {
         _controller.text = label;
         _askQuestion();

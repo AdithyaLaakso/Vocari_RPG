@@ -348,7 +348,7 @@ Remember: NPCs in the game NEVER break character or teach. YOU are the only one 
   void onQuestComplete(Quest quest) {
     if (quest.languageLearning.targetVocabulary.isNotEmpty) {
       final vocabList = quest.languageLearning.targetVocabulary
-          .map((v) => '${v.targetLanguage} (${v.nativeLanguage})')
+          .map((v) => '${v.target} (${v.native})')
           .join(', ');
 
       celebrateMilestone(

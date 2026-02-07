@@ -18,18 +18,18 @@ class LocationCard extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            _getLocationColor().withOpacity(0.3),
-            _getLocationColor().withOpacity(0.1),
-            Colors.black.withOpacity(0.3),
+            _getLocationColor().withValues(alpha: 0.3),
+            _getLocationColor().withValues(alpha: 0.1),
+            Colors.black.withValues(alpha: 0.3),
           ],
         ),
         border: Border.all(
-          color: _getLocationColor().withOpacity(0.5),
+          color: _getLocationColor().withValues(alpha: 0.5),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: _getLocationColor().withOpacity(0.2),
+            color: _getLocationColor().withValues(alpha: 0.2),
             blurRadius: 20,
             offset: const Offset(0, 10),
           ),
@@ -46,9 +46,9 @@ class LocationCard extends StatelessWidget {
                 height: 60,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: _getLocationColor().withOpacity(0.2),
+                  color: _getLocationColor().withValues(alpha: 0.2),
                   border: Border.all(
-                    color: _getLocationColor().withOpacity(0.5),
+                    color: _getLocationColor().withValues(alpha: 0.5),
                   ),
                 ),
                 child: Center(
@@ -87,7 +87,7 @@ class LocationCard extends StatelessWidget {
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
-                            color: _getLocationColor().withOpacity(0.2),
+                            color: _getLocationColor().withValues(alpha: 0.2),
                           ),
                           child: Text(
                             location.type.name.toUpperCase(),
@@ -113,37 +113,6 @@ class LocationCard extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Colors.white70,
               height: 1.5,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildStatChip({
-    required IconData icon,
-    required String label,
-    required Color color,
-  }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: color.withOpacity(0.1),
-        border: Border.all(
-          color: color.withOpacity(0.3),
-        ),
-      ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(icon, size: 14, color: color),
-          const SizedBox(width: 6),
-          Text(
-            label,
-            style: TextStyle(
-              color: color,
-              fontSize: 12,
             ),
           ),
         ],

@@ -2,12 +2,15 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared/services/api_client.dart';
+import 'package:shared/services/keycloak_service.dart';
+import 'package:shared/services/grammar_service.dart';
+
 import '../game_models.dart';
-import '../language_system.dart';
 import '../npc_interaction.dart';
 import '../models/skill_models.dart';
 import '../models/user_skill_state.dart';
-import '../services/grammar_check_service.dart';
 import '../services/trigger_evaluator.dart';
 import '../services/level_progression_service.dart';
 import '../services/narrator_service.dart';
@@ -40,6 +43,9 @@ class GameProvider extends ChangeNotifier {
   // Track completed mini-games
   final Set<String> _completedGames = {};
 
+  // Display language toggle (for UI display, not stored on server)
+  bool _showTargetLanguage = false; // Default to native for beginners
+
   // Getters
   Player? get player => _player;
   GameWorld? get world => _world;
@@ -63,9 +69,26 @@ class GameProvider extends ChangeNotifier {
   UserSkillState? get userSkillState => _userSkillState;
   Map<String, int> get skillLevels => _userSkillState?.skills ?? {};
   int get totalSkillPoints => _userSkillState?.totalSkillPoints ?? 0;
+  bool get showTargetLanguage => _showTargetLanguage;
 
-  // Language service access
-  LanguageService get languageService => LanguageService.instance;
+  /// Toggle between native and target language display
+  void toggleDisplayLanguage() {
+    _showTargetLanguage = !_showTargetLanguage;
+    notifyListeners();
+  }
+
+  /// Check if player meets the minimum language level requirement
+  bool meetsLanguageLevel(String requiredLevel) {
+    if (_player == null || requiredLevel.isEmpty) return true;
+
+    final levels = ['A0', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+    final playerIndex = levels.indexOf(_player!.languageLevel);
+    final requiredIndex = levels.indexOf(requiredLevel);
+
+    if (playerIndex == -1 || requiredIndex == -1) return true;
+
+    return playerIndex >= requiredIndex;
+  }
 
   List<Location> get connectedLocations {
     if (_currentLocation == null || _world == null) return [];
@@ -165,8 +188,8 @@ class GameProvider extends ChangeNotifier {
     // Provide vocabulary hint via narrator if item has vocabulary word
     if (item.vocabularyWord != null) {
       NarratorService.instance.provideVocabularyHint(
-        word: item.vocabularyWord!.targetLanguage,
-        translation: item.vocabularyWord!.nativeLanguage,
+        word: item.vocabularyWord!.target,
+        translation: item.vocabularyWord!.native,
         context: 'You found this item: ${item.displayName}',
       );
     }
@@ -175,6 +198,7 @@ class GameProvider extends ChangeNotifier {
     recordReceivedItem(itemId);
 
     notifyListeners();
+    _syncProgressToServer();
   }
 
   Future<void> loadGameData() async {
@@ -286,8 +310,8 @@ class GameProvider extends ChangeNotifier {
       _isLoading = false;
       _error = null;
 
-      // Auto-create character with hardcoded name
-      createNewCharacter('adi');
+      // Load player progress from server (backend is source of truth)
+      await _loadProgressFromServer();
 
       notifyListeners();
     } catch (e, stackTrace) {
@@ -327,15 +351,183 @@ class GameProvider extends ChangeNotifier {
     }
 
     // Update language service with player's level
-    languageService.playerLanguageLevel = _player!.languageLevel;
+
 
     _currentLocation = _world!.locations[_player!.currentLocationId];
 
-    final worldName = _world!.lore?.worldName.current ?? 'the world';
+    final worldName = _world!.lore?.worldName.target ?? 'the world';
     addToLog("Welcome, ${_player!.name}!");
     addToLog("Your language learning adventure in $worldName begins...");
 
     notifyListeners();
+
+    // Sync new character to server
+    _syncProgressToServer();
+  }
+
+  // ============================================================================
+  // SERVER SYNC METHODS
+  // ============================================================================
+
+  /// Load player progress from server (backend is source of truth)
+  Future<void> _loadProgressFromServer() async {
+    try {
+      final response = await makeAuthenticatedRequest(
+        endpoint: ApiEndpoints.rpgProgress,
+        body: {'action': 'get'},
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body) as Map<String, dynamic>;
+        _applyServerProgress(data);
+        addToLog('Progress loaded from server.');
+      } else if (response.statusCode == 404) {
+        // No progress saved yet - create new character
+        debugPrint('No server progress found, creating new character');
+        final userName = KeycloakService().userName;
+        createNewCharacter(userName);
+      } else {
+        debugPrint('Failed to load progress: ${response.statusCode}');
+        // Fallback to new character
+        final userName = KeycloakService().userName;
+        createNewCharacter(userName);
+      }
+    } catch (e) {
+      debugPrint('Error loading progress from server: $e');
+      // Fallback to new character
+      final userName = KeycloakService().userName;
+      createNewCharacter(userName);
+    }
+  }
+
+  /// Apply server progress data to current game state
+  void _applyServerProgress(Map<String, dynamic> data) async {
+    if (_world == null) return;
+
+    final userName = KeycloakService().userName;
+
+    final stats = PlayerStats(
+      strength: data['stats']?['strength'] as int? ?? 10,
+      agility: data['stats']?['agility'] as int? ?? 10,
+      intelligence: data['stats']?['intelligence'] as int? ?? 10,
+      constitution: data['stats']?['constitution'] as int? ?? 10,
+      charisma: data['stats']?['charisma'] as int? ?? 10,
+      luck: data['stats']?['luck'] as int? ?? 10,
+    );
+
+    _player = Player(
+      name: data['name'] as String? ?? userName,
+      classId: data['class_id'] as String? ?? 'learner',
+      stats: stats,
+      abilities: List<String>.from(data['abilities'] as List? ?? []),
+      inventory: List<String>.from(data['inventory'] as List? ?? []),
+      currentLocationId: data['current_location_id'] as String? ?? _world!.startingLocation,
+      languageLevel: data['language_level'] as String? ?? 'A0',
+    );
+
+    _player!.level = data['level'] as int? ?? 1;
+    _player!.xp = data['xp'] as int? ?? 0;
+    _player!.gold = data['gold'] as int? ?? 0;
+    _player!.health = data['health'] as int? ?? 100;
+    _player!.maxHealth = data['max_health'] as int? ?? 100;
+    _player!.mana = data['mana'] as int? ?? 50;
+    _player!.maxMana = data['max_mana'] as int? ?? 50;
+    _player!.equippedItems = List<String>.from(data['equipped_items'] as List? ?? []);
+    _player!.activeQuests = List<String>.from(data['active_quests'] as List? ?? []);
+    _player!.completedQuests = List<String>.from(data['completed_quests'] as List? ?? []);
+    _player!.storyFlags = Set<String>.from(data['story_flags'] as List? ?? []);
+    _player!.talkedToNPCs = Set<String>.from(data['talked_to_npcs'] as List? ?? []);
+    _player!.learnedInfo = Set<String>.from(data['learned_info'] as List? ?? []);
+    _player!.reputation = Map<String, int>.from(data['reputation'] as Map? ?? {});
+
+    _timeOfDay = data['time_of_day'] as String? ?? 'day';
+    _daysPassed = data['days_passed'] as int? ?? 0;
+    _pickedUpItems.clear();
+    final pickedUpData = data['picked_up_items'] as Map<String, dynamic>? ?? {};
+    pickedUpData.forEach((locationId, items) {
+      _pickedUpItems[locationId] = Set<String>.from(items as List);
+    });
+    _completedGames.clear();
+    _completedGames.addAll(Set<String>.from(data['completed_games'] as List? ?? []));
+    _givenItems.clear();
+    _givenItems.addAll(Set<String>.from(data['given_items'] as List? ?? []));
+
+    // Initialize skill state
+    if (_skills != null) {
+      _userSkillState = UserSkillState.fromSkills(_skills!);
+      final skillsData = data['skills'] as Map<String, dynamic>? ?? {};
+      skillsData.forEach((skillId, level) {
+        _userSkillState!.skills[skillId] = level as int;
+      });
+    }
+
+    // Update language service
+
+
+    // Set current location
+    _currentLocation = _world!.locations[_player!.currentLocationId];
+
+    final worldName = _world!.lore?.worldName.target ?? 'the world';
+    addToLog("Welcome back, ${_player!.name}!");
+    addToLog("Your language learning adventure in $worldName continues...");
+  }
+
+  /// Sync current player progress to server
+  Future<void> _syncProgressToServer() async {
+    if (_player == null) return;
+
+    try {
+      final data = {
+        'action': 'update',
+        'name': _player!.name,
+        'class_id': _player!.classId,
+        'level': _player!.level,
+        'xp': _player!.xp,
+        'gold': _player!.gold,
+        'health': _player!.health,
+        'max_health': _player!.maxHealth,
+        'mana': _player!.mana,
+        'max_mana': _player!.maxMana,
+        'stats': {
+          'strength': _player!.stats.strength,
+          'agility': _player!.stats.agility,
+          'intelligence': _player!.stats.intelligence,
+          'constitution': _player!.stats.constitution,
+          'charisma': _player!.stats.charisma,
+          'luck': _player!.stats.luck,
+        },
+        'abilities': _player!.abilities,
+        'inventory': _player!.inventory,
+        'equipped_items': _player!.equippedItems.toList(),
+        'current_location_id': _player!.currentLocationId,
+        'language_level': _player!.languageLevel,
+        'active_quests': _player!.activeQuests,
+        'completed_quests': _player!.completedQuests,
+        'story_flags': _player!.storyFlags.toList(),
+        'talked_to_npcs': _player!.talkedToNPCs.toList(),
+        'learned_info': _player!.learnedInfo.toList(),
+        'reputation': _player!.reputation,
+        'time_of_day': _timeOfDay,
+        'days_passed': _daysPassed,
+        'picked_up_items': _pickedUpItems.map((k, v) => MapEntry(k, v.toList())),
+        'completed_games': _completedGames.toList(),
+        'given_items': _givenItems.toList(),
+        'skills': _userSkillState?.skills ?? {},
+      };
+
+      final response = await makeAuthenticatedRequest(
+        endpoint: ApiEndpoints.rpgProgress,
+        body: data,
+      );
+
+      if (response.statusCode == 200) {
+        debugPrint('Progress synced to server successfully');
+      } else {
+        debugPrint('Failed to sync progress: ${response.statusCode}');
+      }
+    } catch (e) {
+      debugPrint('Error syncing progress to server: $e');
+    }
   }
 
   void moveToLocation(String locationId) {
@@ -345,7 +537,7 @@ class GameProvider extends ChangeNotifier {
     if (newLocation == null) return;
 
     // Check if player meets language level requirements
-    if (!languageService.meetsLanguageLevel(newLocation.minimumLanguageLevel)) {
+    if (!meetsLanguageLevel(newLocation.minimumLanguageLevel)) {
       addToLog("You need to reach language level ${newLocation.minimumLanguageLevel} to visit ${newLocation.displayName}.");
       return;
     }
@@ -371,6 +563,7 @@ class GameProvider extends ChangeNotifier {
     addToLog(travelMsg);
 
     notifyListeners();
+    _syncProgressToServer();
   }
 
   void talkToNPC(String npcId) {
@@ -396,7 +589,7 @@ class GameProvider extends ChangeNotifier {
       final quest = _world!.quests[questId];
       if (quest != null && quest.giverNpcId == npcId) {
         if (quest.dialogue.questProgress.isNotEmpty && !quest.isCompleted) {
-          addToLog("${npc.displayName}: \"${quest.dialogue.questProgress.current}\"");
+          addToLog("${npc.displayName}: \"${quest.dialogue.questProgress.native}\"");
         }
       }
     }
@@ -515,6 +708,7 @@ class GameProvider extends ChangeNotifier {
       _player!.inventory.add(itemId);
       addToLog("Purchased ${item.displayName} for ${item.value} gold.");
       notifyListeners();
+      _syncProgressToServer();
       // Check quest progress after inventory change
       checkAllQuestProgress();
     } else {
@@ -533,6 +727,7 @@ class GameProvider extends ChangeNotifier {
     _player!.inventory.remove(itemId);
     addToLog("Sold ${item.displayName} for $sellPrice gold.");
     notifyListeners();
+    _syncProgressToServer();
   }
 
   void useItem(String itemId) {
@@ -560,6 +755,7 @@ class GameProvider extends ChangeNotifier {
       }
       _player!.inventory.remove(itemId);
       notifyListeners();
+      _syncProgressToServer();
     }
   }
 
@@ -574,6 +770,7 @@ class GameProvider extends ChangeNotifier {
       addToLog("Equipped item.");
     }
     notifyListeners();
+    _syncProgressToServer();
   }
 
   void gainXP(int amount) {
@@ -605,15 +802,17 @@ class GameProvider extends ChangeNotifier {
     }
 
     notifyListeners();
+    _syncProgressToServer();
   }
 
   // Update player's language level
   void setLanguageLevel(String level) {
     if (_player == null) return;
     _player!.languageLevel = level;
-    languageService.playerLanguageLevel = level;
+
     addToLog("Language proficiency updated to $level!");
     notifyListeners();
+    _syncProgressToServer();
   }
 
   // ===========================================
@@ -636,16 +835,7 @@ class GameProvider extends ChangeNotifier {
 
     try {
       // 1. Check grammar and extract language learning metrics
-      final grammarResult = await GrammarCheckService.instance.checkText(
-        text,
-        'es', // Spanish
-        motherTongue: 'en', // English
-      );
-
-      if (grammarResult == null) {
-        debugPrint('Grammar check returned null, skipping skill update');
-        return;
-      }
+      final grammarResult = await checkGrammar(text);
 
       // 2. Update usage counters from grammar result
       TriggerEvaluator.processGrammarResult(grammarResult, _userSkillState!);
@@ -678,7 +868,7 @@ class GameProvider extends ChangeNotifier {
         // Level up!
         final oldLevel = _player!.languageLevel;
         _player!.languageLevel = progressionCheck.nextLevel!;
-        languageService.playerLanguageLevel = progressionCheck.nextLevel!;
+
 
         addToLog("=== LANGUAGE LEVEL UP! ===");
         addToLog("$oldLevel -> ${progressionCheck.nextLevel}");
@@ -1055,11 +1245,11 @@ class GameProvider extends ChangeNotifier {
     quest.isCompleted = true;
 
     addToLog("=== QUEST COMPLETE ===");
-    addToLog("${quest.displayName}");
+    addToLog(quest.displayName);
 
     // Show completion dialogue if available
     if (quest.dialogue.questComplete.isNotEmpty) {
-      addToLog("\"${quest.dialogue.questComplete.current}\"");
+      addToLog("\"${quest.dialogue.questComplete.native}\"");
     }
 
     // Award experience
@@ -1105,6 +1295,7 @@ class GameProvider extends ChangeNotifier {
     NarratorService.instance.onQuestComplete(quest);
 
     notifyListeners();
+    _syncProgressToServer();
   }
 
   /// Get active quest details for display
@@ -1196,6 +1387,7 @@ class GameProvider extends ChangeNotifier {
     checkAllQuestProgress();
 
     notifyListeners();
+    _syncProgressToServer();
   }
 
   /// Get quest progress information for an active quest
@@ -1226,6 +1418,7 @@ class GameProvider extends ChangeNotifier {
       _daysPassed++;
     }
     notifyListeners();
+    _syncProgressToServer();
   }
 
   void addToLog(String message) {
@@ -1304,12 +1497,13 @@ class GameProvider extends ChangeNotifier {
 
       // Show quest accept dialogue if available
       if (quest.dialogue.questAccept.isNotEmpty) {
-        addToLog("\"${quest.dialogue.questAccept.current}\"");
+        addToLog("\"${quest.dialogue.questAccept.native}\"");
       }
     }
 
     _pendingQuestOffer = null;
     notifyListeners();
+    _syncProgressToServer();
 
     // Check if any tasks are already complete (player may already meet conditions)
     checkAllQuestProgress();
@@ -1323,7 +1517,7 @@ class GameProvider extends ChangeNotifier {
 
     // Show quest decline dialogue if available
     if (quest.dialogue.questDecline.isNotEmpty) {
-      addToLog("\"${quest.dialogue.questDecline.current}\"");
+      addToLog("\"${quest.dialogue.questDecline.native}\"");
     }
 
     _pendingQuestOffer = null;
@@ -1335,16 +1529,6 @@ class GameProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Language toggle for UI
-  void toggleDisplayLanguage() {
-    languageService.toggleLanguage();
-    notifyListeners();
-  }
-
-  void setDisplayLanguage(DisplayLanguage language) {
-    languageService.currentLanguage = language;
-    notifyListeners();
-  }
   // ===========================================
   // NPC INTERACTION SYSTEM
   // ===========================================
@@ -1517,6 +1701,7 @@ class GameProvider extends ChangeNotifier {
 
     _pendingInteraction = null;
     notifyListeners();
+    _syncProgressToServer();
     return NPCInteractionResult.accepted;
   }
 
@@ -1554,3 +1739,8 @@ class GameProvider extends ChangeNotifier {
     notifyListeners();
   }
 }
+
+// Riverpod provider for GameProvider
+final gameProvider = ChangeNotifierProvider<GameProvider>((ref) {
+  return GameProvider();
+});

@@ -244,7 +244,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
     // Base character info with integrated agent prompt
     buffer.writeln('=== YOUR CHARACTER ===');
-    buffer.writeln('You are ${npc.name.nativeLanguage}, ${npc.title.nativeLanguage}.');
+    buffer.writeln('You are ${npc.name.native}, ${npc.title.native}.');
 
     // Agent prompt - this is the NPC's core definition
     if (npc.agentPrompt.isNotEmpty) {
@@ -256,7 +256,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
     // Appearance
     if (npc.appearance.isNotEmpty) {
-      buffer.writeln('Appearance: ${npc.appearance.nativeLanguage}');
+      buffer.writeln('Appearance: ${npc.appearance.native}');
     }
 
     // Personality - expand with more detail
@@ -268,18 +268,18 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
       if (npc.personality.traits.isNotEmpty) {
         final traits = npc.personality.traits
-            .map((t) => t.nativeLanguage)
+            .map((t) => t.native)
             .join(', ');
         buffer.writeln('You are: $traits');
       }
 
       if (npc.personality.speakingStyle.isNotEmpty) {
-        buffer.writeln('Speaking style: ${npc.personality.speakingStyle.nativeLanguage}');
+        buffer.writeln('Speaking style: ${npc.personality.speakingStyle.native}');
       }
 
       if (npc.personality.quirks.isNotEmpty) {
         final quirks = npc.personality.quirks
-            .map((q) => q.nativeLanguage)
+            .map((q) => q.native)
             .join(', ');
         buffer.writeln('Quirks: $quirks');
         buffer.writeln('Embody these quirks naturally in your behavior and speech.');
@@ -293,7 +293,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
       if (npc.knowledge.knowsAbout.isNotEmpty) {
         final knows = npc.knowledge.knowsAbout
-            .map((k) => k.nativeLanguage)
+            .map((k) => k.native)
             .join(', ');
         buffer.writeln('You are knowledgeable about: $knows');
         buffer.writeln('Feel free to discuss these topics naturally and share your expertise.');
@@ -301,7 +301,7 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
 
       if (npc.knowledge.doesNotKnow.isNotEmpty) {
         final doesntKnow = npc.knowledge.doesNotKnow
-            .map((k) => k.nativeLanguage)
+            .map((k) => k.native)
             .join(', ');
         buffer.writeln();
         buffer.writeln('You do NOT know about: $doesntKnow');
@@ -392,10 +392,10 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         buffer.writeln('Type: ${quest.type}, Pattern: ${quest.pattern}');
         buffer.writeln('Description: ${quest.displayDescription}');
         buffer.writeln('Language Level: ${quest.languageLevel}');
-        buffer.writeln('Offer dialogue: "${quest.dialogue.questOffer.nativeLanguage}"');
-        buffer.writeln('Accept dialogue: "${quest.dialogue.questAccept.nativeLanguage}"');
+        buffer.writeln('Offer dialogue: "${quest.dialogue.questOffer.native}"');
+        buffer.writeln('Accept dialogue: "${quest.dialogue.questAccept.native}"');
         if (quest.languageLearning.targetVocabulary.isNotEmpty) {
-          buffer.writeln('Vocabulary to teach: ${quest.languageLearning.targetVocabulary.map((v) => "${v.nativeLanguage} (${v.targetLanguage})").join(", ")}');
+          buffer.writeln('Vocabulary to teach: ${quest.languageLearning.targetVocabulary.map((v) => "${v.native} (${v.target})").join(", ")}');
         }
         buffer.writeln('XP Reward: ${quest.rewards.experience}');
       }
@@ -428,10 +428,10 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
             buffer.writeln('Current task: ${currentTask.displayDescription}');
             buffer.writeln('Hint: ${currentTask.displayHint}');
           }
-          buffer.writeln('Progress dialogue: "${quest.dialogue.questProgress.nativeLanguage}"');
+          buffer.writeln('Progress dialogue: "${quest.dialogue.questProgress.native}"');
           if (quest.tasks.every((t) => t.completed)) {
             buffer.writeln('*** QUEST READY TO COMPLETE! Use complete_quest tool! ***');
-            buffer.writeln('Completion dialogue: "${quest.dialogue.questComplete.nativeLanguage}"');
+            buffer.writeln('Completion dialogue: "${quest.dialogue.questComplete.native}"');
           }
         }
       }
@@ -443,8 +443,8 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       buffer.writeln('=== EXAMPLE INTERACTIONS ===');
       for (final example in npc.exampleInteractions) {
         buffer.writeln('Player: ${example.playerAction}');
-        buffer.writeln('You: ${example.npcResponse.nativeLanguage}');
-        buffer.writeln('(${example.npcResponse.targetLanguage})');
+        buffer.writeln('You: ${example.npcResponse.native}');
+        buffer.writeln('(${example.npcResponse.target})');
         buffer.writeln('Reasoning: ${example.reasoning}');
         buffer.writeln();
       }
@@ -884,16 +884,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
         'available_quest_ids': npcQuestIds,
       };
 
-      // Log message history structure for debugging tool calls
-      debugPrint('[TOOL_DEBUG] Sending ${messages.length} messages to backend:');
-      for (int i = 0; i < messages.length; i++) {
-        final m = messages[i];
-        final hasToolCalls = m.toolCalls != null && m.toolCalls!.isNotEmpty;
-        final toolCallInfo = hasToolCalls ? ' toolCalls=[${m.toolCalls!.map((tc) => tc.name).join(', ')}]' : '';
-        final toolCallIdInfo = m.toolCallId != null ? ' tool_call_id=${m.toolCallId}' : '';
-        debugPrint('[TOOL_DEBUG]   [$i] role=${m.role}$toolCallInfo$toolCallIdInfo content=${m.content?.substring(0, (m.content?.length ?? 0).clamp(0, 50))}...');
-      }
-
       final bodyJson = jsonEncode(bodyMap);
 
       final bodyBytes = utf8.encode(bodyJson);
@@ -908,7 +898,6 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
       }
 
       String buffer = '';
-      final streamStartTime = DateTime.now();
 
       await for (final chunk in response.transform(utf8.decoder)) {
         buffer += chunk;

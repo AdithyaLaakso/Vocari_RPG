@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
+import 'package:shared/services/grammar_service.dart';
 import '../models/skill_models.dart';
 import '../models/user_skill_state.dart';
 import '../game_models.dart';
-import 'grammar_check_service.dart';
 
 /// Result of trigger evaluation
 class TriggerEvaluationResult {
@@ -230,19 +230,25 @@ class TriggerEvaluator {
     GrammarCheckResult result,
     UserSkillState userState,
   ) {
-    // Update vocabulary usage
-    for (final skillId in result.vocabCorrect) {
-      userState.recordVocabUsage(skillId);
+    if (result.vocabCorrect != null) {
+      // Update vocabulary usage
+      for (final skillId in result.vocabCorrect!) {
+        userState.recordVocabUsage(skillId);
+      }
     }
 
     // Update grammar pattern usage
-    for (final skillId in result.grammarPatterns) {
-      userState.recordGrammarUsage(skillId);
+    if (result.grammarPatterns != null) {
+      for (final skillId in result.grammarPatterns!) {
+        userState.recordGrammarUsage(skillId);
+      }
     }
 
     // Update skill demonstrations
-    for (final skillId in result.skillDemonstrations) {
-      userState.recordSkillDemonstration(skillId);
+    if (result.skillDemonstrations != null) {
+      for (final skillId in result.skillDemonstrations!) {
+        userState.recordSkillDemonstration(skillId);
+      }
     }
 
     debugPrint('Processed grammar result:');

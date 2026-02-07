@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'npc_interaction.dart';
 import 'providers/game_provider.dart';
 
 /// A unified popup sheet for all NPC interactions with the player.
 /// Handles: item requests, sales, gifts, and trades.
 /// Modeled after QuestOfferSheet for consistency.
-class NPCInteractionSheet extends StatelessWidget {
+class NPCInteractionSheet extends ConsumerWidget {
   final NPCInteractionRequest interaction;
   final VoidCallback? onAccepted;
   final VoidCallback? onDeclined;
@@ -22,57 +22,54 @@ class NPCInteractionSheet extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Consumer<GameProvider>(
-      builder: (context, gameProvider, child) {
-        return DraggableScrollableSheet(
-          initialChildSize: _getInitialSize(),
-          minChildSize: 0.3,
-          maxChildSize: 0.7,
-          builder: (context, scrollController) {
-            return Container(
-              decoration: BoxDecoration(
-                color: const Color(0xFF1A1A2E),
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(24),
-                ),
-                border: Border.all(
-                  color: _getInteractionColor().withOpacity(0.3),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final gp = ref.watch(gameProvider);
+    return DraggableScrollableSheet(
+      initialChildSize: _getInitialSize(),
+      minChildSize: 0.3,
+      maxChildSize: 0.7,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF1A1A2E),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(24),
+            ),
+            border: Border.all(
+              color: _getInteractionColor().withValues(alpha: 0.3),
+            ),
+          ),
+          child: Column(
+            children: [
+              // Handle
+              Container(
+                margin: const EdgeInsets.only(top: 12),
+                width: 40,
+                height: 4,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.3),
+                  borderRadius: BorderRadius.circular(2),
                 ),
               ),
-              child: Column(
-                children: [
-                  // Handle
-                  Container(
-                    margin: const EdgeInsets.only(top: 12),
-                    width: 40,
-                    height: 4,
-                    decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(2),
-                    ),
-                  ),
 
-                  // Header
-                  _buildHeader(context),
+              // Header
+              _buildHeader(context),
 
-                  const Divider(height: 1),
+              const Divider(height: 1),
 
-                  // Content
-                  Expanded(
-                    child: SingleChildScrollView(
-                      controller: scrollController,
-                      padding: const EdgeInsets.all(20),
-                      child: _buildContent(context, gameProvider),
-                    ),
-                  ),
-
-                  // Action buttons
-                  _buildActionButtons(context, gameProvider),
-                ],
+              // Content
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  padding: const EdgeInsets.all(20),
+                  child: _buildContent(context, gp),
+                ),
               ),
-            );
-          },
+
+              // Action buttons
+              _buildActionButtons(context, gp),
+            ],
+          ),
         );
       },
     );
@@ -96,7 +93,7 @@ class NPCInteractionSheet extends StatelessWidget {
             height: 70,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: _getInteractionColor().withOpacity(0.2),
+              color: _getInteractionColor().withValues(alpha: 0.2),
               border: Border.all(
                 color: _getInteractionColor(),
                 width: 2,
@@ -124,7 +121,7 @@ class NPCInteractionSheet extends StatelessWidget {
                 Text(
                   interaction.title,
                   style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                        color: _getInteractionColor().withOpacity(0.7),
+                        color: _getInteractionColor().withValues(alpha: 0.7),
                         letterSpacing: 2,
                       ),
                 ).animate().fadeIn(delay: 100.ms),
@@ -173,7 +170,7 @@ class NPCInteractionSheet extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: badgeColor.withOpacity(0.2),
+        color: badgeColor.withValues(alpha: 0.2),
       ),
       child: Text(
         badgeText,
@@ -211,15 +208,15 @@ class NPCInteractionSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.white.withOpacity(0.05),
+        color: Colors.white.withValues(alpha: 0.05),
         border: Border.all(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withValues(alpha: 0.1),
         ),
       ),
       child: Text(
         interaction.message,
         style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-              color: Colors.white.withOpacity(0.9),
+              color: Colors.white.withValues(alpha: 0.9),
               height: 1.5,
             ),
         textAlign: TextAlign.center,
@@ -232,9 +229,9 @@ class NPCInteractionSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: _getInteractionColor().withOpacity(0.1),
+        color: _getInteractionColor().withValues(alpha: 0.1),
         border: Border.all(
-          color: _getInteractionColor().withOpacity(0.2),
+          color: _getInteractionColor().withValues(alpha: 0.2),
         ),
       ),
       child: Row(
@@ -242,14 +239,14 @@ class NPCInteractionSheet extends StatelessWidget {
           Icon(
             Icons.chat_bubble_outline,
             size: 18,
-            color: _getInteractionColor().withOpacity(0.7),
+            color: _getInteractionColor().withValues(alpha: 0.7),
           ),
           const SizedBox(width: 12),
           Expanded(
             child: Text(
               '"${interaction.reason}"',
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: Colors.white.withOpacity(0.8),
+                    color: Colors.white.withValues(alpha: 0.8),
                     fontStyle: FontStyle.italic,
                   ),
             ),
@@ -318,9 +315,9 @@ class NPCInteractionSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
-        color: color.withOpacity(0.1),
+        color: color.withValues(alpha: 0.1),
         border: Border.all(
-          color: color.withOpacity(0.3),
+          color: color.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -328,7 +325,7 @@ class NPCInteractionSheet extends StatelessWidget {
           Text(
             label,
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  color: color.withOpacity(0.7),
+                  color: color.withValues(alpha: 0.7),
                   letterSpacing: 1,
                 ),
           ),
@@ -362,9 +359,9 @@ class NPCInteractionSheet extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: const Color(0xFFD4AF37).withOpacity(0.1),
+        color: const Color(0xFFD4AF37).withValues(alpha: 0.1),
         border: Border.all(
-          color: const Color(0xFFD4AF37).withOpacity(0.3),
+          color: const Color(0xFFD4AF37).withValues(alpha: 0.3),
         ),
       ),
       child: Row(
@@ -376,7 +373,7 @@ class NPCInteractionSheet extends StatelessWidget {
               Text(
                 'PRICE',
                 style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                      color: const Color(0xFFD4AF37).withOpacity(0.7),
+                      color: const Color(0xFFD4AF37).withValues(alpha: 0.7),
                       letterSpacing: 1,
                     ),
               ),
@@ -402,7 +399,7 @@ class NPCInteractionSheet extends StatelessWidget {
           Container(
             width: 1,
             height: 40,
-            color: Colors.white.withOpacity(0.2),
+            color: Colors.white.withValues(alpha: 0.2),
           ),
 
           // Your gold
@@ -448,7 +445,7 @@ class NPCInteractionSheet extends StatelessWidget {
         color: const Color(0xFF1A1A2E),
         border: Border(
           top: BorderSide(
-            color: Colors.white.withOpacity(0.1),
+            color: Colors.white.withValues(alpha: 0.1),
           ),
         ),
       ),
@@ -476,13 +473,13 @@ class NPCInteractionSheet extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               padding: const EdgeInsets.symmetric(vertical: 16),
               side: BorderSide(
-                color: Colors.red.withOpacity(0.5),
+                color: Colors.red.withValues(alpha: 0.5),
               ),
             ),
             child: Text(
               interaction.declineButtonText,
               style: TextStyle(
-                color: Colors.red.withOpacity(0.8),
+                color: Colors.red.withValues(alpha: 0.8),
               ),
             ),
           ),
@@ -500,7 +497,7 @@ class NPCInteractionSheet extends StatelessWidget {
               Navigator.pop(context);
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: _getInteractionColor().withOpacity(0.3),
+              backgroundColor: _getInteractionColor().withValues(alpha: 0.3),
               padding: const EdgeInsets.symmetric(vertical: 16),
             ),
             child: Row(
@@ -532,7 +529,7 @@ class NPCInteractionSheet extends StatelessWidget {
           Navigator.pop(context);
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white.withOpacity(0.1),
+          backgroundColor: Colors.white.withValues(alpha: 0.1),
           padding: const EdgeInsets.symmetric(vertical: 16),
         ),
         child: const Text('OK'),

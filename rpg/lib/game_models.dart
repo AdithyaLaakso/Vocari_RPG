@@ -1,4 +1,5 @@
-import 'language_system.dart';
+import 'package:shared/models/language.dart';
+import 'package:shared/services/keycloak_service.dart';
 
 // Enums
 enum LocationType { outdoor, building, dungeon }
@@ -70,7 +71,7 @@ class Player {
   Map<String, int> reputation;
   int playtime;
   DateTime lastPlayed;
-  List<Quest> _quests = [];
+  List<Quest> quests = [];
   String languageLevel;
   Set<String> storyFlags;
   Map<String, int> taskProgress;
@@ -111,7 +112,7 @@ class Player {
         activeQuests = activeQuests ?? [],
         reputation = reputation ?? {},
         lastPlayed = lastPlayed ?? DateTime.now(),
-        _quests = quests ?? [],
+        quests = quests ?? [],
         storyFlags = storyFlags ?? {},
         taskProgress = taskProgress ?? {},
         learnedInfo = learnedInfo ?? {},
@@ -122,10 +123,6 @@ class Player {
   set currentHealth(int value) => health = value;
   int get currentMana => mana;
   set currentMana(int value) => mana = value;
-
-  // Quest list
-  List<Quest> get quests => _quests;
-  set quests(List<Quest> value) => _quests = value;
 
   // XP required for a specific level
   int xpRequiredForLevel(int lvl) => (lvl * lvl * 100) + (lvl * 50);
@@ -235,8 +232,8 @@ class Item {
 
   String get emoji => icon.isNotEmpty ? icon : '\u{1F4E6}';
 
-  String get displayName => name.current;
-  String get displayDescription => description.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         id: json['id'],
@@ -383,7 +380,7 @@ class NPCPersonality {
     if (json == null) {
       return NPCPersonality(
         traits: [],
-        speakingStyle: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        speakingStyle: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
         quirks: [],
       );
     }
@@ -520,11 +517,11 @@ class NPC {
     this.questIds = const [],
   });
 
-  String get displayName => name.current;
-  String get displayTitle => title.current;
-  String get displayDescription => description.current;
-  String get displayGreeting => greeting.current;
-  String get displayFarewell => farewell.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayTitle => title.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
+  String get displayGreeting => greeting.get(KeycloakService().targetLanguage) ?? '';
+  String get displayFarewell => farewell.get(KeycloakService().targetLanguage) ?? '';
 
   List<String> get shopInventory => shopItems;
 
@@ -592,7 +589,7 @@ class DialogueNode {
     this.effects,
   });
 
-  String get displayText => text.current;
+  String get displayText => text.get(KeycloakService().targetLanguage) ?? '';
 
   factory DialogueNode.fromJson(Map<String, dynamic> json) => DialogueNode(
         id: json['id'] ?? '',
@@ -622,7 +619,7 @@ class DialogueOption {
     this.action,
   });
 
-  String get displayText => text.current;
+  String get displayText => text.get(KeycloakService().targetLanguage) ?? '';
 
   factory DialogueOption.fromJson(Map<String, dynamic> json) => DialogueOption(
         text: LocalizedString.fromJson(json['text'] ?? ''),
@@ -648,8 +645,8 @@ class Region {
     required this.locationIds,
   });
 
-  String get displayName => name.current;
-  String get displayDescription => description.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
 
   factory Region.fromJson(Map<String, dynamic> json) => Region(
         id: json['id'] ?? '',
@@ -694,9 +691,9 @@ class Location {
   });
 
   // Display helpers
-  String get displayName => name.current;
-  String get displayDescription => description.current;
-  String get displayAtmosphere => atmosphere.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
+  String get displayAtmosphere => atmosphere.get(KeycloakService().targetLanguage) ?? '';
 
   // Alias for connectedLocations
   List<String> get connections => connectedLocations;
@@ -790,7 +787,7 @@ class LocationConnection {
     required this.travelDescription,
   });
 
-  String get displayTravelDescription => travelDescription.current;
+  String get displayTravelDescription => travelDescription.get(KeycloakService().targetLanguage) ?? '';
 
   factory LocationConnection.fromJson(Map<String, dynamic> json) =>
       LocationConnection(
@@ -815,8 +812,8 @@ class QuestLine {
     required this.questIds,
   });
 
-  String get displayName => name.current;
-  String get displayDescription => description.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
 
   factory QuestLine.fromJson(Map<String, dynamic> json) => QuestLine(
         id: json['id'] ?? '',
@@ -848,8 +845,8 @@ class QuestTask {
     this.completed = false,
   });
 
-  String get displayDescription => description.current;
-  String get displayHint => hint.current;
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
+  String get displayHint => hint.get(KeycloakService().targetLanguage) ?? '';
 
   factory QuestTask.fromJson(Map<String, dynamic> json) => QuestTask(
         id: json['id'] ?? '',
@@ -883,11 +880,11 @@ class QuestDialogue {
   factory QuestDialogue.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return QuestDialogue(
-        questOffer: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        questAccept: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        questDecline: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        questProgress: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        questComplete: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        questOffer: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        questAccept: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        questDecline: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        questProgress: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        questComplete: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
       );
     }
     return QuestDialogue(
@@ -975,14 +972,14 @@ class QuestObjectives {
     required this.detailed,
   });
 
-  String get displaySummary => summary.current;
-  String get displayDetailed => detailed.current;
+  String get displaySummary => summary.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDetailed => detailed.get(KeycloakService().targetLanguage) ?? '';
 
   factory QuestObjectives.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return QuestObjectives(
-        summary: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        detailed: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        summary: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        detailed: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
       );
     }
     return QuestObjectives(
@@ -1031,8 +1028,8 @@ class Quest {
   }) : _isCompleted = isCompleted;
 
   // Display helpers
-  String get displayName => name.current;
-  String get displayDescription => description.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
 
   // Check if quest is completed
   bool get isCompleted => _isCompleted || tasks.every((t) => t.completed);
@@ -1076,8 +1073,14 @@ class Quest {
   // Check if player meets unlock requirements
   bool canUnlock(Player player) {
     // Check language level
-    if (!LanguageService.instance.meetsLanguageLevel(unlockRequirements.languageLevel)) {
-      return false;
+    final requiredLevel = unlockRequirements.languageLevel;
+    if (requiredLevel.isNotEmpty) {
+      final levels = ['A0', 'A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+      final playerIndex = levels.indexOf(player.languageLevel);
+      final requiredIndex = levels.indexOf(requiredLevel);
+      if (playerIndex != -1 && requiredIndex != -1 && playerIndex < requiredIndex) {
+        return false;
+      }
     }
     // Check completed quests
     for (final questId in unlockRequirements.completedQuests) {
@@ -1269,9 +1272,9 @@ class WorldBackstory {
   factory WorldBackstory.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return WorldBackstory(
-        summary: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        playerOrigin: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        motivation: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        summary: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        playerOrigin: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        motivation: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
       );
     }
     return WorldBackstory(
@@ -1296,9 +1299,9 @@ class WorldSetting {
   factory WorldSetting.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return WorldSetting(
-        era: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        atmosphere: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        culture: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        era: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        atmosphere: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        culture: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
       );
     }
     return WorldSetting(
@@ -1354,8 +1357,8 @@ class LanguageIntegration {
   factory LanguageIntegration.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return LanguageIntegration(
-        whyPlayerLearns: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        howLanguageFits: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        whyPlayerLearns: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        howLanguageFits: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
       );
     }
     return LanguageIntegration(
@@ -1380,8 +1383,8 @@ class MapMetadata {
   factory MapMetadata.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
       return MapMetadata(
-        name: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
-        description: const LocalizedString(nativeLanguage: '', targetLanguage: ''),
+        name: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
+        description: LocalizedString.fromJson({'native_language': '', 'target_language': ''}),
         scale: 'village',
       );
     }
@@ -1558,8 +1561,8 @@ class MiniGame {
     required this.skillPoints,
   });
 
-  String get displayName => name.current;
-  String get displayDescription => description.current;
+  String get displayName => name.get(KeycloakService().targetLanguage) ?? '';
+  String get displayDescription => description.get(KeycloakService().targetLanguage) ?? '';
 
   factory MiniGame.fromJson(Map<String, dynamic> json) => MiniGame(
         id: json['id'] ?? '',

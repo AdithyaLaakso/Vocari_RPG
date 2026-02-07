@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:luavm_widget/main.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'game_models.dart';
 import 'providers/game_provider.dart';
 
 /// Sheet that displays and runs a Lua-based mini-game
-class MiniGameSheet extends StatefulWidget {
+class MiniGameSheet extends ConsumerStatefulWidget {
   final MiniGame game;
 
   const MiniGameSheet({super.key, required this.game});
 
   @override
-  State<MiniGameSheet> createState() => _MiniGameSheetState();
+  ConsumerState<MiniGameSheet> createState() => _MiniGameSheetState();
 }
 
-class _MiniGameSheetState extends State<MiniGameSheet> {
+class _MiniGameSheetState extends ConsumerState<MiniGameSheet> {
   bool _gameStarted = false;
   bool _gameEnded = false;
   int? _exitCode;
@@ -38,8 +38,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
     });
 
     // Record completion in provider
-    final gameProvider = context.read<GameProvider>();
-    gameProvider.recordGameCompletion(widget.game.id, exitCode);
+    ref.read(gameProvider.notifier).recordGameCompletion(widget.game.id, exitCode);
   }
 
   String _getResultTitle() {
@@ -108,7 +107,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
               top: Radius.circular(24),
             ),
             border: Border.all(
-              color: Colors.purple.withOpacity(0.3),
+              color: Colors.purple.withValues(alpha: 0.3),
             ),
           ),
           child: Column(
@@ -119,7 +118,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                 width: 40,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.3),
+                  color: Colors.white.withValues(alpha: 0.3),
                   borderRadius: BorderRadius.circular(2),
                 ),
               ),
@@ -155,7 +154,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
             height: 56,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.purple.withOpacity(0.2),
+              color: Colors.purple.withValues(alpha: 0.2),
               border: Border.all(
                 color: Colors.purple,
                 width: 2,
@@ -197,7 +196,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: Colors.amber.withOpacity(0.2),
+              color: Colors.amber.withValues(alpha: 0.2),
             ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
@@ -230,8 +229,8 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: Colors.white.withOpacity(0.05),
-              border: Border.all(color: Colors.white.withOpacity(0.1)),
+              color: Colors.white.withValues(alpha: 0.05),
+              border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -252,7 +251,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                 Text(
                   widget.game.displayDescription,
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                        color: Colors.white.withOpacity(0.85),
+                        color: Colors.white.withValues(alpha: 0.85),
                         height: 1.5,
                       ),
                 ),
@@ -268,8 +267,8 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                color: Colors.green.withOpacity(0.1),
-                border: Border.all(color: Colors.green.withOpacity(0.3)),
+                color: Colors.green.withValues(alpha: 0.1),
+                border: Border.all(color: Colors.green.withValues(alpha: 0.3)),
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,10 +297,10 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.green.withOpacity(0.2),
+                          color: Colors.green.withValues(alpha: 0.2),
                         ),
                         child: Text(
-                          vocab.current,
+                          vocab.target,
                           style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                 color: Colors.white70,
                               ),
@@ -349,7 +348,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                           const Text('•  ', style: TextStyle(color: Colors.blue)),
                           Expanded(
                             child: Text(
-                              point.current,
+                              point.native,
                               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                                     color: Colors.white70,
                                   ),
@@ -376,9 +375,9 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                 borderRadius: BorderRadius.circular(12),
               ),
             ),
-            child: Row(
+            child: const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Icon(Icons.play_arrow, size: 24),
                 SizedBox(width: 8),
                 Text(
@@ -414,7 +413,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.purple.withOpacity(0.3)),
+          border: Border.all(color: Colors.purple.withValues(alpha: 0.3)),
         ),
         clipBehavior: Clip.antiAlias,
         child: LuaCanvas(
@@ -442,7 +441,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
               height: 100,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: color.withOpacity(0.2),
+                color: color.withValues(alpha: 0.2),
                 border: Border.all(color: color, width: 3),
               ),
               child: Icon(
@@ -474,14 +473,14 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(16),
-              color: color.withOpacity(0.1),
-              border: Border.all(color: color.withOpacity(0.3)),
+              color: color.withValues(alpha: 0.1),
+              border: Border.all(color: color.withValues(alpha: 0.3)),
             ),
             child: Text(
               _getResultMessage(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    color: Colors.white.withOpacity(0.85),
+                    color: Colors.white.withValues(alpha: 0.85),
                     height: 1.5,
                   ),
             ),
@@ -497,7 +496,7 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                   onPressed: () => Navigator.pop(context),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: Colors.white70,
-                    side: BorderSide(color: Colors.white.withOpacity(0.3)),
+                    side: BorderSide(color: Colors.white.withValues(alpha: 0.3)),
                     padding: const EdgeInsets.symmetric(vertical: 14),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
@@ -524,9 +523,9 @@ class _MiniGameSheetState extends State<MiniGameSheet> {
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
+                    children: [
                       Icon(Icons.replay, size: 20),
                       SizedBox(width: 8),
                       Text('PLAY AGAIN'),

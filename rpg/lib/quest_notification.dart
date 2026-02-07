@@ -78,12 +78,12 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
         color: const Color(0xFF1A1A2E),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: color.withOpacity(0.5),
+          color: color.withValues(alpha: 0.5),
           width: 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: color.withOpacity(0.3),
+            color: color.withValues(alpha: 0.3),
             blurRadius: 20,
             spreadRadius: 2,
           ),
@@ -101,7 +101,7 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
                 height: 48,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: color.withOpacity(0.2),
+                  color: color.withValues(alpha: 0.2),
                 ),
                 child: Icon(
                   isQuestComplete ? Icons.emoji_events : Icons.check_circle,
@@ -143,7 +143,7 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
                 onTap: widget.onDismiss,
                 child: Icon(
                   Icons.close,
-                  color: Colors.white.withOpacity(0.5),
+                  color: Colors.white.withValues(alpha: 0.5),
                   size: 20,
                 ),
               ),
@@ -157,14 +157,14 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
               width: double.infinity,
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
+                color: Colors.white.withValues(alpha: 0.05),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Row(
                 children: [
                   Icon(
                     Icons.task_alt,
-                    color: Colors.green.withOpacity(0.8),
+                    color: Colors.green.withValues(alpha: 0.8),
                     size: 18,
                   ),
                   const SizedBox(width: 8),
@@ -172,7 +172,7 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
                     child: Text(
                       widget.notification.taskDescription!,
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.8),
+                        color: Colors.white.withValues(alpha: 0.8),
                         fontSize: 14,
                       ),
                       maxLines: 2,
@@ -195,7 +195,7 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
                     child: LinearProgressIndicator(
                       value: widget.notification.completedTasks /
                           widget.notification.totalTasks,
-                      backgroundColor: Colors.white.withOpacity(0.1),
+                      backgroundColor: Colors.white.withValues(alpha: 0.1),
                       valueColor: AlwaysStoppedAnimation<Color>(color),
                       minHeight: 6,
                     ),
@@ -205,7 +205,7 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
                 Text(
                   '${widget.notification.completedTasks}/${widget.notification.totalTasks}',
                   style: TextStyle(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white.withValues(alpha: 0.7),
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                   ),
@@ -220,7 +220,7 @@ class _QuestNotificationOverlayState extends State<QuestNotificationOverlay> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: Colors.purple.withOpacity(0.2),
+                color: Colors.purple.withValues(alpha: 0.2),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -292,11 +292,11 @@ class QuestNotificationService {
     _currentNotification = null;
 
     // Process next notification after a short delay
-    Future.delayed(const Duration(milliseconds: 300), () {
-      if (_pendingNotifications.isNotEmpty) {
-        _processQueue(context);
-      }
-    });
+      Future.delayed(const Duration(milliseconds: 300), () {
+        if (_pendingNotifications.isNotEmpty && context.mounted) {
+          _processQueue(context);
+        }
+      });
   }
 
   /// Clear all pending notifications

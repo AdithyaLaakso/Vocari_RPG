@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'providers/game_provider.dart';
 import 'screens/game_screen.dart';
 
 void main() {
@@ -20,8 +19,7 @@ class RPGGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => GameProvider()..loadGameData(),
+    return ProviderScope(
       child: MaterialApp(
         title: 'Vocari',
         debugShowCheckedModeBanner: false,
@@ -42,7 +40,7 @@ class RPGGame extends StatelessWidget {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
               side: BorderSide(
-                color: const Color(0xFFD4AF37).withOpacity(0.3),
+                color: const Color(0xFFD4AF37).withValues(alpha: 0.3),
                 width: 1,
               ),
             ),

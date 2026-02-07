@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart' show debugPrint;
+import 'package:shared/services/keycloak_service.dart';
 import 'dart:async';
 import 'word_knowledge_service.dart';
 
@@ -171,22 +172,16 @@ class InfoCardService {
   /// Create and emit a word definition card
   Future<void> _createWordDefinitionCard(String word) async {
     debugPrint('[InfoCard] _createWordDefinitionCard called for: "$word"');
-    final wordService = WordKnowledgeService.instance;
     debugPrint('[InfoCard] About to call fetchDefinition...');
-    final definition = await wordService.fetchDefinition(word);
-    debugPrint('[InfoCard] fetchDefinition returned: ${definition?.lemma ?? "null"}');
+    final definition = await defineWord(word, KeycloakService().targetLanguage);
+    debugPrint('[InfoCard] fetchDefinition returned: ${definition.lemma}');
 
     // Format the definition content
     String content;
-    if (definition != null) {
-      final defs = definition.lemmaDefinitions.isNotEmpty
-          ? definition.lemmaDefinitions
-          : definition.rootWordDefinitions;
-      content = defs.take(2).join('\n');
-    } else {
-      debugPrint("[InfoCard] refusing to make an info card with a null definition");
-      return;
-    }
+    final defs = definition.lemmaDefinitions.isNotEmpty
+        ? definition.lemmaDefinitions
+        : definition.rootWordDefinitions;
+    content = defs.take(2).join('\n');
 
     final card = InfoCard(
       id: 'word_def_$word',

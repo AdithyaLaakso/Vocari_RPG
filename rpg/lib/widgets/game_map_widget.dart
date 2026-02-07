@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../game_models.dart';
 import '../providers/game_provider.dart';
 
 /// A pannable, zoomable game map that shows locations as nodes
 /// and connections as edges. Players can click connected locations to move.
-class GameMapWidget extends StatefulWidget {
+class GameMapWidget extends ConsumerStatefulWidget {
   const GameMapWidget({super.key});
 
   @override
-  State<GameMapWidget> createState() => _GameMapWidgetState();
+  ConsumerState<GameMapWidget> createState() => _GameMapWidgetState();
 }
 
-class _GameMapWidgetState extends State<GameMapWidget> {
+class _GameMapWidgetState extends ConsumerState<GameMapWidget> {
   final TransformationController _transformationController =
       TransformationController();
 
@@ -28,115 +28,112 @@ class _GameMapWidgetState extends State<GameMapWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<GameProvider>(
-      builder: (context, gameProvider, child) {
-        final world = gameProvider.world;
-        final currentLocation = gameProvider.currentLocation;
+    final gp = ref.watch(gameProvider);
+    final world = gp.world;
+    final currentLocation = gp.currentLocation;
 
-        if (world == null || currentLocation == null) {
-          return const Center(child: CircularProgressIndicator());
-        }
+    if (world == null || currentLocation == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
 
-        final graph = world.locationGraph;
-        final connectedIds = graph.getConnectedLocations(currentLocation.id);
+    final graph = world.locationGraph;
+    final connectedIds = graph.getConnectedLocations(currentLocation.id);
 
-        // Calculate the canvas size based on graph bounds
-        final graphWidth = (graph.maxX - graph.minX + 2) * nodePadding;
-        final graphHeight = (graph.maxY - graph.minY + 2) * nodePadding;
+    // Calculate the canvas size based on graph bounds
+    final graphWidth = (graph.maxX - graph.minX + 2) * nodePadding;
+    final graphHeight = (graph.maxY - graph.minY + 2) * nodePadding;
 
-        return Column(
-          children: [
-            // Map header
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: [
-                  const Icon(Icons.map, color: Color(0xFFD4AF37)),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: Text(
-                      world.mapMetadata?.name.current ?? 'World Map',
-                      style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                            color: const Color(0xFFD4AF37),
-                          ),
-                    ),
-                  ),
-                  // Reset view button
-                  IconButton(
-                    icon: const Icon(Icons.center_focus_strong,
-                        color: Colors.white54),
-                    tooltip: 'Center on current location',
-                    onPressed: () => _centerOnLocation(
-                      currentLocation,
-                      graph,
-                      context,
-                    ),
-                  ),
-                ],
+    return Column(
+      children: [
+        // Map header
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Row(
+            children: [
+              const Icon(Icons.map, color: Color(0xFFD4AF37)),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  world.mapMetadata?.name.current ?? 'World Map',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: const Color(0xFFD4AF37),
+                      ),
+                ),
               ),
-            ),
-            // Map legend
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Row(
-                children: [
-                  _buildLegendItem(
-                    color: const Color(0xFFD4AF37),
-                    label: 'Current',
-                  ),
-                  const SizedBox(width: 16),
-                  _buildLegendItem(
-                    color: Colors.green,
-                    label: 'Connected',
-                  ),
-                  const SizedBox(width: 16),
-                  _buildLegendItem(
-                    color: Colors.white30,
-                    label: 'Other',
-                  ),
-                ],
+              // Reset view button
+              IconButton(
+                icon: const Icon(Icons.center_focus_strong,
+                    color: Colors.white54),
+                tooltip: 'Center on current location',
+                onPressed: () => _centerOnLocation(
+                  currentLocation,
+                  graph,
+                  context,
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            // Interactive map
-            Expanded(
-              child: InteractiveViewer(
-                transformationController: _transformationController,
-                constrained: false,
-                boundaryMargin: const EdgeInsets.all(100),
-                minScale: 0.3,
-                maxScale: 2.0,
-                child: SizedBox(
-                  width: graphWidth,
-                  height: graphHeight,
-                  child: CustomPaint(
-                    painter: _MapEdgePainter(
-                      graph: graph,
-                      currentLocationId: currentLocation.id,
-                      connectedIds: connectedIds,
-                      nodePadding: nodePadding,
-                    ),
-                    child: Stack(
-                      children: [
-                        // Render all location nodes
-                        for (final node in graph.nodes.values)
-                          _buildLocationNode(
-                            node: node,
-                            location: world.locations[node.id]!,
-                            isCurrent: node.id == currentLocation.id,
-                            isConnected: connectedIds.contains(node.id),
-                            graph: graph,
-                            gameProvider: gameProvider,
-                          ),
-                      ],
-                    ),
-                  ),
+            ],
+          ),
+        ),
+        // Map legend
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          child: Row(
+            children: [
+              _buildLegendItem(
+                color: const Color(0xFFD4AF37),
+                label: 'Current',
+              ),
+              const SizedBox(width: 16),
+              _buildLegendItem(
+                color: Colors.green,
+                label: 'Connected',
+              ),
+              const SizedBox(width: 16),
+              _buildLegendItem(
+                color: Colors.white30,
+                label: 'Other',
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+        // Interactive map
+        Expanded(
+          child: InteractiveViewer(
+            transformationController: _transformationController,
+            constrained: false,
+            boundaryMargin: const EdgeInsets.all(100),
+            minScale: 0.3,
+            maxScale: 2.0,
+            child: SizedBox(
+              width: graphWidth,
+              height: graphHeight,
+              child: CustomPaint(
+                painter: _MapEdgePainter(
+                  graph: graph,
+                  currentLocationId: currentLocation.id,
+                  connectedIds: connectedIds,
+                  nodePadding: nodePadding,
+                ),
+                child: Stack(
+                  children: [
+                    // Render all location nodes
+                    for (final node in graph.nodes.values)
+                      _buildLocationNode(
+                        node: node,
+                        location: world.locations[node.id]!,
+                        isCurrent: node.id == currentLocation.id,
+                        isConnected: connectedIds.contains(node.id),
+                        graph: graph,
+                        gameProvider: gp,
+                      ),
+                  ],
                 ),
               ),
             ),
-          ],
-        );
-      },
+          ),
+        ),
+      ],
     );
   }
 
@@ -148,7 +145,7 @@ class _GameMapWidgetState extends State<GameMapWidget> {
           width: 12,
           height: 12,
           decoration: BoxDecoration(
-            color: color.withOpacity(0.3),
+            color: color.withValues(alpha: 0.3),
             border: Border.all(color: color, width: 2),
             shape: BoxShape.circle,
           ),
@@ -180,15 +177,15 @@ class _GameMapWidgetState extends State<GameMapWidget> {
     double borderWidth;
 
     if (isCurrent) {
-      nodeColor = const Color(0xFFD4AF37).withOpacity(0.3);
+      nodeColor = const Color(0xFFD4AF37).withValues(alpha: 0.3);
       borderColor = const Color(0xFFD4AF37);
       borderWidth = 3;
     } else if (isConnected) {
-      nodeColor = Colors.green.withOpacity(0.2);
+      nodeColor = Colors.green.withValues(alpha: 0.2);
       borderColor = Colors.green;
       borderWidth = 2;
     } else {
-      nodeColor = Colors.white.withOpacity(0.05);
+      nodeColor = Colors.white.withValues(alpha: 0.05);
       borderColor = Colors.white30;
       borderWidth = 1;
     }
@@ -210,7 +207,7 @@ class _GameMapWidgetState extends State<GameMapWidget> {
             boxShadow: isCurrent
                 ? [
                     BoxShadow(
-                      color: const Color(0xFFD4AF37).withOpacity(0.5),
+                      color: const Color(0xFFD4AF37).withValues(alpha: 0.5),
                       blurRadius: 12,
                       spreadRadius: 2,
                     ),
@@ -218,7 +215,7 @@ class _GameMapWidgetState extends State<GameMapWidget> {
                 : isConnected
                     ? [
                         BoxShadow(
-                          color: Colors.green.withOpacity(0.3),
+                          color: Colors.green.withValues(alpha: 0.3),
                           blurRadius: 8,
                         ),
                       ]
@@ -339,8 +336,8 @@ class _MapEdgePainter extends CustomPainter {
 
       final paint = Paint()
         ..color = isCurrentEdge
-            ? Colors.green.withOpacity(0.6)
-            : Colors.white.withOpacity(0.15)
+            ? Colors.green.withValues(alpha: 0.6)
+            : Colors.white.withValues(alpha: 0.15)
         ..strokeWidth = isCurrentEdge ? 3.0 : 2.0
         ..style = PaintingStyle.stroke
         ..strokeCap = StrokeCap.round;
@@ -357,7 +354,7 @@ class _MapEdgePainter extends CustomPainter {
         final midX = (fromX + toX) / 2;
         final midY = (fromY + toY) / 2;
         final dotPaint = Paint()
-          ..color = Colors.green.withOpacity(0.4)
+          ..color = Colors.green.withValues(alpha: 0.4)
           ..style = PaintingStyle.fill;
         canvas.drawCircle(Offset(midX, midY), 3, dotPaint);
       }
