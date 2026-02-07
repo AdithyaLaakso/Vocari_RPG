@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'dart:async';
+import 'word_knowledge_service.dart';
 
 /// Types of info cards that can be displayed
 enum InfoCardType {
@@ -7,6 +9,7 @@ enum InfoCardType {
   reminder,
   achievement,
   cultural,
+  wordDefinition,
 }
 
 /// Data model for an info card
@@ -133,7 +136,68 @@ class InfoCardService {
       }
     }
 
+    // Process word knowledge for the latest message
+    if (messages.isNotEmpty) {
+      final latestMessage = messages.last;
+      _processWordKnowledge(latestMessage).catchError((e) {
+        debugPrint('[InfoCard] Error in _processWordKnowledge: $e');
+      });
+    }
+
     return cardsToShow;
+  }
+
+  /// Process a message for word knowledge tracking
+  Future<void> _processWordKnowledge(ConversationMessage message) async {
+    debugPrint('[InfoCard] _processWordKnowledge called for role: ${message.role}');
+    final wordService = WordKnowledgeService.instance;
+
+    if (message.role == 'user') {
+      // Track words the user has used
+      wordService.processUserInput(message.content);
+    } else if (message.role == 'assistant') {
+      // Track words seen and show definitions for new ones
+      final newWords = await wordService.processModelOutput(message.content);
+      debugPrint('[InfoCard] New words found: $newWords');
+
+      // Create definition cards for new words (limit to 3 per message)
+      for (final word in (newWords).take(3)) {
+        debugPrint('[InfoCard] Calling _createWordDefinitionCard for: "$word"');
+        await _createWordDefinitionCard(word);
+      }
+    }
+  }
+
+  /// Create and emit a word definition card
+  Future<void> _createWordDefinitionCard(String word) async {
+    debugPrint('[InfoCard] _createWordDefinitionCard called for: "$word"');
+    final wordService = WordKnowledgeService.instance;
+    debugPrint('[InfoCard] About to call fetchDefinition...');
+    final definition = await wordService.fetchDefinition(word);
+    debugPrint('[InfoCard] fetchDefinition returned: ${definition?.lemma ?? "null"}');
+
+    // Format the definition content
+    String content;
+    if (definition != null) {
+      final defs = definition.lemmaDefinitions.isNotEmpty
+          ? definition.lemmaDefinitions
+          : definition.rootWordDefinitions;
+      content = defs.take(2).join('\n');
+    } else {
+      debugPrint("[InfoCard] refusing to make an info card with a null definition");
+      return;
+    }
+
+    final card = InfoCard(
+      id: 'word_def_$word',
+      type: InfoCardType.wordDefinition,
+      title: definition.lemma,
+      content: content,
+      icon: '\u{1F4D6}',
+    );
+
+    debugPrint('[InfoCard] Emitting card for: "$word"');
+    _cardController.add(card);
   }
 
   /// Determines if a specific card should be shown based on context

@@ -9,6 +9,7 @@ import 'npc_interaction.dart';
 import 'providers/game_provider.dart';
 import 'services/npc_chatbot_service.dart';
 import 'services/info_card_service.dart';
+import 'services/word_knowledge_service.dart';
 import 'quest_offer_sheet.dart';
 import 'npc_interaction_sheet.dart';
 import 'mini_game_sheet.dart';
@@ -668,6 +669,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       _QuestCompleteBubble(data: final data) => _buildQuestCompleteCard(data),
       _InfoCardBubble(data: final data) => _buildInfoCard(data),
       _MiniGameBubble() => _buildMiniGameOfferCard(bubble),
+      _WordDefinitionBubble(word: final word, definition: final def) => _buildWordDefinitionCard(word, def),
       _TextBubble(text: final text, isUser: final isUser) => _buildTextBubble(text, isUser),
     };
   }
@@ -931,6 +933,7 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
       'reminder' => (Colors.pink, Colors.purple),
       'achievement' => (Colors.amber, Colors.orange),
       'cultural' => (Colors.indigo, Colors.blue),
+      'wordDefinition' => (const Color(0xFF4A90A4), Colors.teal),
       _ => (Colors.cyan, Colors.teal),
     };
 
@@ -1011,6 +1014,146 @@ class _NPCDialogueSheetState extends State<NPCDialogueSheet> with SingleTickerPr
                   height: 1.5,
                 ),
           ),
+        ],
+      ),
+    ).animate()
+      .fadeIn(duration: 400.ms)
+      .slideX(begin: -0.05, curve: Curves.easeOut);
+  }
+
+  Widget _buildWordDefinitionCard(String word, WordDefinition? definition) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        gradient: LinearGradient(
+          colors: [
+            const Color(0xFF4A90A4).withOpacity(0.2),
+            Colors.teal.withOpacity(0.15),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        border: Border.all(
+          color: const Color(0xFF4A90A4).withOpacity(0.4),
+          width: 1.5,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFF4A90A4).withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF4A90A4).withOpacity(0.2),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: const Icon(
+                  Icons.auto_stories,
+                  color: Color(0xFF4A90A4),
+                  size: 18,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Text(
+                  definition?.lemma ?? word,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF4A90A4).withOpacity(0.15),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  'NEW WORD',
+                  style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                        color: const Color(0xFF4A90A4).withOpacity(0.8),
+                        fontWeight: FontWeight.w600,
+                        fontSize: 10,
+                      ),
+                ),
+              ),
+            ],
+          ),
+          if (definition != null) ...[
+            const SizedBox(height: 12),
+            if (definition.lemmaDefinitions.isNotEmpty)
+              ...definition.lemmaDefinitions.take(2).map((def) => Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '\u2022 ',
+                          style: TextStyle(
+                            color: const Color(0xFF4A90A4).withOpacity(0.8),
+                            fontSize: 14,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            def,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                  color: Colors.white.withOpacity(0.85),
+                                  height: 1.4,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+            if (definition.lemmaDefinitions.isEmpty && definition.rootWordDefinitions.isNotEmpty)
+              ...definition.rootWordDefinitions.take(2).map((def) => Padding(
+                    padding: const EdgeInsets.only(bottom: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          '\u2022 ',
+                          style: TextStyle(
+                            color: const Color(0xFF4A90A4).withOpacity(0.8),
+                            fontSize: 14,
+                          ),
+                        ),
+                        Expanded(
+                          child: Text(
+                            def,
+                            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                                  color: Colors.white.withOpacity(0.85),
+                                  height: 1.4,
+                                ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )),
+          ] else
+            Padding(
+              padding: const EdgeInsets.only(top: 8),
+              child: Text(
+                'Loading definition...',
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Colors.white54,
+                      fontStyle: FontStyle.italic,
+                    ),
+              ),
+            ),
         ],
       ),
     ).animate()
@@ -1405,6 +1548,17 @@ class _InfoCardBubble extends _ChatBubble {
   final Map<String, dynamic> data;
 
   const _InfoCardBubble({required this.data});
+}
+
+/// A word definition card for new vocabulary
+class _WordDefinitionBubble extends _ChatBubble {
+  final String word;
+  final WordDefinition? definition;
+
+  const _WordDefinitionBubble({
+    required this.word,
+    this.definition,
+  });
 }
 
 /// A mini-game offer card
