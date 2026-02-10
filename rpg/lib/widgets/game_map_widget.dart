@@ -54,7 +54,7 @@ class _GameMapWidgetState extends ConsumerState<GameMapWidget> {
               const SizedBox(width: 8),
               Expanded(
                 child: Text(
-                  world.mapMetadata?.name.current ?? 'World Map',
+                  world.mapMetadata?.name.native ?? 'World Map',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: const Color(0xFFD4AF37),
                       ),
@@ -125,7 +125,7 @@ class _GameMapWidgetState extends ConsumerState<GameMapWidget> {
                         isCurrent: node.id == currentLocation.id,
                         isConnected: connectedIds.contains(node.id),
                         graph: graph,
-                        gameProvider: gp,
+                        gameState: gp,
                       ),
                   ],
                 ),
@@ -165,7 +165,7 @@ class _GameMapWidgetState extends ConsumerState<GameMapWidget> {
     required bool isCurrent,
     required bool isConnected,
     required LocationGraph graph,
-    required GameProvider gameProvider,
+    required GameState gameState,
   }) {
     // Calculate position based on coordinates
     final x = (node.x - graph.minX + 0.5) * nodePadding;
@@ -195,7 +195,7 @@ class _GameMapWidgetState extends ConsumerState<GameMapWidget> {
       top: y - nodeRadius,
       child: GestureDetector(
         onTap: isConnected && !isCurrent
-            ? () => gameProvider.moveToLocation(node.id)
+            ? () => ref.read(gameProvider.notifier).moveToLocation(node.id)
             : null,
         child: Container(
           width: nodeRadius * 2,
@@ -287,8 +287,8 @@ class _GameMapWidgetState extends ConsumerState<GameMapWidget> {
     final translateX = viewportWidth / 2 - x;
     final translateY = viewportHeight / 2 - y;
 
-    _transformationController.value = Matrix4.identity()
-      ..translate(translateX, translateY);
+    _transformationController.value =
+        Matrix4.translationValues(translateX, translateY, 0);
   }
 }
 

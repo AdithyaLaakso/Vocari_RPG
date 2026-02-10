@@ -117,9 +117,10 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
   }
 
   Future<void> _fetchNpcInitiation() async {
-    final gp = ref.read(gameProvider.notifier);
-    final player = gp.player;
-    final world = gp.world;
+    final gs = ref.read(gameProvider);
+    final notifier = ref.read(gameProvider.notifier);
+    final player = gs.player;
+    final world = gs.world;
 
     if (player == null || world == null) {
       // Fallback to static greeting if no player/world
@@ -142,7 +143,7 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
             quest.giverNpcId == npc.id &&
             !player.completedQuests.contains(quest.id) &&
             !player.activeQuests.contains(quest.id) &&
-            gp.canOfferQuest(quest.id))
+            notifier.canOfferQuest(quest.id))
         .toList();
 
     // Get player's active quests
@@ -386,8 +387,9 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
       return;
     }
 
-    final gp = ref.read(gameProvider.notifier);
-    final player = gp.player;
+    final gs = ref.read(gameProvider);
+    final notifier = ref.read(gameProvider.notifier);
+    final player = gs.player;
     if (player == null) return;
 
     setState(() {
@@ -405,11 +407,11 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
     _scrollToBottom();
 
     // Process user input for language learning (grammar check + skill progression)
-    await gp.processUserInput(message);
+    await notifier.processUserInput(message);
 
     // Get quests this NPC can offer and active quests from this NPC
-    final npcAvailableQuests = gp.getQuestsForNPC(npc.id);
-    final activeQuests = gp.activeQuests;
+    final npcAvailableQuests = notifier.getQuestsForNPC(npc.id);
+    final activeQuests = gs.activeQuests;
 
     debugPrint('NPC ${npc.id} available quests: ${npcAvailableQuests.map((q) => q.id).toList()}');
     debugPrint('Active quests: ${activeQuests.map((q) => q.id).toList()}');
@@ -423,7 +425,7 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
         npc: npc,
         player: player,
         userMessage: message,
-        availableQuests: gp.world?.quests ?? {},
+        availableQuests: gs.world?.quests ?? {},
         npcAvailableQuests: npcAvailableQuests,
         activeQuests: activeQuests,
       )) {

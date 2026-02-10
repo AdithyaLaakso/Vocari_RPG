@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared/services/keycloak_service.dart';
 import '../game_models.dart';
 import '../providers/game_provider.dart';
 import '../location_card.dart';
@@ -99,8 +98,8 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
     );
   }
 
-  Widget _buildTopBar(GameProvider gameProvider) {
-    final player = gameProvider.player;
+  Widget _buildTopBar(GameState gameState) {
+    final player = gameState.player;
     if (player == null) return const SizedBox();
 
     return Container(
@@ -202,8 +201,8 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
                   color: Colors.white.withValues(alpha: 0.05),
                 ),
                 child: Text(
-                  gameProvider.timeOfDay == 'day' ? '☀️'
-                      : gameProvider.timeOfDay == 'evening' ? '🌅' : '🌙',
+                  gameState.timeOfDay == 'day' ? '☀️'
+                      : gameState.timeOfDay == 'evening' ? '🌅' : '🌙',
                   style: const TextStyle(fontSize: 18),
                 ),
               ),
@@ -344,21 +343,21 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
     );
   }
 
-  Widget _buildMainContent(GameProvider gameProvider) {
+  Widget _buildMainContent(GameState gameState) {
     switch (_selectedNavIndex) {
       case 0:
-        return _buildLocationView(gameProvider);
+        return _buildLocationView(gameState);
       case 1:
         return const GameMapWidget();
       case 2:
         return const GameLogWidget();
       default:
-        return _buildLocationView(gameProvider);
+        return _buildLocationView(gameState);
     }
   }
 
-  Widget _buildLocationView(GameProvider gameProvider) {
-    final location = gameProvider.currentLocation;
+  Widget _buildLocationView(GameState gameState) {
+    final location = gameState.currentLocation;
     if (location == null) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -377,10 +376,10 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
           const SizedBox(height: 20),
 
           // Look Around button and items
-          _buildLookAroundSection(gameProvider),
+          _buildLookAroundSection(gameState),
 
           // NPCs at this location
-          if (gameProvider.locationNPCs.isNotEmpty) ...[
+          if (gameState.locationNPCs.isNotEmpty) ...[
             Text(
               'People Here',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
@@ -390,13 +389,13 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
 
             const SizedBox(height: 12),
 
-            ...gameProvider.locationNPCs.asMap().entries.map((entry) {
+            ...gameState.locationNPCs.asMap().entries.map((entry) {
               final index = entry.key;
               final npc = entry.value;
 
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: _buildNPCCard(npc, gameProvider)
+                child: _buildNPCCard(npc, gameState)
                     .animate()
                     .fadeIn(delay: Duration(milliseconds: 500 + (index * 100)))
                     .slideX(begin: 0.1),
@@ -422,11 +421,11 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
             children: location.connections.asMap().entries.map((entry) {
               final index = entry.key;
               final connectionId = entry.value;
-              final connectedLocation = gameProvider.world?.locations[connectionId];
+              final connectedLocation = gameState.world?.locations[connectionId];
 
               if (connectedLocation == null) return const SizedBox();
 
-              return _buildTravelButton(connectedLocation, gameProvider)
+              return _buildTravelButton(connectedLocation, gameState)
                   .animate()
                   .fadeIn(delay: Duration(milliseconds: 700 + (index * 100)))
                   .scale(begin: const Offset(0.9, 0.9));
@@ -437,13 +436,13 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
     );
   }
 
-  Widget _buildItemCard(LocationItem locationItem, GameProvider gameProvider) {
+  Widget _buildItemCard(LocationItem locationItem, GameState gameState) {
     final item = locationItem.item;
     final canPickup = locationItem.canPickup;
     final isPurchase = locationItem.acquisitionType == 'purchase';
-    final playerGold = gameProvider.player?.gold ?? 0;
+    final playerGold = gameState.player?.gold ?? 0;
     final canAfford = !isPurchase || playerGold >= locationItem.price;
-    final playerLevel = gameProvider.player?.languageLevel ?? 'A0';
+    final playerLevel = gameState.player?.languageLevel ?? 'A0';
 
     // Item name - favor target language (name is simpler, easier to learn)
     final showTargetName = BilingualTextService.shouldShowTargetLanguage(playerLevel);
@@ -465,7 +464,7 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
 
     return InkWell(
       onTap: canPickup && canAfford
-          ? () => _handleItemPickup(locationItem, gameProvider)
+          ? () => _handleItemPickup(locationItem, gameState)
           : null,
       borderRadius: BorderRadius.circular(12),
       child: Container(
@@ -599,7 +598,7 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
     );
   }
 
-  void _handleItemPickup(LocationItem locationItem, GameProvider gameProvider) {
+  void _handleItemPickup(LocationItem locationItem, GameState gameState) {
     final item = locationItem.item;
 
     if (locationItem.acquisitionType == 'purchase') {
@@ -621,7 +620,7 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
-                gameProvider.buyItem(item.id);
+                ref.read(gameProvider.notifier).buyItem(item.id);
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF4CAF50),
@@ -633,14 +632,14 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
       );
     } else {
       // Directly pick up the item
-      gameProvider.pickupItem(item.id);
+      ref.read(gameProvider.notifier).pickupItem(item.id);
     }
   }
 
-  Widget _buildNPCCard(NPC npc, GameProvider gameProvider) {
+  Widget _buildNPCCard(NPC npc, GameState gameState) {
     return InkWell(
       onTap: () {
-        gameProvider.talkToNPC(npc.id);
+        ref.read(gameProvider.notifier).talkToNPC(npc.id);
         _showDialogueSheet(context, npc);
       },
       borderRadius: BorderRadius.circular(12),
@@ -734,10 +733,10 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
     }
   }
 
-  Widget _buildTravelButton(Location location, GameProvider gameProvider) {
+  Widget _buildTravelButton(Location location, GameState gameState) {
     return ElevatedButton.icon(
       onPressed: () {
-        gameProvider.moveToLocation(location.id);
+        ref.read(gameProvider.notifier).moveToLocation(location.id);
       },
       icon: Text(location.emoji, style: const TextStyle(fontSize: 16)),
       label: Text(location.displayName),
@@ -750,10 +749,10 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
   }
 
   /// Build the "Look Around" section that toggles item visibility
-  Widget _buildLookAroundSection(GameProvider gameProvider) {
-    final playerLevel = gameProvider.player?.languageLevel ?? 'A0';
-    final hasItems = gameProvider.locationItems.isNotEmpty;
-    final hasGames = gameProvider.locationGames.isNotEmpty;
+  Widget _buildLookAroundSection(GameState gameState) {
+    final playerLevel = gameState.player?.languageLevel ?? 'A0';
+    final hasItems = gameState.locationItems.isNotEmpty;
+    final hasGames = gameState.locationGames.isNotEmpty;
 
     if (!hasItems && !hasGames) {
       return const SizedBox.shrink();
@@ -831,13 +830,13 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
 
           const SizedBox(height: 12),
 
-          ...gameProvider.locationItems.asMap().entries.map((entry) {
+          ...gameState.locationItems.asMap().entries.map((entry) {
             final index = entry.key;
             final locationItem = entry.value;
 
             return Padding(
               padding: const EdgeInsets.only(bottom: 8),
-              child: _buildItemCard(locationItem, gameProvider)
+              child: _buildItemCard(locationItem, gameState)
                   .animate()
                   .fadeIn(delay: Duration(milliseconds: 150 + (index * 80)))
                   .slideX(begin: -0.1),
@@ -857,13 +856,13 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
 
             const SizedBox(height: 12),
 
-            ...gameProvider.locationGames.asMap().entries.map((entry) {
+            ...gameState.locationGames.asMap().entries.map((entry) {
               final index = entry.key;
               final game = entry.value;
 
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8),
-                child: _buildMiniGameCard(game, gameProvider)
+                child: _buildMiniGameCard(game, gameState)
                     .animate()
                     .fadeIn(delay: Duration(milliseconds: 250 + (index * 80)))
                     .slideX(begin: -0.1),
@@ -878,8 +877,8 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
   }
 
   /// Build a card for a mini-game
-  Widget _buildMiniGameCard(MiniGame game, GameProvider gameProvider) {
-    final isCompleted = gameProvider.isGameCompleted(game.id);
+  Widget _buildMiniGameCard(MiniGame game, GameState gameState) {
+    final isCompleted = gameState.isGameCompleted(game.id);
 
     return InkWell(
       onTap: () => showMiniGameSheet(context, game),
@@ -978,8 +977,8 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
     );
   }
 
-  Widget _buildBottomNav(GameProvider gameProvider) {
-    final playerLevel = gameProvider.player?.languageLevel ?? 'A0';
+  Widget _buildBottomNav(GameState gameState) {
+    final playerLevel = gameState.player?.languageLevel ?? 'A0';
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8),
@@ -1022,7 +1021,7 @@ class _GameScreenState extends ConsumerState<GameScreen> with TickerProviderStat
             icon: Icons.assignment,
             label: UILabels.quests.primaryForLevel(playerLevel),
             sublabel: UILabels.quests.secondaryForLevel(playerLevel),
-            badge: gameProvider.player?.activeQuests.length,
+            badge: gameState.player?.activeQuests.length,
             onTap: () => _showQuestLog(context),
           ),
         ],
@@ -1429,7 +1428,7 @@ class _QuestLogSheetState extends ConsumerState<QuestLogSheet> with SingleTicker
     );
   }
 
-  Widget _buildCompletedQuestsList(List<String> questIds, GameProvider gameProvider, ScrollController scrollController) {
+  Widget _buildCompletedQuestsList(List<String> questIds, GameState gameState, ScrollController scrollController) {
     if (questIds.isEmpty) {
       return Center(
         child: Column(
@@ -1452,7 +1451,7 @@ class _QuestLogSheetState extends ConsumerState<QuestLogSheet> with SingleTicker
       itemCount: questIds.length,
       itemBuilder: (context, index) {
         final questId = questIds[index];
-        final quest = gameProvider.getQuest(questId);
+        final quest = ref.read(gameProvider.notifier).getQuest(questId);
         if (quest == null) {
           return ListTile(title: Text(questId));
         }

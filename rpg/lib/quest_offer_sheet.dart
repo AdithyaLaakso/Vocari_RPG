@@ -73,7 +73,7 @@ class QuestOfferSheet extends ConsumerWidget {
               ),
 
               // Accept/Reject buttons
-              _buildActionButtons(context, gp),
+              _buildActionButtons(context, ref),
             ],
           ),
         );
@@ -454,9 +454,9 @@ class QuestOfferSheet extends ConsumerWidget {
     ).animate().fadeIn(delay: 550.ms).slideY(begin: 0.1);
   }
 
-  Widget _buildRewards(BuildContext context, GameProvider gameProvider) {
+  Widget _buildRewards(BuildContext context, GameState gameState) {
     final rewards = quest.rewards;
-    final world = gameProvider.world;
+    final world = gameState.world;
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -552,7 +552,7 @@ class QuestOfferSheet extends ConsumerWidget {
     );
   }
 
-  Widget _buildActionButtons(BuildContext context, GameProvider gameProvider) {
+  Widget _buildActionButtons(BuildContext context, WidgetRef ref) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -571,7 +571,7 @@ class QuestOfferSheet extends ConsumerWidget {
             Expanded(
               child: OutlinedButton(
                 onPressed: () {
-                  gameProvider.rejectQuest();
+                  ref.read(gameProvider.notifier).rejectQuest();
                   onRejected?.call();
                   Navigator.pop(context);
                 },
@@ -597,7 +597,7 @@ class QuestOfferSheet extends ConsumerWidget {
               flex: 2,
               child: ElevatedButton(
                 onPressed: () {
-                  gameProvider.acceptQuest();
+                  ref.read(gameProvider.notifier).acceptQuest();
                   onAccepted?.call();
                   Navigator.pop(context);
                 },

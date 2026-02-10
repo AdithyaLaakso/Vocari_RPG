@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared/services/api_endpoints.dart';
+
 import '../game_models.dart';
 
 /// Message types for narrator interventions
@@ -20,7 +23,7 @@ class NarratorMessage {
   final String? vocabularyWord;
   final String? translation;
   final DateTime timestamp;
-  bool dismissed;
+  final bool dismissed;
 
   NarratorMessage({
     required this.id,
@@ -31,94 +34,121 @@ class NarratorMessage {
     DateTime? timestamp,
     this.dismissed = false,
   }) : timestamp = timestamp ?? DateTime.now();
+
+  NarratorMessage copyWith({bool? dismissed}) {
+    return NarratorMessage(
+      id: id,
+      type: type,
+      content: content,
+      vocabularyWord: vocabularyWord,
+      translation: translation,
+      timestamp: timestamp,
+      dismissed: dismissed ?? this.dismissed,
+    );
+  }
 }
 
-/// Narrator Service - A meta-level tutor that helps players learn
-/// without breaking the immersion of NPC interactions
-class NarratorService extends ChangeNotifier {
-  static final NarratorService _instance = NarratorService._internal();
-  static NarratorService get instance => _instance;
+/// Immutable state for the narrator system
+class NarratorState {
+  final List<NarratorMessage> messages;
+  final Set<String> encounteredWords;
+  final Map<String, String> learnedVocabulary;
+  final bool enabled;
+  final bool showVocabularyHints;
+  final bool showGrammarTips;
 
-  NarratorService._internal();
+  const NarratorState({
+    this.messages = const [],
+    this.encounteredWords = const {},
+    this.learnedVocabulary = const {},
+    this.enabled = true,
+    this.showVocabularyHints = true,
+    this.showGrammarTips = true,
+  });
 
-  // API configuration
-  String _apiBaseUrl = 'http://localhost:8000';
-
-  // Message queue
-  final List<NarratorMessage> _messages = [];
-
-  // Vocabulary tracking
-  final Set<String> _encounteredWords = {};
-  final Map<String, String> _learnedVocabulary = {}; // word -> translation
-
-  // Settings
-  bool _enabled = true;
-  bool _showVocabularyHints = true;
-  bool _showGrammarTips = true;
-
-  // Getters
-  List<NarratorMessage> get messages => List.unmodifiable(_messages);
   List<NarratorMessage> get activeMessages =>
-      _messages.where((m) => !m.dismissed).toList();
-  bool get enabled => _enabled;
-  bool get showVocabularyHints => _showVocabularyHints;
-  bool get showGrammarTips => _showGrammarTips;
-  Map<String, String> get learnedVocabulary => Map.unmodifiable(_learnedVocabulary);
+      messages.where((m) => !m.dismissed).toList();
+
+  NarratorState copyWith({
+    List<NarratorMessage>? messages,
+    Set<String>? encounteredWords,
+    Map<String, String>? learnedVocabulary,
+    bool? enabled,
+    bool? showVocabularyHints,
+    bool? showGrammarTips,
+    String? apiBaseUrl,
+  }) {
+    return NarratorState(
+      messages: messages ?? this.messages,
+      encounteredWords: encounteredWords ?? this.encounteredWords,
+      learnedVocabulary: learnedVocabulary ?? this.learnedVocabulary,
+      enabled: enabled ?? this.enabled,
+      showVocabularyHints: showVocabularyHints ?? this.showVocabularyHints,
+      showGrammarTips: showGrammarTips ?? this.showGrammarTips,
+    );
+  }
+}
+
+/// Riverpod provider for the narrator system
+final narratorProvider = NotifierProvider<NarratorNotifier, NarratorState>(
+  NarratorNotifier.new,
+);
+
+/// Narrator Notifier - A meta-level tutor that helps players learn
+/// without breaking the immersion of NPC interactions
+class NarratorNotifier extends Notifier<NarratorState> {
+  @override
+  NarratorState build() => const NarratorState();
 
   /// Set the API base URL
   void setApiUrl(String url) {
-    _apiBaseUrl = url;
+    state = state.copyWith(apiBaseUrl: url);
   }
 
   /// Enable/disable narrator
   void setEnabled(bool value) {
-    _enabled = value;
-    notifyListeners();
+    state = state.copyWith(enabled: value);
   }
 
   /// Toggle vocabulary hints
   void setShowVocabularyHints(bool value) {
-    _showVocabularyHints = value;
-    notifyListeners();
+    state = state.copyWith(showVocabularyHints: value);
   }
 
   /// Toggle grammar tips
   void setShowGrammarTips(bool value) {
-    _showGrammarTips = value;
-    notifyListeners();
+    state = state.copyWith(showGrammarTips: value);
   }
 
   /// Add a narrator message
   void _addMessage(NarratorMessage message) {
-    _messages.insert(0, message);
-    // Keep only last 50 messages
-    if (_messages.length > 50) {
-      _messages.removeLast();
+    final newMessages = [message, ...state.messages];
+    if (newMessages.length > 50) {
+      newMessages.removeLast();
     }
-    notifyListeners();
+    state = state.copyWith(messages: newMessages);
   }
 
   /// Dismiss a narrator message
   void dismissMessage(String messageId) {
-    final index = _messages.indexWhere((m) => m.id == messageId);
-    if (index != -1) {
-      _messages[index].dismissed = true;
-      notifyListeners();
-    }
+    final newMessages = state.messages.map((m) {
+      if (m.id == messageId) return m.copyWith(dismissed: true);
+      return m;
+    }).toList();
+    state = state.copyWith(messages: newMessages);
   }
 
   /// Dismiss all active messages
   void dismissAllMessages() {
-    for (final message in _messages) {
-      message.dismissed = true;
-    }
-    notifyListeners();
+    final newMessages = state.messages
+        .map((m) => m.dismissed ? m : m.copyWith(dismissed: true))
+        .toList();
+    state = state.copyWith(messages: newMessages);
   }
 
   /// Clear all messages
   void clearMessages() {
-    _messages.clear();
-    notifyListeners();
+    state = state.copyWith(messages: const []);
   }
 
   /// Provide a vocabulary hint when a new word is encountered
@@ -127,12 +157,15 @@ class NarratorService extends ChangeNotifier {
     required String translation,
     String? context,
   }) {
-    if (!_enabled || !_showVocabularyHints) return;
+    if (!state.enabled || !state.showVocabularyHints) return;
 
     // Don't repeat hints for words we've already shown
-    if (_encounteredWords.contains(word.toLowerCase())) return;
-    _encounteredWords.add(word.toLowerCase());
-    _learnedVocabulary[word] = translation;
+    if (state.encounteredWords.contains(word.toLowerCase())) return;
+
+    state = state.copyWith(
+      encounteredWords: {...state.encounteredWords, word.toLowerCase()},
+      learnedVocabulary: {...state.learnedVocabulary, word: translation},
+    );
 
     final contextText = context != null
         ? '\n\n(In this context: $context)'
@@ -152,7 +185,7 @@ class NarratorService extends ChangeNotifier {
     required String tip,
     String? example,
   }) {
-    if (!_enabled || !_showGrammarTips) return;
+    if (!state.enabled || !state.showGrammarTips) return;
 
     final exampleText = example != null
         ? '\n\nExample: $example'
@@ -167,7 +200,7 @@ class NarratorService extends ChangeNotifier {
 
   /// Provide contextual help for understanding a situation
   void provideContextualHelp(String message) {
-    if (!_enabled) return;
+    if (!state.enabled) return;
 
     _addMessage(NarratorMessage(
       id: 'context_${DateTime.now().millisecondsSinceEpoch}',
@@ -181,7 +214,7 @@ class NarratorService extends ChangeNotifier {
     required String milestone,
     String? details,
   }) {
-    if (!_enabled) return;
+    if (!state.enabled) return;
 
     final detailsText = details != null ? '\n\n$details' : '';
 
@@ -197,7 +230,7 @@ class NarratorService extends ChangeNotifier {
     required String questName,
     required String guidance,
   }) {
-    if (!_enabled) return;
+    if (!state.enabled) return;
 
     _addMessage(NarratorMessage(
       id: 'quest_${DateTime.now().millisecondsSinceEpoch}',
@@ -209,7 +242,7 @@ class NarratorService extends ChangeNotifier {
   /// Process NPC dialogue for vocabulary hints
   /// Called when an NPC speaks to extract Spanish words and provide hints
   void processNPCDialogue(String dialogue, String playerLanguageLevel) {
-    if (!_enabled || !_showVocabularyHints) return;
+    if (!state.enabled || !state.showVocabularyHints) return;
 
     // Simple Spanish word detection (words with accents or Spanish-specific patterns)
     final spanishWordPattern = RegExp(
@@ -234,7 +267,7 @@ class NarratorService extends ChangeNotifier {
 
   /// Get vocabulary hints appropriate for a language level
   Map<String, String> _getVocabularyForLevel(String level) {
-    // This could be loaded from tutor.json, but for now we'll use a basic set
+    // TODO: generalize for other languages
     final baseVocab = <String, String>{
       'hola': 'hello',
       'adios': 'goodbye',
@@ -277,11 +310,11 @@ class NarratorService extends ChangeNotifier {
     required String playerLanguageLevel,
     List<String>? recentVocabulary,
   }) async {
-    if (!_enabled) return null;
+    if (!state.enabled) return null;
 
     try {
       final response = await http.post(
-        Uri.parse('$_apiBaseUrl/narrator'),
+        Uri.parse(ApiEndpoints.narrator),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           'question': question,

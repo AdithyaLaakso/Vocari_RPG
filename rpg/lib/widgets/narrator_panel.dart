@@ -3,18 +3,13 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/narrator_service.dart';
 
-/// Riverpod provider that exposes the NarratorService singleton as a ChangeNotifier
-final narratorServiceProvider = ChangeNotifierProvider<NarratorService>((ref) {
-  return NarratorService.instance;
-});
-
 class NarratorPanel extends ConsumerWidget {
   const NarratorPanel({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final narrator = ref.watch(narratorServiceProvider);
-    final activeMessages = narrator.activeMessages;
+    final narratorState = ref.watch(narratorProvider);
+    final activeMessages = narratorState.activeMessages;
     return Positioned(
       top: 100,
       right: 16,
@@ -25,7 +20,7 @@ class NarratorPanel extends ConsumerWidget {
             padding: const EdgeInsets.only(bottom: 8),
             child: NarratorMessageCard(
               message: message,
-              onDismiss: () => narrator.dismissMessage(message.id),
+              onDismiss: () => ref.read(narratorProvider.notifier).dismissMessage(message.id),
             ),
           );
         }).toList(),
@@ -246,14 +241,14 @@ class AskNarratorButton extends StatelessWidget {
 }
 
 /// A sheet for asking the narrator questions
-class NarratorHelpSheet extends StatefulWidget {
+class NarratorHelpSheet extends ConsumerStatefulWidget {
   const NarratorHelpSheet({super.key});
 
   @override
-  State<NarratorHelpSheet> createState() => _NarratorHelpSheetState();
+  ConsumerState<NarratorHelpSheet> createState() => _NarratorHelpSheetState();
 }
 
-class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
+class _NarratorHelpSheetState extends ConsumerState<NarratorHelpSheet> {
   final _controller = TextEditingController();
   bool _isLoading = false;
   String? _response;
@@ -451,7 +446,7 @@ class _NarratorHelpSheetState extends State<NarratorHelpSheet> {
     final lower = question.toLowerCase();
 
     if (lower.contains('vocabulary') || lower.contains('vocab')) {
-      final vocab = NarratorService.instance.learnedVocabulary;
+      final vocab = ref.read(narratorProvider).learnedVocabulary;
       if (vocab.isEmpty) {
         return 'You haven\'t encountered any new vocabulary yet. Keep exploring and talking to NPCs!';
       }

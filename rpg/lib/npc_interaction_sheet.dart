@@ -67,7 +67,7 @@ class NPCInteractionSheet extends ConsumerWidget {
               ),
 
               // Action buttons
-              _buildActionButtons(context, gp),
+              _buildActionButtons(context, gp, ref),
             ],
           ),
         );
@@ -181,7 +181,7 @@ class NPCInteractionSheet extends ConsumerWidget {
     ).animate().fadeIn(delay: 300.ms);
   }
 
-  Widget _buildContent(BuildContext context, GameProvider gameProvider) {
+  Widget _buildContent(BuildContext context, GameState gameState) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -197,7 +197,7 @@ class NPCInteractionSheet extends ConsumerWidget {
         const SizedBox(height: 16),
 
         // Item details
-        _buildItemDetails(context, gameProvider),
+        _buildItemDetails(context, gameState),
       ],
     );
   }
@@ -256,7 +256,7 @@ class NPCInteractionSheet extends ConsumerWidget {
     ).animate().fadeIn(delay: 450.ms).slideY(begin: 0.1);
   }
 
-  Widget _buildItemDetails(BuildContext context, GameProvider gameProvider) {
+  Widget _buildItemDetails(BuildContext context, GameState gameState) {
     final widgets = <Widget>[];
 
     // Item being offered/requested
@@ -296,7 +296,7 @@ class NPCInteractionSheet extends ConsumerWidget {
     if (interaction.type == NPCInteractionType.offerSale &&
         interaction.price != null) {
       widgets.add(const SizedBox(height: 16));
-      widgets.add(_buildPriceDisplay(context, gameProvider));
+      widgets.add(_buildPriceDisplay(context, gameState));
     }
 
     return Column(
@@ -350,8 +350,8 @@ class NPCInteractionSheet extends ConsumerWidget {
     );
   }
 
-  Widget _buildPriceDisplay(BuildContext context, GameProvider gameProvider) {
-    final playerGold = gameProvider.player?.gold ?? 0;
+  Widget _buildPriceDisplay(BuildContext context, GameState gameState) {
+    final playerGold = gameState.player?.gold ?? 0;
     final price = interaction.price!;
     final canAfford = playerGold >= price;
 
@@ -438,7 +438,7 @@ class NPCInteractionSheet extends ConsumerWidget {
     );
   }
 
-  Widget _buildActionButtons(BuildContext context, GameProvider gameProvider) {
+  Widget _buildActionButtons(BuildContext context, GameState gameState, WidgetRef ref) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -452,21 +452,21 @@ class NPCInteractionSheet extends ConsumerWidget {
       child: SafeArea(
         top: false,
         child: interaction.canAccept
-            ? _buildAcceptDeclineButtons(context, gameProvider)
-            : _buildDismissButton(context, gameProvider),
+            ? _buildAcceptDeclineButtons(context, ref)
+            : _buildDismissButton(context, ref),
       ),
     ).animate().fadeIn(delay: 600.ms).slideY(begin: 0.2);
   }
 
   Widget _buildAcceptDeclineButtons(
-      BuildContext context, GameProvider gameProvider) {
+      BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         // Decline button
         Expanded(
           child: OutlinedButton(
             onPressed: () {
-              gameProvider.declineInteraction();
+              ref.read(gameProvider.notifier).declineInteraction();
               onDeclined?.call();
               Navigator.pop(context);
             },
@@ -492,7 +492,7 @@ class NPCInteractionSheet extends ConsumerWidget {
           flex: 2,
           child: ElevatedButton(
             onPressed: () {
-              gameProvider.acceptInteraction();
+              ref.read(gameProvider.notifier).acceptInteraction();
               onAccepted?.call();
               Navigator.pop(context);
             },
@@ -519,12 +519,12 @@ class NPCInteractionSheet extends ConsumerWidget {
     );
   }
 
-  Widget _buildDismissButton(BuildContext context, GameProvider gameProvider) {
+  Widget _buildDismissButton(BuildContext context, WidgetRef ref) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
-          gameProvider.dismissInteraction();
+          ref.read(gameProvider.notifier).dismissInteraction();
           onDismissed?.call();
           Navigator.pop(context);
         },

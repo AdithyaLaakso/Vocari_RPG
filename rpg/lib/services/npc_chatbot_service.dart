@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:async';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
+import 'package:shared/services/api_endpoints.dart';
 import '../game_models.dart';
 
 /// Message in a conversation
@@ -104,9 +105,6 @@ class NPCChatbotService extends ChangeNotifier {
 
   NPCChatbotService._internal();
 
-  // API configuration
-  String _apiBaseUrl = 'http://localhost:8000';
-
   // Conversation state per NPC
   final Map<String, List<ChatMessage>> _conversations = {};
 
@@ -121,11 +119,6 @@ class NPCChatbotService extends ChangeNotifier {
 
   // Tool execution callback
   ToolExecutionCallback? onToolExecuted;
-
-  /// Set the API base URL
-  void setApiUrl(String url) {
-    _apiBaseUrl = url;
-  }
 
   /// Check if an NPC conversation is loading
   bool isLoading(String npcId) => _loadingStates[npcId] ?? false;
@@ -855,13 +848,12 @@ LANGUAGE MIX (Default): 80% English, 20% Spanish
     required Player player,
     required Map<String, Quest> availableQuests,
   }) async* {
-    debugPrint('[SERVICE] _callStreamingAPI called for NPC: ${npc.id}, URL: $_apiBaseUrl/chat/stream');
     HttpClient? httpClient;
     HttpClientRequest? request;
     HttpClientResponse? response;
 
     try {
-      final uri = Uri.parse('$_apiBaseUrl/chat/stream');
+      final uri = Uri.parse(ApiEndpoints.rpgChat);
 
       httpClient = HttpClient();
       request = await httpClient.postUrl(uri);

@@ -15,15 +15,12 @@ class LevelProgressionCheck {
     this.requirement,
   });
 
-  LevelProgressionCheck.success(String nextLevel, LevelRequirement requirement)
+  LevelProgressionCheck.success(this.nextLevel, this.requirement)
       : canAdvance = true,
-        reasons = ['All requirements met!'],
-        nextLevel = nextLevel,
-        requirement = requirement;
+        reasons = ['All requirements met!'];
 
-  LevelProgressionCheck.failure(List<String> reasons)
+  LevelProgressionCheck.failure(this.reasons)
       : canAdvance = false,
-        reasons = reasons,
         nextLevel = null,
         requirement = null;
 }
