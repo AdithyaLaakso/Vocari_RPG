@@ -702,7 +702,7 @@ class _NPCDialogueSheetState extends ConsumerState<NPCDialogueSheet> with Single
                     : _getNPCColor().withValues(alpha: 0.2),
               ),
             ),
-            child: (isUser) ? ClickableSelectableText(
+            child: (!isUser) ? ClickableSelectableText(
               text: text,
               style: txtStyle,
             ): Text(text, style: txtStyle),
