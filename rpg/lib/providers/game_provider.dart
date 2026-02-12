@@ -491,7 +491,7 @@ class GameNotifier extends Notifier<GameState> {
   Future<void> _loadProgressFromServer() async {
     try {
       final response = await makeAuthenticatedRequest(
-        endpoint: ApiEndpoints.rpgProgress,
+        endpoint: ApiEndpoints.getRpgProgress,
         body: {'action': 'get'},
       );
 
@@ -627,7 +627,7 @@ class GameNotifier extends Notifier<GameState> {
       };
 
       final response = await makeAuthenticatedRequest(
-        endpoint: ApiEndpoints.rpgProgress,
+        endpoint: ApiEndpoints.setRpgProgress,
         body: data,
       );
 
